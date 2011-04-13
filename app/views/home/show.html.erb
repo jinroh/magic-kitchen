@@ -1,0 +1,16 @@
+<h2>Hi <%= current_user.login %></h2>
+<div class="toolbar"><%= link_to "Settings", edit_user_registration_path %></div>
+
+<div id="recipes">
+	<h3>My Recipes</h3>
+	<p>
+		<%= current_user.name %> | <%= current_user.age %>
+	</p>
+	<ul>
+	<% @recipes.each do |recipe| %>
+		<li><%= link_to recipe.name, recipe %>, <i><%= link_to 'supprimer', recipe, :confirm => 'Êtes-vous sûr ?', :method => :delete %></i></li>
+	<% end %>
+	</ul>
+	
+	<div><%= link_to "Nouvelle recette", new_recipe_path %></div>
+</div>

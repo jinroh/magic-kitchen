@@ -1,0 +1,11 @@
+<h2><%= @recipe.name %></h2>
+<div>
+	<p><%= simple_format @recipe.content %></p>
+	<p><%= @recipe.user.login %></p>
+</div>
+
+<% if current_user %>
+<div id="edit">
+	<%= link_to "Edit", edit_recipe_path(@recipe) %>
+</div>
+<% end %>

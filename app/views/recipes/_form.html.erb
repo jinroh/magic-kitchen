@@ -1,0 +1,7 @@
+<% form_for @recipe do |f| %>
+  <p><%= f.label :name, "Name" %><%= f.text_field :name %></p>
+	
+	<p><%= f.label :content, "Recipe" %><%= f.text_area :content %></p>
+	
+	<p><%= f.submit "Submit", :disable_with => 'Submiting...' %></p>
+<% end %>

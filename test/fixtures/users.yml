@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+pierre:
+  name: Pierre Guilleminot
+  login: jinroh
+  email: pierre.guilleminot@gmail.com
+  password: azerty
+
+alexandre:
+  name: Alexandre Lachèze
+  login: alexstrat
+  email: alexandre.lacheze@gmail.com
+  password: ytreza

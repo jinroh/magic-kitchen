@@ -1,0 +1,32 @@
+html {
+	background: #222;
+}
+
+body {
+	font-family: Georgia;
+	width: 850px;
+	margin: auto;
+	color: white;
+}
+h2 {
+	font-family: Georgia;
+}
+
+a {
+	color: hsl(36, 95%, 50%);
+}
+a:hover {
+	color: hsl(36, 95%, 75%);
+}
+
+label {
+	display: block;
+}
+label:after {
+	content : " :";
+}
+
+#user_bar {
+	float: right;
+}
+
