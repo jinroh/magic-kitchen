@@ -1,10 +1,20 @@
 <h2><%= @recipe.name %></h2>
 <div>
+	<ul>
+	<% for ingredient in @recipe.ingredients %>
+		<li><%= ingredient.name.capitalize %></li>
+	<% end %>
+	</ul>
 	<p><%= simple_format @recipe.content %></p>
-	<p><%= @recipe.user.login %></p>
+	<aside>
+		<% tag_cloud @tags, %w(css1 css2 css3 ) do |tag, tag_class| %>
+		<span class="<%= tag_class %>"><%= tag.name %></span>
+		<% end %>
+	</aside>
+	<p><%= link_to @recipe.user.name, user_path(@recipe.user) %></p>
 </div>
 
-<% if current_user %>
+<% if @recipe.editable_by?(current_user) %>
 <div id="edit">
 	<%= link_to "Edit", edit_recipe_path(@recipe) %>
 </div>

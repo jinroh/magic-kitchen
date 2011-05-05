@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413072658) do
+ActiveRecord::Schema.define(:version => 20110503200107) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "favorable_id"
@@ -39,23 +39,53 @@ ActiveRecord::Schema.define(:version => 20110413072658) do
     t.integer  "user_id"
   end
 
+  create_table "recipes_ingredients", :force => true do |t|
+    t.string   "recipe_id"
+    t.string   "ingredient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "quantity"
+  end
+
+  add_index "recipes_ingredients", ["recipe_id", "ingredient_id"], :name => "index_ingredients_on_recipe_id_and_food_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "first_name",           :limit => 50
     t.string   "last_name",            :limit => 50
-    t.string   "email",                :limit => 100, :default => "", :null => false
+    t.string   "email",                :limit => 100, :default => "",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "login",                :limit => 20,  :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
-    t.datetime "birthdate"
+    t.string   "login",                :limit => 20,  :default => "",  :null => false
+    t.datetime "date_of_birth"
+    t.text     "about"
+    t.string   "gender",               :limit => 1,   :default => "N"
+    t.string   "homepage",             :limit => 100
+    t.string   "country",              :limit => 50
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["first_name"], :name => "index_users_on_firstname"
   add_index "users", ["last_name"], :name => "index_users_on_lastname"
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
 end

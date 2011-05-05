@@ -1,32 +1,46 @@
 html {
-	background: #222;
+	background: #E3E3E3
 }
-
 body {
-	font-family: Georgia;
-	width: 850px;
-	margin: auto;
-	color: white;
-}
-h2 {
-	font-family: Georgia;
+	font-family: "Lucida Grande",Arial,Helvetica,Verdana,sans-serif;
+	width: 900px;
+	margin: 0 auto;
+	color: #1B1B1B;
+	background: #fafafa;
+	padding: 10px 30px 30px 30px;
 }
 
 a {
-	color: hsl(36, 95%, 50%);
+	color: hsl(206, 81%, 50%)
 }
 a:hover {
-	color: hsl(36, 95%, 75%);
+	color: hsl(206, 81%, 65%)
 }
 
 label {
+	clear: both;
 	display: block;
+	font-weight: bold;
+	line-height: 30px;
 }
-label:after {
-	content : " :";
+input {
+	border: 1px solid #999;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 4px 5px;
+}
+input[type=text],input[type=password],input[type=email] {
+	width: 288px;
+	height: 22px;
+}
+div.ingredient input {
+	margin: 1px 0 1px 0;
+}
+a.remove {
+	margin-left: -25px;
+	text-decoration: none;
 }
 
 #user_bar {
 	float: right;
 }
-

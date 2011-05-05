@@ -6,3 +6,16 @@ class RecipeTest < ActiveSupport::TestCase
     assert true
   end
 end
+
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  content    :text
+#  created_at :datetime
+#  updated_at :datetime
+#  user_id    :integer
+#
+

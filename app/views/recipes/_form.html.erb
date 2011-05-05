@@ -1,7 +1,25 @@
-<% form_for @recipe do |f| %>
+<div id="new_recipe_form">
+<%= form_for @recipe do |f| %>
   <p><%= f.label :name, "Name" %><%= f.text_field :name %></p>
 	
-	<p><%= f.label :content, "Recipe" %><%= f.text_area :content %></p>
+	<div id="ingredients_field">
+		<%= f.label :ingredients, "Ingredients" %>
+		<% for ingredient in @recipe.base_ingredients %>
+			<%= fields_for 'recipe[ingredients][]', ingredient, :index => nil do |ingredient_form| %>
+			<div class="ingredient">
+				<%= ingredient_form.text_field :name %>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
 	
-	<p><%= f.submit "Submit", :disable_with => 'Submiting...' %></p>
+	<p><%= f.label :content, "Recipe" %><%= f.text_area :content, :cols => 80 %></p>
+	<div class="ui-widget">
+	<p><%= f.label :tag_list, "Tag it" %><%= f.text_field :tag_list, "data-pre" => @recipe.tags.map(&:attributes).to_json %></p>
+	</div>
+	
+	<p>
+		<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+	</p>
 <% end %>
+</div>

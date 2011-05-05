@@ -10,8 +10,11 @@ class HomeController < ApplicationController
   # GET /me
   # GET /users/me
   def show
-    redirect_to root_path unless user_signed_in?
-    @recipes = current_user.recipes
+    if !user_signed_in?
+      redirect_to root_path
+    else
+      @recipes = current_user.recipes
+    end
   end
   
 end
