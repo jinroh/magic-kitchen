@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   acts_as_tagger
   
   validates :login, :presence   => { :message => "Veuillez choisir un pseudo"},
-                    :uniqueness => { :message => "Ce pseudo est déjà pris", :case_sensitive => false }
+                    :uniqueness => { :message => "Ce pseudo est pris", :case_sensitive => false }
 
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
-                    :uniqueness => { :message => "Cette adresse de courriel est déjà utilisée", :case_sensitive => false, :allow_blank => true },
+                    :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
                     :format     => { :message => "L'adresse de courriel n'est pas valide", :with => EMAIL_REGEXP, :allow_blank => true }
   validates :password, :presence     => { :message => "Le mot de passe est absent", :on => :create },
                        :confirmation => { :message => "La confirmation du mot de passe ne correspond pas au mot de passe" }

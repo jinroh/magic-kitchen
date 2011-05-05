@@ -18501,3 +18501,108 @@ Started GET "/users?utf8=%E2%9C%93&search=aze" for 127.0.0.1 at 2011-05-05 15:44
   [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
 Rendered users/index.html.erb within layouts/application (3.4ms)
 Completed 200 OK in 100ms (Views: 9.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2011-05-05 22:53:15 +0200
+  Processing by RecipesController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes" LIMIT 5 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "recipes"[0m
+Rendered recipes/_recipes.erb (96.3ms)
+Rendered recipes/index.html.erb within layouts/application (106.4ms)
+Completed   in 152ms
+
+ActionView::Template::Error (/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: syntax error, unexpected $end, expecting '}'
+... :message => "Ce pseudo est déjà pris", :case_sensitive =>...
+...                               ^):
+    10: <body>
+    11: 	
+    12: 	<div id="user_bar">
+    13: 	  <% if user_signed_in? %>
+    14: 	    Signed in as  <%= link_to current_user.name, user_root_path %><br>
+    15: 	    <%= link_to "Sign out", destroy_user_session_path %>
+    16: 	  <% else %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3561525990378453918_2169869500__2067602545900609047'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (162.1ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (187.7ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2011-05-05 22:53:23 +0200
+  Processing by RecipesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes" LIMIT 5 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "recipes"
+Rendered recipes/_recipes.erb (27.7ms)
+Rendered recipes/index.html.erb within layouts/application (38.5ms)
+Completed   in 128ms
+
+ActionView::Template::Error (/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: syntax error, unexpected $end, expecting '}'
+... :message => "Ce pseudo est déjà pris", :case_sensitive =>...
+...                               ^):
+    10: <body>
+    11: 	
+    12: 	<div id="user_bar">
+    13: 	  <% if user_signed_in? %>
+    14: 	    Signed in as  <%= link_to current_user.name, user_root_path %><br>
+    15: 	    <%= link_to "Sign out", destroy_user_session_path %>
+    16: 	  <% else %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3561525990378453918_2193671340__2067602545900609047'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (115.7ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (121.2ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2011-05-05 22:55:38 +0200
+  Processing by RecipesController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes" LIMIT 5 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "recipes"[0m
+Rendered recipes/_recipes.erb (25.9ms)
+Rendered recipes/index.html.erb within layouts/application (37.3ms)
+Completed   in 83ms
+
+ActionView::Template::Error (/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:14: syntax error, unexpected $end, expecting '}'
+... :message => "Ce pseudo est déjà pris", :case_sensitive =>...
+...                               ^):
+    10: <body>
+    11: 	
+    12: 	<div id="user_bar">
+    13: 	  <% if user_signed_in? %>
+    14: 	    Signed in as  <%= link_to current_user.name, user_root_path %><br>
+    15: 	    <%= link_to "Sign out", destroy_user_session_path %>
+    16: 	  <% else %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3561525990378453918_2171873220__2067602545900609047'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (163.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (168.9ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2011-05-05 22:57:06 +0200
+  Processing by RecipesController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes" LIMIT 5 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "recipes"[0m
+Rendered recipes/_recipes.erb (338.6ms)
+Rendered recipes/index.html.erb within layouts/application (345.1ms)
+Completed 200 OK in 525ms (Views: 351.6ms | ActiveRecord: 1.3ms)

@@ -62,7 +62,7 @@ class Recipe < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
-  
+
   def ingredients
     @ingredients ||= self.base_ingredients
   end
