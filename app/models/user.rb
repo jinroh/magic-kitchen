@@ -1,29 +1,22 @@
 class User < ActiveRecord::Base
   include Canable::Cans
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
 
   has_many :recipes,  :dependent => :destroy
   has_many :favorites
-  
   acts_as_tagger
   
-  validates :login, :presence   => { :message => "Veuillez choisir un pseudo"},
-                    :uniqueness => { :message => "Ce pseudo est pris", :case_sensitive => false }
-
+  NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
                     :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
                     :format     => { :message => "L'adresse de courriel n'est pas valide", :with => EMAIL_REGEXP, :allow_blank => true }
-  validates :password, :presence     => { :message => "Le mot de passe est absent", :on => :create },
+  validates :password, :presence     => { :message => "Le mot de passe est absent" },
                        :confirmation => { :message => "La confirmation du mot de passe ne correspond pas au mot de passe" }
-  
-  validates :first_name, :length => { :within => 2..50 },
-                         :format => { :with => /\A[^0-9]+\z/i }
-  validates :last_name, :length => { :within => 2..50 },
-                        :format => { :with => /\A[^0-9]+\z/i }
+  validates :name, :format => { :with => NAME_REGEX, :message => "Le nom est invalide" }
 
   def name
     @name ||= [self.first_name, self.last_name].compact.join(' ')
@@ -39,6 +32,27 @@ class User < ActiveRecord::Base
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+  
+  def update_with_password(params={})
+    current_password = params.delete(:current_password)
+
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+      return update_attributes(params)
+    end
+
+    result = if valid_password?(current_password)
+      update_attributes(params)
+    else
+      self.errors.add(:current_password, "Mot de passe invalide")
+      self.attributes = params
+      false
+    end
+
+    clean_up_passwords
+    result
   end
 end
 # == Schema Information

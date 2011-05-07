@@ -18606,3 +18606,1038 @@ Started GET "/recipes" for 127.0.0.1 at 2011-05-05 22:57:06 +0200
 Rendered recipes/_recipes.erb (338.6ms)
 Rendered recipes/index.html.erb within layouts/application (345.1ms)
 Completed 200 OK in 525ms (Views: 351.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2011-05-06 11:49:57 +0200
+  Processing by RecipesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes" LIMIT 5 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "recipes"
+Rendered recipes/_recipes.erb (56.1ms)
+Rendered recipes/index.html.erb within layouts/application (123.5ms)
+Completed 200 OK in 229ms (Views: 142.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/user/sign_up" for 127.0.0.1 at 2011-05-06 11:51:07 +0200
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered users/registrations/new.html.erb within layouts/application (60.6ms)
+Completed 200 OK in 146ms (Views: 113.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:51:12 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 194ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:52:28 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (60.7ms)
+Completed 200 OK in 198ms (Views: 68.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:52:31 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 201ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:53:32 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 173ms (Views: 59.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:57:24 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (257.5ms)
+Completed   in 363ms
+
+ActionView::Template::Error (undefined method `messages_on_error' for #<#<Class:0x00000102e08708>:0x00000102e067c8>):
+    1: <h2>Join us</h2>
+    2: 
+    3: <%= form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f| %>
+    4:   <%= messages_on_error resource  %>
+    5: 
+    6: 	<p><%= f.label :name, "Type your name" %><%= f.text_field :name %></p>
+    7: 	
+  app/views/users/registrations/new.html.erb:4:in `block in _app_views_users_registrations_new_html_erb__3355175425802930093_2171611300_925888590789108895'
+  app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__3355175425802930093_2171611300_925888590789108895'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (159.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (166.8ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 11:59:13 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_users_registrations_new_html_erb__3355175425802930093_2168948200_925888590789108895 at /Users/pierre/Sites/magickitchen/app/views/users/registrations/new.html.erb:4)
+Rendered users/registrations/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 128ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:00:11 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+DEPRECATION WARNING: error_messages_for was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_users_registrations_new_html_erb__3355175425802930093_2171773800_925888590789108895 at /Users/pierre/Sites/magickitchen/app/views/users/registrations/new.html.erb:4)
+Rendered users/registrations/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 127ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:02:12 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (1.8ms)
+Completed   in 123ms
+
+ActionView::Template::Error (undefined method `full_message' for #<ActiveModel::Errors:0x00000102db5080>):
+    1: <h2>Join us</h2>
+    2: 
+    3: <%= form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f| %>
+    4:   <%= resource.errors.full_message %>
+    5: 
+    6: 	<p><%= f.label :name, "Type your name" %><%= f.text_field :name %></p>
+    7: 	
+  app/views/users/registrations/new.html.erb:4:in `block in _app_views_users_registrations_new_html_erb__3355175425802930093_2171187060_925888590789108895'
+  app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__3355175425802930093_2171187060_925888590789108895'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (144.8ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (152.6ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:02:32 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 122ms (Views: 18.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:03:00 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 72ms (Views: 13.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:49:05 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 118ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:50:19 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+Completed   in 90ms
+
+SystemStackError (stack level too deep):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (121.9ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (168.5ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:50:42 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 112ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:50:57 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+Completed   in 6ms
+
+SyntaxError (/Users/pierre/Sites/magickitchen/app/models/user.rb:18: syntax error, unexpected '}'):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (167.6ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (175.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:51:08 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 116ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 12:51:41 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 120ms (Views: 12.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:01:55 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 121ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:02:16 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 121ms (Views: 20.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:19:21 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 128ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:34:36 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (54.5ms)
+Completed 200 OK in 114ms (Views: 60.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 13:36:39 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 35ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 13:36:42 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 82ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 13:36:47 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 13:37:07 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 13:38:21 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 83ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user/new" for 127.0.0.1 at 2011-05-06 13:38:30 +0200
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"new"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1[0m
+Completed   in 31ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=new):
+  app/controllers/users_controller.rb:10:in `show'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (137.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (145.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-05-06 13:38:35 +0200
+
+ActionController::RoutingError (No route matches "/users/new"):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/user/sign_up" for 127.0.0.1 at 2011-05-06 13:38:38 +0200
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered users/registrations/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 98ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:38:43 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 122ms (Views: 18.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:40:40 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 119ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:47:20 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 192ms (Views: 66.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:55:41 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 118ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 13:58:54 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 111ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:15:54 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 111ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:16:18 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+Completed   in 5ms
+
+SyntaxError (/Users/pierre/Sites/magickitchen/app/models/user.rb:21: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:21: invalid multibyte char (US-ASCII)
+/Users/pierre/Sites/magickitchen/app/models/user.rb:21: syntax error, unexpected $end, expecting '}'
+...GEX, :message => "Le nom entré est invalide" }
+...                               ^):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (118.1ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (125.6ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:16:25 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 111ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:16:38 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 113ms (Views: 16.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:18:52 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+Completed   in 5ms
+
+SyntaxError (/Users/pierre/Sites/magickitchen/app/models/user.rb:12: invalid character property name {L}: /\p{L}+/i):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (55.9ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (108.8ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (172.4ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:21:38 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 113ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:24:22 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 107ms (Views: 16.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:24:45 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 64ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:24:58 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 66ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:25:57 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 64ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:26:32 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123 456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 116ms (Views: 67.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:26:35 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 112ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:27:55 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 117ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:14 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 115ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:20 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"123456", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 111ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:27 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Tony", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 108ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:29 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"1", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 117ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:46 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Êric", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Completed   in 47ms
+
+Encoding::CompatibilityError (incompatible encoding regexp match (ASCII-8BIT regexp with UTF-8 string)):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (148.7ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.7ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:28:59 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Êri", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Completed   in 98ms
+
+Encoding::CompatibilityError (incompatible encoding regexp match (ASCII-8BIT regexp with UTF-8 string)):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (110.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (118.0ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:29:04 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"e", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 105ms (Views: 17.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:29:10 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"René", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Completed   in 97ms
+
+Encoding::CompatibilityError (incompatible encoding regexp match (ASCII-8BIT regexp with UTF-8 string)):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (112.6ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.0ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:29:18 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"René", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+Completed   in 96ms
+
+Encoding::CompatibilityError (incompatible encoding regexp match (ASCII-8BIT regexp with UTF-8 string)):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (109.7ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (117.8ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:30:26 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"René", "login"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 113ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:30:48 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"René", "login"=>"", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 110ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:31:10 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"René", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('truc machin')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 110ms (Views: 13.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:31:29 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"R", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('truc machin')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 111ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:31:32 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Re", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('truc machin')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 110ms (Views: 13.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:32:57 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Re", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."login") = LOWER('truc machin')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 300ms (Views: 186.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:33:33 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Re", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 107ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:33:48 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Re", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 108ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:34:07 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 104ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:34:11 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>" ", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 107ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:34:16 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"     ", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 103ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:34:53 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"     ", "login"=>"truc machin", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1
+Rendered users/registrations/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 114ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:35:03 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"pepe@truc.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pepe@truc.com')) LIMIT 1[0m
+Rendered users/registrations/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 110ms (Views: 12.8ms | ActiveRecord: 0.2ms)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110407160614)
+Migrating to CreateRecipes (20110407161244)
+Migrating to UserHasManyRecipes (20110407162231)
+Migrating to CreateFavorites (20110408101945)
+Migrating to CreateIngredients (20110408103739)
+Migrating to CreateIngredientsRecipes (20110408104920)
+Migrating to AddIndexesToUsers (20110408113726)
+Migrating to AddAuthenticationToUsers (20110408165821)
+Migrating to AddDetailsToUsers (20110414141713)
+Migrating to ActsAsTaggableOnMigration (20110416152120)
+Migrating to CreateFoods (20110427130135)
+Migrating to ChangeIngredientModel (20110427142746)
+Migrating to RenameIngredientsAndFoods (20110427153015)
+Migrating to AddQuantitiesToIngredients (20110503200107)
+Migrating to RemoveLoginToUsers (20110506123550)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(50), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_created_at" datetime, "login" varchar(20) DEFAULT '' NOT NULL, "date_of_birth" datetime, "about" text, "gender" varchar(1) DEFAULT 'N', "homepage" varchar(100), "country" varchar(50)) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_lastname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_firstname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "temp_index_altered_users_on_reset_password_token" ON "altered_users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "temp_index_altered_users_on_lastname" ON "altered_users" ("last_name")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_lastname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "temp_index_altered_users_on_firstname" ON "altered_users" ("first_name")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_firstname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_lastname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.5ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")
+  [1m[36mSQL (0.8ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(50), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_created_at" datetime, "date_of_birth" datetime, "about" text, "gender" varchar(1) DEFAULT 'N', "homepage" varchar(100), "country" varchar(50)) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_email')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_firstname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_lastname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_users_on_firstname" ON "users" ("first_name")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_firstname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_users_on_lastname" ON "users" ("last_name")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_lastname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_firstname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110506123550')[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("favorites")[0m
+  [1m[35mSQL (0.4ms)[0m  PRAGMA index_list("ingredients")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ingredients_recipes")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("recipes")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("recipes_ingredients")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_ingredients_on_recipe_id_and_food_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type_and_context')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("tags")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_lastname')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_firstname')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 14:37:35 +0200
+  Processing by UsersController#index as HTML
+Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 35ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user/new" for 127.0.0.1 at 2011-05-06 14:37:40 +0200
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"new"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1
+Completed   in 29ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=new):
+  app/controllers/users_controller.rb:10:in `show'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (106.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (115.9ms)
+
+
+Started GET "/user/sign_up" for 127.0.0.1 at 2011-05-06 14:37:42 +0200
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered users/registrations/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 47ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:38:04 +0200
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"eric.lacheze@caramail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric.lacheze@caramail.fr')) LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "remember_created_at", "date_of_birth", "about", "gender", "homepage", "country") VALUES ('Eric', 'Lachèze', 'eric.lacheze@caramail.fr', '2011-05-06 12:38:05.173972', '2011-05-06 12:38:05.173972', '$2a$10$qixEy11yW8Z8wFFoPFf7F.ZAsgwkaUqViINwXGPYxboxHXCfkxKkO', NULL, NULL, NULL, NULL, 'N', NULL, NULL)
+Redirected to http://localhost:3000/me
+Completed 302 Found in 240ms
+
+
+Started GET "/me" for 127.0.0.1 at 2011-05-06 14:38:05 +0200
+  Processing by HomeController#show as HTML
+  [1m[36mUser Load (41.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 4)[0m
+Rendered home/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 166ms (Views: 11.9ms | ActiveRecord: 42.0ms)
+
+
+Started GET "/user/edit" for 127.0.0.1 at 2011-05-06 14:38:08 +0200
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+Rendered users/registrations/edit.html.erb within layouts/application (4.4ms)
+Completed   in 92ms
+
+ActionView::Template::Error (undefined method `login' for #<User:0x00000102dfe7d0>):
+    5: 	<div>
+    6: 		<h3>Your informations</h3>
+    7: 		<p><%= f.label :name %><%= f.text_field :name %></p>
+    8: 		<p><%= f.label :login %><%= f.text_field :login %></p>
+    9: 	  <p><%= f.label :email %><%= f.email_field :email %></p>
+    10: 		<p><%= f.label :date_of_birth %><%= date_select :user, :date_of_birth, :start_year => 1900, :end_year => Time.now.year, :order => [ :day, :month, :year ] %></p>
+    11: 	</div>
+  app/views/users/registrations/edit.html.erb:8:in `block in _app_views_users_registrations_edit_html_erb___707413407259970074_2171525700_925888590789108895'
+  app/views/users/registrations/edit.html.erb:3:in `_app_views_users_registrations_edit_html_erb___707413407259970074_2171525700_925888590789108895'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (115.5ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (157.0ms)
+
+
+Started GET "/user/edit" for 127.0.0.1 at 2011-05-06 14:38:08 +0200
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+Rendered users/registrations/edit.html.erb within layouts/application (4.1ms)
+Completed   in 50ms
+
+ActionView::Template::Error (undefined method `login' for #<User:0x00000101daa370>):
+    5: 	<div>
+    6: 		<h3>Your informations</h3>
+    7: 		<p><%= f.label :name %><%= f.text_field :name %></p>
+    8: 		<p><%= f.label :login %><%= f.text_field :login %></p>
+    9: 	  <p><%= f.label :email %><%= f.email_field :email %></p>
+    10: 		<p><%= f.label :date_of_birth %><%= date_select :user, :date_of_birth, :start_year => 1900, :end_year => Time.now.year, :order => [ :day, :month, :year ] %></p>
+    11: 	</div>
+  app/views/users/registrations/edit.html.erb:8:in `block in _app_views_users_registrations_edit_html_erb___707413407259970074_2163014900_925888590789108895'
+  app/views/users/registrations/edit.html.erb:3:in `_app_views_users_registrations_edit_html_erb___707413407259970074_2163014900_925888590789108895'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (149.9ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (156.7ms)
+
+
+Started GET "/user/edit" for 127.0.0.1 at 2011-05-06 14:38:57 +0200
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+Rendered users/registrations/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 110ms (Views: 19.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:39:38 +0200
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"eric.lacheze@caramail.fr", "date_of_birth(3i)"=>"10", "date_of_birth(2i)"=>"10", "date_of_birth(1i)"=>"1969", "about"=>"I'm a lover..", "homepage"=>"facebook.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric.lacheze@caramail.fr')) AND ("users".id <> 4) LIMIT 1
+Rendered users/registrations/edit.html.erb within layouts/application (59.8ms)
+Completed 200 OK in 212ms (Views: 66.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:39:49 +0200
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"eric.lacheze@caramail.fr", "date_of_birth(3i)"=>"10", "date_of_birth(2i)"=>"10", "date_of_birth(1i)"=>"1969", "about"=>"I'm a lover..", "homepage"=>"facebook.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric.lacheze@caramail.fr')) AND ("users".id <> 4) LIMIT 1[0m
+Rendered users/registrations/edit.html.erb within layouts/application (57.6ms)
+Completed 200 OK in 202ms (Views: 63.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:52:32 +0200
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"eric.lacheze@caramail.fr", "date_of_birth(3i)"=>"10", "date_of_birth(2i)"=>"10", "date_of_birth(1i)"=>"1969", "about"=>"I'm a lover..", "homepage"=>"facebook.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric.lacheze@caramail.fr')) AND ("users".id <> 4) LIMIT 1
+Rendered users/registrations/edit.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 119ms (Views: 71.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/user" for 127.0.0.1 at 2011-05-06 14:52:37 +0200
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+qyhxZrDNkL/X1DxkxCRykcjHzrmbxt07Na/Z/3F/+4=", "user"=>{"name"=>"Eric Lachèze", "email"=>"eric.lacheze@caramail.fr", "date_of_birth(3i)"=>"10", "date_of_birth(2i)"=>"10", "date_of_birth(1i)"=>"1969", "about"=>"I'm a lover..", "homepage"=>"facebook.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric.lacheze@caramail.fr')) AND ("users".id <> 4) LIMIT 1[0m
+Rendered users/registrations/edit.html.erb within layouts/application (61.8ms)
+Completed 200 OK in 116ms (Views: 69.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 14:57:15 +0200
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 53ms (Views: 10.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2011-05-06 14:57:20 +0200
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 52ms (Views: 10.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?utf8=%E2%9C%93&search=kjh" for 127.0.0.1 at 2011-05-06 14:57:22 +0200
+  Processing by UsersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"kjh"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+Rendered users/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 169ms (Views: 15.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-07 13:30:20 +0200
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user/sign_in" for 127.0.0.1 at 2011-05-07 13:30:24 +0200
+  Processing by Devise::SessionsController#new as HTML
+Rendered users/sessions/new.html.erb within layouts/application (102.7ms)
+Completed 200 OK in 224ms (Views: 128.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/sign_in" for 127.0.0.1 at 2011-05-07 13:30:48 +0200
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OIUe3eXunQPlIDyoP1BVX9kLwcSt5SYDUec76ytOtok=", "user"=>{"email"=>"alexandre.lacheze@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'alexandre.lacheze@gmail.com' LIMIT 1
+Redirected to http://localhost:3000/me
+Completed 302 Found in 355ms
+
+
+Started GET "/me" for 127.0.0.1 at 2011-05-07 13:30:48 +0200
+  Processing by HomeController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mRecipe Load (22.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 3)[0m
+Rendered home/show.html.erb within layouts/application (228.6ms)
+Completed 200 OK in 407ms (Views: 213.2ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/recipes/5-pissaladiere/edit" for 127.0.0.1 at 2011-05-07 13:31:01 +0200
+  Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"5-pissaladiere"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mIngredient Load (1.5ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients".id = "recipes_ingredients".ingredient_id WHERE (("recipes_ingredients".recipe_id = 5))
+Rendered recipes/_form.html.erb (7.2ms)
+Rendered recipes/edit.html.erb within layouts/application (9.2ms)
+Completed   in 212ms
+
+ActionView::Template::Error (undefined method `quantity' for #<Ingredient:0x00000102e07d08>):
+    7: 		<% for ingredient in @recipe.base_ingredients %>
+    8: 			<%= fields_for 'recipe[ingredients][]', ingredient, :index => nil do |ingredient_form| %>
+    9: 			<div class="ingredient">
+    10: 				<%= ingredient_form.text_field :quantity %> 
+    11: 				<%= ingredient_form.text_field :name %>
+    12: 			</div>
+    13: 			<% end %>
+  app/views/recipes/_form.html.erb:10:in `block (3 levels) in _app_views_recipes__form_html_erb__2759853347427936169_2171673520_4417072764853726234'
+  app/views/recipes/_form.html.erb:8:in `block (2 levels) in _app_views_recipes__form_html_erb__2759853347427936169_2171673520_4417072764853726234'
+  app/views/recipes/_form.html.erb:7:in `block in _app_views_recipes__form_html_erb__2759853347427936169_2171673520_4417072764853726234'
+  app/views/recipes/_form.html.erb:2:in `_app_views_recipes__form_html_erb__2759853347427936169_2171673520_4417072764853726234'
+  app/views/recipes/edit.html.erb:2:in `_app_views_recipes_edit_html_erb___3229894409392561097_2171682720_2318511342836595623'
+  app/controllers/recipes_controller.rb:46:in `edit'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (118.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (180.6ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2011-05-07 13:32:39 +0200
+  Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered recipes/_form.html.erb (46.0ms)
+Rendered recipes/new.html.erb within layouts/application (47.6ms)
+Completed   in 192ms
+
+ActionView::Template::Error (undefined method `quantity' for #<Ingredient:0x0000010131ab30>):
+    7: 		<% for ingredient in @recipe.base_ingredients %>
+    8: 			<%= fields_for 'recipe[ingredients][]', ingredient, :index => nil do |ingredient_form| %>
+    9: 			<div class="ingredient">
+    10: 				<%= ingredient_form.text_field :quantity %> 
+    11: 				<%= ingredient_form.text_field :name %>
+    12: 			</div>
+    13: 			<% end %>
+  app/views/recipes/_form.html.erb:10:in `block (3 levels) in _app_views_recipes__form_html_erb__2759853347427936169_2154501820_4417072764853726234'
+  app/views/recipes/_form.html.erb:8:in `block (2 levels) in _app_views_recipes__form_html_erb__2759853347427936169_2154501820_4417072764853726234'
+  app/views/recipes/_form.html.erb:7:in `block in _app_views_recipes__form_html_erb__2759853347427936169_2154501820_4417072764853726234'
+  app/views/recipes/_form.html.erb:2:in `_app_views_recipes__form_html_erb__2759853347427936169_2154501820_4417072764853726234'
+  app/views/recipes/new.html.erb:2:in `_app_views_recipes_new_html_erb___2543963335151863054_2154629560_2318511342836595623'
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (107.6ms)
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (114.0ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2011-05-07 13:33:22 +0200
+  Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mActsAsTaggableOn::Tag Load (68.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = NULL) AND ("taggings".taggable_type = 'Recipe')) AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+Rendered recipes/_form.html.erb (100.2ms)
+Rendered recipes/new.html.erb within layouts/application (105.4ms)
+Completed 200 OK in 253ms (Views: 43.0ms | ActiveRecord: 69.3ms)
+
+
+Started GET "/stylesheets/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" for 127.0.0.1 at 2011-05-07 13:33:23 +0200
+
+ActionController::RoutingError (No route matches "/stylesheets/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"):
+  
+
+Rendered /Users/pierre/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)

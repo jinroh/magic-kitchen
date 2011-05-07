@@ -1,12 +1,10 @@
 <h2>Join us</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f| %>
+  <%= messages_on_error resource %>
 
 	<p><%= f.label :name, "Type your name" %><%= f.text_field :name %></p>
 	
-	<p><%= f.label :name, "Choose your login" %><%= f.text_field :login %></p>
-		
   <p><%= f.label :email, "Type your email address" %><%= f.email_field :email %></p>
 
   <p><%= f.label :password, "Choose a password" %><%= f.password_field :password %></p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503200107) do
+ActiveRecord::Schema.define(:version => 20110506123550) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "favorable_id"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20110503200107) do
     t.string   "encrypted_password",   :limit => 128, :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
-    t.string   "login",                :limit => 20,  :default => "",  :null => false
     t.datetime "date_of_birth"
     t.text     "about"
     t.string   "gender",               :limit => 1,   :default => "N"
