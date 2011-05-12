@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
                   
   has_many :recipes, :dependent => :destroy, :source => :recipe
   
+  has_many :actions, :dependent => :destroy
+  has_many :likes, :through => :actions
+  has_many :favorites, :through => :actions
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
@@ -33,26 +36,6 @@ class User < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
   
-  def update_with_password(params={})
-    current_password = params.delete(:current_password)
-
-    if params[:password].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation) if params[:password_confirmation].blank?
-      return update_attributes(params)
-    end
-
-    result = if valid_password?(current_password)
-      update_attributes(params)
-    else
-      self.errors.add(:current_password, "Mot de passe invalide")
-      self.attributes = params
-      false
-    end
-
-    clean_up_passwords
-    result
-  end
 end
 # == Schema Information
 #

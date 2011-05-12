@@ -2,6 +2,7 @@ class Recipe < ActiveRecord::Base
   after_save :save_ingredients
 
   belongs_to :user
+  
   has_many :recipes_ingredients, :dependent => :destroy, :include => :ingredient 
   has_many :ingredients, :through => :recipes_ingredients, :source => :ingredient
   acts_as_taggable_on :tags
