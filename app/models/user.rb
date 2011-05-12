@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
                   
   has_many :recipes, :dependent => :destroy, :source => :recipe
   
-  has_many :actions, :dependent => :destroy
-  has_many :likes, :through => :actions
-  has_many :favorites, :through => :actions
+  has_many :events, :as => :action, :dependent => :destroy
+  has_many :likes, :through => :events
+  has_many :favorites, :through => :events
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui

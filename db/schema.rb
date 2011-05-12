@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110506123550) do
+ActiveRecord::Schema.define(:version => 20110512165351) do
+
+  create_table "action_nodes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.string   "action"
+    t.integer  "action_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.integer  "action_id"
+    t.string   "action_type", :default => "like"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["action_type"], :name => "index_events_on_action_type"
 
   create_table "favorites", :force => true do |t|
     t.integer  "favorable_id"
