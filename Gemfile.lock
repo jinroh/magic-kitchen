@@ -37,7 +37,7 @@ GEM
     babosa (0.3.3)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    canable (0.1.1)
+    cancan (1.6.4)
     columnize (0.3.2)
     devise (1.2.1)
       bcrypt-ruby (~> 2.1.2)
@@ -121,7 +121,7 @@ DEPENDENCIES
   autotest-standalone
   awesome_print
   babosa
-  canable
+  cancan
   devise
   haml
   hirb

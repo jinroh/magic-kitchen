@@ -4,7 +4,7 @@ gem "rails", "3.0.6"
 
 gem "acts-as-taggable-on"
 gem "babosa"
-gem "canable"
+gem "cancan"
 gem "devise"
 gem "haml"
 gem "kaminari"

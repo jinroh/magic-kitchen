@@ -1,6 +1,1 @@
-<%=
-[ 
-	@recipe, 
-	{ :ingredients => @recipe.ingredients }
-].to_json.html_safe
-%>
+<%= @recipe.to_json(:include => :ingredients).html_safe %>

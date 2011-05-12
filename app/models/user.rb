@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
-  include Canable::Cans
-
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
+  
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
-
-  has_many :recipes,  :dependent => :destroy
-  has_many :favorites
+                  
+  has_many :recipes, :dependent => :destroy, :source => :recipe
+  
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
