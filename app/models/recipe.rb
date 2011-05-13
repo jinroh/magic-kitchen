@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  include Eventable
+  
   after_save :save_ingredients
 
   belongs_to :user

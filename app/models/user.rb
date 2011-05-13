@@ -4,14 +4,18 @@ class User < ActiveRecord::Base
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
                   
-  has_many :recipes, :dependent => :destroy, :source => :recipe
+  has_many :recipes, :dependent => :destroy
   
-  has_many :events, :as => :action, :dependent => :destroy
-  has_many :likes, :through => :events
-  has_many :favorites, :through => :events
+  has_many :likes
+  has_many :liked_recipes,    :through => :likes,     :source => :recipe
+  has_many :favorite_recipes, :through => :cookbooks, :source => :recipe
+  has_many :cooked_recipes,   :through => :historys, :source => :recipe
+  
+  has_many :events, :include => :eventable
+  
   acts_as_tagger
   
-  NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
+  NAME_REGEX   = /^[\p{Word}.\-]{2,50}\s*[\p{Word}.\-]{,50}$/ui
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
                     :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
@@ -21,11 +25,11 @@ class User < ActiveRecord::Base
   validates :name, :format => { :with => NAME_REGEX, :message => "Le nom est invalide" }
 
   def name
-    @name ||= [self.first_name, self.last_name].compact.join(' ')
+    @name ||= [self.first_name, self.last_name].compact.join(" ")
   end
 
   def name=(name)
-    self.first_name, self.last_name = name.split(' ', 2)
+    self.first_name, self.last_name = name.split(/\s*/, 2)
   end
   
   def age
