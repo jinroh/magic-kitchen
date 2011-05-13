@@ -9,4 +9,14 @@ class Event < ActiveRecord::Base
   def self.add(hash)
     new(hash).save!
   end
+  
+  def self.from(users)
+    case users
+    when Enumerable
+      ids = users.map(&:id)
+    else
+      ids = users.try(:id).to_i || user.to_i
+    end
+    where(:user_id => ids)
+  end
 end
