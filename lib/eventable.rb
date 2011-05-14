@@ -1,7 +1,11 @@
 module Eventable
   def self.included(base)
-    base.send :include, Eventable::InstanceMethods
+    model_name = base.model_name
+    Event.class_eval do
+      scope model_name.downcase.pluralize.to_sym, where(:eventable_type => model_name)
+    end
     
+    base.send :include, Eventable::InstanceMethods
     base.class_eval do
       after_save :save_event
     end

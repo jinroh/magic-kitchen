@@ -10,11 +10,14 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:with])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
+    respond_with @recipes
   end
   
   def new
     @recipe = Recipe.new
     @recipe.ingredients.build
+    
+    respond_with @recipe
   end
 
   def create

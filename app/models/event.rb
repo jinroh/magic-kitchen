@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  belongs_to :eventable, :polymorphic => true 
+  belongs_to :eventable, :polymorphic => true
+  belongs_to :target, :polymorphic => true
   
   default_scope :order => "events.created_at DESC", :limit => 10
   
@@ -10,7 +11,7 @@ class Event < ActiveRecord::Base
     new(hash).save!
   end
   
-  def self.from(users)
+  def self.by(users)
     case users
     when Enumerable
       ids = users.map(&:id)
