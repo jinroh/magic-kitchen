@@ -10,12 +10,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110506123550) do
+ActiveRecord::Schema.define(:version => 20110513110715) do
+
+  create_table "action_nodes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.string   "action"
+    t.integer  "action_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cookbooks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "eventable_id"
+    t.string   "eventable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favorites", :force => true do |t|
     t.integer  "favorable_id"
     t.string   "favorable_type"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "histories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20110506123550) do
   create_table "ingredients_recipes", :id => false, :force => true do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recipes", :force => true do |t|

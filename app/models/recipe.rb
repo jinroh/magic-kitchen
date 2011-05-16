@@ -1,11 +1,12 @@
 class Recipe < ActiveRecord::Base
-  include Canable::Ables
+  include Eventable
   
   after_save :save_ingredients
 
   belongs_to :user
+  
   has_many :recipes_ingredients, :dependent => :destroy, :include => :ingredient 
-  has_many :base_ingredients, :through => :recipes_ingredients, :source => :ingredient
+  has_many :ingredients, :through => :recipes_ingredients, :source => :ingredient
   acts_as_taggable_on :tags
   
   attr_accessible :name, :content, :ingredients, :tag_list
@@ -63,50 +64,19 @@ class Recipe < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
 
-  def ingredients
-    @ingredients ||= self.base_ingredients
-  end
-  
   def ingredients=(list)
-    case list
-    when Enumerable
-      @ingredients = list.map { |value| Ingredient.new(:name => value[:name]) }
-    when String, Symbol
-      @ingredients = [Ingredient.new(:name => list)]
-    else
-      @ingredients = [list.to_s]
-    end
-  end
-  
-  def viewable_by?(user)
-    true
-  end
-
-  def creatable_by?(user)
-    user
-  end
-  
-  def editable_by?(user)
-    self.user == user
-  end
-  
-  def updatable_by?(user)
-    self.user == user
-  end
-  
-  def destroyable_by?(user)
-    self.user == user
+    @ingredients_list = list.map { |value| Ingredient.new(:name => value[:name]) }
   end
   
   private
   
   def save_ingredients
-    saved_ingredients = Ingredient.find_or_create_all_with_like_by_name(ingredients.map(&:name))
+    saved_ingredients = Ingredient.find_or_create_all_with_like_by_name(@ingredients_list.map(&:name))
 
-    old_ingredients = base_ingredients  - saved_ingredients
-    new_ingredients = saved_ingredients - base_ingredients
+    old_ingredients = ingredients - saved_ingredients
+    new_ingredients = saved_ingredients - ingredients
     
-    delete_ingredients old_ingredients
+    delete_ingredients(old_ingredients)
     
     new_ingredients.each do |ingredient|
        RecipesIngredient.create!(:recipe_id => self.id, :ingredient_id => ingredient.id)
@@ -114,16 +84,8 @@ class Recipe < ActiveRecord::Base
   end
   
   def delete_ingredients(ingredients)
-    case ingredients
-    when Ingredient
-      ids = [ingredient.id]
-    when Array
-      ids = ingredients.map(&:id)
-    else
-      ids = ingredient.to_i
-    end
-    
-    RecipesIngredient.delete_all(:recipe_id => self.id, :ingredient_id => ids) unless ids.empty?
+    ids = ingredients.map(&:id)
+    RecipesIngredient.delete_all(:recipe_id => self.id, :ingredient_id => ids) if ids.present?
   end
   
 end

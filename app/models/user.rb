@@ -1,15 +1,25 @@
 class User < ActiveRecord::Base
-  include Canable::Cans
-
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
+  
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
-
-  has_many :recipes,  :dependent => :destroy
-  has_many :favorites
+                  
+  has_many :recipes, :dependent => :destroy
+  
+  has_many :likes
+  has_many :liked_recipes,    :through => :likes,     :source => :recipe
+  
+  has_many :cookbooks
+  has_many :favorite_recipes, :through => :cookbooks, :source => :recipe
+  
+  has_many :histories
+  has_many :cooked_recipes,   :through => :histories, :source => :recipe
+  
+  has_many :events, :include => :eventable
+  
   acts_as_tagger
   
-  NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
+  NAME_REGEX   = /^[\p{Word}.\-]{2,50}\s*[\p{Word}.\-]{,50}$/ui
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
                     :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
@@ -19,11 +29,11 @@ class User < ActiveRecord::Base
   validates :name, :format => { :with => NAME_REGEX, :message => "Le nom est invalide" }
 
   def name
-    @name ||= [self.first_name, self.last_name].compact.join(' ')
+    @name ||= [self.first_name, self.last_name].compact.join(" ")
   end
 
   def name=(name)
-    self.first_name, self.last_name = name.split(' ', 2)
+    self.first_name, self.last_name = name.split(/\s*/, 2)
   end
   
   def age
@@ -34,26 +44,6 @@ class User < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
   
-  def update_with_password(params={})
-    current_password = params.delete(:current_password)
-
-    if params[:password].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation) if params[:password_confirmation].blank?
-      return update_attributes(params)
-    end
-
-    result = if valid_password?(current_password)
-      update_attributes(params)
-    else
-      self.errors.add(:current_password, "Mot de passe invalide")
-      self.attributes = params
-      false
-    end
-
-    clean_up_passwords
-    result
-  end
 end
 # == Schema Information
 #

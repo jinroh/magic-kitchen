@@ -14,7 +14,7 @@
 	<p><%= link_to @recipe.user.name, user_path(@recipe.user) %></p>
 </div>
 
-<% if @recipe.editable_by?(current_user) %>
+<% if can? :edit, @recipe %>
 <div id="edit">
 	<%= link_to "Edit", edit_recipe_path(@recipe) %>
 </div>

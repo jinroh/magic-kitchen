@@ -4,7 +4,7 @@
 	
 	<div id="ingredients_field">
 		<%= f.label :ingredients, "Ingredients" %>
-		<% for ingredient in @recipe.base_ingredients %>
+		<% for ingredient in @recipe.ingredients %>
 			<%= fields_for 'recipe[ingredients][]', ingredient, :index => nil do |ingredient_form| %>
 			<div class="ingredient">
 				<%= ingredient_form.text_field :name %>

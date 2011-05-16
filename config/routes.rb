@@ -1,14 +1,15 @@
 Magickitchen::Application.routes.draw do
-  root :to => 'home#index'
+  root :to => "home#index"
   
   # Authentification and User routing
-  devise_for :users, :path => 'user'
+  devise_for :users, :path => "user"
   
-  get '/me'       => 'home#show', :as => :user_root
-  get '/user/me'  => 'home#show'
-  get '/users'    => 'users#index'
-  get '/user'     => 'users#index'
-  get '/user/:id' => 'users#show', :as => :user
+  get "/me" => "home#show", :as => :user_root
+  # get "/users"    => "users#index"
+  # get "/user"     => "users#index"
+  resources "user", :controller => :users, :as => :user, do
+    resources :likes
+  end
   
   # Recipes
   resources :recipes
