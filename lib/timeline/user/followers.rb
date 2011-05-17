@@ -17,30 +17,30 @@ module Timeline
       end
       
       def followers_ids
-        $redis.smembers(self.followers_key) || []
+        @followers_ids ||= $redis.smembers(self.followers_key) || []
       end
       
       def following_ids
-        $redis.smembers(self.following_key) || []
+        @following_ids ||= $redis.smembers(self.following_key) || []
       end
       
       def friends_ids
-        $redis.sinter(self.following_key, self.followers_key) || []
+        @friends_ids ||= $redis.sinter(self.following_key, self.followers_key) || []
       end
       
       def followers
         user_ids = self.followers_ids
-        return user_ids.empty? ? [] : self.class.where(:id => user_ids)
+        @followers ||= user_ids.empty? ? [] : self.class.where(:id => user_ids)
       end
 
       def following
         user_ids = self.following_ids
-        return user_ids.empty? ? [] : self.class.where(:id => user_ids)
+        @following ||= user_ids.empty? ? [] : self.class.where(:id => user_ids)
       end
 
       def friends
         user_ids = self.friends_ids
-        return user_ids.empty? ? [] : self.class.where(:id => user_ids)
+        @friends ||= user_ids.empty? ? [] : self.class.where(:id => user_ids)
       end
 
       def followed_by?(user)
@@ -52,11 +52,11 @@ module Timeline
       end
 
       def followers_count
-        $redis.scard(self.followers_key)
+        @followers_cout ||= $redis.scard(self.followers_key)
       end
 
       def following_count
-        $redis.scard(self.following_key)
+        @following_cout ||= $redis.scard(self.following_key)
       end
 
       protected

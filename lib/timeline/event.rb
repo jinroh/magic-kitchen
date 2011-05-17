@@ -17,7 +17,7 @@ module Timeline
         @target = data[:target]
       else
         @bind = options[:bind]
-        @target_attributes = options[:attributes]      || [:id, :name]
+        @target_attributes = options[:attributes]      || [:id, :name, :created_at]
         @user_attributes   = options[:user_attributes] || [:id, :name]
         raise ArgumentError, "no binding" if @bind.nil?
         self.user   = options[:user]
@@ -56,14 +56,14 @@ module Timeline
     
     def target=(object)
       @target = case object
+        when nil, :self
+          @bind
         when ActiveRecord::Base
           object
         when String, Symbol
           @bind.send(object)
         when Proc
           @bind.instance_eval(&object)
-        when nil
-          @bind
         else
           raise ArgumentError, "doesn't know what to do with :user argument: #{object}"
       end

@@ -13,8 +13,10 @@ module Timeline
             if feed.followers == :all
               push(key(feed_name, "all"), event)
             else
-              feed.followers.each do |follower_id|
-                push(key(feed_name, follower_id), event)
+              $redis.multi do
+                feed.followers.each do |follower_id|
+                  push(key(feed_name, follower_id), event)
+                end
               end
             end
           end
