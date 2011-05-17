@@ -35,7 +35,7 @@ class Recipe < ActiveRecord::Base
     @ingredients_list = list.map { |value| Ingredient.new(:name => value[:name]) }
   end
 
-  def with_ingredients(ingredients, options = {})
+  def self.with_ingredients(ingredients, options = {})
     list = List.from(ingredients)
     return scoped if list.empty?
 
@@ -73,6 +73,13 @@ class Recipe < ActiveRecord::Base
            :conditions => conditions
   end
   
+  def self.search(query)
+    if query.to_s.blank?
+      return scoped
+    end
+    where("#{table_name}.name LIKE ?", "%#{query.to_s}%")
+  end
+  
   private
   def save_ingredients
     return if @ingredients_list.nil?
@@ -93,11 +100,4 @@ class Recipe < ActiveRecord::Base
     RecipesIngredient.delete_all(:recipe_id => self.id, :ingredient_id => ids) if ids.present?
   end
   
-  def search(query)
-    if query.to_s.blank?
-      return scoped
-    end
-    where("#{table_name}.name LIKE ?", "%#{query.to_s}%")
-  end
-
 end

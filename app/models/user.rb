@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   
-  NAME_REGEX   = /^[\p{Word}.\-]{2,50}\s*[\p{Word}.\-]{,50}$/ui
+  NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/i
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
                     :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def name=(name)
-    self.first_name, self.last_name = name.split(/\s*/, 2)
+    self.first_name, self.last_name = name.split(/\s/, 2)
   end
   
   def age
