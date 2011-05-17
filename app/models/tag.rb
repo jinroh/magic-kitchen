@@ -1,6 +1,3 @@
-class Tag < ActsAsTaggableOn::Tag
-end
-
 # == Schema Information
 #
 # Table name: tags
@@ -9,3 +6,5 @@ end
 #  name :string(255)
 #
 
+class Tag < ActsAsTaggableOn::Tag
+end

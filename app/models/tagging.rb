@@ -1,6 +1,3 @@
-class Tagging < ActsAsTaggableOn::Tagging
-end
-
 # == Schema Information
 #
 # Table name: taggings
@@ -15,3 +12,5 @@ end
 #  created_at    :datetime
 #
 
+class Tagging < ActsAsTaggableOn::Tagging
+end

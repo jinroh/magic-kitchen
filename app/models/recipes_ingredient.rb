@@ -1,15 +1,23 @@
+# == Schema Information
+#
+# Table name: recipes_ingredients
+#
+#  id            :integer         not null, primary key
+#  recipe_id     :string(255)
+#  ingredient_id :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#  quantity      :string(255)
+#
+
 class RecipesIngredient < ActiveRecord::Base
   
   attr_accessible :ingredient_id,
                   :recipe_id,
                   :quantity
   
-  ### ASSOCIATIONS
-
   belongs_to :ingredient
   belongs_to :recipe, :touch => true
-
-  ## VALIDATIONS
 
   validates_presence_of :ingredient_id
   validates_uniqueness_of :ingredient_id, :scope => :recipe_id 
@@ -23,15 +31,4 @@ class RecipesIngredient < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: recipes_ingredients
-#
-#  id            :integer         not null, primary key
-#  recipe_id     :string(255)
-#  ingredient_id :string(255)
-#  created_at    :datetime
-#  updated_at    :datetime
-#
 

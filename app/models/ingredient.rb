@@ -1,21 +1,23 @@
+# == Schema Information
+#
+# Table name: ingredients
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Ingredient < ActiveRecord::Base
   
   attr_accessible :name, :quantity
   
-  ### ASSOCIATIONS
-  
   has_many :recipes_ingredients, :dependent => :destroy, :include => :quantity
-  
-  ### VALIDATIONS
   
   validates_uniqueness_of :name, :with => { :case_sensitive => false }
   validates_presence_of :name
   
-  ### CALLBACKS
-  
   before_save :clean_name
-  
-  ### SCOPES
   
   def self.named(name)
     where(["name LIKE ?", name])
@@ -32,8 +34,6 @@ class Ingredient < ActiveRecord::Base
   def self.named_like_any(list)
     where(list.uniq.map { |name| sanitize_sql(["name LIKE ?", "%#{name.to_s}%"]) }.join(" OR "))
   end
-  
-  ### CLASS METHODS
   
   def self.find_or_create_with_like_by_name(name)
     named_like(name) || create(:name => name)
@@ -53,8 +53,6 @@ class Ingredient < ActiveRecord::Base
     existing_ingredient_names + new_ingredient_names
   end
   
-  ### INSTANCE METHODS
-  
   def ==(object)
     (object.is_a?(Ingredient) && name == object.name)
   end
@@ -64,7 +62,6 @@ class Ingredient < ActiveRecord::Base
   end
   
   private
-  
   def clean_name
     self.name = self.name
                     .strip
@@ -73,14 +70,4 @@ class Ingredient < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: ingredients
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
 

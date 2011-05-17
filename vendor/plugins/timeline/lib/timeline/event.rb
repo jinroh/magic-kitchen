@@ -2,6 +2,9 @@ require "json"
 
 module Timeline
   class Event
+    TARGET_ATTRIBUTES = [:id, :name, :created_at]
+    USER_ATTRIBUTES   = [:id, :name]
+    
     attr_reader :user, :verb, :target, :time
     
     def self.from(data)
@@ -23,8 +26,8 @@ module Timeline
         self.verb   = options[:verb]
         self.target = options[:target]
         
-        @target_attributes = options[:attributes] || [:id, :name]
-        @user_attributes   = options[:user_attributes] || [:id, :name]
+        @target_attributes = options[:attributes] || TARGET_ATTRIBUTES
+        @user_attributes   = options[:user_attributes] || USER_ATTRIBUTES
         
         @time = @target.created_at || DateTime.now.utc
       end
