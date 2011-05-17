@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  include Eventable
+  extend Timeline::Target
   
   after_save :save_ingredients
 
@@ -12,6 +12,9 @@ class Recipe < ActiveRecord::Base
   attr_accessible :name, :content, :ingredients, :tag_list
 
   validates_presence_of :name, :content, :user_id
+  
+  timeline :verb => "added the recipe",
+           :attributes => [:id, :name]
   
   def self.search(query)
     if query.to_s.blank?
@@ -58,8 +61,6 @@ class Recipe < ActiveRecord::Base
            :conditions => conditions
   end
   
-  ### INSTANCE METHODS
-  
   def to_param
     "#{id}-#{name.parameterize}"
   end
@@ -71,6 +72,7 @@ class Recipe < ActiveRecord::Base
   private
   
   def save_ingredients
+    return if @ingredients_list.nil?
     saved_ingredients = Ingredient.find_or_create_all_with_like_by_name(@ingredients_list.map(&:name))
 
     old_ingredients = ingredients - saved_ingredients

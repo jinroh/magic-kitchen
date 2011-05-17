@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Timeline::User::Followers
+  extend  Timeline::User
+  
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
   
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
@@ -15,8 +18,6 @@ class User < ActiveRecord::Base
   has_many :histories
   has_many :cooked_recipes,   :through => :histories, :source => :recipe
   
-  has_many :events, :include => :eventable
-  
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}\s*[\p{Word}.\-]{,50}$/ui
@@ -28,6 +29,15 @@ class User < ActiveRecord::Base
                        :confirmation => { :message => "La confirmation du mot de passe ne correspond pas au mot de passe" }
   validates :name, :format => { :with => NAME_REGEX, :message => "Le nom est invalide" }
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+  
+  timeline :my_feed, :self
+  timeline :following_feed, :followers_ids
+  timeline :friends_feed, :friends_ids
+  timeline :general_feed, :all
+  
   def name
     @name ||= [self.first_name, self.last_name].compact.join(" ")
   end
@@ -38,10 +48,6 @@ class User < ActiveRecord::Base
   
   def age
     (Time.now.to_date - date_of_birth.to_date).to_i / 365 rescue nil
-  end
-
-  def to_param
-    "#{id}-#{name.parameterize}"
   end
   
 end
