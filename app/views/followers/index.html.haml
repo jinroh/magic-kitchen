@@ -1,0 +1,9 @@
+%h2 Followers
+%ul
+  - @followers.each do |follower|
+    %li= link_to follower.name, user_path(follower)
+
+%h2 Following
+%ul
+  - @following.each do |following|
+    %li= link_to following.name, user_path(following)

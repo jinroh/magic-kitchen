@@ -1,0 +1,16 @@
+%h2= @recipe.name
+%div
+  %ul
+    - for ingredient in @recipe.ingredients
+      %li= ingredient.name.capitalize
+
+  %p= simple_format @recipe.content
+
+  %aside
+    - tag_cloud @recipe.tag_counts, %w(css1 css2 css3 ) do |tag, tag_class|
+      %span(class="tag_class")= tag.name
+  %p= link_to @recipe.user.name, user_path(@recipe.user)
+
+- if can? :edit, @recipe
+  #edit
+    = link_to "Edit", edit_recipe_path(@recipe)

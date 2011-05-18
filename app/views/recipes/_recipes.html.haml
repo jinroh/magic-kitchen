@@ -1,0 +1,5 @@
+- @recipes.each do |recipe|
+  .recipe
+    = link_to recipe.name.capitalize, recipe_path(recipe)
+
+= paginate @recipes

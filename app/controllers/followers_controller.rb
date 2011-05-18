@@ -12,7 +12,7 @@ class FollowersController < ApplicationController
   
   def create
     @following = User.find(params[:id])
-    current_user.follow!(@following)
+    current_user.follow!(@following) unless current_user == @following
     respond_with(@following) do |format|
       format.html { redirect_to @following }
     end
@@ -20,7 +20,7 @@ class FollowersController < ApplicationController
   
   def destroy
     @following = User.find(params[:id])
-    current_user.unfollow!(@following)
+    current_user.unfollow!(@following) unless current_user == @following
     respond_with(@following) do |format|
       format.html { redirect_to @following }
     end

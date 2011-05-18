@@ -1,7 +1,0 @@
-<% @recipes.each do |recipe| %>
-<div class="recipe">
-	<%= link_to recipe.name.capitalize, recipe_path(recipe) %>
-</div>
-<% end %>
-
-<%= paginate @recipes %>
