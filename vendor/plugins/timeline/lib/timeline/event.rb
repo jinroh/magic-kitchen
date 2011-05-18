@@ -54,8 +54,9 @@ module Timeline
         when nil
           @bind.send(:user)
         else
-          raise ArgumentError, "doesn't know what to do with :user argument: #{object}"
+          nil
       end
+      raise ArgumentError, "doesn't know what to do with :user argument: #{object}" if @user.nil?
     end
     
     def target=(object)
@@ -69,8 +70,9 @@ module Timeline
         when Proc
           @bind.instance_eval(&object)
         else
-          raise ArgumentError, "doesn't know what to do with :user argument: #{object}"
+          nil
       end
+      raise ArgumentError, "doesn't know what to do with :user argument: #{object}" if @target.nil?
     end
     
     def verb=(object)

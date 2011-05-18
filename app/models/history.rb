@@ -11,7 +11,7 @@
 #
 
 class History < ActiveRecord::Base
-  extend Timeline::Target
+  include Timeline::Target
   
   belongs_to :user
   belongs_to :recipe

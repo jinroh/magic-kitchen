@@ -12,7 +12,7 @@
 
 class Recipe < ActiveRecord::Base
   extend RecipeSearch
-  extend Timeline::Target
+  include Timeline::Target
   
   after_save :save_ingredients
   
