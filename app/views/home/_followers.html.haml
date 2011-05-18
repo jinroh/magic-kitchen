@@ -1,0 +1,17 @@
+%h3 Followers
+- followers = current_user.followers
+- if followers.empty?
+	%p No followers
+- else
+	%ul
+		- followers.each do |f|
+			%li= link_to f.name, user_path(f)
+
+%h3 Following
+- following = current_user.following
+- if following.empty?
+	%p No following
+- else
+	%ul
+		- following.each do |f|
+			%li= link_to f.name, user_path(f)

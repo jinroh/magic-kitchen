@@ -1,0 +1,8 @@
+%h3 Recipes
+- recipes = current_user.recipes
+- if recipes.empty?
+	%p No recipes
+- else
+	%ul
+		- recipes.each do |recipe|
+			%li= link_to recipe.name, recipe_path(recipe)

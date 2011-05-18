@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
   timeline :friends_feed, :friends_ids
   timeline :general_feed, :all
   
+  def to_s
+    name
+  end
+  
   def name
     @name ||= [self.first_name, self.last_name].compact.join(" ")
   end

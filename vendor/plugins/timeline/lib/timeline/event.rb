@@ -20,6 +20,7 @@ module Timeline
         @user   = OpenStruct.new(data[:user])
         @verb   = data[:verb]
         @target = OpenStruct.new(data[:target])
+        @time   = data[:time]
       else
         @bind = options[:bind]
         raise ArgumentError, "no binding" if @bind.nil?
@@ -31,7 +32,7 @@ module Timeline
         @target_attributes = options[:attributes] || TARGET_ATTRIBUTES
         @user_attributes   = options[:user_attributes] || USER_ATTRIBUTES
         
-        @time = @target.created_at || DateTime.now.utc
+        self.time = @target.created_at || DateTime.now.utc
       end
     end
     

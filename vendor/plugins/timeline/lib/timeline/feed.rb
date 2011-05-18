@@ -10,10 +10,14 @@ module Timeline
     def each(limit=@limit, offset=@offset)
       raise LocalJumpError, "no block given" unless block_given?
       (offset..(offset+limit)).each do |e|
-        data = Timeline.redis.lindex(key, e)
+        data = Timeline.redis.lindex(self.key, e)
         next if data.nil?
         yield Timeline::Event.from(data)
       end
+    end
+    
+    def empty?
+      Timeline.redis.lrange(self.key, 0, 0).blank?
     end
     
     def all

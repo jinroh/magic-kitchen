@@ -1,0 +1,4 @@
+%h2 Search a user
+= form_tag user_index_path, :method => :get do
+	= label_tag :search, "Search"
+	= text_field_tag :search, params[:search]
