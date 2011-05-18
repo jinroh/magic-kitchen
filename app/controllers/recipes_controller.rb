@@ -22,16 +22,11 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(params[:recipe])
-    if @recipe.save!
-      flash[:notice] = "Your recipe has been added"
-      redirect_to user_root_path
-    else
-      render 'new'
-    end
+    flash[:notice] = "Your recipe has been added" if @recipe.save
+    respond_with @recipe
   end
   
   def show
-    @tags = @recipe.tag_counts_on(:tags)
     respond_with @recipe
   end
   
@@ -46,11 +41,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    if @recipe.destroy
-      redirect_to user_root_path
-    else
-      render show
-    end
+    flash[:notice] = "Recipe successfully deleted" if @recipe.destroy
+    respond_with(@recipe, :location => user_root_path)
   end
   
   private

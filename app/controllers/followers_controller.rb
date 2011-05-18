@@ -1,26 +1,28 @@
 class FollowersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:index, :create, :destroy]
+  
+  respond_to :html, :json
   
   def index
-    @followers = User.find(params[:id]).followers
-    @following = User.find(params[:id]).following
+    @followers = current_user.followers
+    @following = current_user.following
+    respond_with({:followers => @followers,
+                  :following => @following})
   end
   
   def create
     @following = User.find(params[:id])
     current_user.follow!(@following)
-    respond_to do |format|
+    respond_with(@following) do |format|
       format.html { redirect_to @following }
-      format.all  { render :nothing => true }
     end
   end
   
   def destroy
     @following = User.find(params[:id])
     current_user.unfollow!(@following)
-    respond_to do |format|
+    respond_with(@following) do |format|
       format.html { redirect_to @following }
-      format.all  { render :nothing => true }
     end
   end
   

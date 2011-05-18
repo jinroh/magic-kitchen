@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
   
+  SERIALIZABLE = { :except  => [:first_name, :last_name, :encrypted_password, :remember_created_at, :reset_password_token],
+                   :methods => [:name, :age] }
+  
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
                   
@@ -70,10 +73,8 @@ class User < ActiveRecord::Base
     (Time.now.to_date - date_of_birth.to_date).to_i / 365 rescue nil
   end
   
-  SERIALIZABLE = { :except  => [:first_name, :last_name, :encrypted_password, :remember_created_at, :reset_password_token],
-                   :methods => [:name, :age] }
   def serializable_hash(options)
-    super(options.merge(ATTRIBUTES))
+    super(options.merge(SERIALIZABLE))
   end
   
 end
