@@ -1,4 +1,5 @@
 require "json"
+require "ostruct"
 
 module Timeline
   class Event
@@ -15,9 +16,10 @@ module Timeline
       if options[:data]
         @json = options[:data]
         data = JSON.parse(options[:data], :symbolize_names => true)
-        @user = data[:user]
-        @verb = data[:verb]
-        @target = data[:target]
+        
+        @user   = OpenStruct.new(data[:user])
+        @verb   = data[:verb]
+        @target = OpenStruct.new(data[:target])
       else
         @bind = options[:bind]
         raise ArgumentError, "no binding" if @bind.nil?

@@ -7,7 +7,7 @@
 	</ul>
 	<p><%= simple_format @recipe.content %></p>
 	<aside>
-		<% tag_cloud @tags, %w(css1 css2 css3 ) do |tag, tag_class| %>
+		<% tag_cloud @recipe.tag_counts, %w(css1 css2 css3 ) do |tag, tag_class| %>
 		<span class="<%= tag_class %>"><%= tag.name %></span>
 		<% end %>
 	</aside>

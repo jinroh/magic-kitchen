@@ -4,12 +4,8 @@ class HomeController < ApplicationController
     redirect_to user_root_path if user_signed_in?
   end
   
-  def show
-    if user_signed_in?
-      @recipes = current_user.recipes
-    else
-      redirect_to root_path
-    end
+  def dashboard
+    redirect_to root_path unless user_signed_in?
   end
   
 end

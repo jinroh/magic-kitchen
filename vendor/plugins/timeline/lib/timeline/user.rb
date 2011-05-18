@@ -9,9 +9,9 @@ module Timeline
       raise ArgumentError, "#{self.class.name}\##{feed_name} method already defined" if self.respond_to?(feed_name.to_sym)
     
       if timelined?
-        write_inheritable_attribute(:all_feeds, (self.all_feeds << name.to_sym))
+        write_inheritable_attribute(:all_feeds, (self.all_feeds << feed_name.to_sym))
       else
-        write_inheritable_attribute(:all_feeds, [name.to_sym])
+        write_inheritable_attribute(:all_feeds, [feed_name.to_sym])
         class_inheritable_accessor(:all_feeds)
       
         class_eval do

@@ -15,7 +15,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.by(current_user).for(params[:recipe])
+    @like = Like.by(current_user).for(params)
     respond_with(@like, :location => @like.recipe)
   end
   

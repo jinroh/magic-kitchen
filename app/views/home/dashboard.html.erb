@@ -1,0 +1,43 @@
+<h2>Hi <%= current_user.name %></h2>
+<div class="toolbar"><%= link_to "Settings", edit_user_registration_path %></div>
+
+<div id="recipes">
+	<h3>My Recipes</h3>
+	<p>
+		<%= current_user.name %>, <%= pluralize current_user.age, 'year' %>
+	</p>
+	<ul>
+	<% current_user.recipes.each do |recipe| %>
+		<li><%= link_to recipe.name, edit_recipe_path(recipe) %>, <i><%= link_to 'supprimer', recipe, :confirm => 'Êtes-vous sûr ?', :method => :delete %></i></li>
+	<% end %>
+	</ul>
+	
+	<div><%= link_to "Nouvelle recette", new_recipe_path %></div>
+</div>
+
+<div id="followers">
+	<h3>Followers</h3>
+	<ul>
+		<% followers = current_user.followers %>
+		<% if followers.empty? %>
+		<p>No followers</p>
+		<% else %>
+		<% followers.each do |follower| %>
+		<li><%= link_to follower.name, user_path(follower) %></li>
+		<% end %>
+		<% end %>
+	</ul>
+</div>
+
+<div id="feed">
+  <h3>My Feeds</h3>
+  
+  <% for feed in current_user.all_feeds do %>
+		<h4><%= feed.to_s.humanize %></h2>
+		<ul>
+		<% current_user.send(feed).each do |event| %>
+			<li><%= link_to event.user.name, user_path(event.user.id) %> <%= event.verb %> <%= link_to event.target.name, recipe_path(event.target.id) %></li>
+		<% end %>
+		</ul>
+	<% end %>
+</div>

@@ -19,4 +19,7 @@ class Cookbook < ActiveRecord::Base
   timeline :verb => "added to his cookbook",
            :target     => :recipe,
            :attributes => [:id, :name]
+  
+  validates_uniqueness_of :user_id, :scope => [:recipe_id]
+  
 end

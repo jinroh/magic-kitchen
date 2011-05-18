@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
   
   def serializable_hash(options)
-    super(options.merge(SERIALIZABLE))
+    super(SERIALIZABLE.merge(options))
   end
   
 end
