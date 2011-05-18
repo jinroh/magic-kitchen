@@ -19,8 +19,8 @@
 #
 
 class User < ActiveRecord::Base
-  include Timeline::User::Followers
   extend  Timeline::User
+  include Timeline::User::Followers
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
   
@@ -43,12 +43,12 @@ class User < ActiveRecord::Base
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
   EMAIL_REGEXP = /^[\p{Word}.%+\-]+@[\p{Word}.\-]+\.[\w]{2,}$/i
   validates :email, :presence   => { :message => "Veuillez remplir l'adresse de courriel" },
-                    :uniqueness => { :message => "Cette adresse de courriel est prise", :case_sensitive => false, :allow_blank => true },
-                    :format     => { :message => "L'adresse de courriel n'est pas valide", :with => EMAIL_REGEXP, :allow_blank => true }
+                    :uniqueness => { :message => "Cette adresse mail est prise", :case_sensitive => false, :allow_blank => true },
+                    :format     => { :message => "L'adresse mail n'est pas valide", :with => EMAIL_REGEXP, :allow_blank => true }
   validates :password, :presence     => { :message => "Le mot de passe est absent" },
                        :confirmation => { :message => "La confirmation du mot de passe ne correspond pas au mot de passe" }
   validates :name, :format => { :with => NAME_REGEX, :message => "Le nom est invalide" }
-
+  
   def to_param
     "#{id}-#{name.parameterize}"
   end
@@ -68,6 +68,12 @@ class User < ActiveRecord::Base
   
   def age
     (Time.now.to_date - date_of_birth.to_date).to_i / 365 rescue nil
+  end
+  
+  SERIALIZABLE = { :except  => [:first_name, :last_name, :encrypted_password, :remember_created_at, :reset_password_token],
+                   :methods => [:name, :age] }
+  def serializable_hash(options)
+    super(options.merge(ATTRIBUTES))
   end
   
 end

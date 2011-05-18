@@ -9,9 +9,6 @@ class LikesController < ApplicationController
     respond_with @likes
   end
   
-  def new
-  end
-
   def create
   end
 

@@ -1,190 +1,195 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta content="text/html;charset=UTF-8" http-equiv="content-type">
-	<meta content="chrome=1" http-equiv="X-UA-Compatible">
-  <title>Magic|Kitchen :: report.html</title>
-  <style>
-    body {
-      font-size: 14px;
-      line-height: 22px;
-      font-family: Helvetica Neue, Helvetica, Arial;
-      background: #f4f4f4 url(docs/images/background.png);
-    }
-    .interface {
-      font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
-    }
-    div#sidebar {
-      background: #fff;
-      position: fixed;
-      top: 0; left: 0; bottom: 0;
-      width: 200px;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 15px 0 30px 30px;
-      border-right: 1px solid #ddd;
-      box-shadow: 0 0 20px #ccc; -webkit-box-shadow: 0 0 20px #ccc; -moz-box-shadow: 0 0 20px #ccc;
-    }
-      a.toc_title, a.toc_title:visited {
-        text-decoration: none;
-        display: block;
-        color: black;
-        font-weight: bold;
-        margin-top: 15px;
-      }
-        a.toc_title:hover {
-          text-decoration: underline;
-        }
-        #sidebar .version {
-          font-size: 10px;
-          font-weight: normal;
-        }
-      ul.toc_section {
-        font-size: 11px;
-        line-height: 14px;
-        margin: 5px 0 0 0;
-        padding-left: 0px;
-        list-style-type: none;
-        font-family: Lucida Grande;
-      }
-        .toc_section li {
-          cursor: pointer;
-          margin: 0 0 3px 0;
-        }
-          .toc_section li a {
-            text-decoration: none;
-            color: black;
-          }
-            .toc_section li a:hover {
-              text-decoration: underline;
-            }
-    div.container {
-      position: relative;
-      width: 550px;
-      margin: 40px 0 50px 260px;
-    }
-    div.run {
-      position: absolute;
-      right: 15px;
-      width: 26px; height: 18px;
-      background: url('docs/images/arrows.png') no-repeat -26px 0;
-    }
-      div.run:active {
-        background-position: -51px 0;
-      }
-    p, div.container ul {
-      margin: 20px 0;
-      width: 550px;
-    }
-      p.warning {
-        font-size: 12px;
-        line-height: 18px;
-        font-style: italic;
-      }
-      div.container ul {
-        list-style: circle;
-        font-size: 12px;
-        padding-left: 15px;
-      }
-    a, a:visited {
-      color: #444;
-    }
-    a:active, a:hover {
-      color: #000;
-    }
-    a img {
-      border: 0;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      padding-top: 20px;
-    }
-      h2 {
-        font-size: 20px;
-      }
-	h3 {
-		font-size: 16px;
-	}
-    b.header {
-      font-size: 14px;
-      line-height: 30px;
-    }
-    span.alias {
-      font-size: 14px;
-      font-style: italic;
-      margin-left: 20px;
-    }
-    table {
-      margin: 15px 0 0; padding: 0;
-    }
-      tr, td {
-        margin: 0; padding: 0;
-      }
-        td {
-          padding: 0px 15px 5px 0;
-        }
-    code, pre, tt {
-      font-family: Monaco, Consolas, "Lucida Console", monospace;
-      font-size: 12px;
-      line-height: 18px;
-      font-style: normal;
-    }
-      tt {
-        padding: 0px 3px;
-        background: #fff;
-        border: 1px solid #ddd;
-        zoom: 1;
-      }
-      code {
-        // margin-left: 20px;
-      }
-      pre {
-        font-size: 12px;
-        padding: 2px 0 2px 15px;
-        border: 4px solid #bbb; border-top: 0; border-bottom: 0;
-        margin: 0px 0 30px;
-      }
-      img.example_image {
-        margin: 0px auto 30px;
-      }
-  </style>
+<meta content="text/html;charset=UTF-8" http-equiv="content-type">
+<meta content="chrome=1" http-equiv="X-UA-Compatible">
+<title>Magic|Kitchen :: report.html</title>
+<style type="text/css">
+body {
+	font-size: 14px;
+	line-height: 22px;
+	font-family: Helvetica Neue, Helvetica, Arial;
+	background: #f4f4f4 url(docs/images/background.png);
+}
+.interface {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+}
+div#sidebar {
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 15px 0 30px 30px;
+	border-right: 1px solid #ddd;
+	box-shadow: 0 0 20px #ccc;
+	-webkit-box-shadow: 0 0 20px #ccc;
+	-moz-box-shadow: 0 0 20px #ccc;
+}
+a.toc_title, a.toc_title:visited {
+	text-decoration: none;
+	display: block;
+	color: black;
+	font-weight: bold;
+	margin-top: 15px;
+}
+a.toc_title:hover {
+	text-decoration: underline;
+}
+#sidebar .version {
+	font-size: 10px;
+	font-weight: normal;
+}
+ul.toc_section {
+	font-size: 11px;
+	line-height: 14px;
+	margin: 5px 0 0 0;
+	padding-left: 0px;
+	list-style-type: none;
+	font-family: Lucida Grande;
+}
+.toc_section li {
+	cursor: pointer;
+	margin: 0 0 3px 0;
+}
+.toc_section li a {
+	text-decoration: none;
+	color: black;
+}
+.toc_section li a:hover {
+	text-decoration: underline;
+}
+div.container {
+	position: relative;
+	width: 550px;
+	margin: 40px 0 50px 260px;
+}
+div.run {
+	position: absolute;
+	right: 15px;
+	width: 26px;
+	height: 18px;
+	background: url('docs/images/arrows.png') no-repeat -26px 0;
+}
+div.run:active {
+	background-position: -51px 0;
+}
+p, div.container ul {
+	margin: 20px 0;
+	width: 550px;
+}
+p.warning {
+	font-size: 12px;
+	line-height: 18px;
+	font-style: italic;
+}
+div.container ul {
+	list-style: circle;
+	font-size: 12px;
+	padding-left: 15px;
+}
+a, a:visited {
+	color: #444;
+}
+a:active, a:hover {
+	color: #000;
+}
+a img {
+	border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	padding-top: 20px;
+}
+h2 {
+	font-size: 20px;
+}
+h3 {
+	font-size: 16px;
+}
+b.header {
+	font-size: 14px;
+	line-height: 30px;
+}
+span.alias {
+	font-size: 14px;
+	font-style: italic;
+	margin-left: 20px;
+}
+table {
+	margin: 15px 0 0;
+	padding: 0;
+}
+tr, td {
+	margin: 0;
+	padding: 0;
+}
+td {
+	padding: 0px 15px 5px 0;
+}
+code, pre, tt {
+	font-family: Monaco, Consolas, "Lucida Console", monospace;
+	font-size: 12px;
+	line-height: 18px;
+	font-style: normal;
+}
+tt {
+	padding: 0px 3px;
+	background: #fff;
+	border: 1px solid #ddd;
+	zoom: 1;
+}
+code {
+	// margin-left: 20px;
+}
+pre {
+	font-size: 12px;
+	padding: 2px 0 2px 15px;
+	border: 4px solid #bbb;
+	border-top: 0;
+	border-bottom: 0;
+	margin: 0px 0 30px;
+}
+img.example_image {
+	margin: 0px auto 30px;
+}
+</style>
 </head>
 <body>
 
-  <div id="sidebar" class="interface">
+<div class="interface">
+<a class="toc_title" href="#">
+Magic|Kitchen
+</a>
 
-    <a class="toc_title" href="#">
-      Magic|Kitchen
-    </a>
+<a class="toc_title" href="#Introduction">
+Introduction
+</a>
 
-    <a class="toc_title" href="#Introduction">
-      Introduction
-    </a>
+<a class="toc_title" href="#Events">
+Foo
+</a>
+<ul class="toc_section">
+<li>– <a href="#Events-bind">foobar</a></li>
+<li>– <a href="#Events-unbind">barfoo</a></li>
+<li>– <a href="#Events-trigger">foo</a></li>
+</ul>
+</div>
 
-    <a class="toc_title" href="#Events">
-      Foo
-    </a>
-    <ul class="toc_section">
-      <li>– <a href="#Events-bind">foobar</a></li>
-      <li>– <a href="#Events-unbind">barfoo</a></li>
-      <li>– <a href="#Events-trigger">foo</a></li>
-    </ul>
+<div class="container">
 
-   
+<h1>Magic|Kichen</h1>
+<i>The Magic|Kitchen is an open-source component of
+<a href="http://melo.fr.nf">Melody</a> powered by : ...
+</i>
 
-  </div>
-
-  <div class="container">
-
-    <h1>Magic|Kichen</h1>
-	<i>The Magic|Kitchen is an open-source component of
-        <a href="http://melo.fr.nf">Melody</a> powered by : ...
-      </i>
-
-    <h2 id="Introduction">
-      Introduction
-    </h2>
-	<p>Don't forget to put <code>id</code> reference to use it in the sidebar.</p>
-	<h3>An h3 title</h3>
+<h2 id="Introduction">Introduction</h2>
+<p>
+Don't forget to put <code>id</code> reference to use it in the sidebar.
+</p>
+<h3>An h3 title</h3>
 
 <p>Some piece of code for you all with <code>pre</code> mark:</p>
 <pre>
@@ -193,24 +198,25 @@ var object = {};
 _.extend(object, Backbone.Events);
 
 object.bind("alert", function(msg) {
-  alert("Triggered " + msg);
+alert("Triggered " + msg);
 });
 
 object.trigger("alert", "an event");
 </pre>
 
-  <p>You can also use <code>tt</code> to do this :<tt>"refresh"</tt> <tt>{silent: true}</tt>
-    </p>
+<p>
+You can also use <code>tt</code> to do this :<tt>"refresh"</tt> <tt>{silent: true}</tt>
+</p>
 
-    <p id="Collection-pluck">
-      <b class="header">pluck </b> Here we use the <code>class="header"</code> with bold mark and then a br/
-      <br />
-      Pluck an attribute from each model in the collection. Equivalent to calling
-      <tt>map</tt>, and returning a single attribute from the iterator.
-    </p>
+<p id="Collection-pluck">
+<b class="header">pluck </b> Here we use the <code>class="header"</code> with bold mark and then a br/
+<br />
+Pluck an attribute from each model in the collection. Equivalent to calling
+<tt>map</tt>, and returning a single attribute from the iterator.
+</p>
 <p>Put dirty things do show you does it do with a lot of material</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin</p>
-  </div>
+</div>
 
 </body>
 </html>
