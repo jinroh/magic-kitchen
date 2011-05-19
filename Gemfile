@@ -15,6 +15,8 @@ gem "sqlite3"
 
 group :development, :test do
   # gem "autotest-standalone"
+  gem "forgery"
+  gem "populator"
   gem "rspec-rails"
   gem "ruby-debug19"
 end

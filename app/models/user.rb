@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
   
   SERIALIZABLE = { :except  => [:first_name, :last_name, :encrypted_password, :remember_created_at, :reset_password_token],
-                   :methods => [:name, :age] }
+                   :methods => [:id, :name, :age] }
   
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
