@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+# load local autotest
+$LOAD_PATH.unshift(File.expand_path("#{File.dirname(__FILE__)}/../lib"))
+require 'autotest'
+
+Autotest.parse_options
+Autotest.runner.run
