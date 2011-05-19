@@ -1,5 +1,5 @@
 class FollowersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:index, :create, :destroy]
+  before_filter :authenticate_user!
   
   respond_to :html, :json
   
