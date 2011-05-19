@@ -3,10 +3,10 @@ require "ostruct"
 
 module Timeline
   class Event
-    TARGET_ATTRIBUTES = [:id, :name, :created_at]
+    TARGET_ATTRIBUTES = [:id, :name, "class.name", :created_at]
     USER_ATTRIBUTES   = [:id, :name]
     
-    attr_reader :user, :verb, :target, :time
+    attr_reader :user, :verb, :target, :target_type, :time
     
     def self.from(data)
       new :data => data
@@ -20,6 +20,7 @@ module Timeline
         @user   = OpenStruct.new(data[:user])
         @verb   = data[:verb]
         @target = OpenStruct.new(data[:target])
+        @target_type = data[:target_type]
         @time   = data[:time]
       else
         @bind = options[:bind]
@@ -32,7 +33,7 @@ module Timeline
         @target_attributes = options[:attributes] || TARGET_ATTRIBUTES
         @user_attributes   = options[:user_attributes] || USER_ATTRIBUTES
         
-        self.time = @target.created_at || DateTime.now.utc
+        @time = @target.created_at || DateTime.now.utc
       end
     end
     
@@ -41,6 +42,7 @@ module Timeline
         :user   => @user.serializable_hash(:methods => @user_attributes, :only => {}), 
         :verb   => @verb,
         :target => @target.serializable_hash(:methods => @target_attributes, :only => {}),
+        :target_type => @target_type,
         :time   => @time.to_s
       }.to_json
     end
@@ -76,6 +78,7 @@ module Timeline
           nil
       end
       raise ArgumentError, "doesn't know what to do with :user argument: #{object}" if @target.nil?
+      @target_type = @target.class.name
     end
     
     def verb=(object)

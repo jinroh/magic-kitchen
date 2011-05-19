@@ -17,7 +17,7 @@ module Timeline
     end
     
     def empty?
-      Timeline.redis.lrange(self.key, 0, 0).blank?
+      Timeline.redis.lindex(self.key, 0).nil?
     end
     
     def all

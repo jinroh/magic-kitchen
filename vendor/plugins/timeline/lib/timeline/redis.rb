@@ -15,7 +15,7 @@ module Timeline
 
     def redis
       return @redis if @redis
-      self.redis = 'localhost:6379'
+      self.redis = '192.168.0.69:6379'
       self.redis
     end
   
