@@ -44,11 +44,13 @@ module Timeline
       end
 
       def followed_by?(user)
-        Timeline.redis.sismember(self.followers_key, user.id)
+        user = user.is_a?(String) ? user.to_i : user.id
+        Timeline.redis.sismember(self.followers_key, user)
       end
 
       def following?(user)
-        Timeline.redis.sismember(self.following_key, user.id)
+        user = user.is_a?(String) ? user.to_i : user.id
+        Timeline.redis.sismember(self.following_key, user)
       end
 
       def followers_count

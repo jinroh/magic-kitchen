@@ -8,8 +8,8 @@ Magickitchen::Application.routes.draw do
     resources :likes
     resources :cookbook, :controller => :cookbooks
     resources :history,  :controller => :histories
-    resources :followers, :only => [:index, :create, :destroy]
-    resources :following, :only => [:index, :show]
+    resources :followers, :only => [:index, :show]
+    resources :following, :only => [:index, :show, :create, :destroy]
   end
   
   get "/users" => "users#index", :as => :users_index
