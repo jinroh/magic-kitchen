@@ -9,13 +9,18 @@ class LikesController < ApplicationController
     respond_with @likes
   end
   
+  def show
+    @like = Like.by(current_user).for(params[:id])
+    respond_with @like
+  end
+  
   def create
     @like = current_user.likes.build(params)
     respond_with @like
   end
 
   def destroy
-    @like = Like.by(current_user).for(params)
+    @like = Like.by(current_user).for(params[:id])
     respond_with(@like, :location => @like.recipe)
   end
   

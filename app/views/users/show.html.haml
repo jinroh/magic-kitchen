@@ -1,20 +1,20 @@
 %h2= @user.name
 #follow
-	- if user_signed_in? && current_user != @user
-		- if current_user.following?(@user)
-			= form_tag follower_path(@user), :method => :delete do
-				= submit_tag "Unfollow"
-		- else
-			= form_tag followers_path, :method => :post do
-				= hidden_field_tag :id, @user.id
-				= submit_tag "Follow"
+  - if user_signed_in? && current_user != @user
+    - if current_user.following?(@user)
+      = form_tag follower_path(@user), :method => :delete do
+        = submit_tag "Unfollow"
+    - else
+      = form_tag followers_path, :method => :post do
+        = hidden_field_tag :id, @user.id
+        = submit_tag "Follow"
 
 %h3 Public activity
 #activity
-	- activity = @user.my_feed
-	- if activity.empty?
-		%p No recent activity
-	- else
-		%ul
-			- activity.each do |event|
-				%li= link_to(event.user.name, user_path(event.user.id)) + " " + event.verb + " " + link_to(event.target.name, user_path(event.target.id)) + " (" + time_ago_in_words(event.time) + " ago)"
+  - activity = @user.my_feed
+  - if activity.empty?
+    %p No recent activity
+  - else
+    %ul
+      - activity.each do |event|
+        %li= event_feed(event)

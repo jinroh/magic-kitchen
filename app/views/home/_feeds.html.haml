@@ -4,4 +4,4 @@
 	%h4= feed.to_s.humanize
 	%ul
 		- current_user.send(feed).each do |event|
-			%li= link_to(event.user.name, user_path(event.user.id)) + " " + event.verb + " " + link_to(event.target.name, user_path(event.target.id))
+			%li= event_feed(event)
