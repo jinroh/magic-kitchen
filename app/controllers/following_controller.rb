@@ -15,7 +15,7 @@ class FollowingController < ApplicationController
   end
   
   def create
-    @following = User.find(params[:user_id])
+    @following = User.find(params[:follower_id])
     current_user.follow!(@following) unless current_user == @following
     respond_with(@following) do |format|
       format.html { redirect_to @following }
