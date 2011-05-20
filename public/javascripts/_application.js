@@ -10,7 +10,9 @@ steal("jquery.min",
 			"follower", 
 			"following", 
 			"favorite", 
-			"RecipesSearch" //actualy a collection
+			"RecipesSearch", //actualy a collection
+			"history",
+			"RecipeHistory" //actually a collection
 		)
 		.then(function(){
 			var App = {

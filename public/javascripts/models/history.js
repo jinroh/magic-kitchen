@@ -1,4 +1,4 @@
-var History = backbone.Model.extend({
+var History = Backbone.Model.extend({
 	//suelement méthode post authorisé :: save
 	// attirbuts : passer recipe_id
 	base : "/home/history",
@@ -11,7 +11,7 @@ var History = backbone.Model.extend({
 	fetch : function(){
 		//unauthorized
 		return false;
-	}
+	},
 	
 	destroy : function(){
 		//unauthorized
