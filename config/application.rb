@@ -31,7 +31,7 @@ module Magickitchen
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w(rails)
     config.action_view.javascript_expansions[:jquery] = %w(jquery.min jquery-ui.min)
-    config.action_view.javascript_expansions[:fullAjax] = %w(underscore json2 backbone models/recipe.js models/following.js models/follower.js models/like.js collections/RecipesSearch _application)
+    config.action_view.javascript_expansions[:fullAjax] = %w(steal/steal.js?_application.js)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
