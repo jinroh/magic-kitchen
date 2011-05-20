@@ -7,6 +7,7 @@ gem "cancan",                             "~>1.6"
 gem "devise",															"~>1.3"
 gem "haml",                               "~>3.1"
 gem "kaminari",                           "~>0.12"
+gem "mysql"
 gem "redis",                              "~>2.2"
 gem "sqlite3"
 
