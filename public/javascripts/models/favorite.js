@@ -1,5 +1,5 @@
-var Following = Backbone.Model.extend({
-	base : "/home/following",
+var Favorite = Backbone.Model.extend({
+	base : "/home/cookbook",
 	
 	url : function() {
 	      if (this.isNew()) return this.base;
@@ -7,12 +7,12 @@ var Following = Backbone.Model.extend({
 	    },
 	
 	parse : function(resp, xhr){
-		this.id = this.attributes.user_id;
+		this.id = this.attributes.recipe_id;
 		return {value : true};
 	},
 	
-	check : function(user_id){
-		if(user_id) {this.attributes.user_id = user_id;}
+	check : function(recipe_id){
+		if(recipe_id) {this.attributes.recipe_id = recipe_id;}
 		options ={};
 		var model = this;
 	    options.error = function(resp, status, xhr) {
@@ -22,7 +22,7 @@ var Following = Backbone.Model.extend({
 	      };
 	
 		if(this.isNew()) { 
-			options.url = this.base+"/"+this.attributes.user_id;
+			options.url = this.base+"/"+this.attributes.recipe_id;
 		}
 		else {options.url = this.url();}
 		//console.log(options.url);

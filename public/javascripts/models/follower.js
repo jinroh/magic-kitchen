@@ -7,12 +7,12 @@ var Follower = Backbone.Model.extend({
 	    },
 	
 	parse : function(resp, xhr){
-		this.id = this.attributes.follower_id;
+		this.id = this.attributes.user_id;
 		return {value : true};
 	},
 	
-	check : function(follower_id){
-		if(follower_id) {this.attributes.follower_id = follower_id;}
+	check : function(user_id){
+		if(user_id) {this.attributes.user_id = user_id;}
 		options ={};
 		var model = this;
 	    options.error = function(resp, status, xhr) {
@@ -22,7 +22,7 @@ var Follower = Backbone.Model.extend({
 	      };
 	
 		if(this.isNew()) { 
-			options.url = this.base+"/"+this.attributes.follower_id;
+			options.url = this.base+"/"+this.attributes.user_id;
 		}
 		else {options.url = this.url();}
 	//	console.log(options.url);
