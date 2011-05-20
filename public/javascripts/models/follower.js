@@ -25,7 +25,7 @@ var Follower = Backbone.Model.extend({
 			options.url = this.base+"/"+this.attributes.follower_id;
 		}
 		else {options.url = this.url();}
-		console.log(options.url);
+	//	console.log(options.url);
 		this.fetch(options);	
 	},
 });
