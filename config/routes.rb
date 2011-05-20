@@ -7,7 +7,7 @@ Magickitchen::Application.routes.draw do
   scope "/home" do
     resources :likes
     resources :cookbook, :controller => :cookbooks
-    resources :history,  :controller => :histories
+    resources :history,  :controller => :histories, :only => [:index, :show, :create] 
     resources :followers, :only => [:index, :show]
     resources :following, :only => [:index, :show, :create, :destroy]
   end
