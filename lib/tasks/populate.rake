@@ -40,10 +40,9 @@ namespace :db do
     end
     
     (1..USERS).each do |user_id|
-      nb_followers = 
       followers = Array.new(rand(FOLLOWERS) + 1).map{ rand(FOLLOWERS) + 1 }.uniq
       followers.each do |i|
-        following = rand(nb_followers) + 1
+        following = rand(followers.length) + 1
         next if following == user_id
         redis.multi do
           redis.sadd("User:#{user_id}:following", following)

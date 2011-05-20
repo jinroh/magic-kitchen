@@ -2,11 +2,11 @@
 #follow
   - if user_signed_in? && current_user != @user
     - if current_user.following?(@user)
-      = form_tag follower_path(@user), :method => :delete do
+      = form_tag following_path(@user), :method => :delete do
         = submit_tag "Unfollow"
     - else
-      = form_tag followers_path, :method => :post do
-        = hidden_field_tag :id, @user.id
+      = form_tag following_index_path, :method => :post do
+        = hidden_field_tag :user_id, @user.id
         = submit_tag "Follow"
 
 %h3 Public activity

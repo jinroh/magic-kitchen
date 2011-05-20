@@ -11,6 +11,7 @@
 
 class Like < ActiveRecord::Base
   include Timeline::Target
+  attr_accessible :user_id, :recipe_id
   
   default_scope :order => "likes.created_at DESC", :limit => 10
   
@@ -20,6 +21,8 @@ class Like < ActiveRecord::Base
   timeline :verb => "likes",
            :target     => :recipe,
            :attributes => [:id, :name]
-           
+  
+
+  validates_presence_of   :user_id, :recipe_id
   validates_uniqueness_of :user_id, :scope => [:recipe_id]
 end
