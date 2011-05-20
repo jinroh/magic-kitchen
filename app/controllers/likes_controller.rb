@@ -11,12 +11,13 @@ class LikesController < ApplicationController
   
   def show
     @like = Like.by(current_user).for(params[:id])
+    raise ActiveRecord::RecordNotFound if @like.empty?
     respond_with @like
   end
   
   def create
-    @like = current_user.likes.build(params)
-    respond_with @like.save
+    @like = current_user.likes.build(params[:recipe_id]).save
+    respond_with @like
   end
 
   def destroy

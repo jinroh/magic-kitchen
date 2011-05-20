@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.build(params[:recipe])
+    @recipe = current_user.recipes.build(params)
     flash[:notice] = "Your recipe has been added" if @recipe.save
     respond_with @recipe
   end
@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
   end
   
   def update
-    flash[:notice] = "Recipe successfully updated" if @recipe.update_attributes(params[:recipe])
+    flash[:notice] = "Recipe successfully updated" if @recipe.update_attributes(params)
     respond_with @recipe
   end
 
