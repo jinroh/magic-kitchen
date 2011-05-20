@@ -11,7 +11,7 @@ class LikesController < ApplicationController
   
   def show
     @like = Like.by(current_user).for(params[:id]).all.first
-    raise ActiveRecord::RecordNotFound if @like.empty?
+    raise ActiveRecord::RecordNotFound if @like.nil?
     respond_with @like
   end
   
@@ -23,8 +23,8 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.by(current_user).for(params[:id]).all.first
+    raise ActiveRecord::RecordNotFound if @like.nil?
     @like.destroy
-    raise ActiveRecord::RecordNotFound if @like.empty?
     respond_with(@like, :location => @like.recipe)
   end
   
