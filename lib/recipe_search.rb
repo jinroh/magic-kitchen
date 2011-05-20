@@ -9,7 +9,7 @@ module RecipeSearch
     conditions = []
 
     if options.delete :any
-      select.insert 0, "DISTINCT"
+      select.insert 0, "DISTINCT "
       joins  << :base_ingredients
       conditions = list.map { |name| sanitize_sql(["ingredients.name LIKE ?", name]) }.join(" OR ")
 
@@ -19,7 +19,7 @@ module RecipeSearch
                    "SELECT recipes_ingredients.recipe_id FROM recipes_ingredients" + 
                    "  JOIN ingredients" +
                    "    ON recipes_ingredients.ingredient_id = ingredients.id" +
-                   "   AND (#{conditions})"+
+                   "   AND (#{conditions})" +
                    ")"
 
     else

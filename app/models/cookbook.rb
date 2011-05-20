@@ -5,13 +5,13 @@
 #  id         :integer         not null, primary key
 #  user_id    :integer
 #  recipe_id  :integer
-#  event_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Cookbook < ActiveRecord::Base
   include Timeline::Target
+  attr_accessible :user_id, :recipe_id
   
   belongs_to :user
   belongs_to :recipe
@@ -19,7 +19,5 @@ class Cookbook < ActiveRecord::Base
   timeline :verb => "added to his cookbook",
            :target     => :recipe,
            :attributes => [:id, :name]
-  
-  validates_uniqueness_of :user_id, :scope => [:recipe_id]
   
 end

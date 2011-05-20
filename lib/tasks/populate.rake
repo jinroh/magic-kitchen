@@ -6,17 +6,17 @@ namespace :db do
     require "redis"
     
     redis = Redis.connect
-    [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
-    redis.flushdb
+    [User, Recipe, RecipesIngredient, Ingredient, Like, Cookbook, Tagging].map(&:delete_all)
+    # redis.flushdb
     
-    HUGE = false
+    HUGE = true
     
     if HUGE == true
-      USERS               = 500
-      RECIPES             = 300
-      INGREDIENTS         = 50
+      USERS               = 5000
+      RECIPES             = 5000
+      INGREDIENTS         = 1000
       TAGS                = 100
-      FOLLOWERS           = 30
+      FOLLOWERS           = 200
     else
       USERS               = 10
       RECIPES             = 5
@@ -25,9 +25,9 @@ namespace :db do
       FOLLOWERS           = 2
     end
     
-    RECIPES_INGREDIENTS = 3 * RECIPES
-    LIKES               = 6 * USERS
-    TAGGINGS            = 6 * RECIPES
+    RECIPES_INGREDIENTS = 15 * RECIPES
+    LIKES               = 50 * USERS
+    TAGGINGS            = 8 * RECIPES
 
     User.populate USERS do |user|
       user.first_name         = Forgery::Name.first_name
@@ -38,21 +38,25 @@ namespace :db do
       user.created_at         = 2.years.ago..Time.now
     end
     
-    (1..USERS).each do |user_id|
-      followers = Array.new(rand(FOLLOWERS) + 1).map{ rand(FOLLOWERS) + 1 }.uniq
-      followers.each do |i|
-        following = rand(followers.length) + 1
-        next if following == user_id
-        redis.multi do
-          redis.sadd("User:#{user_id}:following", following)
-          redis.sadd("User:#{following}:followers", user_id)
-        end
-      end
-    end
+    puts "Users done"
+    
+    # (1..USERS).each do |user_id|
+    #   followers = Array.new(rand(FOLLOWERS) + 1).map{ rand(FOLLOWERS) + 1 }.uniq
+    #   followers.each do |i|
+    #     following = rand(followers.length) + 1
+    #     next if following == user_id
+    #     redis.multi do
+    #       redis.sadd("User:#{user_id}:following", following)
+    #       redis.sadd("User:#{following}:followers", user_id)
+    #     end
+    #   end
+    # end
     
     Ingredient.populate INGREDIENTS do |ingredient|
       ingredient.name = Populator.words(1..3)
     end
+    
+    puts "Ingredients done"
     
     Recipe.populate RECIPES do |recipe|
       recipe.name     = Populator.words(2..5)
@@ -60,25 +64,35 @@ namespace :db do
       recipe.user_id  = rand(USERS) + 1
     end
     
+    puts "Recipes done"
+    
     RecipesIngredient.populate RECIPES_INGREDIENTS do |assoc|
       assoc.recipe_id = rand(RECIPES) + 1
       assoc.ingredient_id = rand(INGREDIENTS) + 1
     end
+    
+    puts "Recipe's ingredients done"
     
     Like.populate LIKES do |like|
       like.user_id   = rand(USERS) + 1
       like.recipe_id = rand(RECIPES) + 1
     end
     
+    puts "Likes done"
+    
     Tag.populate TAGS do |tag|
       tag.name = Populator.words 1
     end
+    
+    puts "Tags done"
     
     Tagging.populate TAGGINGS do |tagging|
       tagging.taggable_type = "Recipe"
       tagging.taggable_id   = rand(RECIPES) + 1
       tagging.tag_id        = rand(TAGS) + 1
     end
+    
+    puts "Taggings done"
     
   end
 end
