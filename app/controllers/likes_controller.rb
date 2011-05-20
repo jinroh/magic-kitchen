@@ -16,7 +16,7 @@ class LikesController < ApplicationController
   
   def create
     @like = current_user.likes.build(params)
-    respond_with @like
+    respond_with @like.save
   end
 
   def destroy
