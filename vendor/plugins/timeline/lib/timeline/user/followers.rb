@@ -5,7 +5,7 @@ module Timeline
       def follow!(user)
         user = user.is_a?(String) ? user.to_i : user.id
         Timeline.redis.multi do
-          Timeline.redis.sadd(self.following_key, user.id)
+          Timeline.redis.sadd(self.following_key, user)
           Timeline.redis.sadd(user.followers_key, self.id)
         end
       end
@@ -13,7 +13,7 @@ module Timeline
       def unfollow!(user)
         user = user.is_a?(String) ? user.to_i : user.id
         Timeline.redis.multi do
-          Timeline.redis.srem(self.following_key, user.id)
+          Timeline.redis.srem(self.following_key, user)
           Timeline.redis.srem(user.followers_key, self.id)
         end
       end
