@@ -4,8 +4,16 @@ var RecipeHistory = Backbone.Collection.extend({
 		this.recipe_id = recipe_id;
 	},
 	
+	model : History,
+	
 	recipe_id: null,
 	
-	url : "/home/history/"+this.recipe_id,
+	url : function(){
+		return "/home/history/"+this.recipe_id
+	},
 	
+	addHistory : function(){
+		var id = this.recipe_id;
+		this.create({ recipe_id : id});
+	}
 });
