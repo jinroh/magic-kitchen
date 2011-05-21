@@ -7,6 +7,11 @@ MK.Models.Recipe = Backbone.Model.extend({
 				this.addSocial();
 			}
 		}); 
+		this.bind("add", function(event){
+			if(this.id){
+				this.addSocial();
+			}
+		});
 	},
 	
 	addSocial : function(){
