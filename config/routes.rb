@@ -5,8 +5,8 @@ Magickitchen::Application.routes.draw do
   
   get "/home" => "home#dashboard", :as => :user_root
   scope "/home" do
-    resources :likes
-    resources :cookbook, :controller => :cookbooks
+    resources :likes, :only => [:index, :show, :create, :destroy]
+    resources :favorites, :only => [:index, :show, :create, :destroy]
     resources :history,  :controller => :histories, :only => [:index, :show, :create] 
     resources :followers, :only => [:index, :show]
     resources :following, :only => [:index, :show, :create, :destroy]

@@ -5,8 +5,8 @@ namespace :db do
     require "forgery"
     require "redis"
     
-    redis = Redis.connect
-    [User, Recipe, RecipesIngredient, Ingredient, Like, Cookbook, Tagging].map(&:delete_all)
+    # redis = Redis.connect
+    [User, Recipe, RecipesIngredient, Ingredient, Like, Tagging].map(&:delete_all)
     # redis.flushdb
     
     HUGE = true
@@ -29,14 +29,13 @@ namespace :db do
     LIKES               = 50 * USERS
     TAGGINGS            = 8 * RECIPES
 
-    User.populate USERS do |user|
-      user.first_name         = Forgery::Name.first_name
-      user.last_name          = Forgery::Name.last_name
-      user.email              = Forgery::Internet.email_address
-      user.about              = Forgery::LoremIpsum.paragraph
-      user.encrypted_password = Forgery::Basic.encrypt
-      user.created_at         = 2.years.ago..Time.now
-    end
+    # User.populate USERS do |user|
+    #   user.first_name         = Forgery::Name.first_name
+    #   user.last_name          = Forgery::Name.last_name
+    #   user.about              = Forgery::LoremIpsum.paragraph
+    #   user.encrypted_password = Forgery::Basic.encrypt
+    #   user.created_at         = 2.years.ago..Time.now
+    # end
     
     puts "Users done"
     
@@ -52,30 +51,30 @@ namespace :db do
     #   end
     # end
     
-    Ingredient.populate INGREDIENTS do |ingredient|
-      ingredient.name = Populator.words(1..3)
-    end
-    
-    puts "Ingredients done"
-    
-    Recipe.populate RECIPES do |recipe|
-      recipe.name     = Populator.words(2..5)
-      recipe.content  = Populator.paragraphs(2..4)
-      recipe.user_id  = rand(USERS) + 1
-    end
+    # Ingredient.populate INGREDIENTS do |ingredient|
+    #      ingredient.name = Populator.words(1..3)
+    #    end
+    #    
+    #    puts "Ingredients done"
+    #    
+    #    Recipe.populate RECIPES do |recipe|
+    #      recipe.name     = Populator.words(2..5)
+    #      recipe.content  = Populator.paragraphs(2..4)
+    #      recipe.user_id  = rand(USERS) + 1
+    #    end
     
     puts "Recipes done"
     
-    RecipesIngredient.populate RECIPES_INGREDIENTS do |assoc|
-      assoc.recipe_id = rand(RECIPES) + 1
-      assoc.ingredient_id = rand(INGREDIENTS) + 1
+    array = Array.new(RECIPES_INGREDIENTS).map { [rand(RECIPES) + 1, rand(INGREDIENTS) + 1] }.uniq
+    array.each do |a|
+      RecipesIngredient.new(:recipe_id => a[0], :ingredient_id => a[1]).save
     end
     
     puts "Recipe's ingredients done"
     
-    Like.populate LIKES do |like|
-      like.user_id   = rand(USERS) + 1
-      like.recipe_id = rand(RECIPES) + 1
+    array = Array.new(LIKES).map { [rand(USERS) + 1, rand(RECIPES) + 1] }.uniq
+    array.each do |a|
+      Like.new(:user_id => a[0], :recipe_id => a[1]).save
     end
     
     puts "Likes done"

@@ -10,21 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520214831) do
+ActiveRecord::Schema.define(:version => 20110521161411) do
 
   create_table "action_nodes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
     t.string   "action"
     t.integer  "action_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "cookbooks", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "recipe_id"
-    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20110520214831) do
   end
 
   create_table "favorites", :force => true do |t|
-    t.integer  "favorable_id"
-    t.string   "favorable_type"
     t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,17 +51,14 @@ ActiveRecord::Schema.define(:version => 20110520214831) do
     t.datetime "updated_at"
   end
 
-  create_table "ingredients_recipes", :id => false, :force => true do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-  end
-
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "likes", ["user_id", "recipe_id"], :name => "index_likes_on_user_id_and_recipe_id", :unique => true
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -87,14 +76,12 @@ ActiveRecord::Schema.define(:version => 20110520214831) do
   end
 
   create_table "recipes_ingredients", :force => true do |t|
-    t.string   "recipe_id"
-    t.string   "ingredient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "quantity"
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.string  "quantity"
   end
 
-  add_index "recipes_ingredients", ["recipe_id", "ingredient_id"], :name => "index_ingredients_on_recipe_id_and_food_id"
+  add_index "recipes_ingredients", ["recipe_id", "ingredient_id"], :name => "index_recipes_ingredients_on_recipe_id_and_ingredient_id", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -134,16 +121,13 @@ ActiveRecord::Schema.define(:version => 20110520214831) do
   add_index "users", ["last_name"], :name => "index_users_on_lastname"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
-  create_table "users_ingredients", :id => false, :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "primary_key"
-    t.integer  "ingredient_id"
-    t.integer  "weight"
-    t.float    "coeff"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "users_ingredients", :force => true do |t|
+    t.integer "user_id"
+    t.integer "ingredient_id"
+    t.integer "weight"
+    t.float   "coeff"
   end
 
-  add_index "users_ingredients", ["user_id"], :name => "index_users_ingredients_on_user_id"
+  add_index "users_ingredients", ["user_id", "ingredient_id"], :name => "index_users_ingredients_on_user_id_and_ingredient_id", :unique => true
 
 end

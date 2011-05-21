@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_recipes,    :through => :likes,     :source => :recipe
   
-  has_many :cookbooks
-  has_many :favorite_recipes, :through => :cookbooks, :source => :recipe
+  has_many :favorites
+  has_many :favorite_recipes, :through => :favorites, :source => :recipe
   
   has_many :histories
   has_many :cooked_recipes,   :through => :histories, :source => :recipe
