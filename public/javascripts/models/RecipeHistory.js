@@ -15,5 +15,10 @@ var RecipeHistory = Backbone.Collection.extend({
 	addHistory : function(){
 		var id = this.recipe_id;
 		this.create({ recipe_id : id});
+	},
+	
+	check : function(recipe_id){
+		this.recipe_id = recipe_id;
+		this.fetch();
 	}
 });
