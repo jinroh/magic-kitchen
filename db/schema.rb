@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521161411) do
+ActiveRecord::Schema.define(:version => 20110521180827) do
 
   create_table "action_nodes", :force => true do |t|
     t.integer  "user_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20110521161411) do
     t.datetime "updated_at"
   end
 
-  add_index "likes", ["user_id", "recipe_id"], :name => "index_likes_on_user_id_and_recipe_id", :unique => true
+  add_index "likes", ["user_id", "recipe_id"], :name => "index_likes_on_user_id_and_recipe_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20110521161411) do
     t.string  "quantity"
   end
 
-  add_index "recipes_ingredients", ["recipe_id", "ingredient_id"], :name => "index_recipes_ingredients_on_recipe_id_and_ingredient_id", :unique => true
+  add_index "recipes_ingredients", ["recipe_id", "ingredient_id"], :name => "index_recipes_ingredients_on_recipe_id_and_ingredient_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

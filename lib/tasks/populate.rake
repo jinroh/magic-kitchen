@@ -5,9 +5,7 @@ namespace :db do
     require "forgery"
     require "redis"
     
-    redis = Redis.connect
     [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
-    # redis.flushdb
     
     HUGE = false
     
@@ -39,18 +37,6 @@ namespace :db do
     end
     
     puts "Users done"
-    
-    # (1..USERS).each do |user_id|
-    # followers = Array.new(rand(FOLLOWERS) + 1).map{ rand(FOLLOWERS) + 1 }.uniq
-    # followers.each do |i|
-    # following = rand(followers.length) + 1
-    # next if following == user_id
-    # redis.multi do
-    # redis.sadd("User:#{user_id}:following", following)
-    # redis.sadd("User:#{following}:followers", user_id)
-    # end
-    # end
-    # end
     
     Ingredient.populate INGREDIENTS do |ingredient|
       ingredient.name = Populator.words(1..3)
