@@ -5,12 +5,19 @@ steal(
 		"json2",
 		"backbone"
 		)
+		.then(function(){
+			MK = {};
+			MK.Models = {};
+			MK.Collection = {};
+			//alert("d");
+		})
 		.models(
 			"recipe", 
 			"like", 
 			"follower", 
 			"following", 
-			"favorite", 
+			"favorite",
+			"user",
 			"RecipesSearch", //actualy a collection
 			"history",
 			"RecipeHistory" //actually a collection

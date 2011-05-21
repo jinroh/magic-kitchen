@@ -1,4 +1,4 @@
-var Favorite = Backbone.Model.extend({
+MK.Models.Favorite = Backbone.Model.extend({
 	base : "/home/cookbook",
 	
 	url : function() {

@@ -1,4 +1,4 @@
-var Following = Backbone.Model.extend({
+MK.Models.Following = Backbone.Model.extend({
 	base : "/home/following",
 	
 	url : function() {

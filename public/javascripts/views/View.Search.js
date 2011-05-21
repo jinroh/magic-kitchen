@@ -12,4 +12,22 @@ var View.Search = Backbone.View.extend({
 	
 	addAll : function(){
 		this.Recipes.each(this.addOne);
+	},
+	
+	addOne : function(recipe){
+		var like = new Models.Like();
+		like.check(recipe.attributes.recipe_id);
+		
+		var histories = new RecipeHistory();
+		histories.check(recipe.attributes.recipe_id);
+		
+		var favorite = new Favorite();
+		favorite.check(recipe.attributes.recipe_id);
+		
+		var user = new User({id : recipe.attributes.user_id});
+		
+		
+		var view = new View.Recipe({model: todo});
+		this.$("#todo-list").append(view.render().el);
+	}
 });
