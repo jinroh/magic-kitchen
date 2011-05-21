@@ -9,7 +9,7 @@
 #  updated_at :datetime
 #
 
-class Cookbook < ActiveRecord::Base
+class Favorite < ActiveRecord::Base
   include Timeline::Target
   attr_accessible :user_id, :recipe_id
   
