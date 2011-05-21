@@ -1,5 +1,14 @@
 MK.Models.Recipe = Backbone.Model.extend({
 	
+	initialize : function(options){
+		_.bindAll(this, 'addSocial');
+		this.bind("change", function(event){
+			if(this.id){
+				this.addSocial();
+			}
+		}); 
+	},
+	
 	addSocial : function(){
 	
 		
@@ -27,6 +36,7 @@ MK.Models.Recipe = Backbone.Model.extend({
 			this.author.addSocial()
 		}
 	},
+
 	
 	url : function() {
 	      var base = '/recipes';
