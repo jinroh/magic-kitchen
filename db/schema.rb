@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513110715) do
+ActiveRecord::Schema.define(:version => 20110520214831) do
 
   create_table "action_nodes", :force => true do |t|
     t.integer  "user_id"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20110513110715) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "recipes", :force => true do |t|
     t.string   "name"
     t.text     "content"
@@ -126,5 +133,17 @@ ActiveRecord::Schema.define(:version => 20110513110715) do
   add_index "users", ["first_name"], :name => "index_users_on_firstname"
   add_index "users", ["last_name"], :name => "index_users_on_lastname"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+
+  create_table "users_ingredients", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "primary_key"
+    t.integer  "ingredient_id"
+    t.integer  "weight"
+    t.float    "coeff"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users_ingredients", ["user_id"], :name => "index_users_ingredients_on_user_id"
 
 end

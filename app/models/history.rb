@@ -19,5 +19,4 @@ class History < ActiveRecord::Base
   timeline :verb => "has done the recipe",
            :target     => :recipe,
            :attributes => [:id, :name]
-             
 end

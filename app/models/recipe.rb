@@ -35,6 +35,10 @@ class Recipe < ActiveRecord::Base
   def ingredients=(list)
     @ingredients_list = list.map { |value| Ingredient.new(:name => value[:name]) }
   end
+  
+  def can_edit
+    :true
+  end
 
   private
   def save_ingredients
