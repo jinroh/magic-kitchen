@@ -1,4 +1,4 @@
-var History = Backbone.Model.extend({
+MK.Models.History = Backbone.Model.extend({
 	//suelement méthode post authorisé :: save
 	// attirbuts : passer recipe_id
 	base : "/home/history",

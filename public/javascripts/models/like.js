@@ -1,4 +1,4 @@
-var Like = Backbone.Model.extend({
+MK.Models.Like = Backbone.Model.extend({
 	base : "/home/likes",
 	
 	url : function() {

@@ -1,10 +1,10 @@
-var RecipeHistory = Backbone.Collection.extend({
+MK.Collection.RecipeHistory = Backbone.Collection.extend({
 	
-	initialize : function(recipe_id){
-		this.recipe_id = recipe_id;
+	initialize : function(options){
+		this.recipe_id = options.recipe_id;
 	},
 	
-	model : History,
+	model : MK.Models.History,
 	
 	recipe_id: null,
 	
@@ -18,7 +18,7 @@ var RecipeHistory = Backbone.Collection.extend({
 	},
 	
 	check : function(recipe_id){
-		this.recipe_id = recipe_id;
+		if (recipe_id) {this.recipe_id = recipe_id;}
 		this.fetch();
 	}
 });

@@ -1,10 +1,10 @@
-var RecipesSearch = Backbone.Collection.extend({
+MK.Collection.RecipesSearch = Backbone.Collection.extend({
 	initialize : function(){
 		this.withCollection = new Backbone.Collection();
 		this.withoutCollection = new Backbone.Collection();
 	},
 	
-	model : Recipe,
+	model : MK.Models.Recipe,
 	
 	url : "/recipes",
 	
