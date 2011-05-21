@@ -20,6 +20,4 @@ class History < ActiveRecord::Base
            :target     => :recipe,
            :attributes => [:id, :name]
            
-  validates_uniqueness_of :user_id, :scope => [:recipe_id]
-  
 end

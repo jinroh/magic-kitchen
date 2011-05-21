@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :load_recipe, :except => [:index, :new, :create]
+  before_filter :recipe_params, :only => [:create, :update] 
   authorize_resource
   
   respond_to :html, :json
@@ -10,6 +11,7 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:with])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
+  
     respond_with @recipes
   end
   
@@ -21,8 +23,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.build(params)
-    flash[:notice] = "Your recipe has been added" if @recipe.save
+    @recipe = current_user.recipes.build(@recipe_params)
+    flash[:notice] = "Your recipe has been added" if @recipe.save!
     respond_with @recipe
   end
   
@@ -36,7 +38,7 @@ class RecipesController < ApplicationController
   end
   
   def update
-    flash[:notice] = "Recipe successfully updated" if @recipe.update_attributes(params)
+    flash[:notice] = "Recipe successfully updated" if @recipe.update_attributes(@recipe_params)
     respond_with @recipe
   end
 
@@ -49,5 +51,9 @@ class RecipesController < ApplicationController
   
   def load_recipe
     @recipe = Recipe.find(params[:id])
+  end
+  
+  def recipe_params
+    @recipe_params = params[:recipe] || params
   end
 end
