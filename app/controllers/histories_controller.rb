@@ -16,7 +16,7 @@ class HistoriesController < ApplicationController
   
   def create
     @history = current_user.histories.build(:recipe_id => params[:recipe_id])
-    @history.save
+    @history.save!
     respond_with @history
   end
   
