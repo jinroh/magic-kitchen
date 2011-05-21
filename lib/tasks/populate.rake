@@ -6,7 +6,7 @@ namespace :db do
     require "redis"
     
     redis = Redis.connect
-    [User, Recipe, RecipesIngredient, Ingredient, Like, Cookbook, Tagging].map(&:delete_all)
+    [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
     # redis.flushdb
     
     HUGE = false
