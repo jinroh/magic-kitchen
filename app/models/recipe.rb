@@ -36,12 +36,12 @@ class Recipe < ActiveRecord::Base
     @ingredients_list = list.map { |value| Ingredient.new(:name => value[:name]) }
   end
   
-  def can_edit
-    :true
+  def can_edit!
+    @can_edit = true
   end
   
-  def cannot_edit
-    :false
+  def can_edit
+    @can_edit.nil? ? false : true
   end
 
   private

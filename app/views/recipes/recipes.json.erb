@@ -1,0 +1,7 @@
+<%- json_recipes = [] %>
+<%- @recipes.each do |recipe| %>
+  <%- recipe.can_edit! if can? :edit, recipe %>
+  <%- json_recipes << recipe.to_json(:include => :ingredients, :methods => [:tag_counts, :can_edit]) %>
+<% end %>
+
+[<%= json_recipes.join(",").html_safe %>]

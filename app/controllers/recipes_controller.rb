@@ -11,40 +11,53 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:with])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
-  
-    respond_with @recipes
+    respond_with @recipes do |format|
+      format.json { render 'recipes' }
+    end
   end
   
   def new
     @recipe = Recipe.new
     @recipe.ingredients.build
     
-    respond_with @recipe
+    respond_with @recipe do |format|
+      format.json { render 'recipe' }
+    end
   end
 
   def create
     @recipe = current_user.recipes.build(@recipe_params)
     flash[:notice] = "Your recipe has been added" if @recipe.save!
-    respond_with @recipe
+    respond_with @recipe do |format|
+      format.json { render 'recipe' }
+    end
   end
   
   def show
-    respond_with @recipe
+    respond_with @recipe do |format|
+      format.json { render 'recipe' }
+    end
   end
   
   def edit
     @recipe.ingredients.build
-    respond_with @recipe
+    respond_with @recipe do |format|
+      format.json { render 'recipe' }
+    end
   end
   
   def update
     flash[:notice] = "Recipe successfully updated" if @recipe.update_attributes(@recipe_params)
-    respond_with @recipe
+    respond_with @recipe do |format|
+      format.json { render 'recipe' }
+    end
   end
 
   def destroy
     flash[:notice] = "Recipe successfully deleted" if @recipe.destroy
-    respond_with(@recipe, :location => user_root_path)
+    respond_with(@recipe, :location => user_root_path) do |format|
+      format.json { render 'recipe' }
+    end
   end
   
   private

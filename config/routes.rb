@@ -1,7 +1,7 @@
 Magickitchen::Application.routes.draw do
   root :to => "home#index"
   
-  devise_for :users, :path => "user"
+  devise_for :users, :path => "/home/user"
   
   get "/home" => "home#dashboard", :as => :user_root
   scope "/home" do

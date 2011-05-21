@@ -81,10 +81,4 @@ class User < ActiveRecord::Base
     super(SERIALIZABLE.merge(options))
   end
   
-  delegate :can?, :cannot?, :to => :ability
-  
-  def ability
-    @ability ||= Ability.new(self)
-  end
-  
 end
