@@ -39,6 +39,10 @@ class Recipe < ActiveRecord::Base
   def can_edit
     :true
   end
+  
+  def cannot_edit
+    :false
+  end
 
   private
   def save_ingredients
