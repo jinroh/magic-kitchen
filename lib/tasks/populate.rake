@@ -16,11 +16,11 @@ namespace :db do
       TAGS = 100
       FOLLOWERS = 200
     else
-      USERS = 10
-      RECIPES = 5
-      INGREDIENTS = 5
-      TAGS = 3
-      FOLLOWERS = 2
+      USERS = 30
+      RECIPES = 50
+      INGREDIENTS = 10
+      TAGS = 10
+      FOLLOWERS = 10
     end
     
     RECIPES_INGREDIENTS = 15 * RECIPES

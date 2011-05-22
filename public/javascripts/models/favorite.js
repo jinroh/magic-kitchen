@@ -1,5 +1,5 @@
 MK.Models.Favorite = Backbone.Model.extend({
-	base : "/home/favorite",
+	base : "/home/favorites",
 	
 	url : function() {
 	      if (this.isNew()) return this.base;

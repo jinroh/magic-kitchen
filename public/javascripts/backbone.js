@@ -440,6 +440,7 @@
     // Add a model, or list of models to the set. Pass **silent** to avoid
     // firing the `added` event for every new model.
     add : function(models, options) {
+	//console.log("add")
       if (_.isArray(models)) {
         for (var i = 0, l = models.length; i < l; i++) {
           this._add(models[i], options);
@@ -498,11 +499,14 @@
     // you can refresh the entire set with a new list of models, without firing
     // any `added` or `removed` events. Fires `refresh` when finished.
     refresh : function(models, options) {
+	//console.log("refresh");
       models  || (models = []);
       options || (options = {});
       this.each(this._removeReference);
       this._reset();
-      this.add(models, {silent: true});
+      this.add(models 
+				//,{silent: true}
+				);
       if (!options.silent) this.trigger('refresh', this, options);
       return this;
     },

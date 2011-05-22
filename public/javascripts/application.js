@@ -9,6 +9,7 @@ steal(
 			MK = {};
 			MK.Models = {};
 			MK.Collection = {};
+			MK.Views = {};
 			//alert("d");
 		})
 		.models(

@@ -73,7 +73,7 @@ MK.Collection.RecipesSearch = Backbone.Collection.extend({
 			processData : true
 		}, options);
 		
-		
+	//	console.log(params.add);
 		this.fetch(params);
 	}
 	
