@@ -7,15 +7,18 @@ Magickitchen::Application.routes.draw do
   scope "/home" do
     resources :likes, :only => [:index, :show, :create, :destroy]
     resources :favorites, :only => [:index, :show, :create, :destroy]
-    resources :history,  :controller => :histories, :only => [:index, :show, :create] 
+    resources :history,  :controller => :histories, :only => [:index, :show, :create]
+    
     resources :followers, :only => [:index, :show]
     resources :following, :only => [:index, :show, :create, :destroy]
+    
+    resources :feeds, :only => [:index]
   end
   
   get "/users" => "users#index", :as => :users_index
   resources :user, :controller => :users, :only => [:index, :show], do
     member do
-      get :following, :followers
+      get :following, :followers, :feeds
     end
   end
   

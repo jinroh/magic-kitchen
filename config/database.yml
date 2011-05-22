@@ -7,14 +7,14 @@ development:
   timeout: 5000
   encoding: utf8    
 # development:
-#   host: 192.168.0.69
+#   host: 192.168.0.12
 #   port: 3306
 #   adapter: mysql
 #   encoding: utf8
-#   database: magickitchen
+#   database: magic_kitchen
 #   pool: 5
-#   username: root
-#   password: biatch
+#   username: mk
+#   password: magic_kitchen
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

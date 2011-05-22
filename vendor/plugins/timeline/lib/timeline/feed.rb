@@ -54,6 +54,14 @@ module Timeline
       "Feed:#{feed_name.to_s}:User:#{user_id.to_s}"
     end
     
+    def to_json(options={})
+      [].tap do |array|
+        each do |event|
+          array << event.to_json
+        end
+      end
+    end
+    
     private
     def followers=(followers)
       @followers = case followers
