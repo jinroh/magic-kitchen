@@ -20,6 +20,11 @@ class UsersController < ApplicationController
     respond_with @following
   end
   
+  def feeds
+    @feeds = @user.my_feed
+    respond_with @feeds
+  end
+  
   private
   def load_user
     @user = User.find(params[:id])

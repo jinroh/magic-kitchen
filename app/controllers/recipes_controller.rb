@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    debugger
     @recipe = current_user.recipes.build(@recipe_params)
     flash[:notice] = "Your recipe has been added" if @recipe.save!
     respond_with @recipe do |format|
