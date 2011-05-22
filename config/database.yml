@@ -5,7 +5,7 @@ development:
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
-  encoding: utf8    
+  encoding: utf8
 # development:
 #   host: 192.168.0.12
 #   port: 3306

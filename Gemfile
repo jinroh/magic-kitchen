@@ -8,6 +8,7 @@ gem "devise",															"~>1.3"
 gem "haml",                               "~>3.1"
 gem "kaminari",                           "~>0.12"
 gem "redis",                              "~>2.2"
+# gem "mysql"
 gem "sqlite3"
 
 # TODO

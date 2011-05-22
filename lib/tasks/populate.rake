@@ -7,12 +7,12 @@ namespace :db do
     
     [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
     
-    HUGE = false
+    HUGE = true
     
     if HUGE == true
-      USERS = 5000
+      USERS = 500
       RECIPES = 5000
-      INGREDIENTS = 1000
+      INGREDIENTS = 500
       TAGS = 100
       FOLLOWERS = 200
     else
@@ -23,9 +23,9 @@ namespace :db do
       FOLLOWERS = 2
     end
     
-    RECIPES_INGREDIENTS = 15 * RECIPES
-    LIKES = 50 * USERS
-    TAGGINGS = 8 * RECIPES
+    # RECIPES_INGREDIENTS = 15 * RECIPES
+    # LIKES = 50 * USERS
+    # TAGGINGS = 8 * RECIPES
 
     User.populate USERS do |user|
       user.first_name = Forgery::Name.first_name
@@ -52,17 +52,17 @@ namespace :db do
     
     puts "Recipes done"
     
-    RecipesIngredient.populate RECIPES_INGREDIENTS do |assoc|
-      assoc.recipe_id = rand(RECIPES) + 1
-      assoc.ingredient_id = rand(INGREDIENTS) + 1
-    end
+    # RecipesIngredient.populate RECIPES_INGREDIENTS do |assoc|
+    #   assoc.recipe_id = rand(RECIPES) + 1
+    #   assoc.ingredient_id = rand(INGREDIENTS) + 1
+    # end
     
     puts "Recipe's ingredients done"
     
-    Like.populate LIKES do |like|
-      like.user_id = rand(USERS) + 1
-      like.recipe_id = rand(RECIPES) + 1
-    end
+    # Like.populate LIKES do |like|
+    #       like.user_id = rand(USERS) + 1
+    #       like.recipe_id = rand(RECIPES) + 1
+    #     end
     
     puts "Likes done"
     
@@ -72,11 +72,11 @@ namespace :db do
     
     puts "Tags done"
     
-    Tagging.populate TAGGINGS do |tagging|
-      tagging.taggable_type = "Recipe"
-      tagging.taggable_id = rand(RECIPES) + 1
-      tagging.tag_id = rand(TAGS) + 1
-    end
+    # Tagging.populate TAGGINGS do |tagging|
+    #   tagging.taggable_type = "Recipe"
+    #   tagging.taggable_id = rand(RECIPES) + 1
+    #   tagging.tag_id = rand(TAGS) + 1
+    # end
     
     puts "Taggings done"
     
