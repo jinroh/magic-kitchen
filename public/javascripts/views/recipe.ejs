@@ -9,19 +9,19 @@
 
 								<div class="recipe_likes">
 									<% if((typeof isFavorite == 'undefined')? false : isFavorite) {%>
-									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
+									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
 									<% } 
 									else {%>
-									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" height="26px" width="26px"/></br>
+									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" height="26px" width="26px"/></br>
 									<% } %>
 
-									<img title="Cooked !" src='check.png' class="check_pic" height="26px" width="26px"/>
+									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
 
 									<% if((typeof isLiked == 'undefined')? false : isLiked) {%>
-										<div title="Unlike !" id="like_pic"><img src='dislike.png' height="26px" width="53px"/><span class="ok"></span></div>
+									<img title="Unlike !" class="like_pic" src='/images/dislike.png' height="26px" width="53px"/><span class="ok"></span>
 									<% } 
 								 	else {%>
-										<div title="Like !" id="like_pic"><img src='like.jpg' height="26px" width="53px"/><span class="ok"></span></div>
+									<img title="Like !" class="like_pic"src='/images/like.jpg' height="26px" width="53px"/><span class="ok"></span>
 									<% } %>
 
 								</div>	
