@@ -1,4 +1,5 @@
 var View.Search = Backbone.View.extend({
+	el : $('#caroussel_ul'),
 	
 	initialize : function(){
 		this.Recipes = new Collection.RecipesSearch();
@@ -15,19 +16,6 @@ var View.Search = Backbone.View.extend({
 	},
 	
 	addOne : function(recipe){
-		var like = new Models.Like();
-		like.check(recipe.attributes.recipe_id);
 		
-		var histories = new RecipeHistory();
-		histories.check(recipe.attributes.recipe_id);
-		
-		var favorite = new Favorite();
-		favorite.check(recipe.attributes.recipe_id);
-		
-		var user = new User({id : recipe.attributes.user_id});
-		
-		
-		var view = new View.Recipe({model: todo});
-		this.$("#todo-list").append(view.render().el);
 	}
 });
