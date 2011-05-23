@@ -7,5 +7,5 @@ class ApplicationController < ActionController::Base
   def error_403
     render :file => "#{Rails.public_path}/errors/403.html", :status => 403, :layout => false
   end
-
+  
 end

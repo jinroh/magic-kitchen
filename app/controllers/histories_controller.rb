@@ -1,4 +1,4 @@
-class Home::HistoriesController < ApplicationController
+class HistoriesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
   

@@ -1,4 +1,4 @@
-class Home::FavoritesController < ApplicationController
+class FavoritesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
 

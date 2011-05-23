@@ -4,7 +4,7 @@ Magickitchen::Application.routes.draw do
   devise_for :users, :path => "/home/user"
   
   get "/home" => "home#dashboard", :as => :user_root
-  namespace :home do
+  scope "/home" do
     resources :likes, :only => [:index, :show, :create, :destroy]
     resources :favorites, :only => [:index, :show, :create, :destroy]
     resources :history,  :controller => :histories, :only => [:index, :show, :create]
