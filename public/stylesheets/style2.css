@@ -760,6 +760,13 @@ footer p {
 	opacity:.50;
 }
 
+.star_pic .opacity {
+	filter:alpha(opacity=40);
+	-moz-opacity:.50;
+	opacity:.50;
+}
+
+
 .like_pic { 
 	display: block;
 	height: "26px";
@@ -798,21 +805,21 @@ footer p {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('/images//images/unfollow.png');
+	background: url('unfollow.png');
 }
 
 .recipe_from .foll_pic .following {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('/images/following.png');
+	background: url('following.png');
 }
 
 .recipe_from .follow {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('/images/follow.png');
+	background: url('follow.png');
 }
 
 .recipe_from .posted {
