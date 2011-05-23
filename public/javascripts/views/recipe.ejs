@@ -1,4 +1,4 @@
-							<% if(can_edit) {%>
+							<% if((typeof can_edit == 'undefined')? false : can_edit) {%>
 								<div class="edit">	
 									<h2><a  href="#inner_content_edit" rel="ibox&height=450&width=850title='Edit your Recipe'">EDIT</a><h2>								
 								</div>
@@ -8,20 +8,20 @@
 								<div class="recipe_pic"></div>
 
 								<div class="recipe_likes">
-									<% if((typeof isFavorite != 'undefined') && isFavorite) {%>
-									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
+									<% if((typeof isFavorite == 'undefined')? false : isFavorite) {%>
+									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
 									<% } 
 									else {%>
-									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" height="26px" width="26px"/></br>
+									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" height="26px" width="26px"/></br>
 									<% } %>
 
-									<img title="Cooked !" src='check.png' class="check_pic" height="26px" width="26px"/>
+									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
 
-									<% if((typeof isLiked != 'undefined') && isLiked) {%>
-										<div title="Unlike !" id="like_pic"><img src='dislike.png' height="26px" width="53px"/><span class="ok"></span></div>
+									<% if((typeof isLiked == 'undefined')? false : isLiked) {%>
+									<img title="Unlike !" class="like_pic" src='/images/dislike.png' height="26px" width="53px"/><span class="ok"></span>
 									<% } 
 								 	else {%>
-										<div title="Like !" id="like_pic"><img src='like.jpg' height="26px" width="53px"/><span class="ok"></span></div>
+									<img title="Like !" class="like_pic"src='/images/like.jpg' height="26px" width="53px"/><span class="ok"></span>
 									<% } %>
 
 								</div>	
@@ -29,9 +29,9 @@
 							<div class="recipe_title"><h2><%= name %><h2></div>
 						
 							<div class="recipe_from">
-								<div class="posted">posted by : <span class="name"><a><%= author.name %></a></span></div> 
+								<div class="posted">posted by : <span class="name"><a><%= (typeof author.name == 'undefined')? "" : author.name %></a></span></div> 
 
-							<% if(author && author.isFollowed) {%> 
+							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.isFollowed == 'undefined')? false :author.isFollowed)) {%> 
 								<img class="following" height="26px" width="64px"/>	
 							<% } 
 							else {%>
@@ -41,9 +41,9 @@
 
 							<div class="recipe_when">
 								<p>Already cooked ? 
-								<% if(history.length>0) {%>  
+								<% if(((typeof history.length == 'undefined')? false : true) && (history.length>0)) {%>  
 									<span class="yes">Yes, on the 
-									<%= history[0].created_at%>
+									<%= (typeof history[0].created_at == 'undefined')? "" : history[0].created_at%>
 									</span>
 								<% }
 								else {%> <span class="no">No, try it !</span>
@@ -55,7 +55,7 @@
 								<div class="accordionButton">Ingredients</div> 
 								<div class="accordionContent">
 											<% for(var i=0; i<ingredients.length; i++) {%>
-												<div class="trigger"><%= ingredients[i].name%></div> 
+												<div class="trigger"><%= (typeof ingredient[i].name == 'undefined')? "" : ingredients[i].name%></div> 
 												<div class="accordContent">
 														<a href=""><div class="topp" data-ingredient='<%= i %>'>Don't show recipes with :</div></a>
 														<a href=""><div class="bott" data-ingredient='<%= i %>'>Show only recipes with :</div></a>
@@ -64,11 +64,11 @@
 								</div> 
 								<div class="accordionButton">Recipe</div> 
 								<div class="accordionContent" class="content_recipe">
-									<%= content%>
+									<%= (typeof content == 'undefined')? "" : content%>
 								</div>
 								<div class="accordionButton">Tags</div> 
 								<div class="accordionContent" class="content_recipe">
-									<% tag_counts.join(" - ") %>
+									<% (typeof tag_counts == 'undefined')? "" : tag_counts.join(" - ") %>
 								</div>
 
 							</div>
