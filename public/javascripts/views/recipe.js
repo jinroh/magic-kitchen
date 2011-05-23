@@ -18,8 +18,10 @@ MK.Views.Recipe = Backbone.View.extend({
 	events : {
 		"click .like_pic"		: "clickLike",
 		"click .check_pic"		: "clickDone",
-		"click .star_pic"	: "clickFavorite",
+		"click .star_pic"		: "clickFavorite",
 		"click .foll_pic"		: "clickFollow"
+		"click .topp"			: "addWith",
+		"click .bott"			: "addWitout"
 	// 	// 	//event edit handle by route controler
 	},
 	
