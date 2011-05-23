@@ -1,0 +1,23 @@
+<div id="inner_content_edit" style="display:none;">
+    	<h3>Edit your Recipe !</h3>
+    <div id='new_recipe_form'></div> 
+
+    <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
+
+	<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Qe0f9W39uAkRCipXBCBEzTyj2EFKstDhgwyrt7dK6O0=" /></div> 
+
+      <p><label for="recipe_name"><%= (typeof name == 'undefined')? "" : name%></label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></p> </br>
+      <p><label for="recipe_ingredients">Ingredients</label> </br>
+          <input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text" /> 
+	  </p></br>
+      <p><label for="recipe_content">Recipe</label></br><textarea cols="50" id="recipe_content" name="recipe[content]" rows="20"><%= (typeof name == 'undefined')? "" : content%></textarea></p></br>
+      <div class='ui-widget'> 
+        <p><label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""><% tag_counts.join(" - ") %></input></p> 
+      </div> 
+      <p> </br></br>
+        <input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
+        <input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
+      </p> 
+    </form> 
+
+</div>
