@@ -798,21 +798,21 @@ footer p {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('unfollow.png');
+	background: url('/images//images/unfollow.png');
 }
 
 .recipe_from .foll_pic .following {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('following.png');
+	background: url('/images/following.png');
 }
 
 .recipe_from .follow {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
-	background: url('follow.png');
+	background: url('/images/follow.png');
 }
 
 .recipe_from .posted {
