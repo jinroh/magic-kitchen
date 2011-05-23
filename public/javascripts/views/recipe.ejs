@@ -1,0 +1,76 @@
+							<% if(can_edit) {%>
+								<div class="edit">	
+									<h2><a  href="#inner_content_edit" rel="ibox&height=450&width=850title='Edit your Recipe'">EDIT</a><h2>								
+								</div>
+							<% } %>
+
+							<div class="recipe_top">
+								<div class="recipe_pic"></div>
+
+								<div class="recipe_likes">
+									<% if((typeof isFavorite != 'undefined') && isFavorite) {%>
+									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
+									<% } 
+									else {%>
+									<img title="Add to my CookBook !" src='star.jpg' class="star_pic" height="26px" width="26px"/></br>
+									<% } %>
+
+									<img title="Cooked !" src='check.png' class="check_pic" height="26px" width="26px"/>
+
+									<% if((typeof isLiked != 'undefined') && isLiked) {%>
+										<div title="Unlike !" id="like_pic"><img src='dislike.png' height="26px" width="53px"/><span class="ok"></span></div>
+									<% } 
+								 	else {%>
+										<div title="Like !" id="like_pic"><img src='like.jpg' height="26px" width="53px"/><span class="ok"></span></div>
+									<% } %>
+
+								</div>	
+							</div>
+							<div class="recipe_title"><h2><%= name %><h2></div>
+						
+							<div class="recipe_from">
+								<div class="posted">posted by : <span class="name"><a><%= author.name %></a></span></div> 
+
+							<% if(author && author.isFollowed) {%> 
+								<img class="following" height="26px" width="64px"/>	
+							<% } 
+							else {%>
+								<img class="follow" height="26px" width="64px"/>	
+							<% } %>
+							</div>
+
+							<div class="recipe_when">
+								<p>Already cooked ? 
+								<% if(history.length>0) {%>  
+									<span class="yes">Yes, on the 
+									<%= history[0].created_at%>
+									</span>
+								<% }
+								else {%> <span class="no">No, try it !</span>
+								<% } %>
+								</p>
+							</div>							
+
+							<div class="wrapper"> 
+								<div class="accordionButton">Ingredients</div> 
+								<div class="accordionContent">
+											<% for(var i=0; i<ingredients.length; i++) {%>
+												<div class="trigger"><%= ingredients[i].name%></div> 
+												<div class="accordContent">
+														<a href=""><div class="topp">Don't show recipes with :</div></a>
+														<a href=""><div class="bott">Show only recipes with :</div></a>
+												</div> 
+											<% } %>
+								</div> 
+								<div class="accordionButton">Recipe</div> 
+								<div class="accordionContent" class="content_recipe">
+									<%= content%>
+								</div>
+								<div class="accordionButton">Tags</div> 
+								<div class="accordionContent" class="content_recipe">
+									<% for(var i=0; i<tag_counts.length; i++) { %>
+										<%= tag_counts[i].name%>, 
+									<% } %>
+								</div>
+
+							</div>

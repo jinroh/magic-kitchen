@@ -3,7 +3,9 @@ steal(
 	//	"jquery.min",  <-- ne pas charger jquery après rails.js 
 		"underscore", 
 		"json2",
-		"backbone"
+		"backbone",
+		"ejs"
+	//	"ejs_production"
 		)
 		.then(function(){
 			MK = {};
@@ -23,6 +25,9 @@ steal(
 			"history",
 			"RecipeHistory" //actually a collection
 		)
+		.then(
+			"views/recipe"
+			)
 		.then(function(){
 			var App = {
 			    Views: {},

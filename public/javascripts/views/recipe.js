@@ -1,25 +1,36 @@
 MK.Views.Recipe = Backbone.View.extend({
 	
-	tagName : "",
-	className : "",
-	id : "",
+	//template : new EJS({url : '/javascripts/views/recipe.ejs'}),
 	
-	initialize : function(){
-		//passer {model : recipeinstance} en argument
-		//TODO binder les changements sur les models
-		
+	
+	tagName : "li",
+	//className : "recipe",
+ //	id : "",
+	// 
+	initialize : function(options){
+		this.template = new EJS({url : '/javascripts/views/recipe.ejs'}); 
+	//	passer {model : recipeinstance} en argument
+		this.id = "recipe"+options.model.id;
+	//TODO binder les changements sur les models
+	
 	},
-	
+	// 
 	events : {
-		"click .like-button"		: "clickLike",
-		"click .done-button"		: "clickDone",
-		"click .favorite-button"	: "clickFavorite",
-		"click .follow-button"		: "clickFollow"
-		//event edit handle by route controler
+		"click .like_pic"		: "clickLike",
+		"click .check_pic"		: "clickDone",
+		"click .star_pic"	: "clickFavorite",
+		"click .foll_pic"		: "clickFollow"
+	// 	// 	//event edit handle by route controler
 	},
 	
-	clikLike : function(){
-		if(!this.model.like.attribute.value){
+	render : function(){
+		var data = this.model.toJSON();
+		$(this.el).html(this.template.render(data));
+		return this;
+	},
+	
+	clickLike : function(){
+		if(!this.model.like.attributes.value){
 			this.model.like.save();
 		}
 		else{
@@ -32,7 +43,7 @@ MK.Views.Recipe = Backbone.View.extend({
 	},
 	
 	clickFavorite : function(){
-		if(!this.model.favorite.attribute.value){
+		if(!this.model.favorite.attributes.value){
 			this.model.favorite.save();
 		}
 		else{
@@ -41,11 +52,11 @@ MK.Views.Recipe = Backbone.View.extend({
 	},
 	
 	clickFollow : function(){
-		if(!this.model.user.following.attribute.value){
-			this.model.user.following.save();
+		if(!this.model.author.following.attributes.value){
+			this.model.author.following.save();
 		}
 		else{
-			this.model.user.following.destroy();
+			this.model.author.following.destroy();
 		}
 	}
 	
