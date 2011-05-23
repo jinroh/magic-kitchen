@@ -11,7 +11,7 @@ class HistoriesController < ApplicationController
   
   def show
     @histories = current_user.histories.for(params[:id])
-    respond_with @histories
+    respond_with(@histories)
   end
   
   def create
