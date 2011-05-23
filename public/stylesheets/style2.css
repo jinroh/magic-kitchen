@@ -1,0 +1,1477 @@
+
+body {
+	display: block;
+	margin: auto;
+	padding: 0px;
+	width : 1050px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838383;
+	z-index: 1;
+}
+
+
+h1, h2, h4 {
+	margin: 0;
+	font-weight: normal;
+	color:  #CC0000;
+}
+
+
+h1 {
+	font-size: 44px;
+}
+
+
+h2 {
+	font-size: 18px;
+}
+
+
+h4 {
+	font-size: 15px;
+}
+
+p, ul {
+	margin-top: 0;
+	line-height: 240%;
+	text-align: justify;
+	list-style-type: none;
+}
+
+
+a {
+	color: #3B3B3B;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #6B6B6B;
+}
+
+img {
+	display: block;
+	margin: auto;
+	border: none;
+}
+
+a img {
+	border: none;
+	float: left;
+}
+
+
+
+/* Header */
+
+#up {
+	display: block;
+	float:left;
+	width: 1050px;
+	margin-bottom: 20px;
+	padding-top: 5px;
+	background: #CC0000;
+	border: 1px solid #CC0000;
+	border-radius: 0px 0px 6px 6px;
+}
+
+/* Navigation */
+
+nav {
+	display: block;
+	float: left;
+	width : 120px;
+	height: 182px;
+	margin-bottom: 20px; 
+	background: #CC0000;
+	border-radius: 3px 0px 0px 3px;
+}
+
+#filter {
+	display: block;
+	float: left;
+	width : 120px;
+	height: 182px;
+	margin-left: -125px;
+	margin-top: 250px;
+	margin-bottom: 20px; 
+	background: white;
+	border: 1px solid #CCF000;
+	border-radius: 3px 0px 0px 3px;
+}
+
+#filter .searched {
+	text-align: left;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 2px;
+	font-size: 14px;
+	float: left;
+	width : 120px;
+	border-bottom: 1px solid #888;
+
+}
+
+#filter .searched_name {
+	text-align: left;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 2px;
+	font-size: 14px;
+	float: left;
+	width : 120px;
+}
+
+#filter .searched_without {
+	text-align: left;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 2px;
+	font-size: 14px;
+	float: left;
+	width : 120px;
+}
+
+#filter .searched_with {
+	text-align: left;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 2px;
+	font-size: 14px;
+	float: left;
+	width : 120px;
+}
+
+
+
+
+nav ul {
+	margin-left: 10px;
+	padding: 0px;
+	list-style: none;
+	line-height: normal;
+	margin-top: 1px;
+}
+
+nav li {
+	display: block;
+	float: left;
+	text-align: center;
+	margin-top: -1px;
+	margin-left: -12px;
+	padding-top: 9px;
+	padding-bottom: 6px;
+	padding-right: 12px;
+	padding-left: 11px;
+}
+
+nav li:hover {
+	text-decoration:underline;
+
+}
+
+nav li a {
+	display: block;
+	margin: 0px 0px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	text-align: left;
+	text-transform: lowercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+
+nav li a:hover {
+
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.utab {
+	display: block;
+	width: 120px;
+	color: white;
+}
+
+
+ul.tabs li.active { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	color: #CC0000; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+ul.tabs li.active a, ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	color: #CC0000; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+
+/* Contenu */
+
+section {
+	display: block;
+	float: left;
+	width: 1050px;
+	margin-bottom: 30px;
+}
+
+
+#content {
+	display: block;
+	float: left;
+	width: 1050px;
+	margin-bottom: 30px;
+}
+
+
+#search {
+	display: block;
+	float: left;
+	width: 1050px;
+	height: 28px;
+}
+
+#presentation {
+	display: block;
+	float: left;
+	width: 1050px;
+	margin-top: 24px;
+	border:none;
+}
+
+#jointoday {
+	display: block;
+	float: right;
+	width: 350px;
+	border-radius: 6px;
+	border: 1px solid #CC0000;
+}
+
+
+#uphead {
+	display: block;
+	background: #CC0000;;
+	color: #FFFFFF;
+	margin-bottom: 5px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+#uphead h2 {
+	color: #FFFFFF;
+	text-align : center;
+}
+
+#formbox p.action{
+	margin-left: 43px;
+}
+
+#formbox p.already{
+	margin-left: 43px;
+}
+
+#formbox label {
+	font-size:14px;
+	font-weight:normal;
+	line-height:20px;
+	border:none;
+	color:#88847D;
+}
+
+#search_box {
+	display: block;
+	float: left;
+	width: 750px;
+	height: 30px;
+}
+
+
+#search_box .input-search label {
+	display:block;
+	font-size:14px;
+	font-style:italic;
+	font-weight:normal;
+	line-height:20px;
+	border:none;
+	color:#88847D;
+	height:20px;
+	left:50px;
+	top:9px;
+}
+
+#input_q {
+	display:block;
+	float: left;
+}
+
+#input_w {
+	display:block;
+	float: left;
+}
+
+
+input {
+	display:block;
+	background:none;
+	font-size:24px;
+	font-style:italic;
+	font-weight:normal;
+	line-height:28px;
+	padding-left: 7px;
+	border:1px #CC0000;
+	color:#FF3333;
+	height:40px;
+	top:20px;
+	background: #FFFFCC;
+}
+
+input._submit {
+	display:block;
+	background: #CC0000;
+	padding-left: 6px;
+	padding-top: 5px;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-style: normal;
+}
+
+input.fieldgroup {
+	display:block;
+	background:none;
+	font-size:20px;
+	font-style:italic;
+	font-weight:normal;
+	line-height:24px;
+	padding-left: 3px;
+	color:#a8a8a7;
+	height:30px;
+	top:20px;
+	background: #f0f0ef;
+}
+
+input._submit:hover {
+	box-shadow: 0px 0px 2px 2px #c4c2bf;
+	cursor: pointer;  
+	cursor: hand;  
+}
+
+
+input.joinnow {
+	display:block;
+	background: #CC0000;
+	padding-left: 6px;
+	padding-top: 5px;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-style: normal;
+}
+
+input.joinnow:hover {
+	box-shadow: 0px 0px 2px 2px #c4c2bf;
+}
+
+
+
+#q {
+	display: block;
+	width: 400px;
+	border-radius: 2px;
+}
+
+#w {
+	display: block;
+	margin-left: 15px;
+	width: 200px;
+	border-radius: 2px;
+}
+
+#button_search {
+	margin-left: 7px;
+	padding-top: 2px;
+	float: left;
+	width: 50px;
+	height: 29px; 
+}
+
+#button_add {
+	display: block;
+	float: right;
+	margin-top: 2px;
+}
+
+.or {
+	font-size:40px;
+
+	font-weight:normal;
+	padding-left: 3px;
+	color:#a8a8a7;
+
+}
+
+
+.tab_container {
+	display: block;
+	float: right;
+	width: 925px;
+	background: #fff;
+}
+
+.tab_content {
+	padding: 0px;
+	font-size: 1.2em;
+}
+
+
+
+
+/* Footer */
+
+footer {
+	margin-top: 15px;
+	display: block;
+	width: 1050px;
+	height: 30px;
+	float : left;
+	padding: 0;
+	border-top: 1px solid #E0E0E0;
+}
+
+
+footer p {
+	margin-top: 10px;
+	padding: 0px;
+	text-align: center;
+	line-height: normal;
+	font-size: 12px;
+}
+
+/*Profile Items */
+
+#profileLinks {
+
+    margin-top: 14px;
+    margin-bottom: -2px;
+    color: #f77a74;
+    z-index: 0;
+}
+
+#profileLinks ul {
+    float: right;
+    display: block;
+}
+
+#profileLinks .profileItem {
+    float: right;
+    display: block;
+    overflow: hidden;
+
+}
+
+#profileLinks .profile-link {
+    display: block;
+	margin-top: 2px;
+    height: 15px;
+    line-height: 15px;
+    padding: 3px 7px 5px 5px;
+    font-size: 11px;
+    color: #eee;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#profileLinks .profile-link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#profileLinks .divider a {
+    background-position: right -510px;
+    background-repeat: no-repeat;
+}
+
+#loginLink .profile-link {
+    height: 23px;
+	display: block;
+    padding: 0 3px 0 0;
+    background-position: right -360px;
+    background-repeat: no-repeat;
+    color: #eee;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right;
+    vertical-align: middle;
+    cursor: pointer;
+    text-shadow: #870802 0 1px 0;
+    overflow: hidden;
+}
+
+#loginLink .profile-link strong {
+    height: 19px;
+    padding: 1px 5px 3px 8px;
+    background-position: left -360px;
+    background-repeat: no-repeat;
+    display: -moz-inline-box;
+    display: inline-block;
+    line-height: 19px;
+    vertical-align: top;
+}
+
+/** ID Badger */
+
+#idBadger {
+	margin-top: 3px;
+    margin-left: 4px;
+}
+
+#idBadgerUser {
+    display: block;
+    font-size: 15px;
+    height: 15px;
+    line-height: 12px;
+    padding: 4px 7px 7px 7px;
+    color: #eee;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: #870802 0 1px 0;
+}
+
+#idBadgerUser:hover {
+    color: #fff;
+}
+
+#idBadgerUser img {
+    display: block;
+	margin-top: -3px;
+    top: 5px;
+    left: 5px;
+    height: 16px;
+    width: 16px;
+	border-radius: 2px;
+	margin-right: 6px;
+}
+
+
+/* CAROUSEL */
+
+
+#carousel_container {
+	display: block;
+	float: right;
+	width: 930px;
+	z-index: 3;
+
+}
+
+
+#carousel_inner {  
+	position: relative;
+	float:left;
+	width:870px;  
+	overflow: hidden; 
+	background: #FFFFFF;
+	z-index: 8;
+  	
+}  
+  
+#carousel_ul {  
+	position:relative;  
+	left:0px;
+	list-style-type: none;
+	margin: 0px; 
+	padding: 0px;  
+	width: 100000px; /* important */  
+	padding-bottom:10px;  
+	z-index: 9;
+	
+}  
+  
+#carousel_ul li {  
+	float: left; /* important for inline positioning of the list items */  
+	width:278px;  /* fixed width, important */  
+	padding:0px;  
+	background: #FFFFFF;  
+	margin-bottom:10px;  
+	margin-left:5px;  
+	margin-right:5px; 
+	border: 1px solid #CFF000;
+	border-radius: 4px; 
+	z-index: 10;
+}  
+  
+#carousel_ul li img {  
+	.margin-bottom:-4px; /* IE is making a 4px gap bellow an image inside of an anchor (<a href...>) so this is to fix that*/  
+	/* styling */  
+	cursor:pointer;  
+	cursor: hand;  
+	border:0px;  
+}  
+
+#left_scroll, #right_scroll{  
+	float:left;  
+	height:550px;  
+	width:30px;  
+	background: #FFFFFF;  
+	z-index: 5;
+}  
+
+#left_scroll img, #right_scroll img{  
+	margin-top: 200px;
+	cursor: pointer;  
+	cursor: hand;  
+	z-index: 7;
+}  
+
+#carousel_container_cb {
+	display: block;
+	float: right;
+	width: 930px;
+	z-index: 3;
+
+}
+
+
+#carousel_inner_cb {  
+	position: relative;
+	float:left;
+	width:870px;  
+	overflow: hidden; 
+
+	background: #FFFFFF;
+	z-index: 8;
+  	
+}  
+  
+#carousel_ul_cb {  
+	position:relative;  
+	left:0px;
+	list-style-type: none;
+	margin: 0px; 
+	padding: 0px;  
+	width: 100000px; /* important */  
+	padding-bottom:10px;  
+	z-index: 9;
+	
+}  
+  
+#carousel_ul_cb li {  
+	float: left; /* important for inline positioning of the list items */  
+	width:278px;  /* fixed width, important */  
+	padding:0px;  
+	background: #FFFFFF;  
+	margin-bottom:10px;  
+	margin-left:5px;  
+	margin-right:5px; 
+	border: 1px solid #CFF000;
+	border-radius: 4px; 
+	z-index: 10;
+}  
+  
+#carousel_ul_cb li img {  
+	.margin-bottom:-4px; /* IE is making a 4px gap bellow an image inside of an anchor (<a href...>) so this is to fix that*/  
+	/* styling */  
+	cursor:pointer;  
+	cursor: hand;  
+	border:0px;  
+}  
+
+#left_scroll_cb, #right_scroll_cb{  
+	float:left;  
+	height:550px;  
+	width:30px;  
+	background: #FFFFFF;  
+	z-index: 5;
+}  
+
+#left_scroll_cb img, #right_scroll_cb img{  
+	margin-top: 200px;
+	cursor: pointer;  
+	cursor: hand;  
+	z-index: 7;
+}  
+
+
+
+/* RECIPE CONTENT  */
+
+.recipe_pic {
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 6px;
+	display: block;
+	float: left;
+	width: 200px;
+	height: 100px;
+	border: 1px solid #dcd3d4;
+	border-radius: 2px;
+}
+
+.recipe_title {
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 4px;
+	display: block;
+	float: left;
+	width: 264px;
+	height: 50px;
+}
+
+.recipe_title h2 {
+	color: black;
+	line-height: 22px;
+	font-style:italic;
+	letter-spacing: 0px;
+	font-family: Georgia, Arial, Helvetica, sans-serif;
+}
+
+.recipe_likes {
+	margin-left: 2px;
+	margin-right: 4px;	
+	margin-top: 8px;
+	display: block;
+	float: right;
+	width: 60px;
+	height: 30px;
+}
+
+.recipe_likes img {
+	display: block;
+	margin-top: 5px;
+	float: left;	
+}
+
+.recipe_likes img:hover {
+	filter:alpha(opacity=40);
+	-moz-opacity:.50;
+	opacity:.50;
+	cursor: pointer;  
+	cursor: hand;  
+}
+
+.opacity {
+	filter:alpha(opacity=40);
+	-moz-opacity:.50;
+	opacity:.50;
+}
+
+.like_pic { 
+	display: block;
+	height: "26px";
+	width: "53px";
+}
+
+
+.recipe_from {
+	margin-left: 6px;
+	margin-right: 6px;	
+	margin-top: 
+2px;
+	display: block;
+	float: left;
+	width: 264px;
+	height: 33px;
+	border-top: 1px solid #dcd3d4;
+	border-bottom: 1px solid #dcd3d4;
+
+}
+
+.recipe_from img{
+	float: left;
+	margin-top: 3px;
+	margin-left: 10px;
+
+}
+
+.recipe_from img:hover{
+	filter:alpha(opacity=50);
+	-moz-opacity:.50;
+	opacity:.50;
+}
+
+.recipe_from .foll_pic .following:hover {
+	float: left;
+	margin-top: 3px;
+	margin-left: 10px;
+	background: url('unfollow.png');
+}
+
+.recipe_from .foll_pic .following {
+	float: left;
+	margin-top: 3px;
+	margin-left: 10px;
+	background: url('following.png');
+}
+
+.recipe_from .follow {
+	float: left;
+	margin-top: 3px;
+	margin-left: 10px;
+	background: url('follow.png');
+}
+
+.recipe_from .posted {
+	float: left;
+}
+
+.recipe_from a {
+	text-decoration:underline;
+	cursor: pointer;  
+	cursor: hand; 
+}
+
+.recipe_when {
+	margin-left: 6px;
+	margin-right: 6px;	
+	margin-top: 2px;
+	float: left;
+	width: 264px;
+	height: 33px;
+	border-bottom: 1px solid #dcd3d4;
+	word-spacing: 1px; 
+
+}
+
+.recipe_when{
+	float: left;
+	word-spacing: 1px; 
+	font-size: 13px;
+}
+
+.recipe_when span.yes{
+	word-spacing: 1px; 
+	font-size: 13px;
+	color: #339900;
+	text-decoration: underline;
+
+}
+
+.recipe_when span.no{
+	word-spacing: 1px; 
+	font-size: 13px;
+	color: #CC0000;
+	text-decoration: underline;
+
+}
+
+.recipe_ingredients {
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 4px;
+	display: block;
+	float: left;
+	width: 264px;
+	height: 50px;
+}
+
+.ingredient_name {
+	margin-top: 2px;
+	display: block;
+	float: left;
+	width: 264px;
+	height: 30px;
+	background: #CFF000;
+
+}
+
+ul .ingredients {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width:260px;
+}
+
+
+#carousel_ul li .ingr { 
+	display: block; 
+	float: left;  
+	border: none;
+	margin: none;
+	padding: none;
+	width:248px;
+	height: 28px; 
+	background: #f2fbbf;   
+	border-radius: 1px 1px 1px 1px;
+}  
+
+
+
+/* ACCORDION */
+
+.wrapper {
+	display: block;
+	width: 268px;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 5px;
+	float: left;
+	}
+
+.accordionButton {	
+	width: 264px;
+	float: left;
+	_float: none; 
+	background: #CFF000;
+	border-bottom: 1px solid #FFFFFF;
+	margin-bottom: 5px;
+	border-radius: 2px 2px 2px 2px;
+	padding-left: 5px;
+	color: #339900;
+	cursor: pointer;
+	}
+	
+.accordionContent {	
+	width: 250px;
+	float: left;
+	background: #FFFFFF;
+	padding: 5px;
+	margin-right:5px;	
+}
+
+.accordionContent .content_recipe {	
+	width: 240px;
+	float: left;
+	_float: none; 
+	background: #FFFFFF;
+	padding-top: 4px;
+	background: #f2fbbf;
+}
+   
+.over {
+	background: #CCCCCC;
+	}
+
+
+
+.trigger {
+    display: block;
+	float: left;
+	margin-top: 2px;
+	height: 25px;
+	width: 250px;
+	border-radius: 2px 2px 2px 2px;
+	background: #f2fbbf;
+	padding-left: 11px;
+	font-size: 15px;
+	padding-bottom: 4px;
+}
+
+.accordContent {
+	width: 235px;
+	float: left;
+	background: #FFFFFF;
+	padding-left: 5px;
+	margin-left:10px;	
+	border: 1px solid  #f2fbbf;
+	border-radius: 0px 0px 6px 6px;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.topp {
+	width: 232px;
+	float: left;
+	height: 25px;
+	background: #FFFFFF;
+	padding-left: 0px;
+	margin-left:0px;	
+	border-bottom: 1px solid  #f2fbbf;
+	padding-bottom: 10px;
+
+}
+
+.bott {
+	width: 232px;
+	float: left;
+	height: 23px;
+	padding-bottom: 10px;	
+	margin-top: -3px;
+
+}
+
+.bott, .topp {
+	text-decoration: none;
+}
+
+.edit{
+	height: 30px;
+	width: 150px;
+	display: none;
+	z-index: 10000;
+	padding-left: 100px;
+}
+
+.edit H2{
+	color: #878787;
+}
+
+.test {  
+	float: left; /* important for inline positioning of the list items */  
+	width:276px;  /* fixed width, important */  
+	padding:0px;  
+	background: #FFFFFF;  
+	z-index: 10;
+	position: relative;
+	border-radius: 4px;
+}  
+
+.test:hover .edit{
+	background: black;
+	position: relative;
+	display: block;
+	background: #f2fbbf;
+	float: left;
+	margin-left: 13px;
+	cursor:pointer;
+	z-index: 1000;
+	border-radius: 0px 0px 6px 6px;
+	}
+
+
+#ibox_wrapper {
+    line-height: 25px;
+	width: 800px;
+	border: 1px solid #CC0000;
+	border-radius: 4px;
+}
+
+#ibox_wrapper, #ibox_footer_wrapper a { 
+	background-color:#fff; 
+}
+
+#ibox_content { 
+	background-color:#fff; border:0; 
+}
+
+#ibox_footer_wrapper {
+    padding: 3px;
+    bottom: 8px;
+    top: auto;
+}
+
+#inner_content {
+	background:#ffffff;
+	color:#888;
+	font-size: 15px;
+}
+
+#inner_content_edit {
+	background:#ffffff;
+	color:#888;
+	font-size: 15px;
+}
+
+
+#inner_content p{
+	float: left;
+}
+
+#inner_content_edit p{
+	float: left;
+}
+
+
+#inner_content label{
+	float: left;
+}
+
+#inner_content_edit label{
+	float: left;
+}
+
+#recipe_name {
+	color:#888;
+	font-size: 15px;
+	height: 30px;
+}
+
+#recipe_content {
+	color:#888;
+	font-size: 15px;
+	font-family: Georgia, Arial, Helvetica, sans-serif;
+	border-radius: 2px;
+	border: 1px solid #CFF000;
+	float: left;
+}
+
+#inner_content input{
+	font-size: 15px;
+	height: 30px;
+	float: left;
+}
+
+#inner_content_edit input{
+	font-size: 15px;
+	height: 30px;
+	float: left;
+}
+
+#recipe_tags_list {
+	margin-left: 15px;
+	float: left;
+	color:#888;
+	font-size: 15px;
+	height: 30px;
+}
+
+#ibox_content {
+	background:#ffffff;
+	color:#888;	
+	margin-top: 0px;
+}
+
+#recipe_submit {
+	background:  #CFF000;
+	color: white;
+	cursor: pointer;
+}
+#recipe_cancel {
+	background:  #CC0000;
+	color: white;
+	cursor: pointer;
+}
+
+#ibox_footer_wrapper {
+	display: none; 
+}
+
+
+/*//////////////////////////////////////*/
+
+/* PROFILE */
+
+#profile {
+	display: block; 
+	float: left;
+	width: 925px;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+#profile header {
+	padding-top: 3px;
+	display block;
+	float: auto;
+	height: 25px;
+	color: #339900; 	
+	background: #CFF000; 
+	border-radius: 4px 4px 0px 0px;
+	text-align:center;
+	font-size: 14px;
+
+}
+
+#profile header h2{
+	color: #339900;
+}
+
+
+#profile_left {
+	display: block; 
+	float: left;
+	width: 560px;
+	margin-left: 10px;
+}
+
+#infos_perso {
+	display: block; 
+	float: left;
+	width: 560px;
+	height: 200px;
+}
+
+#infos_perso .my_pic{
+	display: block; 
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin-left: 10px;
+	border: 1px solid #888;
+}
+
+#infos_perso .my_desc{
+	display: block; 
+	float: left;
+	width: 370px;
+	height: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#infos_perso .my_desc .my_name{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+	line-height: 30px;
+}
+
+#my_cookbook{
+	display: block; 
+	float: left;
+	border-radius: 6px;
+	width: 555px;
+	height: 400px;
+}
+
+.in_my_cookbook{
+	display: block; 
+	float: left;
+	width: 550px;
+	height: 74px;
+	border-bottom: 1px solid #D4D4D4;
+}
+
+.in_my_cookbook_pic {
+	display: block; 
+	float: left;
+	width: 120px;
+	height: 64px;
+	border: 1px solid #CFF000;
+	margin: 4px
+}
+
+#profile_right {
+	display: block; 
+	float: left;
+	border-left: 1px solid #CFF000; 
+	border-right: 1px solid #CFF000; 
+	border-radius: 6px 6px 0px 0px;
+	width: 350px;
+}
+
+#my_feeds {
+	display: block; 
+	float: left;
+	width: 350px;
+	height: 200px;
+}
+
+.feed {
+	display: block;
+	height: 34px;
+	float: auto;
+	width: 350px;
+	border-bottom: 1px solid #D4D4D4;
+}
+
+.feed .lastfeed {
+	display: block;
+	border: none;
+}	
+
+
+#my_followers {
+	display: block; 
+	float: left;
+	border-radius: 10px;
+	width: 350px;
+	height: 200px;
+}
+
+.one_follow{
+	display: block;
+	float: left;
+	height: 50px;
+	width: 110px;
+	margin: 2px;
+}
+
+.one_follow-pic{
+	display: block;
+	float: left;
+	height: 48px;
+	width: 48px;
+	border: 1px solid #D4D4D4;
+	margin: 1px;
+}
+
+.one_follow-name{
+	display: block;
+	float: right;
+	height: 48px;
+	width: 56px;
+	color: #339900; 	
+	font-size: 11px;
+	padding-top: 15px;
+}
+
+#my_followings {
+	display: block; 
+	float: left;
+	border-radius: 10px 10px 0px 0px;
+	width: 350px;
+	height: 200px;
+}
+
+/*//////////////////////////////////////*/
+
+/* HOME */
+
+#home {
+	display: block; 
+	float: left;
+	width: 925px;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+#home header {
+	padding-top: 3px;
+	display block;
+	float: auto;
+	height: 25px;
+	color: #339900; 	
+	background: #CFF000; 
+	border-radius: 4px 4px 0px 0px;
+	text-align:center;
+	font-size: 14px;
+
+}
+
+#home header h2{
+	color: #339900;
+}
+
+
+#home_left {
+	display: block; 
+	float: left;
+	width: 560px;
+	margin-left: 0px;
+}
+
+#welcome {
+	display: block; 
+	float: left;
+	width: 570px;
+	height: 55px;
+}
+
+#welcome p{
+	float: left;
+	height: 25px;
+}
+
+
+#welcome .my_desc{
+	display: block; 
+	float: left;
+	width: 370px;
+	height: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#welcome .my_desc .my_name{
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+
+}
+
+#my_following_feeds{
+	display: block; 
+	float: left;
+	border-radius: 6px;
+	width: 555px;
+	height: 360px;
+}
+
+.one_following_feed{
+	display: block; 
+	float: left;
+	width: 550px;
+	height: 65px;
+	border-bottom: 1px solid #D4D4D4;
+}
+
+.one_following_feed_pic {
+	display: block; 
+	float: left;
+	width: 120px;
+	height: 55px;
+	border: 1px solid #CFF000;
+	margin: 4px
+}
+
+#home_right {
+	display: block; 
+	float: left;
+	border-left: 1px solid #CFF000; 
+	border-right: 1px solid #CFF000; 
+	border-radius: 6px 6px 0px 0px;
+	width: 350px;
+}
+
+#recomended_recipes {
+	display: block; 
+	float: left;
+	width: 350px;
+	height: 282px;
+}
+
+.recomended_recipe {
+	display: block;
+	height: 50px;
+	float: auto;
+	width: 350px;
+	border-bottom: 1px solid #D4D4D4;
+}
+
+.recomended_recipe_pic {
+	display: block;
+	height: 42px;
+	float: left;
+	width: 60px;
+	margin: 3px;
+	border: 1px solid #D4D4D4;
+}
+
+.feed .lastfeed {
+	display: block;
+	border: none;
+}	
+
+
+#recomended_followings {
+	display: block; 
+	float: left;
+	border-radius: 10px;
+	width: 350px;
+	height: 200px;
+}
+
+.one_follow{
+	display: block;
+	float: left;
+	height: 50px;
+	width: 110px;
+	margin: 2px;
+}
+
+.one_follow-pic{
+	display: block;
+	float: left;
+	height: 48px;
+	width: 48px;
+	border: 1px solid #D4D4D4;
+	margin: 1px;
+}
+
+.one_follow-name{
+	display: block;
+	float: right;
+	height: 48px;
+	width: 56px;
+	color: #339900; 	
+	font-size: 11px;
+	padding-top: 15px;
+}

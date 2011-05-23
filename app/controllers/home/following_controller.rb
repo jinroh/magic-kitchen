@@ -1,4 +1,4 @@
-class FollowingController < ApplicationController
+class Home::FollowingController < ApplicationController
   before_filter :authenticate_user!
   
   respond_to :html, :json

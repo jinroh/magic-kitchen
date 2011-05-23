@@ -1,9 +1,14 @@
 %head
-	%meta(charset="utf-8")
-	%title Magic|Kitchen
-	
-	= stylesheet_link_tag "style", "jquery-ui"
-	= csrf_meta_tag
+  %meta(charset="utf-8")
+  %meta{:name => "description", :content => "The Magic Kitchen"}
 
-	= javascript_include_tag :jquery, :defaults, :fullAjax
-	
+  %title The Magic Kitchen
+
+  - if user_signed_in?
+    = stylesheet_link_tag "style2"
+  - else
+    = stylesheet_link_tag "style"
+
+  = csrf_meta_tag
+
+  = javascript_include_tag :jquery, :defaults, :fullAjax

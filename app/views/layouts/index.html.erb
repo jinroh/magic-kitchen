@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="The Magic Kitchen" />
+
+	<title>The Magic Kitchen</title>
+
+    <%= csrf_meta_tag %>
+  	<%= javascript_include_tag :jquery, :defaults, :fullAjax %>
+    <%= stylesheet_link_tag "style", "jquery-ui" %>
+
+	<link rel="stylesheet" type="text/css" href="style2.css" media="screen" />
+
+</head>
+
+
+<header id="up">
+	<a rel="Home" href="home.html"><img src="reverse.png" alt="TMK"/></a>
+	        <div id="profileLinks"> 
+            <ul> 
+				<li class="profileItem"> 
+					<div id="idBadger"> 
+                        <a href="/user/Pioupioup" id="idBadgerUser" title=""><img src="http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_small.png" width="16" height="16" />Pioupioup</a><a href="/user/Pioupioup" id="idBadgerDropper" title=""></a> 
+
+                    </div> 
+                </li> 
+                <li id="logoutLink" class="profileItem"> 
+                    <a href="/login/logout?shake-it-all-about" class="profile-link">Déconnexion</a> 
+                </li> 
+			</ul> 
+        </div> 
+</header>
+
+<section>
+
+	<div id="search">
+		<div id="search_box"> 
+			<form id="form_search" method="get" action="/" class="_form" onsubmit="querySubmit(this);return false;"> 
+
+				<div id="input_q" class="input-search"> 
+					<input type="text" id="q" value="Search for what you want to cook..." type="text" size="24"/> 
+				</div> 
+
+				<div id="input_w" class="input-search"> 
+					<input type="text" id="w" value="Without" type="text" size="28"/> 
+				</div> 
+
+				<div id="button_search"> 
+					<input type="submit" class="_submit" data-submit='' value="Find"><a rel="recipes" href="#recipes"></a></input> 
+				</div> 
+			</form> 
+		</div> 
+
+
+		<div id="button_add"> 
+			<a  href="#inner_content" rel="ibox&height=450&width=850title='Add a Recipe'"><input type="submit" class="_submit" data-submit='' value="Add a Recipe" /></a>
+		</div> 
+
+	</div>
+
+</section>
+
+<div id="content">
+	<nav>
+	   <ul class="tabs">
+	   <li class="utab"><a rel = "Home" href="#home">Home</a></li>
+	   <li class="utab"><a rel = "Profile" href="#profile">Profile</a></li>
+	   <li class="utab"><a rel = "CookBook" href="#cookbook">Cook Book</a></li>
+	   <li class="utab"><a rel = "Contacts" href="#contacts">contacts</a></li>
+	   <li class="utab"><a rel="recipes" href="#recipes">Forum</a></li>  
+	   </ul>
+	</nav>
+
+
+	<div class="tab_container">
+		<div id="home" class="tab_content">
+		</div>
+		<div id="profile" class="tab_content">
+		</div>
+		<div id="cookbook" class="tab_content">
+		</div>
+		<div id="contacts" class="tab_content">
+		</div>
+		<div id="forum" class="tab_content">
+		</div>
+
+		<div id="recipes" class="tab_content">
+		</div>
+	</div>
+</div>
+
+<div id="inner_content" style="display:none;">
+    	<h3>Add a Recipe !</h3>
+    <div id='new_recipe_form'></div> 
+
+    <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
+
+	<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Qe0f9W39uAkRCipXBCBEzTyj2EFKstDhgwyrt7dK6O0=" /></div> 
+
+      <p><label for="recipe_name">Name</label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></p> </br>
+      <p><label for="recipe_ingredients">Ingredients</label> </br>
+          <input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text" /> 
+	  </p></br>
+      <p><label for="recipe_content">Recipe</label></br><textarea cols="50" id="recipe_content" name="recipe[content]" rows="20"></textarea></p></br>
+      <div class='ui-widget'> 
+        <p><label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""><% for(var i=0; i<tag_counts.length; i++) {tag_counts[i]%> , <% } %></input></p> 
+      </div> 
+      <p> </br></br>
+        <input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
+        <input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
+      </p> 
+    </form> 
+
+</div>
+
+
+
+<footer>
+<p>Copyright ©
+<time datetime="2011-05-20">2011 - The Melody</time>
+</p>
+</footer>
+
+</body>
+</html>
+

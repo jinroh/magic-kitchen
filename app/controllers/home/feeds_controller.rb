@@ -1,4 +1,4 @@
-class FeedsController < ApplicationController
+class Home::FeedsController < ApplicationController
   before_filter :authenticate_user!
   
   respond_to :html, :json

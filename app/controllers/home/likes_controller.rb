@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Home::LikesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
   

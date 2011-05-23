@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class Home::FavoritesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
 
@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Like.by(current_user).for(params[:id]).all.first
+    @favorite = Favorite.by(current_user).for(params[:id]).all.first
     raise ActiveRecord::RecordNotFound if @favorite.nil?
     @favorite.destroy
     respond_with(@favorite, :location => @favorite.recipe)

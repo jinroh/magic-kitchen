@@ -41,6 +41,13 @@ class User < ActiveRecord::Base
   has_many :histories
   has_many :cooked_recipes,   :through => :histories, :source => :recipe
   
+  # TODO
+  # has_many :recs
+  # has_many :recs_recipes,     :through => :recs,      :source => :recipe
+  def recs_recipes
+    [Recipe.first]
+  end
+  
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
@@ -58,7 +65,6 @@ class User < ActiveRecord::Base
   
   timeline :my_feed, :self
   timeline :following_feed, :followers_ids
-  timeline :friends_feed, :friends_ids
   timeline :general_feed, :all
   
   def to_s

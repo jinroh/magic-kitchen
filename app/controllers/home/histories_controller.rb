@@ -1,4 +1,4 @@
-class HistoriesController < ApplicationController
+class Home::HistoriesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
   
@@ -18,10 +18,6 @@ class HistoriesController < ApplicationController
     @history = current_user.histories.build(:recipe_id => params[:recipe_id])
     @history.save
     respond_with @history
-  end
-  
-  def as_json
-    
   end
   
 end

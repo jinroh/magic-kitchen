@@ -1,0 +1,23 @@
+<section>
+
+	<div id="search">
+		<% form_tag recipes_path, :method => "get" do %>
+		  <div id="input_q" class="input-search"> 
+		    <%= text_field_tag :with, params[:with], :value => "Search for what you want to cook...", :size => 24, :id => "q"  %>
+		  </div>
+		  
+		  <div id="input_w" class="input-search">
+		    <%= text_field_tag :without, params[:without], :value => "Without",  :size => 28, :id => "w",  %>
+		  </div>
+		  
+		  <div id="button_search">
+		    <%= submit_tag "Find", :name => nil, :class => "_submit" %>
+			</div>
+		<% end %>
+
+		<div id="button_add"> 
+			<a  href="#inner_content" rel="ibox&height=450&width=850title='Add a Recipe'"><input type="submit" class="_submit" data-submit='' value="Add a Recipe" /></a>
+		</div>
+	</div>
+
+</section>

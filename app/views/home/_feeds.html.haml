@@ -1,7 +1,0 @@
-%h3 Your feeds
-
-- current_user.all_feeds.each do |feed|
-	%h4= feed.to_s.humanize
-	%ul
-		- current_user.send(feed).each do |event|
-			%li= event_feed(event)

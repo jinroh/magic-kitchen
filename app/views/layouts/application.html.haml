@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 %html
-	=render "layouts/head"
-	%body
-		=render "layouts/userbar"
-	
-		%h1 magic|kitchen
-		= content_tag(:div, flash[:error], 	:id => "flash_error") if flash[:error]
-		= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
-		= content_tag(:div, flash[:alert], 	:id => "flash_alert") if flash[:alert]
-		= yield
+  =render "layouts/head"
+  %body
+    - if user_signed_in?
+      = render "layouts/header_signed_up"
+    - else
+      = render "layouts/header"
+
+    = yield
+
+    %footer
+      %p 
+        Copyright ©
+        %time{:datetime => "2011-05-20"} 2011 - The Melody

@@ -1,0 +1,15 @@
+<header id="up">
+	<%= link_to image_tag("reverse.png"), root_path %>
+    <div id="profileLinks"> 
+    <ul> 
+			<li class="profileItem"> 
+				<div id="idBadger"> 
+           <%= link_to image_tag("http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_small.png") + current_user.name, user_root_path %>
+        </div>
+      </li> 
+      <li id="logoutLink" class="profileItem"> 
+        <%= link_to("Sign out", destroy_user_session_path) %>
+      </li> 
+		</ul> 
+  </div> 
+</header>

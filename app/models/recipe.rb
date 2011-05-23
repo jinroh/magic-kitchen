@@ -14,7 +14,7 @@ class Recipe < ActiveRecord::Base
   extend RecipeSearch
   include Timeline::Target
   
-  after_save :save_ingredients
+  before_save :create_ingredients
   
   attr_accessible :name, :content, :ingredients, :tag_list
 
@@ -45,8 +45,8 @@ class Recipe < ActiveRecord::Base
   end
 
   private
-  def save_ingredients
-    return if @ingredients_list.nil?
+  def create_ingredients
+    return if (@ingredients_list.nil? || @ingredients_list.empty?)
     saved_ingredients = Ingredient.find_or_create_all_with_like_by_name(@ingredients_list.map(&:name))
 
     old_ingredients = ingredients - saved_ingredients
@@ -55,7 +55,7 @@ class Recipe < ActiveRecord::Base
     delete_ingredients(old_ingredients)
     
     new_ingredients.each do |ingredient|
-       RecipesIngredient.create!(:recipe_id => self.id, :ingredient_id => ingredient.id)
+      self.recipes_ingredients.create!(:ingredient_id => ingredient.id)
     end
   end
   
