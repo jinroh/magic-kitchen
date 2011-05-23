@@ -1,4 +1,4 @@
-class Home::RecsController < ApplicationController
+class RecsController < ApplicationController
   before_filter :authenticate_user!
   
   respond_to :html, :json
