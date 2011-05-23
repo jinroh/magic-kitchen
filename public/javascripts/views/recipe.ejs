@@ -68,9 +68,7 @@
 								</div>
 								<div class="accordionButton">Tags</div> 
 								<div class="accordionContent" class="content_recipe">
-									<% for(var i=0; i<tag_counts.length; i++) { %>
-										<%= tag_counts[i].name%>, 
-									<% } %>
+									<% tag_counts.join(" - ") %>
 								</div>
 
 							</div>
