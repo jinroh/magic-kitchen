@@ -20,17 +20,21 @@ MK.Views.Recipe = Backbone.View.extend({
 	
 	addWith : function(event){
 		index = $(event.target).data("ingredient");
+		ing = this.model.attributes.ingredients[index];
 		
-	//	var index = $(this).data("ingredient");
-		try{console.log(this.model.attributes.ingredients[index]);}
-		catch(e){
-			console.log(e);
+		if(this.model.collection && this.model.collection.addWithIngredient){
+			this.model.collection.addWithIngredient(ing);
 		}
 		return false;
 	},
 	
 	addWithout : function(){
-	//	console.log(this.data("ingredient"));
+		index = $(event.target).data("ingredient");
+		ing = this.model.attributes.ingredients[index];
+		
+		if(this.model.collection && this.model.collection.addWithoutIngredient){
+			this.model.collection.addWithoutIngredient(ing);
+		}
 		return false;
 	},
 	
@@ -41,7 +45,7 @@ MK.Views.Recipe = Backbone.View.extend({
 		"click .star_pic"		: "clickFavorite",
 		"click .foll_pic"		: "clickFollow",
 		"click .topp"			: "addWith",
-	//	"click .bott"			: "addWitout"
+		"click .bott"			: "addWithout"
 	// 	// 	//event edit handle by route controler
 	},
 	

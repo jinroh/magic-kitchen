@@ -9,7 +9,7 @@
 
 								<div class="recipe_likes">
 									<% if((typeof isFavorite == 'undefined')? false : isFavorite) {%>
-									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" class="opacity" height="26px" width="26px"/></br>
+									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic opacity" height="26px" width="26px"/></br>
 									<% } 
 									else {%>
 									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic" height="26px" width="26px"/></br>
@@ -56,7 +56,7 @@
 								<div class="accordionContent">
 											<% if(typeof ingredients != 'undefined') { for(var i=0; i<ingredients.length; i++) {%>
 												<div class="trigger"><%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%></div> 
-												<div class="accordContent">
+												<div class="accordContent" style="display: none;">
 														<a href=""><div class="topp" data-ingredient='<%= i %>'>Don't show recipes with :</div></a>
 														<a href=""><div class="bott" data-ingredient='<%= i %>'>Show only recipes with :</div></a>
 												</div> 
