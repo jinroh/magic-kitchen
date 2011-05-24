@@ -29,19 +29,20 @@
 							<div class="recipe_title"><h2><%= name %><h2></div>
 						
 							<div class="recipe_from">
-								<div class="posted">posted by : <span class="name"><a><%= (typeof author.name == 'undefined')? "" : author.name %></a></span></div> 
+								<div class="posted">posted by : <span class="name">
+								<a><% if((typeof author == 'undefined')? "" : true) { (typeof author.name == 'undefined')? "" : author.name} %></a></span></div> 
 
 							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.isFollowed == 'undefined')? false :author.isFollowed)) {%> 
-								<img class="following" height="26px" width="64px"/>	
+								<img class="foll_pic following" height="26px" width="64px"/>	
 							<% } 
 							else {%>
-								<img class="follow" height="26px" width="64px"/>	
+								<img class="foll_pic follow" height="26px" width="64px"/>	
 							<% } %>
 							</div>
 
 							<div class="recipe_when">
 								<p>Already cooked ? 
-								<% if(((typeof history.length == 'undefined')? false : true) && (history.length>0)) {%>  
+								<% if(((typeof history == 'undefined')? false : true) && (typeof history.[0] == 'undefined')? false : true) && (history.length>0)) {%>  
 									<span class="yes">Yes, on the 
 									<%= (typeof history[0].created_at == 'undefined')? "" : history[0].created_at%>
 									</span>
