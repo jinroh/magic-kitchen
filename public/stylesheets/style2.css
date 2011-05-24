@@ -801,14 +801,14 @@ footer p {
 	opacity:.50;
 }
 
-.recipe_from .foll_pic .following {
+.recipe_from .following {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/following.png');
 }
 
-.recipe_from .foll_pic .following:hover {
+.recipe_from .following:hover {
 	float: left;
 	margin-top: 3px;
 	margin-left: 10px;
