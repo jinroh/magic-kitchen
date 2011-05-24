@@ -25,7 +25,8 @@ steal(
 			"RecipeHistory" //actually a collection
 		)
 		.then(
-			"views/recipe"
+			"views/recipe",
+			"views/search"
 			)
 		.then(function(){
 			
@@ -189,10 +190,11 @@ steal(
 	
 			//ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
 			$("body").delegate(".accordionButton", "mouseover", function() {
-				$(this).addClass('over');
-		
+				$(this).addClass('over');		
+			});
+
 			//ON MOUSEOUT REMOVE THE OVER CLASS
-			}).mouseout(function() {
+			$("body").delegate(".accordionButton", "mouseout", function() {
 				$(this).removeClass('over');										
 			});
 	

@@ -92,13 +92,17 @@ nav {
 	display: block;
 	float: left;
 	width : 120px;
-	height: 182px;
-	margin-left: -125px;
-	margin-top: 250px;
+	position: absolute;
+	left: 150px;
+	top: 438px;
 	margin-bottom: 20px; 
+	padding-top: 3px;
+	padding-bottom: 3px;
 	background: white;
-	border: 1px solid #CCF000;
-	border-radius: 3px 0px 0px 3px;
+	border-top: 1px solid #CCF000;
+	border-left: 1px solid #CCF000;
+	border-bottom: 1px solid #CCF000;
+	border-radius: 6px 0px 0px 6px;
 }
 
 #filter .searched {
@@ -109,7 +113,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 	border-bottom: 1px solid #888;
 
 }
@@ -122,7 +126,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
 #filter .searched_without {
@@ -133,7 +137,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
 #filter .searched_with {
@@ -144,10 +148,17 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
-
+.remove_search {
+	display: block;
+	float: right;
+	height: 12px;
+	width: 12px;
+	background: url('/images/remove.png');
+	margin-top: 3px;
+}
 
 
 nav ul {
@@ -470,15 +481,14 @@ footer p {
     float: right;
     display: block;
     overflow: hidden;
-
 }
 
 #profileLinks .profile-link {
     display: block;
-	margin-top: 2px;
+	margin-top: 4px;
     height: 15px;
     line-height: 15px;
-    padding: 3px 7px 5px 5px;
+    padding: 5px 7px 5px 5px;
     font-size: 11px;
     color: #eee;
     text-decoration: none;
@@ -493,6 +503,12 @@ footer p {
 #profileLinks .divider a {
     background-position: right -510px;
     background-repeat: no-repeat;
+}
+
+#profileLinks a {
+	color: white;
+	font-size: 12px;
+	padding : 3px;
 }
 
 #loginLink .profile-link {
@@ -801,22 +817,22 @@ footer p {
 	opacity:.50;
 }
 
-.recipe_from .foll_pic .following {
-	float: left;
+.recipe_from .following {
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/following.png');
 }
 
-.recipe_from .foll_pic .following:hover {
-	float: left;
+.recipe_from .following:hover {
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/unfollow.png');
 }
 
 .recipe_from .follow {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/follow.png');
@@ -906,6 +922,17 @@ ul .ingredients {
 	border-radius: 1px 1px 1px 1px;
 }  
 
+#carousel_ul li .ingr:hover { 
+	display: block; 
+	float: left;  
+	border: none;
+	margin: none;
+	padding: none;
+	width:248px;
+	height: 28px; 
+	background: #f2fbbf;   
+	border-radius: 1px 1px 1px 1px;
+} 
 
 
 /* ACCORDION */
