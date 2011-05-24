@@ -813,7 +813,8 @@ footer p {
 	background: url('/images/star.png');
 	border: none;
 	color: white;
-	outline: none;
+	cursor: pointer;  
+	cursor: hand;  
 }	
 
 .starred:hover { 
@@ -826,7 +827,8 @@ footer p {
 	opacity:1;
 	border:none;
 	color: white;
-	outline: none;
+	cursor: pointer;  
+	cursor: hand;  
 }	
 
 
@@ -838,7 +840,8 @@ footer p {
 	filter:alpha(opacity=100);
 	-moz-opacity:1;
 	opacity:1;
-	outline: none;
+	cursor: pointer;  
+	cursor: hand;  
 }	
 
 .notstarred { 
@@ -846,6 +849,8 @@ footer p {
 	height: 26px;
 	width: 26px;
 	background: url('/images/notstar.png');
+	cursor: pointer;  
+	cursor: hand;  
 }	
 
 .like_pic { 
