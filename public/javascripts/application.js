@@ -38,7 +38,7 @@ steal(
 			    }
 			};
 
-		
+		MK.App.init();
 
 		// SEARCH :
 
