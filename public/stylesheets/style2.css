@@ -1,4 +1,5 @@
 
+
 body {
 	display: block;
 	margin: auto;
@@ -89,15 +90,14 @@ nav {
 }
 
 #filter {
-	display: block;
-	float: left;
-	width : 120px;
 	position: absolute;
+	display: block;
+	width : 120px;
 	left: 150px;
 	top: 438px;
 	margin-bottom: 20px; 
 	padding-top: 3px;
-	padding-bottom: 3px;
+	padding-bottom: 9px;
 	background: white;
 	border-top: 1px solid #CCF000;
 	border-left: 1px solid #CCF000;
@@ -105,17 +105,30 @@ nav {
 	border-radius: 6px 0px 0px 6px;
 }
 
-#filter .searched {
+#filter .title{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+#filter ul {
 	text-align: left;
-	margin-top: 4px;
-	margin-left: 4px;
-	margin-right: 4px;
-	padding-left: 2px;
+	margin: 0px;
+	padding: 0px;
 	font-size: 14px;
 	float: left;
 	width : 105px;
-	border-bottom: 1px solid #888;
+}
 
+#filter ul li {
+	float: left;
+	height: 17px;
+	width : 105px;
+	text-align: left;
+	font-size: 13px;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-bottom: 6px;
 }
 
 #filter .searched_name {
@@ -123,42 +136,59 @@ nav {
 	margin-top: 4px;
 	margin-left: 4px;
 	margin-right: 4px;
-	padding-left: 2px;
+	padding: 3px;
 	font-size: 14px;
 	float: left;
 	width : 105px;
+	border-bottom: 1px solid #888;
 }
 
 #filter .searched_without {
 	text-align: left;
-	margin-top: 4px;
+	margin-top: 7px;
 	margin-left: 4px;
 	margin-right: 4px;
-	padding-left: 2px;
+	padding: 3px;
 	font-size: 14px;
 	float: left;
 	width : 105px;
+	border-bottom: 1px solid #888;
 }
 
 #filter .searched_with {
 	text-align: left;
-	margin-top: 4px;
+	margin-top: 7px;
 	margin-left: 4px;
 	margin-right: 4px;
-	padding-left: 2px;
+	padding: 3px;
 	font-size: 14px;
 	float: left;
 	width : 105px;
+	border-bottom: 1px solid #888;
 }
 
 .remove_search {
 	display: block;
+	display: none;
 	float: right;
 	height: 12px;
 	width: 12px;
+	margin-top: 0px;
 	background: url('/images/remove.png');
-	margin-top: 3px;
 }
+
+#filter ul li:hover .remove_search {
+	display: block;
+	float: right;
+	height: 12px;
+	width: 12px;
+	margin-top: 12px;
+	background: url('/images/remove.png');
+	cursor:pointer;  
+	cursor: hand; 
+}
+
+
 
 
 nav ul {
