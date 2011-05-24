@@ -14,18 +14,38 @@ MK.Views.Search = Backbone.View.extend({
 	
 	filterUpdate : function(){
 		var name = this.Recipes.name || "non";
-		this.$("#filter > .searched_name").html(name);
+		this.$("#filter .name_content ul").html('<li class="searched">'
+				+name+'<div class="remove_search"></div></li>');
+				
+		var ingwith = this.Recipes.withCollection.toJSON();
+		this.$("#filter .with_content ul").empty();
+		for(i=0;i<ingwith.length;i++){
+			html = '<li class="searched">'+ingwith[i].name+
+					'<div data-ingredient ="'+ingwith[i].id+'"class="remove_search"></div></li>'
+			this.$("#filter .with_content ul").append(html);
+		}
+		
+		var ingwith = this.Recipes.withoutCollection.toJSON();
+		this.$("#filter .without_content ul").empty();
+		for(i=0;i<ingwith.length;i++){
+			html = '<li class="searched">'+ingwith[i].name+
+					'<div data-ingredient ="'+ingwith[i].id+'"class="remove_search"></div></li>'
+			this.$("#filter .without_content ul").append(html);
+		}
 	},
 	
 	addAll : function(){
 		this.filterUpdate();
+		
 		this.$("#carousel_ul").empty();
 		this.Recipes.each(this.addOne);
 	},
 	
 	addOne : function(recipe){
 		var view = new  MK.Views.Recipe({model : recipe});
-		console.log(recipe);
-		this.$("#carousel_ul").hide().append(view.render().el).fadeIn();
+		//console.log(recipe);
+		$(view.el).hide();
+		this.$("#carousel_ul").append(view.render().el);
+		$(view.el).fadeIn();
 	}
 });
