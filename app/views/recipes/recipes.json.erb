@@ -10,13 +10,16 @@
       <% end %>
     ],
     "can_edit": <%= can? :edit, r %>,
-    "is_liked": <%= current_user.likes.where() %>
+    "is_liked": <%= current_user.likes?(r) %>,
+    "is_favorite": <%= current_user.favorite?(r) %>,
+    "history": <%= current_user.histories.for(r).to_json %>,
     "author": {
       "id": <%= r.user.id %>,
       "name": "<%= r.user.name %>",
       "email": "<%= r.user.email %>",
       "age": "<% r.user.age %>",
-      "is_follower": <%= current_user.following?(r.user) %>
+      "is_followed": <%= current_user.following?(r.user) %>,
+      "is_follower": <%= current_user.followed_by?(r.user) %>
     }
   },
   <% end %>

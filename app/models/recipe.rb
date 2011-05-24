@@ -21,6 +21,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many :recipes_ingredients, :dependent => :destroy, :include => :ingredient 
   has_many :ingredients, :through => :recipes_ingredients, :source => :ingredient
+  
   acts_as_taggable_on :tags
   
   validates_presence_of :name, :content, :user_id
@@ -34,14 +35,6 @@ class Recipe < ActiveRecord::Base
 
   def ingredients=(list)
     @ingredients_list = list.map { |value| Ingredient.new(:name => value[:name]) }
-  end
-  
-  def can_edit!
-    @can_edit = true
-  end
-  
-  def can_edit
-    @can_edit.nil? ? false : true
   end
   
   def score=(score)

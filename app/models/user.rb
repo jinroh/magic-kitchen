@@ -85,8 +85,12 @@ class User < ActiveRecord::Base
     (Time.now.to_date - date_of_birth.to_date).to_i / 365 rescue nil
   end
   
-  def likes?(like)
-    
+  def likes?(recipe)
+    self.likes.for(recipe).all.present?
+  end
+  
+  def favorite?(recipe)
+    self.favorites.for(recipe).all.present?
   end
   
   def serializable_hash(options={})
