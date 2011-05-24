@@ -14,14 +14,13 @@ module Timeline
     
     def initialize(options = {})
       if options[:data]
-        @json = options[:data]
-        data = JSON.parse(options[:data], :symbolize_names => true)
+        @json = JSON.parse(options[:data], :symbolize_names => true)
         
-        @user   = OpenStruct.new(data[:user])
-        @verb   = data[:verb]
-        @target = OpenStruct.new(data[:target])
-        @target_type = data[:target_type]
-        @time   = data[:time]
+        @user   = OpenStruct.new(@json[:user])
+        @verb   = @json[:verb]
+        @target = OpenStruct.new(@json[:target])
+        @target_type = @json[:target_type]
+        @time   = @json[:time]
       else
         @bind = options[:bind]
         raise ArgumentError, "no binding" if @bind.nil?

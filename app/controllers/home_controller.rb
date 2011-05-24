@@ -1,11 +1,18 @@
 class HomeController < ApplicationController
 
+  respond_to :json, :html
+
   def index
     redirect_to user_root_path if user_signed_in?
   end
-  
+
   def dashboard
-    redirect_to root_path unless user_signed_in?
+    if !user_signed_in?
+      redirect_to root_path
+    else
+      @user = current_user
+      respond_with @user
+    end
   end
   
 end

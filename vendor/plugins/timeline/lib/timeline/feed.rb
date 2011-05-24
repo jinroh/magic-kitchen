@@ -59,7 +59,7 @@ module Timeline
         each do |event|
           array << event.to_json
         end
-      end
+      end.to_json
     end
     
     private
