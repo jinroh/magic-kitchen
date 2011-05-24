@@ -806,12 +806,47 @@ footer p {
 	opacity:.50;
 }
 
-.star_pic .opacity {
-	filter:alpha(opacity=40);
-	-moz-opacity:.50;
-	opacity:.50;
-}
+.starred { 
+	display: block;
+	height: 26px;
+	width: 26px;
+	background: url('/images/star.png');
+	border: none;
+	color: white;
+	outline: none;
+}	
 
+.starred:hover { 
+	display: block;
+	height: 26px;
+	width: 26px;
+	background: url('/images/notstar.png');
+	filter:alpha(opacity=100);
+	-moz-opacity:1;
+	opacity:1;
+	border:none;
+	color: white;
+	outline: none;
+}	
+
+
+.notstarred:hover { 
+	display: block;
+	height: 26px;
+	width: 26px;
+	background: url('/images/star.png');
+	filter:alpha(opacity=100);
+	-moz-opacity:1;
+	opacity:1;
+	outline: none;
+}	
+
+.notstarred { 
+	display: block;
+	height: 26px;
+	width: 26px;
+	background: url('/images/notstar.png');
+}	
 
 .like_pic { 
 	display: block;

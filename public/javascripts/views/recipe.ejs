@@ -9,10 +9,10 @@
 
 								<div class="recipe_likes">
 									<% if((typeof is_favorite == 'undefined')? false : is_favorite) {%>
-									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic opacity" height="26px" width="26px"/></br>
+									<div title="Delete from my CookBook !" class="star_pic starred"></div>
 									<% } 
 									else {%>
-									<img title="Delete from my CookBook !" src='/images/star.jpg' class="star_pic" height="26px" width="26px"/></br>
+									<div title="Add to my CookBook !" class="star_pic notstarred"></div>
 									<% } %>
 
 									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
