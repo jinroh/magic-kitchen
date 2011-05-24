@@ -504,9 +504,7 @@
       options || (options = {});
       this.each(this._removeReference);
       this._reset();
-      this.add(models 
-				//,{silent: true}
-				);
+      this.add(models , {silent: true});
       if (!options.silent) this.trigger('refresh', this, options);
       return this;
     },
@@ -607,6 +605,7 @@
 
     // Internal method to remove a model's ties to a collection.
     _removeReference : function(model) {
+//	model.trigger("remove");
       if (this == model.collection) {
         delete model.collection;
       }

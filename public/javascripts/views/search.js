@@ -13,12 +13,13 @@ MK.Views.Search = Backbone.View.extend({
 	},
 	
 	addAll : function(){
+		$(this.el).empty();
 		this.Recipes.each(this.addOne);
 	},
 	
 	addOne : function(recipe){
 		var view = new  MK.Views.Recipe({model : recipe});
 		console.log(recipe);
-		$(this.el).append(view.render().el);
+		$(this.el).hide().append(view.render().el).fadeIn();
 	}
 });

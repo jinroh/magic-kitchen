@@ -58,6 +58,7 @@ MK.Views.Recipe = Backbone.View.extend({
 	},
 	
 	remove: function() {
+		console.log("remove lll");
       $(this.el).remove();
     },
 	
