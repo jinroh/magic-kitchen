@@ -99,9 +99,14 @@ steal(
 					var right_indent = (($("#carousel_ul").children("li").length-2)*item_width)
 
 		  			if (left_indent >-right_indent) { 
+
 				    //make the sliding effect using jquery's anumate function '  
 				    $('#carousel_ul').animate({'left' : left_indent},{queue:false, duration:80},function(){  
-				    });  }
+				    });}
+
+					else {	
+						MK.App.Search.Recipes.loadmore();
+					}
 			
 
 				});  

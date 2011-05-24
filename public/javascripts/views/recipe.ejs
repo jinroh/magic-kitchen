@@ -18,10 +18,10 @@
 									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
 
 									<% if((typeof is_liked == 'undefined')? false : is_liked) {%>
-									<img title="Unlike !" class="like_pic" src='/images/dislike.png' height="26px" width="53px"/><span class="ok"></span>
+									<img class="like_pic isliked" />
 									<% } 
 								 	else {%>
-									<img title="Like !" class="like_pic"src='/images/like.jpg' height="26px" width="53px"/><span class="ok"></span>
+									<img class="like_pic" src='/images/like.jpg' height="26px" width="53px"/><span class="ok"></span>
 									<% } %>
 
 								</div>	
@@ -45,8 +45,8 @@
 							<div class="recipe_when">
 								<p>Already cooked ? 
 								<% if(((typeof history == 'undefined')? false : true) && ((typeof history[0] == 'undefined')? false : true) && (history.length>0)) {%>  
-									<span class="yes">Yes, on the 
-									<%= (typeof history[0].time_ago == 'undefined')? "" : history[0].time_ago%>
+									<span class="yes">Yes,
+									<%= (typeof history[0].time_ago == 'undefined')? "" : history[0].time_ago %> ago
 									</span>
 								<% }
 								else {%> <span class="no">No, try it !</span>
