@@ -8,7 +8,13 @@
   <% if user_signed_in? %>
   "is_liked": <%= current_user.likes?(r) %>,
   "is_favorite": <%= current_user.favorite?(r) %>,
-  "history": <%= current_user.histories.for(r).to_json.html_safe %>,
+  "history": [
+    <% histories = current_user.histories.for(r) %>
+    <% histories.each do |h| %>
+      { "time_ago": "<%= time_ago_in_words(h.created_at) %>" }
+      <%= "," unless h == histories.last %>
+    <% end %>
+  ],
   <% end %>
   "author": {
     <% if user_signed_in? %>

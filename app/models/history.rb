@@ -13,7 +13,7 @@
 class History < ActiveRecord::Base
   include Timeline::Target
   
-  default_scope :order => "histories.created_at ASC"
+  default_scope :order => "histories.created_at DESC"
   
   belongs_to :user
   belongs_to :recipe

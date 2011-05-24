@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(@recipe_params)
-    flash[:notice] = "Your recipe has been added" if @recipe.save!
+    flash[:notice] = "Your recipe has been added" if @recipe.save
     respond_with @recipe do |format|
       format.json { render 'recipe' }
     end
