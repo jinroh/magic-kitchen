@@ -287,6 +287,7 @@ input._submit {
 input.fieldgroup {
 	display:block;
 	background:none;
+	width: 315px;
 	font-size:20px;
 	font-style:italic;
 	font-weight:normal;
@@ -375,13 +376,13 @@ footer {
 	float : left;
 	padding: 0;
 	border-top: 1px solid #E0E0E0;
+	padding-left: 445px;
 }
 
 
 footer p {
-	margin-top: 10px;
 	padding: 0px;
-	float: center;
+	float: left;
 	text-align: center;
 	line-height: normal;
 	font-size: 12px;
