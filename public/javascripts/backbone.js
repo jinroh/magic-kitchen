@@ -912,6 +912,9 @@
         if (selector === '') {
           $(this.el).bind(eventName, method);
         } else {
+	//console.log( selector);
+	//console.log( eventName);
+	//console.log( this.el);
           $(this.el).delegate(selector, eventName, method);
         }
       }
