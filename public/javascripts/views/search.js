@@ -1,6 +1,6 @@
 MK.Views.Search = Backbone.View.extend({
 	
-	el : $('#carousel_ul'),
+	el : '#carousel_ul',
 	
 	initialize : function(){
 		this.Recipes = new MK.Collection.RecipesSearch();
@@ -17,7 +17,8 @@ MK.Views.Search = Backbone.View.extend({
 	},
 	
 	addOne : function(recipe){
-		var view = MK.Views.Recipe({model : recipe});
+		var view = new  MK.Views.Recipe({model : recipe});
+		console.log(recipe);
 		$(this.el).append(view.render().el);
 	}
 });
