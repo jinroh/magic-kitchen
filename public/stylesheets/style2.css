@@ -820,6 +820,21 @@ footer p {
 }
 
 
+.like_pic isliked{ 
+	display: block;
+	height: 26px;
+	width: 53px;
+	background: url('/images/ulike.jpg');
+}	 
+
+.like_pic isliked:hover{ 
+	display: block;
+	height: 26px;
+	width: 53px;
+	background: url('/images/dislike.png');
+}	
+
+
 .recipe_from {
 	margin-left: 6px;
 	margin-right: 6px;	
