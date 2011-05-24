@@ -15,6 +15,7 @@
       <%= "," unless h == histories.last %>
     <% end %>
   ],
+  "score": <%= r.score.nil? ? :null : r.score %>,
   <% end %>
   "author": {
     <% if user_signed_in? %>
