@@ -29,6 +29,7 @@ steal(
 			"views/recipe"
 			)
 		.then(function(){
+			
 			var App = {
 			    Views: {},
 			    Controllers: {},
