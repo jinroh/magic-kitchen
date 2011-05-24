@@ -21,11 +21,12 @@
 class User < ActiveRecord::Base
   extend  Timeline::User
   include Timeline::User::Followers
+  include Timeline::User::Recommandations
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
   
   SERIALIZABLE = { :except  => [:first_name, :last_name, :encrypted_password, :remember_created_at, :reset_password_token],
-                   :methods => [:id, :name, :age] }
+                   :methods => [:id, :name, :age, :score] }
   
   attr_accessible :name, :login, :email, :date_of_birth, :about, :gender, :country, :homepage,
                   :remember_me, :password, :password_confirmation
@@ -77,6 +78,14 @@ class User < ActiveRecord::Base
 
   def name=(name)
     self.first_name, self.last_name = name.split(/\s/, 2)
+  end
+  
+  def score=(score)
+    @score ||= score.to_i
+  end
+  
+  def score
+    @score
   end
   
   def age

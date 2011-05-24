@@ -40,12 +40,12 @@ p, ul {
 
 
 a {
-	color: #3B3B3B;
+	text-decoration: none;
+	color: white;
 }
 
 a:hover {
 	text-decoration: none;
-	color: #6B6B6B;
 }
 
 img {
@@ -154,11 +154,38 @@ section {
 
 #jointoday {
 	display: block;
-	float: right;
-	width: 350px;
+	float: left;
+	margin-left: 330px;
+	width: 380px;
 	border-radius: 6px;
 	border: 1px solid #CC0000;
-	margin-right: 120px;
+	padding: 20px;
+	font-size: 12px;
+}
+
+.remember_box {
+	display: block;
+	float: left;
+}	
+
+p {
+	display: block;
+	float: left;
+	margin-top: 9px;
+	margin-left: 3px;
+}	
+
+.signin_button {
+	display: block;
+	float:left;
+	margin-top: 42px;
+}
+
+.join_button {
+	display: block;
+	float:left;
+	margin-left: 45px;
+	margin-top: 22px;
 }
 
 #signin {
@@ -276,7 +303,7 @@ input._submit:hover {
 }
 
 
-input.joinnow {
+.joinnow {
 	display:block;
 	background: #CC0000;
 	padding-left: 6px;
@@ -284,9 +311,33 @@ input.joinnow {
 	border-radius: 3px;
 	color: #FFFFFF;
 	font-style: normal;
+		
 }
 
-input.joinnow:hover {
+.joinnow:hover {
+	box-shadow: 0px 0px 2px 2px #c4c2bf;
+}
+
+
+.home_button {
+	display:block;
+	float: left;
+	background: #CC0000;
+	height: 50px;
+	width: 200px;
+	padding-left: 6px;
+	padding-top: 5px;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-style: normal;
+	font-size: 25px;
+	color: white;
+	margin-left: 220px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.home_button:hover {
 	box-shadow: 0px 0px 2px 2px #c4c2bf;
 }
 
@@ -314,71 +365,6 @@ input.joinnow:hover {
 }
 
 
-/* Aside */
-
-aside {
-	display: block;
-	float: right;
-	width: 200px;
-	padding-left: 7px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #E0E0E0;
-}
-
-aside ul {
-	margin-bottom: 20px;
-	padding: 0;
-	list-style: none;
-	line-height: normal;
-}
-
-aside li {
-	padding: 0 0 10px 0px;
-}
-
-aside li ul {
-
-}
-
-aside li li {
-	margin: 0px 0px 0px 0;
-	padding: 6px 0px 6px 20px;
-
-	background: url(images/img07.jpg) no-repeat left 13px;
-}
-
-aside li li a {
-	font-weight: normal;
-}
-
-aside li li a:hover {
-	color: #666666;
-}
-
-
-aside li h2 {
-	height: 16px;
-	margin: 10 0 5px 0px;
-	letter-spacing: -1px;
-	text-transform: uppercase;
-	font-size: 16px;
-	font-weight: normal;
-	color: #549900;
-}
-
-aside a {
-	text-align: left;
-	text-decoration: none;
-	font-weight: bold;
-	color: #666666;
-}
-
-aside li li a:hover {
-	color: #6A6A6A;
-}
-
-
 /* Footer */
 
 footer {
@@ -395,6 +381,7 @@ footer {
 footer p {
 	margin-top: 10px;
 	padding: 0px;
+	float: center;
 	text-align: center;
 	line-height: normal;
 	font-size: 12px;

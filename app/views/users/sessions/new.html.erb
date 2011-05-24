@@ -1,11 +1,15 @@
+
+<div id="jointoday">
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 <ul>
-	<li><%= f.label :email %><%= f.email_field :email %></li>
+	<li><%= f.label :email %><%= f.email_field :email, :class => "fieldgroup"%></li>
 
-  <li><%= f.label :password %><%= f.password_field :password %></li>
+  <li><%= f.label :password %><%= f.password_field :password, :class => "fieldgroup" %></li>
 
-  <li><%= f.check_box :remember_me %> Remember me</li>
+  <li><%= f.check_box :remember_me, :class => "remember_box" %> <p>Remember me</p></li>
 
-  <li><%= f.submit "Login" %></li>
+  <li><%= f.submit "Login", :class => "joinnow signin_button" %></li>
 </ul>
 <% end %>
+
+</div>

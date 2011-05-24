@@ -1,4 +1,3 @@
-
 steal(
 	//	"jquery.min",  <-- ne pas charger jquery après rails.js 
 		"underscore", 
@@ -39,6 +38,8 @@ steal(
 			    }
 
 			};
+
+		
 
 		// SEARCH :
 
@@ -209,8 +210,6 @@ steal(
 
 
 		$(document).ready(function() {
-
-
 
 			//ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
 

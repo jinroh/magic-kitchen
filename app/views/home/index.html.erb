@@ -1,24 +1,10 @@
-<nav>
-   <ul>
-     <li><%= link_to root_path, "Home" %></li>
-     <li><%= link_to "/report", "What is the Magic Kitchen ?"%>
-     <li><a rel="About" href="about.html">About</a></li>
-   </ul>
-</nav>
-
 <section id="content">
 	<div id="presentation">
-		<div id="signin">
-			<div id="formbox">
-			  <%= link_to "Sign in", new_user_session_path %>
-			</div>
-		</div>
 
-		<div id="jointoday">
-			<div id="formbox">
-			  <%= link_to "Join now", new_user_registration_path %>
-			</div>
-		</div>
+			  <%= link_to "Sign in", new_user_session_path, :class => "home_button" %>
+
+			  <%= link_to "Join now", new_user_registration_path, :class => "home_button" %>
+
 	</div>
 
 </section>
