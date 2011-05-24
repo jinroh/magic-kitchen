@@ -802,21 +802,21 @@ footer p {
 }
 
 .recipe_from .following {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/following.png');
 }
 
 .recipe_from .following:hover {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/unfollow.png');
 }
 
 .recipe_from .follow {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/follow.png');
