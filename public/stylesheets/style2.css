@@ -820,14 +820,14 @@ footer p {
 }
 
 
-.like_pic isliked{ 
+.isliked{ 
 	display: block;
 	height: 26px;
 	width: 53px;
 	background: url('/images/ulike.jpg');
 }	 
 
-.like_pic isliked:hover{ 
+.isliked:hover{ 
 	display: block;
 	height: 26px;
 	width: 53px;
