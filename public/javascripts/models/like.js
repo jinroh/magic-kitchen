@@ -24,7 +24,8 @@ MK.Models.Like = Backbone.Model.extend({
 		if(this.isNew()) { 
 			options.url = this.base+"/"+this.attributes.recipe_id;
 		}
-		else {options.url = this.url();}
+		else {options.url = this.url();
+		}
 		//console.log(options.url);
 		this.fetch(options);	
 	},

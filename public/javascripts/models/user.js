@@ -28,8 +28,10 @@ MK.Models.User = Backbone.Model.extend({
 			this.following = new MK.Models.Following();
 			this.following.bind("all", function(eventName) {
 				var tab = eventName.split(":",2);
-				user.trigger(tab[0]+":following"+((tab[1]) ? "."+tab[1] : ""));
-				user.trigger("change");
+				if(tab[1]){
+					user.trigger(tab[0]+":following."+tab[1]);
+				  	user.trigger("change");
+				}
 			});
 			this.following.set({user_id : author_id}, {silent : true});
 			this.following.check();
@@ -38,8 +40,10 @@ MK.Models.User = Backbone.Model.extend({
 			this.follower = new MK.Models.Follower();
 			this.follower.bind("all", function(eventName) {
 				var tab = eventName.split(":",2);
-				user.trigger(tab[0]+":follower"+((tab[1]) ? "."+tab[1] : ""));
-				user.trigger("change");
+				if(tab[1]){
+					user.trigger(tab[0]+":follower."+tab[1]);
+				  	user.trigger("change");
+				}
 			});
 			this.follower.set({user_id : author_id}, {silent : true});
 			this.follower.check();
