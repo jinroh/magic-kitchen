@@ -4,8 +4,8 @@ steal(
 		"underscore", 
 		"json2",
 		"backbone",
-	//	"ejs"
-		"ejs_production"
+		"ejs"
+	//	"ejs_production"
 		)
 		.then(function(){
 			MK = {};
