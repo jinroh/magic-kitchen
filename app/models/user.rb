@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   def favorite?(recipe)
     self.favorites.for(recipe).all.present?
   end
-  
+
   def serializable_hash(options={})
     options = SERIALIZABLE.merge(options) unless options.nil?
     super(options)
