@@ -42,7 +42,7 @@
 
 							<div class="recipe_when">
 								<p>Already cooked ? 
-								<% if(((typeof history == 'undefined')? false : true) && (typeof history[0] == 'undefined')? false : true) && (history.length>0)) {%>  
+								<% if(((typeof history == 'undefined')? false : true) && ((typeof history[0] == 'undefined')? false : true) && (history.length>0)) {%>  
 									<span class="yes">Yes, on the 
 									<%= (typeof history[0].created_at == 'undefined')? "" : history[0].created_at%>
 									</span>
