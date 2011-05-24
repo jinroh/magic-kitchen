@@ -1,112 +1,146 @@
 MK.Models.Recipe = Backbone.Model.extend({
-	
-	initialize : function(options){
-		_.bindAll(this, 'addSocial', 'addAuthor');
-		
-		this.bind("change:id", function(event){
-			if(this.id){
-				this.addSocial();
-			}
-		});
-		
-		this.bind("change:user_id", function(event){
-			if(this.attributes.user_id){
-				this.addAuthor();
-			}
-		});
-		
-		if(this.id){
-			this.addSocial();
-		}
-		
-		if(this.attributes.user_id){
-			this.addAuthor();
-		}
-	},
-	
-	addSocial : function(){
-		var recipe_id = this.id;
-		var recipe = this;
-		
-		if(!this.like){
-			this.like = new MK.Models.Like();
-			this.like.bind("all", function(eventName) {
-				var tab = eventName.split(":",2);
-				if(tab[1]){
-					recipe.trigger(tab[0]+":like."+tab[1]);
-				  	recipe.trigger("change");
-				}
-			});
-			this.like.set({recipe_id : recipe_id}, {silent : true});
-			this.like.check();
-		}
-		if(!this.histories){
-			this.histories = new MK.Collection.RecipeHistory({recipe_id : recipe_id});
-			this.histories.bind("all", function(eventName) {
-				var tab = eventName.split(":",2);
-				recipe.trigger(tab[0]+":histories"+((tab[1]) ? "."+tab[1] : ""));
-				recipe.trigger("change");
-			});
-			//console.log(recipe_id);
-			//this.histories.recipe_id = recipe_id;
-			this.histories.check();
-		}
-		if(!this.favorite){
-			this.favorite = new MK.Models.Favorite();
-			this.favorite.bind("all", function(eventName) {
-			  	var tab = eventName.split(":",2);
-				if(tab[1]){
-					recipe.trigger(tab[0]+":favorite."+tab[1]);
-				  	recipe.trigger("change");
-				}
-			});
-			this.favorite.set({recipe_id : recipe_id}, {silent : true});
-			this.favorite.check();
-		}
-	},
-	
-	addAuthor : function(){
-		var author_id = this.attributes.user_id;
-		var recipe = this;
-		
-		if(!this.author){
-			this.author = new MK.Models.User({id : author_id});
-			this.author.bind("all", function(eventName) {
-			  	var tab = eventName.split(":",2);
-				if(tab[1]){
-					recipe.trigger(tab[0]+":author."+tab[1]);
-				  	recipe.trigger("change");
-				}
-			});
-			this.author.fetch();
-		}
-	},
+
 	
 	url : function() {
 	      var base = '/recipes';
 	      if (this.isNew()) return base;
 	      return base + '/' + this.id;
 	    },
+
+//-------- AUTHOR ----------
+
+	followAuthor : function(){
+		
+		if(!this.attributes.author){
+			return false;
+		};
+		
+		var model = this;
+		var author = _.clone(this.attributes.author);
+		
+		var options = {}
+		options.url = "/home/following";
+		options.success = function(resp){
+				author.is_followed = true;
+				model.set({author : author});
+		      };
+		
+		var id = this.attributes.author.id;
+		Backbone.sync("create", new Backbone.Model({user_id : id}), options);
+		
+	},
 	
-	toJSON : function(){
-		var retour = _.clone(this.attributes);
+	unfollowAuthor : function(){
 		
-		if(this.like.attributes.value){
-			retour.isLiked = true;
-		}
 		
-		if(this.favorite.attributes.value){
-			retour.isFavorite = true;
-		}
+		if(!this.attributes.author){
+			return false;
+		};
 		
-		if(this.histories){
-			retour.history = this.histories.toJSON();
-		}
+		var model = this;
+		var author = _.clone(this.attributes.author);
 		
-		if(this.author){
-			retour.author = this.author.toJSON();
-		}
+		var options = {}
+		options.url = "/home/following/"+this.attributes.author.id;
+		options.success = function(resp){
+				author.is_followed = false;
+				model.set({author : author});
+		      };
 		
-		return retour;
+		Backbone.sync("delete", null , options);
+		
+	},
+	
+//--------LIKE---------
+	like : function(){
+		
+		if(!this.attributes.id){
+			return false;
+		};
+		
+		var model = this;
+		
+		var options = {}
+		options.url = "/home/likes";
+		options.success = function(resp){
+				model.set({is_liked : true});
+		      };
+		
+		var id = this.attributes.id;
+		Backbone.sync("create", new Backbone.Model({recipe_id : id}), options);		
+	},
+	
+	unlike : function(){
+		
+		if(!this.attributes.id){
+			return false;
+		};
+		
+		var model = this;
+		
+		var options = {}
+		options.url = "/home/likes/"+this.attributes.id;
+		options.success = function(resp){
+				model.set({is_liked : false});
+		      };
+		
+		Backbone.sync("delete", null , options);
+		
+	},
+	
+//-------FAVORITE------
+	addtoFavorites : function(){
+		if(!this.attributes.id){
+			return false;
+		};
+		
+		var model = this;
+		
+		var options = {}
+		options.url = "/home/favorites";
+		options.success = function(resp){
+				model.set({is_favorite : true});
+		      };
+		
+		var id = this.attributes.id;
+		Backbone.sync("create", new Backbone.Model({recipe_id : id}), options);
+	},
+	
+	removefromFavorites : function(){
+		if(!this.attributes.id){
+			return false;
+		};
+		
+		var model = this;
+		
+		var options = {}
+		options.url = "/home/favorites/"+this.attributes.id;
+		options.success = function(resp){
+				model.set({is_favorite : false});
+		      };
+		
+		Backbone.sync("delete", null , options);
+		
+	},
+	
+//-------HISTORY--------
+	addtoHistory : function(){
+		
+		if(!this.attributes.id){
+			return false;
+		};
+		
+		var model = this;
+		var history = _.clone(this.attributes.history);
+		
+		var options = {}
+		options.url = "/home/history";
+		options.success = function(resp){
+				history.unshift(resp);
+				model.set({history : history});
+		      };
+		
+		var id = this.attributes.id;
+		Backbone.sync("create", new Backbone.Model({recipe_id : id}), options);
 	}
 });

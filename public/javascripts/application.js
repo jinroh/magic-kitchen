@@ -15,13 +15,13 @@ steal(
 		})
 		.models(
 			"recipe", 
-			"like", 
-			"follower", 
-			"following", 
-			"favorite",
+		//	"like", 
+		//	"follower", 
+		//	"following", 
+		//	"favorite",
 			"user",
 			"RecipesSearch", //actualy a collection
-			"history",
+		//	"history",
 			"RecipeHistory" //actually a collection
 		)
 		.then(
@@ -36,15 +36,14 @@ steal(
 			       // Backbone.history.start();
 					this.Search = new MK.Views.Search();
 			    }
-
 			};
 
-		
+		MK.App.init();
 
 		// SEARCH :
 
+		
 		$(document).ready( function() {
-
 				$("#q").focus(function() {
 					if ( this.value == "Search for what you want to cook...") {
 						    this.value = "";  
@@ -81,7 +80,6 @@ steal(
 					return false;
 				});
 		});
-		 
 		//CAROUSSEL :
 
 		$(document).ready(function() {  

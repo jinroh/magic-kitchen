@@ -6,12 +6,12 @@ class HistoriesController < ApplicationController
   
   def index
     @recipes = current_user.cooked_recipes
-    respond_with(@recipes)
+    respond_with @recipes
   end
   
   def show
     @histories = current_user.histories.for(params[:id])
-    respond_with(@histories)
+    respond_with @histories
   end
   
   def create

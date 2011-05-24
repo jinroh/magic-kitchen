@@ -1,0 +1,30 @@
+<% r = @recipe %>
+{
+  "id": <%= r.id %>, 
+  "name" : <%= r.name.to_json.html_safe %>,
+  "content": <%= r.content.to_json.html_safe %>,
+  "ingredients": <%= r.ingredients.to_json.html_safe %>,
+  "can_edit": <%= can? :edit, r %>,
+  <% if user_signed_in? %>
+  "is_liked": <%= current_user.likes?(r) %>,
+  "is_favorite": <%= current_user.favorite?(r) %>,
+  "history": [
+    <% histories = current_user.histories.for(r) %>
+    <% histories.each do |h| %>
+      { "time_ago": "<%= time_ago_in_words(h.created_at) %>" }
+      <%= "," unless h == histories.last %>
+    <% end %>
+  ],
+  "score": <%= r.score.nil? ? :null : r.score %>,
+  <% end %>
+  "author": {
+    <% if user_signed_in? %>
+    "is_followed": <%= current_user.following?(r.user) %>,
+    "is_follower": <%= current_user.followed_by?(r.user) %>,
+    <% end %>
+    "id": <%= r.user.id %>,
+    "name": "<%= r.user.name %>",
+    "email": "<%= r.user.email %>",
+    "age": "<% r.user.age %>"
+  }
+}

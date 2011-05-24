@@ -8,7 +8,7 @@
 								<div class="recipe_pic"></div>
 
 								<div class="recipe_likes">
-									<% if((typeof isFavorite == 'undefined')? false : isFavorite) {%>
+									<% if((typeof is_favorite == 'undefined')? false : is_favorite) {%>
 									<img title="Add to my CookBook !" src='/images/star.jpg' class="star_pic opacity" height="26px" width="26px"/></br>
 									<% } 
 									else {%>
@@ -17,7 +17,7 @@
 
 									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
 
-									<% if((typeof isLiked == 'undefined')? false : isLiked) {%>
+									<% if((typeof is_liked == 'undefined')? false : is_liked) {%>
 									<img title="Unlike !" class="like_pic" src='/images/dislike.png' height="26px" width="53px"/><span class="ok"></span>
 									<% } 
 								 	else {%>
@@ -34,7 +34,7 @@
 								<a><% if(typeof author != 'undefined') {%> <%= (typeof author.name == 'undefined')? "" : author.name%> <%} %></a></span></div> 
 
 
-							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.isFollowed == 'undefined')? false : author.isFollowed)) {%> 
+							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.is_followed == 'undefined')? false : author.is_followed)) {%> 
 								<img class="foll_pic following" height="26px" width="64px"/>	
 							<% } 
 							else {%>
@@ -46,7 +46,7 @@
 								<p>Already cooked ? 
 								<% if(((typeof history == 'undefined')? false : true) && ((typeof history[0] == 'undefined')? false : true) && (history.length>0)) {%>  
 									<span class="yes">Yes, on the 
-									<%= (typeof history[0].created_at == 'undefined')? "" : history[0].created_at%>
+									<%= (typeof history[0].time_ago == 'undefined')? "" : history[0].time_ago%>
 									</span>
 								<% }
 								else {%> <span class="no">No, try it !</span>

@@ -29,31 +29,26 @@ MK.Collection.RecipesSearch = Backbone.Collection.extend({
 	setName : function(name){
 		this.name = name;
 		this.page = 1;
-		//this.search();
 	},
 	
 	addWithIngredient : function(ingredient){
 		this.withCollection.add(ingredient);
 		this.page = 1;
-		//this.search();
 	},
 	
 	removeWithIngredient : function(ingredient){
 		this.withCollection.remove(ingredient);
 		this.page = 1;
-		//this.search();
 	},
 	
 	addWithoutIngredient : function(ingredient){
 		this.withoutCollection.add(ingredient);
 		this.page = 1;
-		//this.search();
 	},
 	
 	removeWithoutIngredient : function(ingredient){
 		this.withoutCollection.remove(ingredient);
 		this.page = 1;
-		//this.search();
 	},
 	
 	loadmore : function(num){

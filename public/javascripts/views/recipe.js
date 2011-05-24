@@ -27,7 +27,6 @@ MK.Views.Recipe = Backbone.View.extend({
 		if(this.model.collection && this.model.collection.addWithIngredient){
 			this.model.collection.addWithIngredient(ing);
 		}
-		
 		this.model.collection.search();
 		return false;
 	},
@@ -39,7 +38,6 @@ MK.Views.Recipe = Backbone.View.extend({
 		if(this.model.collection && this.model.collection.addWithoutIngredient){
 			this.model.collection.addWithoutIngredient(ing);
 		}
-		
 		this.model.collection.search();
 		return false;
 	},
@@ -67,33 +65,33 @@ MK.Views.Recipe = Backbone.View.extend({
     },
 	
 	clickLike : function(){
-		if(!this.model.like.attributes.value){
-			this.model.like.save();
+		if(!this.model.attributes.is_liked){
+			this.model.like();
 		}
 		else{
-			this.model.like.destroy();
+			this.model.unlike();
 		}
 	},
 	
 	clickDone : function(){
-		this.model.histories.addHistory();
+		this.model.addtoHistory();
 	},
 	
 	clickFavorite : function(){
-		if(!this.model.favorite.attributes.value){
-			this.model.favorite.save();
+		if(!this.model.attributes.is_favorite){
+			this.model.addtoFavorites();
 		}
 		else{
-			this.model.favorite.destroy();
+			this.model.removefromFavorites();
 		}
 	},
 	
 	clickFollow : function(){
-		if(!this.model.author.following.attributes.value){
-			this.model.author.following.save();
+		if(!this.model.attributes.author.is_followed){
+			this.model.followAuthor();
 		}
 		else{
-			this.model.author.following.destroy();
+			this.model.unfollowAuthor();
 		}
 	}
 	

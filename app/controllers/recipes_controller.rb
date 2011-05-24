@@ -12,6 +12,13 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
                      .includes(:ingredients, :user)
+                     
+    if user_signed_in?
+      @likes     = current_user.likes.for(@recipes)
+      @favorites = current_user.favorites.for(@recipes)
+      @histories = current_user.histories.for(@recipes)
+    end
+    
     respond_with @recipes do |format|
       format.json { render 'recipes' }
     end
@@ -27,9 +34,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    debugger
     @recipe = current_user.recipes.build(@recipe_params)
-    flash[:notice] = "Your recipe has been added" if @recipe.save!
+    flash[:notice] = "Your recipe has been added" if @recipe.save
     respond_with @recipe do |format|
       format.json { render 'recipe' }
     end

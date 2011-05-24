@@ -1,7 +1,34 @@
-<%- json_recipes = [] %>
-<%- @recipes.each do |recipe| %>
-  <%- recipe.can_edit! if can? :edit, recipe %>
-  <%- json_recipes << recipe.to_json %>
-<% end %>
-
-[<%= json_recipes.join(",").html_safe %>]
+[
+  <% @recipes.each do |r| %>
+    {
+      "id": <%= r.id %>, 
+      "name" : <%= r.name.to_json.html_safe %>,
+      "content": <%= r.content.to_json.html_safe %>,
+      "ingredients": <%= r.ingredients.to_json.html_safe %>,
+      "can_edit": <%= can? :edit, r %>,
+      <% if user_signed_in? %>
+      "is_liked": <%= @likes.select { |l| l.recipe_id == r.id }.present? %>,
+      "is_favorite": <%= @favorites.select { |f| f.recipe_id == r.id }.present? %>,
+      "history": [
+        <% histories = @histories.select { |h| h.recipe_id == r.id } %>
+        <% histories.each do |h| %>
+          { "time_ago": "<%= time_ago_in_words(h.created_at) %>" }
+          <%= "," unless h == histories.last %>
+        <% end %>
+      ],
+      <% end %>
+      "score": <%= r.score.nil? ? :null : r.score %>,
+      "author": {
+        <% if user_signed_in? %>
+        "is_followed": <%= current_user.following?(r.user) %>,
+        "is_follower": <%= current_user.followed_by?(r.user) %>,
+        <% end %>
+        "id": <%= r.user.id %>,
+        "name": "<%= r.user.name %>",
+        "email": "<%= r.user.email %>",
+        "age": "<% r.user.age %>"
+      }
+    }
+    <%= "," unless r == @recipes.last %>
+  <% end %>
+]

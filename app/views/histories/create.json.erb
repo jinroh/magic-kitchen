@@ -1,0 +1,8 @@
+{
+  "id": <%= @history.id %>,
+  "recipe_id": <%= @history.recipe_id %>,
+  "user_id": <%= @history.user_id %>,
+  "time_ago": "<%= time_ago_in_words(@history.created_at) %>",
+  "created_at": "<%= @history.created_at %>",
+  "updated_at": "<%= @history.updated_at %>"
+}
