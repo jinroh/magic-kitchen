@@ -6,13 +6,13 @@
     "content": <%= r.content.to_json.html_safe %>,
     "ingredients": [
       <% r.ingredients.each do |i| %>
-      {"name": "<%= i.name %>"}
+      {"name": "<%= i.name %>"},
       <% end %>
     ],
     "can_edit": <%= can? :edit, r %>,
     "is_liked": <%= current_user.likes?(r) %>,
     "is_favorite": <%= current_user.favorite?(r) %>,
-    "history": <%= current_user.histories.for(r).to_json %>,
+    "history": <%= current_user.histories.for(r).to_json.html_safe %>,
     "author": {
       "id": <%= r.user.id %>,
       "name": "<%= r.user.name %>",
