@@ -1,4 +1,3 @@
-
 steal(
 	//	"jquery.min",  <-- ne pas charger jquery après rails.js 
 		"underscore", 
