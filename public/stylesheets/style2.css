@@ -906,6 +906,17 @@ ul .ingredients {
 	border-radius: 1px 1px 1px 1px;
 }  
 
+#carousel_ul li .ingr:hover { 
+	display: block; 
+	float: left;  
+	border: none;
+	margin: none;
+	padding: none;
+	width:248px;
+	height: 28px; 
+	background: #f2fbbf;   
+	border-radius: 1px 1px 1px 1px;
+} 
 
 
 /* ACCORDION */
