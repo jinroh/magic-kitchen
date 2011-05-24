@@ -44,39 +44,32 @@ steal(
 
 		
 		$(document).ready( function() {
-				$("#q").focus(function() {
-					if ( this.value == "Search for what you want to cook...") {
+				$(".reset").focus(function() {
+					if ( this.value == this.placeholder) {
 						    this.value = "";  
 				}
 				});
-				$("#q").blur(function() {
-						if ( this.value == this.defaultvalue || this.value == "") {
-						    this.value = this.defaultValue;
-				}
-				});
-				
-
-				$("#w").focus(function() {
-					if ( this.value == "Without") {
-						    this.value = "";  
-				}
-				});
-				$("#w").blur(function() {
-						if ( this.value == this.defaultvalue || this.value == "") {
-						    this.value = this.defaultValue;
+				$(".reset").blur(function() {
+						if ( this.value == this.placeholder || this.value == "") {
+						    this.value = this.placeholder;
 				}
 				});
 				
 				$("#search > form").submit(function(){
-					try{
 					MK.App.Search.initialize();
-					MK.App.Search.Recipes.setName($("#q").val());
-					var ing = $("#w").val().split(",");
-					for(i=0;i<ing.length;i++){
-						MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
+					
+					if($("#q").val() != $("#q").attr("placeholder")){
+						MK.App.Search.Recipes.setName($("#q").val());
 					}
+					
+					if($("#w").val() != $("#w").attr("placeholder")){
+						var ing = $("#w").val().split(",");
+						for(i=0;i<ing.length;i++){
+							MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
+						}
+					}
+					
 					MK.App.Search.Recipes.search();
-				}catch(e){console.log(e)}
 					return false;
 				});
 		});
