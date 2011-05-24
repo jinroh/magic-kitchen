@@ -25,7 +25,8 @@ steal(
 			"RecipeHistory" //actually a collection
 		)
 		.then(
-			"views/recipe"
+			"views/recipe",
+			"views/search"
 			)
 		.then(function(){
 			

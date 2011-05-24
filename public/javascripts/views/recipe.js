@@ -15,8 +15,9 @@ MK.Views.Recipe = Backbone.View.extend({
 		//$(this.el).delegate(".topp","click" , this.addWith);
 		//$(this.el).delegate(".bott","click" , this.addWithout);
 	//TODO binder les changements sur les models
-		_.bindAll(this, "render")
+		_.bindAll(this, "render", "remove")
 		this.model.bind("change", this.render);
+		this.model.bind("remove", this.render);
 	},
 	
 	addWith : function(event){
@@ -55,6 +56,10 @@ MK.Views.Recipe = Backbone.View.extend({
 		$(this.el).html(this.template.render(data));
 		return this;
 	},
+	
+	remove: function() {
+      $(this.el).remove();
+    },
 	
 	clickLike : function(){
 		if(!this.model.like.attributes.value){
