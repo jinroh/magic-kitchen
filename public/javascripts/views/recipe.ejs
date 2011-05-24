@@ -30,7 +30,9 @@
 						
 							<div class="recipe_from">
 								<div class="posted">posted by : <span class="name">
+
 								<a><% if(typeof author != 'undefined') {%> <%= (typeof author.name == 'undefined')? "" : author.name%> <%} %></a></span></div> 
+
 
 							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.isFollowed == 'undefined')? false : author.isFollowed)) {%> 
 								<img class="foll_pic following" height="26px" width="64px"/>	
