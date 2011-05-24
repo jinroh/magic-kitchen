@@ -247,11 +247,6 @@ steal(
 
 		});
 
-		$(document).ready(function() {
-			iBox.padding = 50;
-			iBox.inherit_frames = false;
-		});
-
 
 		});
 
