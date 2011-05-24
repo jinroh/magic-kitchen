@@ -802,21 +802,21 @@ footer p {
 }
 
 .recipe_from .following {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/following.png');
 }
 
 .recipe_from .following:hover {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/unfollow.png');
 }
 
 .recipe_from .follow {
-	float: left;
+	float: right;
 	margin-top: 3px;
 	margin-left: 10px;
 	background: url('/images/follow.png');
@@ -906,6 +906,17 @@ ul .ingredients {
 	border-radius: 1px 1px 1px 1px;
 }  
 
+#carousel_ul li .ingr:hover { 
+	display: block; 
+	float: left;  
+	border: none;
+	margin: none;
+	padding: none;
+	width:248px;
+	height: 28px; 
+	background: #f2fbbf;   
+	border-radius: 1px 1px 1px 1px;
+} 
 
 
 /* ACCORDION */

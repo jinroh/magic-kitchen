@@ -56,21 +56,21 @@
 
 							<div class="wrapper"> 
 								<div class="accordionButton">Ingredients</div> 
-								<div class="accordionContent">
+								<div class="accordionContent" style="display: none;">
 											<% if(typeof ingredients != 'undefined') { for(var i=0; i<ingredients.length; i++) {%>
-												<div class="trigger"><%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%></div> 
+												<div class="trigger"><%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%> </div> 
 												<div class="accordContent" style="display: none;">
-														<a href=""><div class="topp" data-ingredient='<%= i %>'>Don't show recipes with :</div></a>
-														<a href=""><div class="bott" data-ingredient='<%= i %>'>Show only recipes with :</div></a>
+														<a href=""><div class="topp" data-ingredient="<%= i %>">Don't show recipes with :</div></a>
+														<a href=""><div class="bott" data-ingredient="<%= i %>">Show only recipes with :</div></a>
 												</div> 
-											<% }} %>
+											<% }} else {%> <%= ""%> <%}%>
 								</div> 
 								<div class="accordionButton">Recipe</div> 
-								<div class="accordionContent" class="content_recipe">
+								<div class="accordionContent" class="content_recipe" style="display: none;">
 									<%= (typeof content == 'undefined')? "" : content%>
 								</div>
 								<div class="accordionButton">Tags</div> 
-								<div class="accordionContent" class="content_recipe">
+								<div class="accordionContent" class="content_recipe" style="display: none;">
 									<% (typeof tag_counts == 'undefined')? "" : tag_counts.join(" - ") %>
 								</div>
 
