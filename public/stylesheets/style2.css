@@ -92,7 +92,7 @@ nav {
 #filter {
 	position: absolute;
 	display: block;
-	width : 120px;
+	width : 130px;
 	left: 150px;
 	top: 438px;
 	margin-bottom: 20px; 
@@ -117,13 +117,13 @@ nav {
 	padding: 0px;
 	font-size: 14px;
 	float: left;
-	width : 105px;
+	width : 115px;
 }
 
 #filter ul li {
 	float: left;
 	height: 17px;
-	width : 105px;
+	width : 115px;
 	text-align: left;
 	font-size: 13px;
 	margin-left: 4px;
@@ -139,7 +139,7 @@ nav {
 	padding: 3px;
 	font-size: 14px;
 	float: left;
-	width : 105px;
+	width : 115px;
 	border-bottom: 1px solid #888;
 }
 
@@ -151,7 +151,7 @@ nav {
 	padding: 3px;
 	font-size: 14px;
 	float: left;
-	width : 105px;
+	width : 115px;
 	border-bottom: 1px solid #888;
 }
 
@@ -163,7 +163,7 @@ nav {
 	padding: 3px;
 	font-size: 14px;
 	float: left;
-	width : 105px;
+	width : 115px;
 	border-bottom: 1px solid #888;
 }
 
@@ -1153,26 +1153,6 @@ ul .ingredients {
 	}
 
 
-#ibox_wrapper {
-    line-height: 25px;
-	width: 800px;
-	border: 1px solid #CC0000;
-	border-radius: 4px;
-}
-
-#ibox_wrapper, #ibox_footer_wrapper a { 
-	background-color:#fff; 
-}
-
-#ibox_content { 
-	background-color:#fff; border:0; 
-}
-
-#ibox_footer_wrapper {
-    padding: 3px;
-    bottom: 8px;
-    top: auto;
-}
 
 #inner_content {
 	background:#ffffff;
@@ -1256,10 +1236,32 @@ ul .ingredients {
 	cursor: pointer;
 }
 
-#ibox_footer_wrapper {
-	display: none; 
-}
 
+
+#lightbox {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 500px;
+	margin-left: -250px;
+	background: #fff;
+	z-index: 1001;
+	display: none;
+}
+#lightbox-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	z-index: 1000;
+	display: none;
+}
 
 /*//////////////////////////////////////*/
 

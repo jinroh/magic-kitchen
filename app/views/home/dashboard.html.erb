@@ -41,4 +41,32 @@
 	</div>
 </div>
 
-<div id="inner_content"></div>
+
+<div id="inner_content" style="display:none;">
+    	<h3>Add a Recipe !</h3>
+    <div id='new_recipe_form'></div> 
+
+    <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
+
+	<input name="utf8" type="hidden" value="&#x2713;"/>
+
+      <p><label for="recipe_name">Name</label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></p> </br>
+
+      <p><label for="recipe_ingredients">Ingredients</label> </br>
+          <input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text" /> 
+	  </p></br>
+
+      <p><label for="recipe_content">Recipe</label></br><textarea cols="50" id="recipe_content" name="recipe[content]" rows="20"></textarea></p></br>
+
+      <div class='ui-widget'> 
+        <p><label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value="">
+		</input></p> 
+      </div> 
+      <p>
+        <input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
+        <input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
+      </p> 
+    </form> 
+
+</div>
+
