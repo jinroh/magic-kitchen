@@ -6,18 +6,20 @@ class HistoriesController < ApplicationController
   
   def index
     @recipes = current_user.cooked_recipes
-    respond_with(@recipes)
+    respond_with @recipes
   end
   
   def show
     @histories = current_user.histories.for(params[:id])
-    respond_with(@histories)
+    respond_with @histories
   end
   
   def create
     @history = current_user.histories.build(:recipe_id => params[:recipe_id])
     @history.save
-    respond_with @history
+    respond_with @history do |format|
+      format.json { render :json => time_ago_in_words(@history.created_at) }
+    end
   end
   
 end
