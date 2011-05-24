@@ -27,6 +27,8 @@ MK.Views.Recipe = Backbone.View.extend({
 		if(this.model.collection && this.model.collection.addWithIngredient){
 			this.model.collection.addWithIngredient(ing);
 		}
+		
+		this.model.collection.search();
 		return false;
 	},
 	
@@ -37,6 +39,8 @@ MK.Views.Recipe = Backbone.View.extend({
 		if(this.model.collection && this.model.collection.addWithoutIngredient){
 			this.model.collection.addWithoutIngredient(ing);
 		}
+		
+		this.model.collection.search();
 		return false;
 	},
 	

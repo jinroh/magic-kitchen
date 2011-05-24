@@ -1,6 +1,6 @@
 MK.Views.Search = Backbone.View.extend({
 	
-	el : '#carousel_ul',
+	el : '#recipes',
 	
 	initialize : function(){
 		this.Recipes = new MK.Collection.RecipesSearch();
@@ -12,14 +12,20 @@ MK.Views.Search = Backbone.View.extend({
 	//	this.Recipes.bind('all',     this.render);
 	},
 	
+	filterUpdate : function(){
+		var name = this.Recipes.name || "non";
+		this.$("#filter > .searched_name").html(name);
+	},
+	
 	addAll : function(){
-		$(this.el).empty();
+		this.filterUpdate();
+		this.$("#carousel_ul").empty();
 		this.Recipes.each(this.addOne);
 	},
 	
 	addOne : function(recipe){
 		var view = new  MK.Views.Recipe({model : recipe});
 		console.log(recipe);
-		$(this.el).hide().append(view.render().el).fadeIn();
+		this.$("#carousel_ul").hide().append(view.render().el).fadeIn();
 	}
 });

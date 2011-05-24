@@ -30,12 +30,11 @@ steal(
 			)
 		.then(function(){
 			
-			var App = {
-			    Views: {},
-			    Controllers: {},
+			MK.App = {
 			    init: function() {
 			        // TODO
-			        Backbone.history.start();
+			       // Backbone.history.start();
+					this.Search = new MK.Views.Search();
 			    }
 
 			};
@@ -56,10 +55,7 @@ steal(
 						    this.value = this.defaultValue;
 				}
 				});
-		});
-
-
-		$(document).ready( function() {
+				
 
 				$("#w").focus(function() {
 					if ( this.value == "Without") {
@@ -70,6 +66,19 @@ steal(
 						if ( this.value == this.defaultvalue || this.value == "") {
 						    this.value = this.defaultValue;
 				}
+				});
+				
+				$("#search > form").submit(function(){
+					try{
+					MK.App.Search.initialize();
+					MK.App.Search.Recipes.setName($("#q").val());
+					var ing = $("#w").val().split(",");
+					for(i=0;i<ing.length;i++){
+						MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
+					}
+					MK.App.Search.Recipes.search();
+				}catch(e){console.log(e)}
+					return false;
 				});
 		});
 		 
