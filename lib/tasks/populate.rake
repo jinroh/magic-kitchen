@@ -7,7 +7,7 @@ namespace :db do
     
     [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
     
-    HUGE = true
+    HUGE = false
     
     if HUGE == true
       USERS = 500

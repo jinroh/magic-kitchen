@@ -12,7 +12,6 @@ module Timeline
       def following_recommandations
         user_ids   = following_recommandations_ids
         return [] if user_ids.empty?
-        
         user_score = Hash[ user_ids ]
         user_ids   = user_score.keys
         
@@ -26,7 +25,6 @@ module Timeline
       
       def recipes_recommandations_ids
         Timeline.redis.lrange(recipes_recommandations_key, 0, RECIPES_RECOMMANDATIONS)
-        
       end
       
       def recipes_recommandations

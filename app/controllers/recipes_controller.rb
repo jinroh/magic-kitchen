@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:with])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
+                     .includes(:ingredients, :user)
     respond_with @recipes do |format|
       format.json { render 'recipes' }
     end

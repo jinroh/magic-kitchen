@@ -1,4 +1,4 @@
 - if can? :edit, @recipe
   - @recipe.can_edit!
   
-= @recipe.to_json(:include => [:ingredients], :methods => [:tag_counts, :can_edit]).html_safe
+= @recipe.to_json.html_safe

@@ -42,13 +42,6 @@ class User < ActiveRecord::Base
   has_many :histories
   has_many :cooked_recipes,   :through => :histories, :source => :recipe
   
-  # TODO
-  # has_many :recs
-  # has_many :recs_recipes,     :through => :recs,      :source => :recipe
-  def recs_recipes
-    [Recipe.first]
-  end
-  
   acts_as_tagger
   
   NAME_REGEX   = /^[\p{Word}.\-]{2,50}[\s]*[\p{Word}.\-]{,50}$/ui
@@ -92,7 +85,11 @@ class User < ActiveRecord::Base
     (Time.now.to_date - date_of_birth.to_date).to_i / 365 rescue nil
   end
   
-  def serializable_hash(options)
+  def likes?(like)
+    
+  end
+  
+  def serializable_hash(options={})
     options = SERIALIZABLE.merge(options) unless options.nil?
     super(options)
   end

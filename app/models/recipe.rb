@@ -43,6 +43,18 @@ class Recipe < ActiveRecord::Base
   def can_edit
     @can_edit.nil? ? false : true
   end
+  
+  def score=(score)
+    @score = score.to_i
+  end
+  
+  def score
+    @score
+  end
+  
+  def serializable_hash(options={})
+    super({:include => :ingredients, :methods => [:tag, :score, :can_edit]}.merge(options))
+  end
 
   private
   def create_ingredients
