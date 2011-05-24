@@ -32,8 +32,10 @@ MK.Models.Recipe = Backbone.Model.extend({
 			this.like = new MK.Models.Like();
 			this.like.bind("all", function(eventName) {
 				var tab = eventName.split(":",2);
-				recipe.trigger(tab[0]+":like"+((tab[1]) ? "."+tab[1] : ""));
-			  	recipe.trigger("change");
+				if(tab[1]){
+					recipe.trigger(tab[0]+":like."+tab[1]);
+				  	recipe.trigger("change");
+				}
 			});
 			this.like.set({recipe_id : recipe_id}, {silent : true});
 			this.like.check();
@@ -53,8 +55,10 @@ MK.Models.Recipe = Backbone.Model.extend({
 			this.favorite = new MK.Models.Favorite();
 			this.favorite.bind("all", function(eventName) {
 			  	var tab = eventName.split(":",2);
-				recipe.trigger(tab[0]+":favorite"+((tab[1]) ? "."+tab[1] : ""));
-				recipe.trigger("change");
+				if(tab[1]){
+					recipe.trigger(tab[0]+":favorite."+tab[1]);
+				  	recipe.trigger("change");
+				}
 			});
 			this.favorite.set({recipe_id : recipe_id}, {silent : true});
 			this.favorite.check();
@@ -69,8 +73,10 @@ MK.Models.Recipe = Backbone.Model.extend({
 			this.author = new MK.Models.User({id : author_id});
 			this.author.bind("all", function(eventName) {
 			  	var tab = eventName.split(":",2);
-				recipe.trigger(tab[0]+":author"+((tab[1]) ? "."+tab[1] : ""));
-				recipe.trigger("change");
+				if(tab[1]){
+					recipe.trigger(tab[0]+":author."+tab[1]);
+				  	recipe.trigger("change");
+				}
 			});
 			this.author.fetch();
 		}

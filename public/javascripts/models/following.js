@@ -24,7 +24,8 @@ MK.Models.Following = Backbone.Model.extend({
 		if(this.isNew()) { 
 			options.url = this.base+"/"+this.attributes.user_id;
 		}
-		else {options.url = this.url();}
+		else {options.url = this.url();
+		}
 		//console.log(options.url);
 		this.fetch(options);	
 	},
