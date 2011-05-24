@@ -17,9 +17,7 @@ class HistoriesController < ApplicationController
   def create
     @history = current_user.histories.build(:recipe_id => params[:recipe_id])
     @history.save
-    respond_with @history do |format|
-      format.json { render :json => time_ago_in_words(@history.created_at) }
-    end
+    respond_with @history
   end
   
 end
