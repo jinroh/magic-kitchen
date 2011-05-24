@@ -92,13 +92,17 @@ nav {
 	display: block;
 	float: left;
 	width : 120px;
-	height: 182px;
-	margin-left: -125px;
-	margin-top: 250px;
+	position: absolute;
+	left: 150px;
+	top: 438px;
 	margin-bottom: 20px; 
+	padding-top: 3px;
+	padding-bottom: 3px;
 	background: white;
-	border: 1px solid #CCF000;
-	border-radius: 3px 0px 0px 3px;
+	border-top: 1px solid #CCF000;
+	border-left: 1px solid #CCF000;
+	border-bottom: 1px solid #CCF000;
+	border-radius: 6px 0px 0px 6px;
 }
 
 #filter .searched {
@@ -109,7 +113,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 	border-bottom: 1px solid #888;
 
 }
@@ -122,7 +126,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
 #filter .searched_without {
@@ -133,7 +137,7 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
 #filter .searched_with {
@@ -144,10 +148,17 @@ nav {
 	padding-left: 2px;
 	font-size: 14px;
 	float: left;
-	width : 120px;
+	width : 105px;
 }
 
-
+.remove_search {
+	display: block;
+	float: right;
+	height: 12px;
+	width: 12px;
+	background: url('/images/remove.png');
+	margin-top: 3px;
+}
 
 
 nav ul {
