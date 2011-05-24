@@ -40,12 +40,12 @@ p, ul {
 
 
 a {
-	color: #3B3B3B;
+	text-decoration: none;
+	color: white;
 }
 
 a:hover {
 	text-decoration: none;
-	color: #6B6B6B;
 }
 
 img {
@@ -276,7 +276,7 @@ input._submit:hover {
 }
 
 
-input.joinnow {
+.joinnow {
 	display:block;
 	background: #CC0000;
 	padding-left: 6px;
@@ -286,7 +286,30 @@ input.joinnow {
 	font-style: normal;
 }
 
-input.joinnow:hover {
+.joinnow:hover {
+	box-shadow: 0px 0px 2px 2px #c4c2bf;
+}
+
+
+.home_button {
+	display:block;
+	float: left;
+	background: #CC0000;
+	height: 50px;
+	width: 200px;
+	padding-left: 6px;
+	padding-top: 5px;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-style: normal;
+	font-size: 25px;
+	color: white;
+	margin-left: 220px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.home_button:hover {
 	box-shadow: 0px 0px 2px 2px #c4c2bf;
 }
 

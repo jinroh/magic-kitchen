@@ -39,6 +39,8 @@ steal(
 
 			};
 
+		
+
 		// SEARCH :
 
 		$(document).ready( function() {
@@ -208,8 +210,6 @@ steal(
 
 
 		$(document).ready(function() {
-
-
 
 			//ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
 
