@@ -46,7 +46,8 @@ class Recipe < ActiveRecord::Base
   end
   
   def serializable_hash(options={})
-    super({:include => :ingredients, :methods => [:tag, :score, :can_edit]}.merge(options))
+    options = {:include => :ingredients, :methods => [:tag, :score, :can_edit]}.merge(options) unless options.nil?
+    super(options)
   end
 
   private
