@@ -11,7 +11,7 @@ $(document).ready( function() {
 	$("nav ."+"home"+"_link").addClass("active");
 	$("#"+"home").show();
 	
-	window.location.hash = "#/home";
+//	window.location.hash = "#/home";
 });
 
 //----------SEARCH Initialisation-------
@@ -50,6 +50,7 @@ $(document).ready( function() {
 					MK.App.SearchTab.Recipes.search();
 				//	}catch(e){console.log(e);}
 					window.location.hash = "#/recipes"
+					$(window).trigger("hashchange");
 					return false;
 				});
 				
@@ -103,7 +104,7 @@ $(document).ready( function() {
 				recipe = new MK.Models.Recipe({id : id});
 				recipe.fetch();
 			}
-			this.LightBoxView.setNewModel(recipe, "");
+			this.LightBoxView.setNewModel(recipe);
 
 			this.LightBoxView.open();
 		},

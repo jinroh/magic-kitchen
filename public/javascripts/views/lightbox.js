@@ -10,11 +10,11 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		this.model = model;
 		
 		_.bindAll(this, "render", "submit", "renderForm")
-		this.model.bind("change", this.render);
+		//this.model.bind("change", this.render);
 		this.el().delegate("form#new_recipe","submit", this.submit);
 		this.el().delegate("form .close_lightbox","click", function(){
 			//console.log("hello");
-			history.back();
+			window.history.back();
 			return false;
 		});
 		
@@ -42,6 +42,7 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		var data = this.model.toJSON();
 		//console.log(this.template.render(data));
 		this.$("#inner_content").html(this.template.render(data));
+		
 		return this;
 	},
 	
@@ -61,10 +62,12 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		
 		recipe.name = this.$("input#recipe_name").val();
 		recipe.ingredients = [];
+		var i = 0;
 		this.$("input#recipe_ingredients__name").each(function(index){
-			recipe.ingredients[index] = {} ;
 			if($(this).val() == ""){return;}
-			recipe.ingredients[index].name = $(this).val();
+			recipe.ingredients[i] = {} ;
+			recipe.ingredients[i].name = $(this).val();
+			i++;
 			});
 		
 		recipe.content = this.$("textarea#recipe_content").val();
@@ -72,7 +75,15 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		recipe.tag_list = this.$("input#recipe_tag_list").val();
 		
 		this.model.set(recipe, {silent : true});
-		this.model.save({success : function(){console.log("ee")}});
+		try{this.model.save(null,{success: function(model, response){
+			MK.App.LightBoxView.render();
+		//	console.log("helllo");
+			}
+			
+		});
+		}catch(e){//console.log(e);
+			}
+		return false;
 	}
 
 	
