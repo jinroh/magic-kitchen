@@ -57,6 +57,9 @@ $(document).ready( function() {
 			});
 //-------------LIGHTBOX VIEW initialization-----------
 		this.LightBoxView = new MK.Views.LightBoxView();
+		
+//-------------Home and Profile Inititilization-------
+	//	this.CurUserInfo = new Backbone.Model({url : "/home"});
 		},
 
 		routes: {

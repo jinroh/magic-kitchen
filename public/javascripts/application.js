@@ -23,6 +23,7 @@ steal(
 		//	"following", 
 		//	"favorite",
 			"user",
+			"UserInfo",
 			"RecipesSearch", //actualy a collection
 		//	"history",
 			"RecipeHistory" //actually a collection
@@ -31,6 +32,7 @@ steal(
 			"views/recipe",
 			"views/search",
 			"views/lightbox",
+			"views/home",
 			"controllers/controller"
 			)
 		.then(function(){
