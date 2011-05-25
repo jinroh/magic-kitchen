@@ -60,14 +60,17 @@ $(document).ready( function() {
 		
 //-------------Home and Profile Inititilization-------
 		this.CurUserInfo = new MK.Models.UserInfo();
+		this.CurUserInfo.fetch();
 		
 		//MAJ autommatique
 		///////
 		
 		this.HomeTab = new MK.Views.Home({model : this.CurUserInfo});
-		this.HomeTab.render();
 		this.ProfileTab = new MK.Views.Profile({model : this.CurUserInfo});
-		this.ProfileTab.render();
+		$(document).ready( function() {
+		MK.App.ProfileTab.render();
+		MK.App.HomeTab.render();
+		});
 		
 		},
 

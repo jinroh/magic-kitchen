@@ -12,8 +12,9 @@ MK.Views.Profile = Backbone.View.extend({
 	
 	render : function(){
 		var data = this.model.toJSON();
-		//console.log(this.template.render(data));
-		$(this.el).html(this.template.render(data));
+	//	console.log(this.el());
+		
+		this.el().html(this.template.render(data));
 		
 		return this;
 	}

@@ -33,6 +33,7 @@ steal(
 			"views/search",
 			"views/lightbox",
 			"views/home",
+			"views/profile",
 			"controllers/controller"
 			)
 		.then(function(){

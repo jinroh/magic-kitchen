@@ -13,7 +13,8 @@ MK.Views.Home = Backbone.View.extend({
 	render : function(){
 		var data = this.model.toJSON();
 		//console.log(this.template.render(data));
-		$(this.el).html(this.template.render(data));
+		html = this.template.render(data)
+		this.el().html(html);
 		
 		return this;
 	}
