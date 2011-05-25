@@ -31,7 +31,7 @@
 						</div>
 					</div>
 
-				<% }} else {%>  
+				<% };} else {%>  
 					<div class="feed"><div class="feed_pic"></div>
 					<div class="feed_content">No feeds !</div></div>
 			    <%}%>
@@ -48,7 +48,7 @@
 						<div class="one_follow-pic"><img src="/images/profile_pic.png" width="48" height="48"/></div>
 						<div class="one_follow-name"><%= (typeof followers[i].name == 'undefined')? "" : followers[i].name%></div>
 					</div>
-			    	<%}}%>
+			    	<%};}%>
 
 
 				</div>
@@ -61,6 +61,6 @@
 						<div class="one_follow-pic"><img src="/images/profile_pic.png" width="48" height="48"/></div>
 						<div class="one_follow-name"><%= (typeof following[i].name == 'undefined')? "" : following[i].name%></div>
 					</div>
-			    	<%}}%>
+			    	<%};}%>
 				</div>
 			</div>
