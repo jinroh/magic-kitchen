@@ -1436,7 +1436,7 @@ ul .ingredients {
 	display: block; 
 	float: left;
 	width: 560px;
-	height: 200px;
+	height: 205px;
 }
 
 #infos_perso .my_pic{
@@ -1452,7 +1452,7 @@ ul .ingredients {
 	display: block; 
 	float: left;
 	width: 370px;
-	height: 200px;
+	height: 205px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -1513,7 +1513,7 @@ ul .ingredients {
 	display: block; 
 	float: left;
 	width: 350px;
-	height: 200px;
+	height: 205px;
 }
 
 .feed {
@@ -1535,11 +1535,12 @@ ul .ingredients {
 
 .feed_content {
 	display: block;
-	height: 26px;
+	height: 19px;
 	float: left;
 	width: 232px;
 	margin: 3px;
-	margin-top: 10px;
+	font-size: 9px;
+	padding-top: 5px;
 }
 
 #my_followers {
@@ -1607,6 +1608,8 @@ ul .ingredients {
 	border-radius: 4px 4px 0px 0px;
 	text-align:center;
 	font-size: 14px;
+	border-radius: 4px 4px 0px 0px;
+	box-shadow: 0px 0px 4px 4px #c4c2bf;
 
 }
 
@@ -1685,6 +1688,7 @@ ul .ingredients {
 	padding-left: 4px;
 	height: 55px;
 	margin: 4px
+
 }
 
 #home_right {

@@ -24,11 +24,11 @@
 					<header><h2>My feeds</h2></header>
 
 
-					<% if(typeof my_feed != 'undefined') { for(var i=0; i<Math.min(8,my_feed.length); i++) {%>
+					<% if(typeof my_feed != 'undefined') { for(var i=0; i<Math.min(5,my_feed.length); i++) {%>
 					<div class="feed">
 						<div class="feed_pic"><img src="/images/tarte.jpg" width="46" height="26"/></div>
-						<div class="feed_content">
-<%= (typeof my_feed[i].user.name == 'undefined')? "" : my_feed[i].user.name%> <%= (typeof my_feed[i].verb == 'undefined')? "" : my_feed[i].verb%> <%= (typeof my_feed[i].target.name == 'undefined')? "" : my_feed[i].target.name%> (<%= (typeof my_feed[i].time == 'undefined')? "" : my_feed[i].time%>)
+						<div class="feed_content" alt="<%= (typeof my_feed[i].time == 'undefined')? '' : my_feed[i].time%>">
+<%= (typeof my_feed[i].user.name == 'undefined')? "" : my_feed[i].user.name%> <%= (typeof my_feed[i].verb == 'undefined')? "" : my_feed[i].verb%> <%= (typeof my_feed[i].target.name == 'undefined')? "" : my_feed[i].target.name%> 
 						</div>
 					</div>
 
