@@ -34,7 +34,7 @@ steal(
 			
 			MK.App = new MK.Controller();
 			
-		//	Backbone.history.start();
+			Backbone.history.start();
 
  
 		// LIGHTBOX //
