@@ -1,9 +1,11 @@
 steal(
 	//	"jquery.min",  <-- ne pas charger jquery après rails.js 
-		"underscore", 
+		"underscore",
+		"jquery-ui.min",
 		"json2",
 		"backbone",
 		"duplicateinput",
+		"autocomplete",
 		"ejs"
 	//	"ejs_production"
 		)

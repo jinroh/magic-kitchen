@@ -18,7 +18,7 @@ class List < Array
 
       list.add(string.split(delimiter))
       list.send(:clean!)
-    end
+    end.uniq
   end
   
   def add(*names)
