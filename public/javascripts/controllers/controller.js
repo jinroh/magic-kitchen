@@ -41,15 +41,19 @@ MK.Controller = Backbone.Controller.extend({
 				//	}catch(e){console.log(e);}
 					return false;
 				});
+				
 			});
-
+//-------------LIGHTBOX VIEW initialization-----------
+		this.LightBoxView = new MK.Views.LightBoxView();
 		},
 
 		routes: {
 			"/recipes"				: "selectSearchTab",    // #help
-			"home"					: "selectHomeTab",
-			"recipe/:id"			: "showRecipe",
-			"recipe/:id/edit"		: "editRecipe"
+			"/home"					: "selectHomeTab",
+			"/profile"				: "selectProfileTab", 
+			"/recipe/:id"			: "showRecipe",
+			"/recipe/:id/edit"		: "editRecipe",
+			"/recipes/new"			: "newRecipe"
 			//"search/:query":        "search",  // #search/kiwis
 			//"search/:query/p:page": "search"   // #search/kiwis/p7
 		},
@@ -57,10 +61,10 @@ MK.Controller = Backbone.Controller.extend({
 		selectTab : function(name){
 
 			$("ul.tabs li").removeClass("active"); //Remove any "active" class
-			$("nav li ."+name).addClass("active"); //Add "active" class to selected tab
+			$("nav ."+name+"_link").addClass("active"); //Add "active" class to selected tab
 			$(".tab_content").hide(); //Hide all tab content
-			this.closeLightbox();
-			$(name).fadeIn();
+			this.LightBoxView.close();
+			$("#"+name).fadeIn();
 
 		},
 
@@ -77,19 +81,24 @@ MK.Controller = Backbone.Controller.extend({
 		},
 
 //--------------LightBox---------------
-		showLightbox : function(){
-			// move the lightbox to the current window top + 50px
-			$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
 
-			// display the lightbox
-			$('#lightbox-shadow').show();
-			$('#lightbox').show();
-
+		showRecipe: function(id){
+			recipe = new MK.Models.Recipe({id : id});
+			this.LightBoxView.setNewModel(recipe, "");
+			recipe.fetch();
+			this.LightBoxView.open();
 		},
-
-		closeLightbox : function(){
-			// hide lightbox and shadow <div/>'s
-			$('#lightbox').hide();
-			$('#lightbox-shadow').hide();
+		
+		editRecipe: function(id){
+			recipe = new MK.Models.Recipe({id : id});
+			this.LightBoxView.setNewModel(recipe, "form");
+			recipe.fetch();
+			this.LightBoxView.open();
+		},
+		
+		newRecipe: function(){
+			recipe = new MK.Models.Recipe();
+			this.LightBoxView.setNewModel(recipe, "form");
+			this.LightBoxView.open();
 		}
 	});

@@ -7,11 +7,12 @@
 			ingredients = t.children('div.ingredient').not(':hidden');
 
 			// unbind last ingredient and add focusout event
-			ingredients.last().children('input[type=text]')
-			.unbind('keydown');
+		m =	ingredients.last().children('input[type=text]')
+			//.unbind('keydown');
+			$("body").undelegate(m, "keydown");
 
 			// duplicate last one and bind keypress
-			ingredients.last().clone().appendTo(t)
+		m = ingredients.last().clone().appendTo(t)
 			.find('input')
 			.attr('name', function(i, val) {
 				return val.replace(/\[(\d+)\]/, function(match, n) {
@@ -23,8 +24,10 @@
 					return '_'+ (Number(n)+1) +'_';
 				});
 			})
-			.val('')
-			.keydown(add_field)
+			.val('');
+			
+			$("body").delegate(m,"keydown",add_field);
+			//.keydown(add_field)
 			// add remove link to previous last ingredient
 			ingredients.last().appendRemoveLink();
 			// update ingredients

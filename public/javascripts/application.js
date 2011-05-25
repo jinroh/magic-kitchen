@@ -28,6 +28,7 @@ steal(
 		.then(
 			"views/recipe",
 			"views/search",
+			"views/lightbox",
 			"controllers/controller"
 			)
 		.then(function(){
