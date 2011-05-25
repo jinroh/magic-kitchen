@@ -29,7 +29,7 @@
 
       
 
-	<div class="field_tags"<label for="recipe_tag_list">Tags : </label><div class="ingredient"><% tag_counts.join(" - ") %></div></div> 
+	<div class="field_tags"<label for="recipe_tag_list">Tags : </label><div class="ingredient"><%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(" - ") %></div></div> 
 
 	<div class="field_buttons">
 		<input id="recipe_cancel" name="Ok" type="submit" value="Ok" /> 
