@@ -13,7 +13,7 @@
       <div class="field_ingredients"><label for="recipe_ingredients">Ingredients :</label> </br>
 <% if(typeof ingredients != 'undefined' && ingredients.length>0) { for(var i=0; i<ingredients.length; i++) {%>
 		  <div class="ingredient">
-          	<input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text"> <%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%> </input> 
+          	<input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text" value="<%= (typeof ingredients[i].name == 'undefined')? '' : ingredients[i].name%> "/> 
 		  </div>
 
 		<% }} else {%> 
