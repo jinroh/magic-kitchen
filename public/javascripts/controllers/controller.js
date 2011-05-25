@@ -22,8 +22,8 @@ MK.Controller = Backbone.Controller.extend({
 			});
 
 			$("#search > form").submit(function(){
-				try{
-					console.log("hello");
+				//try{
+				//	console.log("hello");
 					MK.App.SearchTab.initialize();
 
 					if($("#q").val() != $("#q").attr("placeholder")){
@@ -38,7 +38,7 @@ MK.Controller = Backbone.Controller.extend({
 					}
 
 					MK.App.SearchTab.Recipes.search();
-					}catch(e){console.log(e);}
+				//	}catch(e){console.log(e);}
 					return false;
 				});
 			});
@@ -46,7 +46,7 @@ MK.Controller = Backbone.Controller.extend({
 		},
 
 		routes: {
-			"recipes"				: "selectSearchTab",    // #help
+			"/recipes"				: "selectSearchTab",    // #help
 			"home"					: "selectHomeTab",
 			"recipe/:id"			: "showRecipe",
 			"recipe/:id/edit"		: "editRecipe"
@@ -60,7 +60,7 @@ MK.Controller = Backbone.Controller.extend({
 			$("nav li ."+name).addClass("active"); //Add "active" class to selected tab
 			$(".tab_content").hide(); //Hide all tab content
 			this.closeLightbox();
-			$(name+"_tab").fadeIn();
+			$(name).fadeIn();
 
 		},
 
