@@ -42,8 +42,7 @@ module RecipeSearch
   def search_ingredients(options={})
     with    = List.from(options.delete(:with))
     without = List.from(options.delete(:without))
-    return scoped if (with.empty? && without.empty?)
-    
+    return scoped(:conditions => "1=0") if (with.empty? && without.empty?)
     
     with    = Ingredient.named_like_any(with)    unless with.empty?   
     without = Ingredient.named_like_any(without) unless without.empty?
@@ -62,6 +61,7 @@ module RecipeSearch
               " AS A INNER JOIN like_number AS B ON A.recipe_id=B.recipe_id" +
               " ORDER BY C DESC,number DESC LIMIT 0,20) AS E ON recipes.id=E.recipe_id"
     end
+    
   end
   
   def search(query)
