@@ -1278,10 +1278,28 @@ ul .ingredients {
 	padding-top: 7px;
 }
 
+#recipe_ok {
+	display: block;
+	float: left;
+	background:  #CC0000;
+	width: 40px;
+	height: 18px;
+	color: white;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 4px;
+	margin: 3px;
+	padding-left: 20px;
+	padding-top: 7px;
+}
+
 #recipe_cancel:hover {
 	box-shadow: 0px 0px 2px 2px #c4c2bf;
 }
 
+#recipe_ok:hover {
+	box-shadow: 0px 0px 2px 2px #c4c2bf;
+}
 
 
 #lightbox {
@@ -1353,6 +1371,12 @@ ul .ingredients {
 	float: left;
 	margin: 20px;
 	margin-top: 14px;
+	margin-bottom: 40px;
+}
+
+.field_tags label{
+	display: block;
+	float: left;
 	margin-bottom: 40px;
 }
 
