@@ -49,6 +49,7 @@ $(document).ready( function() {
 
 					MK.App.SearchTab.Recipes.search();
 				//	}catch(e){console.log(e);}
+					window.location.hash = "#/recipes"
 					return false;
 				});
 				
