@@ -8,28 +8,28 @@
 	<div class="left_form">
 	  <input name="utf8" type="hidden" value="&#x2713;"/>
 
-      <div class="field_name"><label for="recipe_name"><%= (typeof name == 'undefined')? "" : name%></label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></div>
+      <div class="field_name"><label for="recipe_name">Name :</label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" value="<%= (typeof name == 'undefined')? '' : name%>"/></div>
 
-      <div class="field_ingredients"><label for="recipe_ingredients">Ingredients</label> </br>
-<% if(typeof ingredients != 'undefined') { for(var i=0; i<ingredients.length; i++) {%>
+      <div class="field_ingredients"><label for="recipe_ingredients">Ingredients :</label> </br>
+<% if(typeof ingredients != 'undefined' && ingredients.length>0) { for(var i=0; i<ingredients.length; i++) {%>
 		  <div class="ingredient">
           	<input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text"> <%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%> </input> 
 		  </div>
 
 		<% }} else {%> 
 		  <div class="ingredient">
-          	<input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text"><%= ""%>  </input> 
+          	<input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text"/>
 		  </div>
 		<%}%>
 	  </div>
 
       
 
-	<div class="field_tags"<label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""><%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(" - ") %></input></div> 
+	<div class="field_tags"><label for="recipe_tag_list">Tags : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""><%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(", ") %></input></div> 
 
 	<div class="field_buttons">
-		<input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
-		<input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
+		<div data-disable-with="Submiting..." id="recipe_submit" class="_submit"  name="commit">Submit</div>
+		<div id="recipe_cancel" name="cancel" type="submit">Cancel</div> 
 	</div> 
 	</div>
 
