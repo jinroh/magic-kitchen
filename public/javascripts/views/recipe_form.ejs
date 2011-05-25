@@ -25,7 +25,7 @@
 
       
 
-	<div class="field_tags"><label for="recipe_tag_list">Tags : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""><%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(", ") %></input></div> 
+	<div class="field_tags"><label for="recipe_tag_list">Tags : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value="<%= (typeof tag_counts == 'undefined')? '' : tag_counts.join(', ') %>"/></div> 
 
 	<div class="field_buttons">
 		<input data-disable-with="Submiting..." id="recipe_submit" type="submit" class="_submit"  name="commit" value="Submit"/>
