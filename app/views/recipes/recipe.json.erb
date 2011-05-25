@@ -17,7 +17,7 @@
   ],
   "score": <%= r.score.nil? ? :null : r.score %>,
   <% end %>
-  "tag_counts": <%= r.tag_counts.to_json.html_safe %>
+  "tag_counts": <%= r.tags.map { |t| t.name }.to_json.html_safe %>
   "author": {
     <% if user_signed_in? %>
     "is_followed": <%= current_user.following?(r.user) %>,
