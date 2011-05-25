@@ -1676,3 +1676,22 @@ ul .ingredients {
 	font-size: 11px;
 	padding-top: 15px;
 }
+
+#inner_content_details .ingredient {
+	display:block;
+	font-size:14px;
+	font-style:italic;
+	font-weight:normal;
+	line-height:20px;
+	border:none;
+	color:#88847D;
+	height:20px;
+	width: 270px;
+	padding: 4px;
+	left:50px;
+	top:9px;
+	padding-left: 20px;
+	background: #F0F0EF;
+	border-radius: 3px;
+	font-style: normal;
+}
