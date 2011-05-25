@@ -59,6 +59,7 @@ MK.Controller = Backbone.Controller.extend({
 			$("ul.tabs li").removeClass("active"); //Remove any "active" class
 			$("nav li ."+name).addClass("active"); //Add "active" class to selected tab
 			$(".tab_content").hide(); //Hide all tab content
+			this.closeLightbox();
 			$(name+"_tab").fadeIn();
 
 		},
