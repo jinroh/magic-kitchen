@@ -46,7 +46,8 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		//get round BUG of EJS with name
 		data.name_rec = data.name; 
 		this.$("#inner_content").html(this.template_form.render(data));
-		return this;
+		$(".field_ingredients").autoAddingTextFields();
+    return this;
 	},
 	
 	submit : function(){

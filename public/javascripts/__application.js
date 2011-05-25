@@ -28,7 +28,7 @@
 										});
 								 })
 								 .val('')
-								 .keydown(add_field)
+								 .keydown(add_field);
 			// add remove link to previous last ingredient
 			ingredients.last().appendRemoveLink();
 			// update ingredients
