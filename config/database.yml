@@ -7,7 +7,7 @@ development:
   timeout: 5000
   encoding: utf8
 # development:
-#   host: 192.168.0.12
+#   host: 192.168.0.5
 #   port: 3306
 #   adapter: mysql
 #   encoding: utf8

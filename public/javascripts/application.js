@@ -3,6 +3,7 @@ steal(
 		"underscore", 
 		"json2",
 		"backbone",
+		"duplicateinput",
 		"ejs"
 	//	"ejs_production"
 		)
@@ -35,40 +36,51 @@ steal(
 			
 		//	Backbone.history.start();
 
+ 
+		// LIGHTBOX //
+	
+		$(document).ready( function() {
 
-		// SEARCH :
+			$('#up').click(	function() {
 
-		
-		// $(document).ready( function() {
-		// 			$(".reset").focus(function() {
-		// 				if ( this.value == this.placeholder) {
-		// 					    this.value = "";  
-		// 			}
-		// 			});
-		// 			$(".reset").blur(function() {
-		// 					if ( this.value == this.placeholder || this.value == "") {
-		// 					    this.value = this.placeholder;
-		// 			}
-		// 			});
-		// 			
-		// 			$("#search > form").submit(function(){
-		// 				MK.App.Search.initialize();
-		// 				
-		// 				if($("#q").val() != $("#q").attr("placeholder")){
-		// 					MK.App.Search.Recipes.setName($("#q").val());
-		// 				}
-		// 				
-		// 				if($("#w").val() != $("#w").attr("placeholder")){
-		// 					var ing = $("#w").val().split(",");
-		// 					for(i=0;i<ing.length;i++){
-		// 						MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
-		// 					}
-		// 				}
-		// 				
-		// 				MK.App.Search.Recipes.search();
-		// 				return false;
-		// 			});
-		// 	});
+				// add lightbox/shadow <div/>'s if not previously added
+				if($('#lightbox').size() == 0){
+					var theLightbox = $('<div id="lightbox"/>');
+					var theShadow = $('<div id="lightbox-shadow"/>');
+
+					$(theShadow).click(function(e){
+						closeLightbox();
+					});
+					$('body').append(theShadow);
+					$('body').append(theLightbox);
+				}
+
+
+				// insert HTML content
+				$('#lightbox').append($('#inner_content'));
+
+
+				// move the lightbox to the current window top + 100px
+				$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
+
+				// display the lightbox
+				$('#lightbox-shadow').show();
+				$('#lightbox').show();
+
+
+			});
+			});
+
+			// close the lightbox
+			function closeLightbox(){
+
+				// hide lightbox and shadow <div/>'s
+				$('#lightbox').hide();
+				$('#lightbox-shadow').hide();
+
+			}
+
+
 		//CAROUSSEL :
 
 		// $(document).ready(function() {  

@@ -10,26 +10,29 @@
 		<div id="contacts" class="tab_content"></div>
 		<div id="forum" class="tab_content"></div>
 		<div id="recipes" class="tab_content">
+			<div id='carousel_container'>  
+  				<div id='left_scroll'><img src='/images/left.png'  height= "30px" width="30px"/>
+
 			<div id="filter">
 				<div class="searched_name"><span class="title">You searched :</span></div>
-					<div class="name_content">
-						<ul>
-						</ul>
-					</div>
+				<div class="name_content">
+					<ul>
+					</ul>
+				</div>
 				<div class="searched_without"><span class="title">without :</span></div>
-					<div class="without_content">
-						<ul>
-						</ul>
-					</div>
+				<div class="without_content">
+					<ul>
+					</ul>
+				</div>
 				<div class="searched_with"><span class="title">but with :</span></div>
-					<div class="with_content">
-						<ul>
-						</ul>
-					</div>
+				<div class="with_content">
+					<ul>
+					</ul>
+				</div>
 			</div>	
 
-			<div id='carousel_container'>  
-  				<div id='left_scroll'><img src='/images/left.png'  height= "30px" width="30px"/></div>  
+
+				</div>  
   				<div id='carousel_inner'>  
 		    		<ul id='carousel_ul'> 
 
@@ -38,34 +41,39 @@
   				<div id='right_scroll'><img src='/images/right.png' height= "30px" width="30px"/></div>  
 			</div>  
 		</div>
+
 	</div>
 </div>
 
 
-<div id="inner_content" style="display:none;">
+<div id="inner_content">
     	<h3>Add a Recipe !</h3>
-    <div id='new_recipe_form'></div> 
+      <div id='new_recipe_form'></div> 
 
-    <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
+      <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
 
-	<input name="utf8" type="hidden" value="&#x2713;"/>
+	<div class="left_form">
+	  <input name="utf8" type="hidden" value="&#x2713;"/>
 
-      <p><label for="recipe_name">Name</label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></p> </br>
+      <div class="field_name"><label for="recipe_name">Name</label></br><input id="recipe_name" name="recipe[name]" size="30" type="text" /></div>
 
-      <p><label for="recipe_ingredients">Ingredients</label> </br>
+      <div class="field_ingredients"><label for="recipe_ingredients">Ingredients</label> </br>
+		  <div class="ingredient">
           <input id="recipe_ingredients__name" name="recipe[ingredients][][name]" size="30" type="text" /> 
-	  </p></br>
+		  </div>
+	  </div>
 
-      <p><label for="recipe_content">Recipe</label></br><textarea cols="50" id="recipe_content" name="recipe[content]" rows="20"></textarea></p></br>
+      
 
-      <div class='ui-widget'> 
-        <p><label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value="">
-		</input></p> 
-      </div> 
-      <p>
-        <input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
-        <input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
-      </p> 
+	<div class="field_tags"<label for="recipe_tag_list">Tag it : </label><input data-pre="[]" id="recipe_tag_list" name="recipe[tag_list]" size="30" type="text" value=""></input></div> 
+
+	<div class="field_buttons">
+		<input data-disable-with="Submiting..." id="recipe_submit" name="commit" type="submit" value="Submit"/>
+		<input id="recipe_cancel" name="cancel" type="submit" value="Cancel" /> 
+	</div> 
+	</div>
+
+	<div class="field_content"><label for="recipe_content">Recipe</label></br><textarea cols="60" id="recipe_content" name="recipe[content]" rows="20"></textarea></div>
     </form> 
 
 </div>
