@@ -17,7 +17,7 @@
         <% end %>
       ],
       <% end %>
-      "tags": <%= r.tags.to_json.html_safe %>,
+      "tag_counts": <%= r.tag_counts.to_json.html_safe %>,
       "score": <%= r.score.nil? ? :null : r.score %>,
       "author": {
         <% if user_signed_in? %>

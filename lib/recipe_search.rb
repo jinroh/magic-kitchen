@@ -44,19 +44,24 @@ module RecipeSearch
     without = List.from(options.delete(:without))
     return scoped if (with.empty? && without.empty?)
     
-    with      = Ingredient.named_like_any(with)  unless with.empty?
-    with_tags = Tag.named_like_any(with)         unless with.empty?
+    
+    with    = Ingredient.named_like_any(with)    unless with.empty?   
     without = Ingredient.named_like_any(without) unless without.empty?
     
-    conditions = "SELECT * FROM recipes INNER JOIN" + 
-                 " (SELECT B.recipe_id, C ,number FROM" +
-                 " (SELECT recipe_id , COUNT(ingredient_id) AS C FROM recipes_ingredients WHERE"+
-                 " ingredient_id IN (" + with.map(&:id) + ") AND recipe_id NOT IN" +
-                 " (SELECT recipe_id FROM recipes_ingredients WHERE" +
-                 " ingredient_id IN (" + without.map(&:id) + "))" +
-                 " GROUP BY recipe_id ORDER BY C DESC)" +
-                 " AS A INNER JOIN like_number AS B ON A.recipe_id=B.recipe_id" +
-                 " ORDER BY C DESC,number DESC LIMIT 20) AS E ON recipes.id=E.recipe_id"
+    if with.empty?
+      query = "SELECT recipe_id, number FROM like_number WHERE recipe_id NOT IN" + 
+              " (SELECT recipe_id FROM recipes_ingredients WHERE ingredient_id IN (" + without.map(&:id).join(",") + ")) ORDER BY number DESC LIMIT 0,20;"
+    else
+      query = "SELECT * FROM recipes INNER JOIN" + 
+              " (SELECT B.recipe_id, C ,number FROM" +
+              " (SELECT recipe_id , COUNT(ingredient_id) AS C FROM recipes_ingredients WHERE"+
+              " ingredient_id IN (" + with.map(&:id).join(",") + ") AND recipe_id NOT IN" +
+              " (SELECT recipe_id FROM recipes_ingredients WHERE" +
+              " ingredient_id IN (" + without.map(&:id).join(",") + "))" +
+              " GROUP BY recipe_id ORDER BY C DESC)" +
+              " AS A INNER JOIN like_number AS B ON A.recipe_id=B.recipe_id" +
+              " ORDER BY C DESC,number DESC LIMIT 0,20) AS E ON recipes.id=E.recipe_id"
+    end
   end
   
   def search(query)
