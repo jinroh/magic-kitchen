@@ -12,6 +12,12 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		_.bindAll(this, "render", "submit", "renderForm")
 		this.model.bind("change", this.render);
 		this.el().delegate("form#new_recipe","submit", this.submit);
+		this.el().delegate("form .close_lightbox","click", function(){
+			//console.log("hello");
+			history.back();
+			return false;
+		});
+		
 	},
 	
 	el: function(){return window.$("#lightbox")},
@@ -57,15 +63,16 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		recipe.ingredients = [];
 		this.$("input#recipe_ingredients__name").each(function(index){
 			recipe.ingredients[index] = {} ;
+			if($(this).val() == ""){return;}
 			recipe.ingredients[index].name = $(this).val();
 			});
 		
 		recipe.content = this.$("textarea#recipe_content").val();
-		console.log(recipe.content);
+		//console.log(recipe.content);
 		recipe.tag_list = this.$("input#recipe_tag_list").val();
 		
 		this.model.set(recipe, {silent : true});
-		this.model.save({success : function(){console.log(this)}});
+		this.model.save({success : function(){console.log("ee")}});
 	}
 
 	

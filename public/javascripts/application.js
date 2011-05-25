@@ -32,10 +32,11 @@ steal(
 			"controllers/controller"
 			)
 		.then(function(){
-			
+		//	Backbone.history = new Backbone.History();
 			MK.App = new MK.Controller();
+			Backbone.history.start()
+		
 			
-			Backbone.history.start();
 
  
 		// LIGHTBOX //

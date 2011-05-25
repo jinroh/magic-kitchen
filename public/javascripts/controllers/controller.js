@@ -7,6 +7,11 @@ $(document).ready( function() {
 	$("ul.tabs li").removeClass("active");
 //	console.log("hello");
 	$(".tab_content").hide(); 
+	
+	$("nav ."+"home"+"_link").addClass("active");
+	$("#"+"home").show();
+	
+	window.location.hash = "#/home";
 });
 
 //----------SEARCH Initialisation-------
