@@ -1,8 +1,8 @@
 MK.Views.LightBoxView = Backbone.View.extend({
 	
 	initialize : function(){
-		this.template_form = new EJS({url :"/javascripts/views/recipe_form.ejs", name : null});
-		this.template = new EJS({url : "/javascripts/views/recipe_lightbox.ejs", name : null});
+		this.template_form = new EJS({url :"/javascripts/views/recipe_form.ejs"});
+		this.template = new EJS({url : "/javascripts/views/recipe_lightbox.ejs"});
 	},
 	
 	setNewModel : function(model){
@@ -42,7 +42,9 @@ MK.Views.LightBoxView = Backbone.View.extend({
 	renderForm : function(){
 		var data = this.model.toJSON();
 		//console.log(this.template.render(data));
-		console.log(data.name);
+		//	console.log(data.name);
+		//get round BUG of EJS with name
+		data.name_rec = data.name; 
 		this.$("#inner_content").html(this.template_form.render(data));
 		return this;
 	},
@@ -57,10 +59,11 @@ MK.Views.LightBoxView = Backbone.View.extend({
 			recipe.ingredients[index].name = $(this).val();
 			});
 		
-		recipe.content = this.$("input#recipe_content").val();
+		recipe.content = this.$("textarea#recipe_content").val();
+		console.log(recipe.content);
 		recipe.tag_list = this.$("input#recipe_tag_list").val();
 		
-		this.model.set(recipe);
+		this.model.set(recipe, {silent : true});
 		this.model.save({success : function(){console.log(this)}});
 	}
 
