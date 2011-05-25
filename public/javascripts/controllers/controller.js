@@ -1,7 +1,9 @@
 MK.Controller = Backbone.Controller.extend({
-	
+
 	initialize : function(){
-		
+//-----------TAB initialization-----
+
+
 //----------SEARCH Initialisation-------
 		this.SearchTab = new MK.Views.Search();
 
@@ -40,13 +42,53 @@ MK.Controller = Backbone.Controller.extend({
 					return false;
 				});
 			});
-		
-	},
 
-  routes: {
-   // "help":                 "help",    // #help
-    //"search/:query":        "search",  // #search/kiwis
-    //"search/:query/p:page": "search"   // #search/kiwis/p7
-  }
+		},
 
-});
+		routes: {
+			"recipes"				: "selectSearchTab",    // #help
+			"home"					: "selectHomeTab",
+			"recipe/:id"			: "showRecipe",
+			"recipe/:id/edit"		: "editRecipe"
+			//"search/:query":        "search",  // #search/kiwis
+			//"search/:query/p:page": "search"   // #search/kiwis/p7
+		},
+//----------- TAB display-----------------
+		selectTab : function(name){
+
+			$("ul.tabs li").removeClass("active"); //Remove any "active" class
+			$("nav li ."+name).addClass("active"); //Add "active" class to selected tab
+			$(".tab_content").hide(); //Hide all tab content
+			$(name+"_tab").fadeIn();
+
+		},
+
+		selectSearchTab : function(){
+			this.selectTab("recipes");
+		},
+
+		selectHomeTab : function(){
+			this.selectTab("home");
+		},
+
+		selectProfileTab : function(){
+			this.selectTab("profile");
+		},
+
+//--------------LightBox---------------
+		showLightbox : function(){
+			// move the lightbox to the current window top + 50px
+			$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
+
+			// display the lightbox
+			$('#lightbox-shadow').show();
+			$('#lightbox').show();
+
+		},
+
+		closeLightbox : function(){
+			// hide lightbox and shadow <div/>'s
+			$('#lightbox').hide();
+			$('#lightbox-shadow').hide();
+		}
+	});
