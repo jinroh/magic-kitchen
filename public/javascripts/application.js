@@ -38,50 +38,50 @@ steal(
 
  
 		// LIGHTBOX //
-	
-		$(document).ready( function() {
-
-			$('#up').click(	function() {
-
-				// add lightbox/shadow <div/>'s if not previously added
-				if($('#lightbox').size() == 0){
-					var theLightbox = $('<div id="lightbox" style="display=none"/>');
-					var theShadow = $('<div id="lightbox-shadow" style="display=none"/>');
-
-
-
-					$(theShadow).click(function(e){
-						closeLightbox();
-					});
-					$('body').append(theShadow);
-					$('body').append(theLightbox);
-					closeLightbox();
-				}
-
-
-				// insert HTML content
-				$('#lightbox').append($('#inner_content'));
-
-
-				// move the lightbox to the current window top + 100px
-				$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
-
-				// display the lightbox
-				$('#lightbox-shadow').show();
-				$('#lightbox').show();
-
-
-			});
-			});
-
-			// close the lightbox
-			function closeLightbox(){
-
-				// hide lightbox and shadow <div/>'s
-				$('#lightbox').hide();
-				$('#lightbox-shadow').hide();
-
-			}
+		// 	
+		// $(document).ready( function() {
+		// 
+		// 	$('#up').click(	function() {
+		// 
+		// 		// add lightbox/shadow <div/>'s if not previously added
+		// 		if($('#lightbox').size() == 0){
+		// 			var theLightbox = $('<div id="lightbox" style="display=none"/>');
+		// 			var theShadow = $('<div id="lightbox-shadow" style="display=none"/>');
+		// 
+		// 
+		// 
+		// 			$(theShadow).click(function(e){
+		// 				closeLightbox();
+		// 			});
+		// 			$('body').append(theShadow);
+		// 			$('body').append(theLightbox);
+		// 			closeLightbox();
+		// 		}
+		// 
+		// 
+		// 		// insert HTML content
+		// 		$('#lightbox').append($('#inner_content'));
+		// 
+		// 
+		// 		// move the lightbox to the current window top + 50px
+		// 		$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
+		// 
+		// 		// display the lightbox
+		// 		$('#lightbox-shadow').show();
+		// 		$('#lightbox').show();
+		// 
+		// 
+		// 	});
+		// 	});
+		// 
+		// 	// close the lightbox
+		// 	function closeLightbox(){
+		// 
+		// 		// hide lightbox and shadow <div/>'s
+		// 		$('#lightbox').hide();
+		// 		$('#lightbox-shadow').hide();
+		// 
+		// 	}
 
 
 		//CAROUSSEL :
