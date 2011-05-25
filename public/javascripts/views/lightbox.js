@@ -1,8 +1,8 @@
 MK.Views.LightBoxView = Backbone.View.extend({
 	
-	initialise : function(){
-		this.template_form = new EJS({url :"/javascripts/views/recipe_form.ejs"});
-		this.template = new EJS({url : "/javascripts/views/recipe_lightbox.ejs"});
+	initialize : function(){
+		this.template_form = new EJS({url :"/javascripts/views/recipe_form.ejs", name : null});
+		this.template = new EJS({url : "/javascripts/views/recipe_lightbox.ejs", name : null});
 	},
 	
 	setNewModel : function(model){
@@ -42,9 +42,10 @@ MK.Views.LightBoxView = Backbone.View.extend({
 	renderForm : function(){
 		var data = this.model.toJSON();
 		//console.log(this.template.render(data));
+		console.log(data.name);
 		this.$("#inner_content").html(this.template_form.render(data));
 		return this;
-	};
+	},
 	
 	submit : function(){
 		var recipe = {};

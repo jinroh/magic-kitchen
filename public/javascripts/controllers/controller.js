@@ -111,12 +111,12 @@ $(document).ready( function() {
 			}
 			
 			this.LightBoxView.setNewModel(recipe);
-			this.LightBoxView.renderform().open();
+			this.LightBoxView.renderForm().open();
 		},
 		
 		newRecipe: function(){
 			recipe = new MK.Models.Recipe();
 			this.LightBoxView.setNewModel(recipe);
-			this.LightBoxView.render().open();
+			this.LightBoxView.renderForm().open();
 		}
 	});
