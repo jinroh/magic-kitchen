@@ -14,6 +14,7 @@
   "following_feed": <%= @user.following_feed.to_json.html_safe %>,
   "followers": <%= @user.followers.to_json.html_safe %>,
   "following": <%= @user.following.to_json.html_safe %>,
-  "recipes_recs": <%= @user.recipes_recommandations.to_json %>,
-  "following_recs": <%= @user.following_recommandations.to_json %>
+  "recipes_recs": <%= @user.recipes_recommandations.to_json.html_safe %>,
+  "following_recs": <%= @user.following_recommandations.to_json.html_safe %>,
+  "favorite_recipes": <%= @user.favorite_recipes.to_json.html_safe %>
 }

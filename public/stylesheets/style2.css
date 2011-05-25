@@ -949,6 +949,7 @@ footer p {
 
 .recipe_from .posted {
 	float: left;
+	font-size: 10px;
 }
 
 .recipe_from a {
