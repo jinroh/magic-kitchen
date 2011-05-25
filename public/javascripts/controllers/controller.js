@@ -59,7 +59,16 @@ $(document).ready( function() {
 		this.LightBoxView = new MK.Views.LightBoxView();
 		
 //-------------Home and Profile Inititilization-------
-	//	this.CurUserInfo = new Backbone.Model({url : "/home"});
+		this.CurUserInfo = new MK.Models.UserInfo();
+		
+		//MAJ autommatique
+		///////
+		
+		this.HomeTab = new MK.Views.Home({model : this.CurUserInfo});
+		this.HomeTab.render();
+		this.ProfileTab = new MK.Views.Profile({model : this.CurUserInfo});
+		this.ProfileTab.render();
+		
 		},
 
 		routes: {
