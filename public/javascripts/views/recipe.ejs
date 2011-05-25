@@ -1,8 +1,9 @@
 						<div class="test">
 							<% if((typeof can_edit == 'undefined')? false : can_edit) {%>
+								<a  href="#/recipe/<%= (typeof is_favorite == 'undefined')? false : id %>/edit">
 								<div class="edit">	
-									<h2><a  href="#/recipe/<%= (typeof is_favorite == 'undefined')? false : id %>/edit" rel="ibox&height=450&width=850title='Edit your Recipe'">EDIT</a><h2>								
-								</div>
+									<h2>EDIT<h2>								
+								</div></a>
 							<% } %>
 
 							<div class="recipe_top">
