@@ -1439,6 +1439,16 @@ ul .ingredients {
 	margin: 4px
 }
 
+.in_my_cookbook_content {
+	display: block; 
+	float: left;
+	width: 405px;
+	padding-top: 25px;
+	padding-left: 4px;
+	height: 55px;
+	margin: 4px
+}
+
 #profile_right {
 	display: block; 
 	float: left;
@@ -1463,11 +1473,23 @@ ul .ingredients {
 	border-bottom: 1px solid #D4D4D4;
 }
 
-.feed .lastfeed {
+.feed_pic {
 	display: block;
-	border: none;
-}	
+	height: 26px;
+	float: left;
+	width: 52px;
+	margin: 3px;
+	border: 1px solid #D4D4D4;
+}
 
+.feed_content {
+	display: block;
+	height: 26px;
+	float: left;
+	width: 232px;
+	margin: 3px;
+	margin-top: 10px;
+}
 
 #my_followers {
 	display: block; 
@@ -1604,6 +1626,16 @@ ul .ingredients {
 	margin: 4px
 }
 
+.one_following_feed_content {
+	display: block; 
+	float: left;
+	width: 405px;
+	padding-top: 19px;
+	padding-left: 4px;
+	height: 55px;
+	margin: 4px
+}
+
 #home_right {
 	display: block; 
 	float: left;
@@ -1635,6 +1667,16 @@ ul .ingredients {
 	width: 60px;
 	margin: 3px;
 	border: 1px solid #D4D4D4;
+}
+
+.recomended_recipe_content {
+	display: block; 
+	float: left;
+	width: 260px;
+	padding-top: 13px;
+	padding-left: 8px;
+	height: 27px;
+	margin: 2px;
 }
 
 .feed .lastfeed {
