@@ -44,7 +44,8 @@ module RecipeSearch
     without = List.from(options.delete(:without))
     return scoped if (with.empty? && without.empty?)
     
-    with    = Ingredient.named_like_any(with)    unless with.empty?
+    with      = Ingredient.named_like_any(with)  unless with.empty?
+    with_tags = Tag.named_like_any(with)         unless with.empty?
     without = Ingredient.named_like_any(without) unless without.empty?
     
     conditions = "SELECT * FROM recipes INNER JOIN" + 

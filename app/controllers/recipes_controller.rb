@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
                      .with_ingredients(params[:with])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
-                     .includes(:ingredients, :user)
+                     .includes(:ingredients, :user, :tags)
                      
     if user_signed_in?
       @likes     = current_user.likes.for(@recipes)

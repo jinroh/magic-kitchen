@@ -18,7 +18,7 @@ namespace :db do
     else
       USERS = 30
       RECIPES = 50
-      INGREDIENTS = 10
+      INGREDIENTS = 100
       TAGS = 10
       FOLLOWERS = 10
     end
