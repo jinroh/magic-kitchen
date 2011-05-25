@@ -3,7 +3,7 @@
   "id": <%= r.id %>, 
   "name" : <%= r.name.to_json.html_safe %>,
   "content": <%= r.content.to_json.html_safe %>,
-  "ingredients": <%= r.ingredients.to_json.html_safe %>,
+  "ingredients": <% if @ingredients.nil? %> <%= r.ingredients.to_json.html_safe %> <% else %> <%= @ingredients.to_json.html_safe %> <% end%>,
   "can_edit": <%= can? :edit, r %>,
   <% if user_signed_in? %>
   "is_liked": <%= current_user.likes?(r) %>,

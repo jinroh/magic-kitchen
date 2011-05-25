@@ -58,11 +58,11 @@ class Recipe < ActiveRecord::Base
 
     old_ingredients = ingredients - saved_ingredients
     new_ingredients = saved_ingredients - ingredients
-    
+
     delete_ingredients(old_ingredients)
-    
+    debugger
     new_ingredients.each do |ingredient|
-       RecipesIngredient.create!(:recipe_id => self.id, :ingredient_id => ingredient.id)
+      recipes_ingredients.create!(:ingredient_id => ingredient.id)
     end
   end
   
