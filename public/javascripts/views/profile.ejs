@@ -25,7 +25,7 @@
 
 					<% if(typeof my_feeds != 'undefined') { for(var i=0; i<Math.min(8,my_feeds.length); i++) {%>
 					<div class="feed">
-						<div class="feed_pic"><img src="tarte.jpg" width="46" height="26"/></div>
+						<div class="feed_pic"><img src="/images/tarte.jpg" width="46" height="26"/></div>
 						<div class="feed_content">
 <%= (typeof my_feeds[i].user.name == 'undefined')? "" : my_feeds[i].user.name%> <%= (typeof my_feeds[i].verb == 'undefined')? "" : my_feeds[i].verb%> <%= (typeof my_feeds[i].target.name == 'undefined')? "" : my_feeds[i].target.name%> (<%= (typeof my_feeds[i].time == 'undefined')? "" : my_feeds[i].time%>)
 						</div>
