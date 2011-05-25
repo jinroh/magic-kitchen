@@ -1,12 +1,12 @@
 module Timeline
   module User
     module Followers
-      
       def follow!(user)
         Timeline.redis.multi do
           Timeline.redis.sadd(self.following_key, user.id)
           Timeline.redis.sadd(user.followers_key, self.id)
         end
+        notify_observers(:after_following)
       end
 
       def unfollow!(user)

@@ -52,7 +52,7 @@ module RecipeSearch
                  " (SELECT recipe_id , COUNT(ingredient_id) AS C FROM recipes_ingredients WHERE"+
                  " ingredient_id IN (" + with.map(&:id) + ") AND recipe_id NOT IN" +
                  " (SELECT recipe_id FROM recipes_ingredients WHERE" +
-                 " ingredient_id IN ("+ without.map(&:id) + "))" +
+                 " ingredient_id IN (" + without.map(&:id) + "))" +
                  " GROUP BY recipe_id ORDER BY C DESC)" +
                  " AS A INNER JOIN like_number AS B ON A.recipe_id=B.recipe_id" +
                  " ORDER BY C DESC,number DESC LIMIT 20) AS E ON recipes.id=E.recipe_id"
