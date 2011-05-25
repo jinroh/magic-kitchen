@@ -44,7 +44,8 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		//console.log(this.template.render(data));
 		console.log(data.name);
 		this.$("#inner_content").html(this.template_form.render(data));
-		return this;
+		$(".field_ingredients").autoAddingTextFields();
+    return this;
 	},
 	
 	submit : function(){
