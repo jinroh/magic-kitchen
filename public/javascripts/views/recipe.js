@@ -4,9 +4,7 @@ MK.Views.Recipe = Backbone.View.extend({
 	
 	
 	tagName : "li",
-	//className : "recipe",
- //	id : "",
-	// 
+
 	initialize : function(options){
 		this.template = new EJS({url : '/javascripts/views/recipe.ejs'}); 
 	//	passer {model : recipeinstance} en argument
@@ -60,7 +58,7 @@ MK.Views.Recipe = Backbone.View.extend({
 	},
 	
 	remove: function() {
-		console.log("remove lll");
+	//	console.log("remove lll");
       $(this.el).remove();
     },
 	

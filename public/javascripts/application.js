@@ -28,6 +28,63 @@ steal(
 			"views/recipe",
 			"views/search"
 			)
+		.then(function() {
+		  (function($) {	
+      	$.fn.autoAddingTextFields = function() {
+      		var t = $(this);
+      		var add_field = function() {
+      			if ($(this).val() == '') return;
+      			// update ingredients
+      			ingredients = t.children('div.ingredient').not(':hidden');
+
+      			// unbind last ingredient and add focusout event
+      			ingredients.last().children('input[type=text]')
+      												.unbind('keydown');
+
+      			// duplicate last one and bind keypress
+      			ingredients.last().clone().appendTo(t)
+      								 .find('input')
+      								 .attr('name', function(i, val) {
+      										return val.replace(/\[(\d+)\]/, function(match, n) {
+      											return '['+ (Number(n)+1) +']';
+      										});
+      								 })
+      								 .attr('id', function(i, val) {
+      										return val.replace(/_(\d+)_/, function(match, n) {
+      											return '_'+ (Number(n)+1) +'_';
+      										});
+      								 })
+      								 .val('')
+      								 .keydown(add_field)
+      			// add remove link to previous last ingredient
+      			ingredients.last().appendRemoveLink();
+      			// update ingredients
+      			ingredients = t.find('div.ingredient').not(':hidden')
+      		};
+      		var ingredients = t.find('div.ingredient').not(':hidden');
+      		ingredients.not(':last').appendRemoveLink();
+
+      		ingredients.last().children('input[type=text]')
+      											.keydown(add_field);
+      		return t;
+      	}
+
+      	$.fn.appendRemoveLink = function() {
+      		return $(this).each(function() {
+      			div = $(this);
+      			$('<a href="#" class="remove">×</a>').click(function(){
+      				$(this).removeIngredient();
+      				return false;
+      			}).appendTo(div);
+      		});
+      	}
+
+      	$.fn.removeIngredient = function() {
+      		$(this).siblings('input').val('');
+      		$(this).parent().hide();
+      	}
+      })(jQuery);
+		})
 		.then(function(){
 			
 			MK.App = {
@@ -44,39 +101,34 @@ steal(
 
 		
 		$(document).ready( function() {
-				$("#q").focus(function() {
-					if ( this.value == "Search for what you want to cook...") {
+		    $('.field_ingredients').autoAddingTextFields();
+		  
+				$(".reset").focus(function() {
+					if ( this.value == this.placeholder) {
 						    this.value = "";  
 				}
 				});
-				$("#q").blur(function() {
-						if ( this.value == this.defaultvalue || this.value == "") {
-						    this.value = this.defaultValue;
-				}
-				});
-				
-
-				$("#w").focus(function() {
-					if ( this.value == "Without") {
-						    this.value = "";  
-				}
-				});
-				$("#w").blur(function() {
-						if ( this.value == this.defaultvalue || this.value == "") {
-						    this.value = this.defaultValue;
+				$(".reset").blur(function() {
+						if ( this.value == this.placeholder || this.value == "") {
+						    this.value = this.placeholder;
 				}
 				});
 				
 				$("#search > form").submit(function(){
-					try{
 					MK.App.Search.initialize();
-					MK.App.Search.Recipes.setName($("#q").val());
-					var ing = $("#w").val().split(",");
-					for(i=0;i<ing.length;i++){
-						MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
+					
+					if($("#q").val() != $("#q").attr("placeholder")){
+						MK.App.Search.Recipes.setName($("#q").val());
 					}
+					
+					if($("#w").val() != $("#w").attr("placeholder")){
+						var ing = $("#w").val().split(",");
+						for(i=0;i<ing.length;i++){
+							MK.App.Search.Recipes.addWithoutIngredient({name : ing[i]});
+						}
+					}
+					
 					MK.App.Search.Recipes.search();
-				}catch(e){console.log(e)}
 					return false;
 				});
 		});
