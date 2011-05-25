@@ -43,22 +43,6 @@ steal(
 		// 
 		// 	$('#up').click(	function() {
 		// 
-		// 		// add lightbox/shadow <div/>'s if not previously added
-		// 		if($('#lightbox').size() == 0){
-		// 			var theLightbox = $('<div id="lightbox" style="display=none"/>');
-		// 			var theShadow = $('<div id="lightbox-shadow" style="display=none"/>');
-		// 
-		// 
-		// 
-		// 			$(theShadow).click(function(e){
-		// 				closeLightbox();
-		// 			});
-		// 			$('body').append(theShadow);
-		// 			$('body').append(theLightbox);
-		// 			closeLightbox();
-		// 		}
-		// 
-		// 
 		// 		// insert HTML content
 		// 		$('#lightbox').append($('#inner_content'));
 		// 
