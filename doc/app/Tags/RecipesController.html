@@ -71,8 +71,6 @@
 					
 					<li><a href="#method-i-index">#index</a></li>
 					
-					<li><a href="#method-i-show">#show</a></li>
-					
 				</ul>
 			</div>
 			
@@ -109,15 +107,21 @@
 
 				<ul class="link-list">
 				
+					<li><a href="../Stats.html">Stats</a></li>
+				
+					<li><a href="../Stats/Coeff.html">Stats::Coeff</a></li>
+				
+					<li><a href="../Stats/FoF.html">Stats::FoF</a></li>
+				
+					<li><a href="../Stats/Recs.html">Stats::Recs</a></li>
+				
+					<li><a href="../Stats/UUI.html">Stats::UUI</a></li>
+				
 					<li><a href="../Tags.html">Tags</a></li>
 				
 					<li><a href="../Tags/RecipesController.html">Tags::RecipesController</a></li>
 				
 					<li><a href="../Tags/RecipesHelper.html">Tags::RecipesHelper</a></li>
-				
-					<li><a href="../Foo.html">Foo</a></li>
-				
-					<li><a href="../Foo/Search.html">Foo::Search</a></li>
 				
 					<li><a href="../Ability.html">Ability</a></li>
 				
@@ -125,13 +129,21 @@
 				
 					<li><a href="../ApplicationHelper.html">ApplicationHelper</a></li>
 				
-					<li><a href="../Cookbook.html">Cookbook</a></li>
-				
 					<li><a href="../DeviseHelper.html">DeviseHelper</a></li>
 				
 					<li><a href="../Favorite.html">Favorite</a></li>
 				
+					<li><a href="../FavoritesController.html">FavoritesController</a></li>
+				
+					<li><a href="../FeedsController.html">FeedsController</a></li>
+				
+					<li><a href="../FollowersController.html">FollowersController</a></li>
+				
+					<li><a href="../FollowingController.html">FollowingController</a></li>
+				
 					<li><a href="../FormHelper.html">FormHelper</a></li>
+				
+					<li><a href="../HistoriesController.html">HistoriesController</a></li>
 				
 					<li><a href="../History.html">History</a></li>
 				
@@ -143,13 +155,19 @@
 				
 					<li><a href="../Like.html">Like</a></li>
 				
+					<li><a href="../LikeObserver.html">LikeObserver</a></li>
+				
 					<li><a href="../LikesController.html">LikesController</a></li>
 				
 					<li><a href="../LikesHelper.html">LikesHelper</a></li>
 				
 					<li><a href="../List.html">List</a></li>
 				
+					<li><a href="../Post.html">Post</a></li>
+				
 					<li><a href="../Recipe.html">Recipe</a></li>
+				
+					<li><a href="../RecipeSearch.html">RecipeSearch</a></li>
 				
 					<li><a href="../RecipesController.html">RecipesController</a></li>
 				
@@ -157,15 +175,23 @@
 				
 					<li><a href="../RecipesIngredient.html">RecipesIngredient</a></li>
 				
+					<li><a href="../RecsController.html">RecsController</a></li>
+				
+					<li><a href="../SessionsController.html">SessionsController</a></li>
+				
 					<li><a href="../Tag.html">Tag</a></li>
 				
 					<li><a href="../Tagging.html">Tagging</a></li>
 				
 					<li><a href="../User.html">User</a></li>
 				
+					<li><a href="../UserObserver.html">UserObserver</a></li>
+				
 					<li><a href="../UsersController.html">UsersController</a></li>
 				
 					<li><a href="../UsersHelper.html">UsersHelper</a></li>
+				
+					<li><a href="../UsersIngredients.html">UsersIngredients</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -207,57 +233,41 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+def index
+</p>
+<pre>
+  @tags = Tag.includes(:taggings).where(:taggings =&gt; { :taggable_type =&gt; &quot;Recipe&quot; })
+  
+  if params[:q]
+    @tags = @tags.where(&quot;name LIKE ?&quot;, params[:q] + &quot;%&quot;)
+  end
+  respond_with @tags
+</pre>
+<p>
+end
+</p>
+<p>
+def show
+</p>
+<pre>
+  @tags = Tag.includes(:taggings).where(:taggings =&gt; { :taggable_type =&gt; &quot;Recipe&quot;, :recipe_id =&gt; params[:id] })
+  respond_with @tags
+</pre>
+<p>
+end
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="index-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/tags/recipes_controller.rb, line 4</span>
- 4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
- 5:     <span class="ruby-ivar">@tags</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">includes</span>(<span class="ruby-value">:taggings</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:taggable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;Recipe&quot;</span> })
- 6:     
- 7:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:q</span>]
- 8:       <span class="ruby-ivar">@tags</span> = <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:q</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;%&quot;</span>)
- 9:     <span class="ruby-keyword kw">end</span>
-10:     <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tags</span>
-11:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="show-method" class="method-detail ">
-				<a name="method-i-show"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">show</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="show-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/tags/recipes_controller.rb, line 13</span>
-13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-14:     <span class="ruby-ivar">@tags</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">includes</span>(<span class="ruby-value">:taggings</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:taggable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;Recipe&quot;</span>, <span class="ruby-value">:recipe_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>] })
-15:     <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tags</span>
-16:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/tags/recipes_controller.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+18:     <span class="ruby-ivar">@ingredients</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:name</span>)
+19:     <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@ingredients</span>
+20:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

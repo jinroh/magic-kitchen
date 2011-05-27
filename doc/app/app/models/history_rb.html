@@ -24,7 +24,7 @@
 	<div id="metadata">
 		<dl>
 			<dt class="modified-date">Last Modified</dt>
-			<dd class="modified-date">2011-05-17 18:28:02 +0200</dd>
+			<dd class="modified-date">2011-05-24 19:54:03 +0200</dd>
 
 			
 			<dt class="requires">Requires</dt>
@@ -43,7 +43,18 @@
 		
 		<div class="description">
 			<h2>Description</h2>
-			
+			<h2>Schema Information</h2>
+<p>
+Table name: histories
+</p>
+<pre>
+ id         :integer         not null, primary key
+ user_id    :integer
+ recipe_id  :integer
+ event_id   :integer
+ created_at :datetime
+ updated_at :datetime</pre>
+
 		</div>
 		
 	</div>

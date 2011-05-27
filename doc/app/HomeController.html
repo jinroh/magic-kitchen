@@ -69,9 +69,9 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#method-i-index">#index</a></li>
+					<li><a href="#method-i-dashboard">#dashboard</a></li>
 					
-					<li><a href="#method-i-show">#show</a></li>
+					<li><a href="#method-i-index">#index</a></li>
 					
 				</ul>
 			</div>
@@ -109,15 +109,21 @@
 
 				<ul class="link-list">
 				
+					<li><a href="./Stats.html">Stats</a></li>
+				
+					<li><a href="./Stats/Coeff.html">Stats::Coeff</a></li>
+				
+					<li><a href="./Stats/FoF.html">Stats::FoF</a></li>
+				
+					<li><a href="./Stats/Recs.html">Stats::Recs</a></li>
+				
+					<li><a href="./Stats/UUI.html">Stats::UUI</a></li>
+				
 					<li><a href="./Tags.html">Tags</a></li>
 				
 					<li><a href="./Tags/RecipesController.html">Tags::RecipesController</a></li>
 				
 					<li><a href="./Tags/RecipesHelper.html">Tags::RecipesHelper</a></li>
-				
-					<li><a href="./Foo.html">Foo</a></li>
-				
-					<li><a href="./Foo/Search.html">Foo::Search</a></li>
 				
 					<li><a href="./Ability.html">Ability</a></li>
 				
@@ -125,13 +131,21 @@
 				
 					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
 				
-					<li><a href="./Cookbook.html">Cookbook</a></li>
-				
 					<li><a href="./DeviseHelper.html">DeviseHelper</a></li>
 				
 					<li><a href="./Favorite.html">Favorite</a></li>
 				
+					<li><a href="./FavoritesController.html">FavoritesController</a></li>
+				
+					<li><a href="./FeedsController.html">FeedsController</a></li>
+				
+					<li><a href="./FollowersController.html">FollowersController</a></li>
+				
+					<li><a href="./FollowingController.html">FollowingController</a></li>
+				
 					<li><a href="./FormHelper.html">FormHelper</a></li>
+				
+					<li><a href="./HistoriesController.html">HistoriesController</a></li>
 				
 					<li><a href="./History.html">History</a></li>
 				
@@ -143,13 +157,19 @@
 				
 					<li><a href="./Like.html">Like</a></li>
 				
+					<li><a href="./LikeObserver.html">LikeObserver</a></li>
+				
 					<li><a href="./LikesController.html">LikesController</a></li>
 				
 					<li><a href="./LikesHelper.html">LikesHelper</a></li>
 				
 					<li><a href="./List.html">List</a></li>
 				
+					<li><a href="./Post.html">Post</a></li>
+				
 					<li><a href="./Recipe.html">Recipe</a></li>
+				
+					<li><a href="./RecipeSearch.html">RecipeSearch</a></li>
 				
 					<li><a href="./RecipesController.html">RecipesController</a></li>
 				
@@ -157,15 +177,23 @@
 				
 					<li><a href="./RecipesIngredient.html">RecipesIngredient</a></li>
 				
+					<li><a href="./RecsController.html">RecsController</a></li>
+				
+					<li><a href="./SessionsController.html">SessionsController</a></li>
+				
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./Tagging.html">Tagging</a></li>
 				
 					<li><a href="./User.html">User</a></li>
 				
+					<li><a href="./UserObserver.html">UserObserver</a></li>
+				
 					<li><a href="./UsersController.html">UsersController</a></li>
 				
 					<li><a href="./UsersHelper.html">UsersHelper</a></li>
+				
+					<li><a href="./UsersIngredients.html">UsersIngredients</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -194,6 +222,45 @@
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
+			<div id="dashboard-method" class="method-detail ">
+				<a name="method-i-dashboard"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">dashboard</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="dashboard-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 9</span>
+ 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dashboard</span>
+10:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span>
+11:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+12:     <span class="ruby-keyword kw">else</span>
+13:       <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+14:       <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@user</span>
+15:     <span class="ruby-keyword kw">end</span>
+16:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
 			<div id="index-method" class="method-detail ">
 				<a name="method-i-index"></a>
 
@@ -207,9 +274,7 @@
 
 				<div class="method-description">
 					
-					<p>
-root_path GET /
-</p>
+					
 					
 
 					
@@ -220,46 +285,6 @@ root_path GET /
 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
 6:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_root_path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user_signed_in?</span>
 7:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="show-method" class="method-detail ">
-				<a name="method-i-show"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">show</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-user_root_path GET /me GET /users/me
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="show-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 12</span>
-12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-13:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span>
-14:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
-15:     <span class="ruby-keyword kw">else</span>
-16:       <span class="ruby-ivar">@recipes</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">recipes</span>
-17:     <span class="ruby-keyword kw">end</span>
-18:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

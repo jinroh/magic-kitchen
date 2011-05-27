@@ -53,7 +53,7 @@ class Recipe < ActiveRecord::Base
 
   private
   def save_ingredients
-    return if @ingredients_list.nil?
+    return unless @ingredients_list
     saved_ingredients = Ingredient.find_or_create_all_with_like_by_name(@ingredients_list.map(&:name))
 
     old_ingredients = ingredients - saved_ingredients

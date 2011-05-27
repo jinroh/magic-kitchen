@@ -75,6 +75,12 @@
 					
 					<li><a href="#method-i-save_ingredients">#save_ingredients</a></li>
 					
+					<li><a href="#method-i-score">#score</a></li>
+					
+					<li><a href="#method-i-score%3D">#score=</a></li>
+					
+					<li><a href="#method-i-serializable_hash">#serializable_hash</a></li>
+					
 					<li><a href="#method-i-to_param">#to_param</a></li>
 					
 				</ul>
@@ -82,6 +88,17 @@
 			
 
 			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><span class="include">Timeline::Target</span></li>
+				
+				
+				</ul>
+			</div>
 			
 		</div>
 
@@ -113,15 +130,21 @@
 
 				<ul class="link-list">
 				
+					<li><a href="./Stats.html">Stats</a></li>
+				
+					<li><a href="./Stats/Coeff.html">Stats::Coeff</a></li>
+				
+					<li><a href="./Stats/FoF.html">Stats::FoF</a></li>
+				
+					<li><a href="./Stats/Recs.html">Stats::Recs</a></li>
+				
+					<li><a href="./Stats/UUI.html">Stats::UUI</a></li>
+				
 					<li><a href="./Tags.html">Tags</a></li>
 				
 					<li><a href="./Tags/RecipesController.html">Tags::RecipesController</a></li>
 				
 					<li><a href="./Tags/RecipesHelper.html">Tags::RecipesHelper</a></li>
-				
-					<li><a href="./Foo.html">Foo</a></li>
-				
-					<li><a href="./Foo/Search.html">Foo::Search</a></li>
 				
 					<li><a href="./Ability.html">Ability</a></li>
 				
@@ -129,13 +152,21 @@
 				
 					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
 				
-					<li><a href="./Cookbook.html">Cookbook</a></li>
-				
 					<li><a href="./DeviseHelper.html">DeviseHelper</a></li>
 				
 					<li><a href="./Favorite.html">Favorite</a></li>
 				
+					<li><a href="./FavoritesController.html">FavoritesController</a></li>
+				
+					<li><a href="./FeedsController.html">FeedsController</a></li>
+				
+					<li><a href="./FollowersController.html">FollowersController</a></li>
+				
+					<li><a href="./FollowingController.html">FollowingController</a></li>
+				
 					<li><a href="./FormHelper.html">FormHelper</a></li>
+				
+					<li><a href="./HistoriesController.html">HistoriesController</a></li>
 				
 					<li><a href="./History.html">History</a></li>
 				
@@ -147,13 +178,19 @@
 				
 					<li><a href="./Like.html">Like</a></li>
 				
+					<li><a href="./LikeObserver.html">LikeObserver</a></li>
+				
 					<li><a href="./LikesController.html">LikesController</a></li>
 				
 					<li><a href="./LikesHelper.html">LikesHelper</a></li>
 				
 					<li><a href="./List.html">List</a></li>
 				
+					<li><a href="./Post.html">Post</a></li>
+				
 					<li><a href="./Recipe.html">Recipe</a></li>
+				
+					<li><a href="./RecipeSearch.html">RecipeSearch</a></li>
 				
 					<li><a href="./RecipesController.html">RecipesController</a></li>
 				
@@ -161,15 +198,23 @@
 				
 					<li><a href="./RecipesIngredient.html">RecipesIngredient</a></li>
 				
+					<li><a href="./RecsController.html">RecsController</a></li>
+				
+					<li><a href="./SessionsController.html">SessionsController</a></li>
+				
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./Tagging.html">Tagging</a></li>
 				
 					<li><a href="./User.html">User</a></li>
 				
+					<li><a href="./UserObserver.html">UserObserver</a></li>
+				
 					<li><a href="./UsersController.html">UsersController</a></li>
 				
 					<li><a href="./UsersHelper.html">UsersHelper</a></li>
+				
+					<li><a href="./UsersIngredients.html">UsersIngredients</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -183,7 +228,18 @@
 		<h1 class="class">Recipe</h1>
 
 		<div id="description">
-			
+			<h2>Schema Information</h2>
+<p>
+Table name: recipes
+</p>
+<pre>
+ id         :integer         not null, primary key
+ name       :string(255)
+ content    :text
+ created_at :datetime
+ updated_at :datetime
+ user_id    :integer</pre>
+
 		</div>
 
 		<!-- Constants -->
@@ -218,10 +274,114 @@
 					<div class="method-source-code"
 						id="ingredients--source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 24</span>
-24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ingredients=</span>(<span class="ruby-identifier">list</span>)
-25:     <span class="ruby-ivar">@ingredients_list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">:name</span>]) }
-26:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 36</span>
+36:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ingredients=</span>(<span class="ruby-identifier">list</span>)
+37:     <span class="ruby-ivar">@ingredients_list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">:name</span>]) }
+38:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="score-method" class="method-detail ">
+				<a name="method-i-score"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">score</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="score-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 44</span>
+44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">score</span>
+45:     <span class="ruby-ivar">@score</span>
+46:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="score--method" class="method-detail ">
+				<a name="method-i-score%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">score=</span><span
+						class="method-args">(score)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="score--source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">score=</span>(<span class="ruby-identifier">score</span>)
+41:     <span class="ruby-ivar">@score</span> = <span class="ruby-identifier">score</span>.<span class="ruby-identifier">to_i</span>
+42:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="serializable-hash-method" class="method-detail ">
+				<a name="method-i-serializable_hash"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">serializable_hash</span><span
+						class="method-args">(options={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="serializable-hash-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 48</span>
+48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span>={})
+49:     <span class="ruby-identifier">opts</span> = {<span class="ruby-value">:include</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ingredients</span>, <span class="ruby-value">:methods</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:tag</span>, <span class="ruby-value">:score</span>, <span class="ruby-value">:can_edit</span>]}
+50:     <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">nil?</span>
+51:     <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">opts</span>)
+52:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -252,10 +412,10 @@
 					<div class="method-source-code"
 						id="to-param-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 20</span>
-20:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
-21:     <span class="ruby-node">&quot;#{id}-#{name.parameterize}&quot;</span>
-22:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 32</span>
+32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
+33:     <span class="ruby-node">&quot;#{id}-#{name.parameterize}&quot;</span>
+34:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -292,11 +452,11 @@
 					<div class="method-source-code"
 						id="delete-ingredients-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 44</span>
-44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_ingredients</span>(<span class="ruby-identifier">ingredients</span>)
-45:     <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:id</span>)
-46:     <span class="ruby-constant">RecipesIngredient</span>.<span class="ruby-identifier">delete_all</span>(<span class="ruby-value">:recipe_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:ingredient_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ids</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">present?</span>
-47:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 69</span>
+69:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_ingredients</span>(<span class="ruby-identifier">ingredients</span>)
+70:     <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:id</span>)
+71:     <span class="ruby-constant">RecipesIngredient</span>.<span class="ruby-identifier">delete_all</span>(<span class="ruby-value">:recipe_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:ingredient_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ids</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">present?</span>
+72:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -327,20 +487,20 @@
 					<div class="method-source-code"
 						id="save-ingredients-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 30</span>
-30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save_ingredients</span>
-31:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ingredients_list</span>.<span class="ruby-identifier">nil?</span>
-32:     <span class="ruby-identifier">saved_ingredients</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">find_or_create_all_with_like_by_name</span>(<span class="ruby-ivar">@ingredients_list</span>.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:name</span>))
-33: 
-34:     <span class="ruby-identifier">old_ingredients</span> = <span class="ruby-identifier">ingredients</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">saved_ingredients</span>
-35:     <span class="ruby-identifier">new_ingredients</span> = <span class="ruby-identifier">saved_ingredients</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ingredients</span>
-36:     
-37:     <span class="ruby-identifier">delete_ingredients</span>(<span class="ruby-identifier">old_ingredients</span>)
-38:     
-39:     <span class="ruby-identifier">new_ingredients</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ingredient</span><span class="ruby-operator">|</span>
-40:        <span class="ruby-constant">RecipesIngredient</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">:recipe_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:ingredient_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ingredient</span>.<span class="ruby-identifier">id</span>)
-41:     <span class="ruby-keyword kw">end</span>
-42:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/recipe.rb, line 55</span>
+55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save_ingredients</span>
+56:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ingredients_list</span>.<span class="ruby-identifier">nil?</span>
+57:     <span class="ruby-identifier">saved_ingredients</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">find_or_create_all_with_like_by_name</span>(<span class="ruby-ivar">@ingredients_list</span>.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:name</span>))
+58: 
+59:     <span class="ruby-identifier">old_ingredients</span> = <span class="ruby-identifier">ingredients</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">saved_ingredients</span>
+60:     <span class="ruby-identifier">new_ingredients</span> = <span class="ruby-identifier">saved_ingredients</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ingredients</span>
+61: 
+62:     <span class="ruby-identifier">delete_ingredients</span>(<span class="ruby-identifier">old_ingredients</span>)
+63:     <span class="ruby-identifier">new_ingredients</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ingredient</span><span class="ruby-operator">|</span>
+64:       <span class="ruby-identifier">recipes_ingredients</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">:ingredient_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ingredient</span>.<span class="ruby-identifier">id</span>)
+65:     <span class="ruby-keyword kw">end</span>
+66:     <span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">reset</span>
+67:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

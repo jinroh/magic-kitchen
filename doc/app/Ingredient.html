@@ -123,15 +123,21 @@
 
 				<ul class="link-list">
 				
+					<li><a href="./Stats.html">Stats</a></li>
+				
+					<li><a href="./Stats/Coeff.html">Stats::Coeff</a></li>
+				
+					<li><a href="./Stats/FoF.html">Stats::FoF</a></li>
+				
+					<li><a href="./Stats/Recs.html">Stats::Recs</a></li>
+				
+					<li><a href="./Stats/UUI.html">Stats::UUI</a></li>
+				
 					<li><a href="./Tags.html">Tags</a></li>
 				
 					<li><a href="./Tags/RecipesController.html">Tags::RecipesController</a></li>
 				
 					<li><a href="./Tags/RecipesHelper.html">Tags::RecipesHelper</a></li>
-				
-					<li><a href="./Foo.html">Foo</a></li>
-				
-					<li><a href="./Foo/Search.html">Foo::Search</a></li>
 				
 					<li><a href="./Ability.html">Ability</a></li>
 				
@@ -139,13 +145,21 @@
 				
 					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
 				
-					<li><a href="./Cookbook.html">Cookbook</a></li>
-				
 					<li><a href="./DeviseHelper.html">DeviseHelper</a></li>
 				
 					<li><a href="./Favorite.html">Favorite</a></li>
 				
+					<li><a href="./FavoritesController.html">FavoritesController</a></li>
+				
+					<li><a href="./FeedsController.html">FeedsController</a></li>
+				
+					<li><a href="./FollowersController.html">FollowersController</a></li>
+				
+					<li><a href="./FollowingController.html">FollowingController</a></li>
+				
 					<li><a href="./FormHelper.html">FormHelper</a></li>
+				
+					<li><a href="./HistoriesController.html">HistoriesController</a></li>
 				
 					<li><a href="./History.html">History</a></li>
 				
@@ -157,13 +171,19 @@
 				
 					<li><a href="./Like.html">Like</a></li>
 				
+					<li><a href="./LikeObserver.html">LikeObserver</a></li>
+				
 					<li><a href="./LikesController.html">LikesController</a></li>
 				
 					<li><a href="./LikesHelper.html">LikesHelper</a></li>
 				
 					<li><a href="./List.html">List</a></li>
 				
+					<li><a href="./Post.html">Post</a></li>
+				
 					<li><a href="./Recipe.html">Recipe</a></li>
+				
+					<li><a href="./RecipeSearch.html">RecipeSearch</a></li>
 				
 					<li><a href="./RecipesController.html">RecipesController</a></li>
 				
@@ -171,15 +191,23 @@
 				
 					<li><a href="./RecipesIngredient.html">RecipesIngredient</a></li>
 				
+					<li><a href="./RecsController.html">RecsController</a></li>
+				
+					<li><a href="./SessionsController.html">SessionsController</a></li>
+				
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./Tagging.html">Tagging</a></li>
 				
 					<li><a href="./User.html">User</a></li>
 				
+					<li><a href="./UserObserver.html">UserObserver</a></li>
+				
 					<li><a href="./UsersController.html">UsersController</a></li>
 				
 					<li><a href="./UsersHelper.html">UsersHelper</a></li>
+				
+					<li><a href="./UsersIngredients.html">UsersIngredients</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -193,7 +221,16 @@
 		<h1 class="class">Ingredient</h1>
 
 		<div id="description">
-			
+			<h2>Schema Information</h2>
+<p>
+Table name: ingredients
+</p>
+<pre>
+ id         :integer         not null, primary key
+ name       :string(255)
+ created_at :datetime
+ updated_at :datetime</pre>
+
 		</div>
 
 		<!-- Constants -->
@@ -265,9 +302,7 @@
 
 				<div class="method-description">
 					
-					<p>
-CLASS METHODS
-</p>
+					
 					
 
 					
@@ -301,19 +336,17 @@ CLASS METHODS
 
 				<div class="method-description">
 					
-					<p>
-SCOPES
-</p>
+					
 					
 
 					
 					<div class="method-source-code"
 						id="named-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 20</span>
-20:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named</span>(<span class="ruby-identifier">name</span>)
-21:     <span class="ruby-identifier">where</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-identifier">name</span>])
-22:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 22</span>
+22:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named</span>(<span class="ruby-identifier">name</span>)
+23:     <span class="ruby-identifier">where</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-identifier">name</span>])
+24:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -344,10 +377,10 @@ SCOPES
 					<div class="method-source-code"
 						id="named-any-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 28</span>
-28:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_any</span>(<span class="ruby-identifier">list</span>)
-29:     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">list</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sanitize_sql</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>]) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; OR &quot;</span>))
-30:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 30</span>
+30:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_any</span>(<span class="ruby-identifier">list</span>)
+31:     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">list</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sanitize_sql</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>]) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; OR &quot;</span>))
+32:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -378,10 +411,10 @@ SCOPES
 					<div class="method-source-code"
 						id="named-like-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 24</span>
-24:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_like</span>(<span class="ruby-identifier">name</span>)
-25:     <span class="ruby-identifier">where</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-node">&quot;%#{name}%&quot;</span>])
-26:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 26</span>
+26:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_like</span>(<span class="ruby-identifier">name</span>)
+27:     <span class="ruby-identifier">where</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-node">&quot;%#{name}%&quot;</span>])
+28:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -412,10 +445,10 @@ SCOPES
 					<div class="method-source-code"
 						id="named-like-any-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 32</span>
-32:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_like_any</span>(<span class="ruby-identifier">list</span>)
-33:     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">list</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sanitize_sql</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-node">&quot;%#{name.to_s}%&quot;</span>]) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; OR &quot;</span>))
-34:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">named_like_any</span>(<span class="ruby-identifier">list</span>)
+35:     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">list</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sanitize_sql</span>([<span class="ruby-value str">&quot;name LIKE ?&quot;</span>, <span class="ruby-node">&quot;%#{name.to_s}%&quot;</span>]) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; OR &quot;</span>))
+36:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -445,19 +478,17 @@ SCOPES
 
 				<div class="method-description">
 					
-					<p>
-INSTANCE METHODS
-</p>
+					
 					
 
 					
 					<div class="method-source-code"
 						id="--source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 58</span>
-58:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">object</span>)
-59:     (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Ingredient</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">name</span>)
-60:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 56</span>
+56:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">object</span>)
+57:     (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Ingredient</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">name</span>)
+58:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -488,10 +519,10 @@ INSTANCE METHODS
 					<div class="method-source-code"
 						id="to-s-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 62</span>
-62:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
-63:     <span class="ruby-identifier">name</span>
-64:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+61:     <span class="ruby-identifier">name</span>
+62:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -528,13 +559,13 @@ INSTANCE METHODS
 					<div class="method-source-code"
 						id="clean-name-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 68</span>
-68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clean_name</span>
-69:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>
-70:                     .<span class="ruby-identifier">strip</span>
-71:                     .<span class="ruby-identifier">downcase</span>
-72:                     .<span class="ruby-identifier">squeeze</span>(<span class="ruby-value str">&quot; &quot;</span>)
-73:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/ingredient.rb, line 65</span>
+65:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clean_name</span>
+66:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>
+67:                     .<span class="ruby-identifier">strip</span>
+68:                     .<span class="ruby-identifier">downcase</span>
+69:                     .<span class="ruby-identifier">squeeze</span>(<span class="ruby-value str">&quot; &quot;</span>)
+70:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

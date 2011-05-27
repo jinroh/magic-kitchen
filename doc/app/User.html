@@ -71,11 +71,23 @@
 					
 					<li><a href="#method-i-age">#age</a></li>
 					
+					<li><a href="#method-i-favorite%3F">#favorite?</a></li>
+					
+					<li><a href="#method-i-likes%3F">#likes?</a></li>
+					
 					<li><a href="#method-i-name">#name</a></li>
 					
 					<li><a href="#method-i-name%3D">#name=</a></li>
 					
+					<li><a href="#method-i-score">#score</a></li>
+					
+					<li><a href="#method-i-score%3D">#score=</a></li>
+					
+					<li><a href="#method-i-serializable_hash">#serializable_hash</a></li>
+					
 					<li><a href="#method-i-to_param">#to_param</a></li>
+					
+					<li><a href="#method-i-to_s">#to_s</a></li>
 					
 				</ul>
 			</div>
@@ -89,6 +101,10 @@
 				
 				
 					<li><span class="include">Timeline::User::Followers</span></li>
+				
+				
+				
+					<li><span class="include">Timeline::User::Recommandations</span></li>
 				
 				
 				</ul>
@@ -124,15 +140,21 @@
 
 				<ul class="link-list">
 				
+					<li><a href="./Stats.html">Stats</a></li>
+				
+					<li><a href="./Stats/Coeff.html">Stats::Coeff</a></li>
+				
+					<li><a href="./Stats/FoF.html">Stats::FoF</a></li>
+				
+					<li><a href="./Stats/Recs.html">Stats::Recs</a></li>
+				
+					<li><a href="./Stats/UUI.html">Stats::UUI</a></li>
+				
 					<li><a href="./Tags.html">Tags</a></li>
 				
 					<li><a href="./Tags/RecipesController.html">Tags::RecipesController</a></li>
 				
 					<li><a href="./Tags/RecipesHelper.html">Tags::RecipesHelper</a></li>
-				
-					<li><a href="./Foo.html">Foo</a></li>
-				
-					<li><a href="./Foo/Search.html">Foo::Search</a></li>
 				
 					<li><a href="./Ability.html">Ability</a></li>
 				
@@ -140,13 +162,21 @@
 				
 					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
 				
-					<li><a href="./Cookbook.html">Cookbook</a></li>
-				
 					<li><a href="./DeviseHelper.html">DeviseHelper</a></li>
 				
 					<li><a href="./Favorite.html">Favorite</a></li>
 				
+					<li><a href="./FavoritesController.html">FavoritesController</a></li>
+				
+					<li><a href="./FeedsController.html">FeedsController</a></li>
+				
+					<li><a href="./FollowersController.html">FollowersController</a></li>
+				
+					<li><a href="./FollowingController.html">FollowingController</a></li>
+				
 					<li><a href="./FormHelper.html">FormHelper</a></li>
+				
+					<li><a href="./HistoriesController.html">HistoriesController</a></li>
 				
 					<li><a href="./History.html">History</a></li>
 				
@@ -158,13 +188,19 @@
 				
 					<li><a href="./Like.html">Like</a></li>
 				
+					<li><a href="./LikeObserver.html">LikeObserver</a></li>
+				
 					<li><a href="./LikesController.html">LikesController</a></li>
 				
 					<li><a href="./LikesHelper.html">LikesHelper</a></li>
 				
 					<li><a href="./List.html">List</a></li>
 				
+					<li><a href="./Post.html">Post</a></li>
+				
 					<li><a href="./Recipe.html">Recipe</a></li>
+				
+					<li><a href="./RecipeSearch.html">RecipeSearch</a></li>
 				
 					<li><a href="./RecipesController.html">RecipesController</a></li>
 				
@@ -172,15 +208,23 @@
 				
 					<li><a href="./RecipesIngredient.html">RecipesIngredient</a></li>
 				
+					<li><a href="./RecsController.html">RecsController</a></li>
+				
+					<li><a href="./SessionsController.html">SessionsController</a></li>
+				
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./Tagging.html">Tagging</a></li>
 				
 					<li><a href="./User.html">User</a></li>
 				
+					<li><a href="./UserObserver.html">UserObserver</a></li>
+				
 					<li><a href="./UsersController.html">UsersController</a></li>
 				
 					<li><a href="./UsersHelper.html">UsersHelper</a></li>
+				
+					<li><a href="./UsersIngredients.html">UsersIngredients</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -194,7 +238,26 @@
 		<h1 class="class">User</h1>
 
 		<div id="description">
-			
+			<h2>Schema Information</h2>
+<p>
+Table name: users
+</p>
+<pre>
+ id                   :integer         not null, primary key
+ first_name           :string(50)
+ last_name            :string(50)
+ email                :string(100)     default(&quot;&quot;), not null
+ created_at           :datetime
+ updated_at           :datetime
+ encrypted_password   :string(128)     default(&quot;&quot;), not null
+ reset_password_token :string(255)
+ remember_created_at  :datetime
+ date_of_birth        :datetime
+ about                :text
+ gender               :string(1)       default(&quot;N&quot;)
+ homepage             :string(100)
+ country              :string(50)</pre>
+
 		</div>
 
 		<!-- Constants -->
@@ -202,6 +265,11 @@
 		<div id="constants-list" class="section">
 			<h3 class="section-header">Constants</h3>
 			<dl>
+			
+				<dt><a name="SERIALIZABLE">SERIALIZABLE</a></dt>
+				
+				<dd class="description"></dd>
+				
 			
 				<dt><a name="NAME_REGEX">NAME_REGEX</a></dt>
 				
@@ -246,10 +314,78 @@
 					<div class="method-source-code"
 						id="age-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 49</span>
-49:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">age</span>
-50:     (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_date</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">date_of_birth</span>.<span class="ruby-identifier">to_date</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-value">365</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
-51:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 84</span>
+84:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">age</span>
+85:     (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_date</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">date_of_birth</span>.<span class="ruby-identifier">to_date</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-value">365</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+86:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="favorite--method" class="method-detail ">
+				<a name="method-i-favorite%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">favorite?</span><span
+						class="method-args">(recipe)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="favorite--source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 92</span>
+92:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">favorite?</span>(<span class="ruby-identifier">recipe</span>)
+93:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">recipe</span>).<span class="ruby-identifier">all</span>.<span class="ruby-identifier">present?</span>
+94:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="likes--method" class="method-detail ">
+				<a name="method-i-likes%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">likes?</span><span
+						class="method-args">(recipe)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="likes--source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 88</span>
+88:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">likes?</span>(<span class="ruby-identifier">recipe</span>)
+89:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">likes</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">recipe</span>).<span class="ruby-identifier">all</span>.<span class="ruby-identifier">present?</span>
+90:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -280,10 +416,10 @@
 					<div class="method-source-code"
 						id="name-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 41</span>
-41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
-42:     <span class="ruby-ivar">@name</span> <span class="ruby-operator">||=</span> [<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">first_name</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
-43:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 68</span>
+68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
+69:     <span class="ruby-ivar">@name</span> <span class="ruby-operator">||=</span> [<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">first_name</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
+70:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -314,10 +450,113 @@
 					<div class="method-source-code"
 						id="name--source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 45</span>
-45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name=</span>(<span class="ruby-identifier">name</span>)
-46:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">first_name</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s*/</span>, <span class="ruby-value">2</span>)
-47:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name=</span>(<span class="ruby-identifier">name</span>)
+73:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">first_name</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s/</span>, <span class="ruby-value">2</span>)
+74:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="score-method" class="method-detail ">
+				<a name="method-i-score"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">score</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="score-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">score</span>
+81:     <span class="ruby-ivar">@score</span>
+82:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="score--method" class="method-detail ">
+				<a name="method-i-score%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">score=</span><span
+						class="method-args">(score)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="score--source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 76</span>
+76:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">score=</span>(<span class="ruby-identifier">score</span>)
+77:     <span class="ruby-ivar">@score</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">score</span>.<span class="ruby-identifier">to_i</span>
+78:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="serializable-hash-method" class="method-detail ">
+				<a name="method-i-serializable_hash"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">serializable_hash</span><span
+						class="method-args">(options={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="serializable-hash-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 96</span>
+96:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span>={})
+97:     <span class="ruby-comment cmt">#options = SERIALIZABLE.merge(options) unless options.nil?</span>
+98:     <span class="ruby-keyword kw">super</span>(<span class="ruby-constant">SERIALIZABLE</span>)
+99:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -348,10 +587,44 @@
 					<div class="method-source-code"
 						id="to-param-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 32</span>
-32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
-33:     <span class="ruby-node">&quot;#{id}-#{name.parameterize}&quot;</span>
-34:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 56</span>
+56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
+57:     <span class="ruby-node">&quot;#{id}-#{name.parameterize}&quot;</span>
+58:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail ">
+				<a name="method-i-to_s"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-s-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 64</span>
+64:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+65:     <span class="ruby-identifier">name</span>
+66:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
