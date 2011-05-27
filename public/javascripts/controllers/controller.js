@@ -33,7 +33,7 @@ $(document).ready( function() {
 
 			$("#search > form").submit(function(){
 				//try{
-				//	console.log("hello");
+					//	console.log("hello");
 					MK.App.SearchTab.initialize();
 
 					if($("#q").val() != $("#q").attr("placeholder")){
@@ -42,18 +42,22 @@ $(document).ready( function() {
 
 					if($("#w").val() != $("#w").attr("placeholder")){
 						var ing = $("#w").val().split(",");
-						for(i=0;i<ing.length;i++){
-							MK.App.SearchTab.Recipes.addWithoutIngredient({name : ing[i]});
+						if(!ing[0]==""){
+							for(i=0;i<ing.length;i++){
+								MK.App.SearchTab.Recipes.addWithoutIngredient({name : ing[i]});
+							}
 						}
+
+
 					}
 
 					MK.App.SearchTab.Recipes.search();
-				//	}catch(e){console.log(e);}
+					//	}catch(e){console.log(e);}
 					window.location.hash = "#/recipes"
 					$(window).trigger("hashchange");
 					return false;
 				});
-				
+
 			});
 //-------------LIGHTBOX VIEW initialization-----------
 		this.LightBoxView = new MK.Views.LightBoxView();
