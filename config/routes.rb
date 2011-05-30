@@ -26,6 +26,9 @@ Magickitchen::Application.routes.draw do
   resources :recipes
   
   namespace :tags do
-    resources :recipes
+    namespace :recipes do
+      get :ingredients
+      get :tags
+    end
   end
 end

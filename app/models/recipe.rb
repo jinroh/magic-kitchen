@@ -25,9 +25,13 @@ class Recipe < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   validates_presence_of :name, :content, :user_id
+  validates_length_of   :name, :within => 3..100
+                   
   
   timeline :verb => "added the recipe",
            :attributes => [:id, :name]
+           
+  scope :last, order("created_at DESC").limit(20)
   
   def to_param
     "#{id}-#{name.parameterize}"
