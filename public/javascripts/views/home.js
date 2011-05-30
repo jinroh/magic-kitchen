@@ -3,7 +3,7 @@ MK.Views.Home = Backbone.View.extend({
 	el: function(){return window.$("#home")},
 	
 	initialize : function(options){
-		this.template = new EJS({url : '/javascripts/views/home.ejs'}); 
+		this.template = new EJS({url : '/javascripts/templates/home.ejs'}); 
 	//	passer {model : recipeinstance} en argument
 
 		_.bindAll(this, "render")

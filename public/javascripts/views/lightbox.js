@@ -1,8 +1,8 @@
 MK.Views.LightBoxView = Backbone.View.extend({
 	
 	initialize : function(){
-		this.template_form = new EJS({url :"/javascripts/views/recipe_form.ejs"});
-		this.template = new EJS({url : "/javascripts/views/recipe_lightbox.ejs"});
+		this.template_form = new EJS({url :"/javascripts/templates/recipe_form.ejs"});
+		this.template = new EJS({url : "/javascripts/templates/recipe_lightbox.ejs"});
 	},
 	
 	setNewModel : function(model){
@@ -10,7 +10,7 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		this.model = model;
 		
 		_.bindAll(this, "render", "submit", "renderForm")
-		//this.model.bind("change", this.render);
+		this.model.bind("change", this.render);
 		this.el().delegate("form#new_recipe","submit", this.submit);
 		this.el().delegate("form .close_lightbox","click", function(){
 			//console.log("hello");

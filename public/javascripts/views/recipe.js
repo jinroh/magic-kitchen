@@ -6,7 +6,7 @@ MK.Views.Recipe = Backbone.View.extend({
 	tagName : "li",
 
 	initialize : function(options){
-		this.template = new EJS({url : '/javascripts/views/recipe.ejs'}); 
+		this.template = new EJS({url : '/javascripts/templates/recipe.ejs'}); 
 	//	passer {model : recipeinstance} en argument
 		this.id = "recipe"+options.model.id;
 		//_.bindAll()

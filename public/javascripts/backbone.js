@@ -273,7 +273,12 @@
     fetch : function(options) {
       options || (options = {});
       var model = this;
-      var success = options.success;
+	  var success = options.success;
+//// Ajout perso : passing options.context to success as jquery
+	if(options.context){
+		_.bind(success, options.context);
+	}
+////fin
       options.success = function(resp, status, xhr) {
         if (!model.set(model.parse(resp, xhr), options)) return false;
         if (success) success(model, resp);
