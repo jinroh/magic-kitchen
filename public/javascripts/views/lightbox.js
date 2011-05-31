@@ -1,27 +1,28 @@
 MK.Views.LightBoxView = Backbone.View.extend({
-	
+
 	initialize : function(){
 		this.template_form = new EJS({url :"/javascripts/templates/recipe_form.ejs"});
 		this.template = new EJS({url : "/javascripts/templates/recipe_lightbox.ejs"});
-	},
-	
-	setNewModel : function(model){
-		delete this.model;
-		this.model = model;
 		
-		_.bindAll(this, "render", "submit", "renderForm")
-		this.model.bind("change", this.render);
+		_.bindAll(this, "render", "submit", "renderForm");
 		this.el().delegate("form#new_recipe","submit", this.submit);
 		this.el().delegate("form .close_lightbox","click", function(){
-			//console.log("hello");
 			window.history.back();
 			return false;
 		});
-		
+
 	},
-	
+
+	setNewModel : function(model){
+		delete this.model;
+		this.model = model;
+		this.model.bind("change", this.render);
+
+	},
+
 	el: function(){return window.$("#lightbox")},
-	
+
+	//------------------- UI interaction methods----------	
 	open : function(){
 		// move the lightbox to the current window top + 50px
 		$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
@@ -37,54 +38,95 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		$('#lightbox').hide();
 		$('#lightbox-shadow').hide();
 	},
-	
-	render : function(){
-		var data = this.model.toJSON();
-		//console.log(this.template.render(data));
-		this.$("#inner_content").html(this.template.render(data));
-		
-		return this;
-	},
-	
-	renderForm : function(){
-		var data = this.model.toJSON();
-		//console.log(this.template.render(data));
-		//	console.log(data.name);
-		//get round BUG of EJS with name
-		data.name_rec = data.name; 
-		this.$("#inner_content").html(this.template_form.render(data));
-		$(".field_ingredients").autoAddingTextFields();
-    return this;
-	},
-	
+
 	submit : function(){
 		var recipe = {};
-		
+
 		recipe.name = this.$("input#recipe_name").val();
+		
 		recipe.ingredients = [];
 		var i = 0;
 		this.$("input#recipe_ingredients__name").each(function(index){
-			if($(this).val() == ""){return;}
+			if($(this).val() == ""){return;} //ignore blank
 			recipe.ingredients[i] = {} ;
 			recipe.ingredients[i].name = $(this).val();
 			i++;
-			});
-		
-		recipe.content = this.$("textarea#recipe_content").val();
-		//console.log(recipe.content);
-		recipe.tag_list = this.$("input#recipe_tag_list").val();
-		
-		this.model.set(recipe, {silent : true});
-		try{this.model.save(null,{success: function(model, response){
-			MK.App.LightBoxView.render();
-		//	console.log("helllo");
-			}
-			
 		});
-		}catch(e){//console.log(e);
+
+		recipe.content = this.$("textarea#recipe_content").val();
+		
+		recipe.tag_list = this.$("input#recipe_tag_list").val();
+
+		this.model.set(recipe, {silent : true});
+			
+		this.inLoading();
+		this.model.save(null,{
+			success: function(model, response){
+			MK.App.LightBoxView.outLoading().render();
+			},
+			
+			error : function(model, response){
+			MK.App.LightBoxView.outLoading().renderForm().showErrorMessage(response.statusText);		
 			}
+		});
+
+		
 		return false;
+	},
+
+	//---------------------- render methods -------------------
+
+	render : function(){
+		var data = this.model.toJSON();
+
+		this.$("#inner_content").html(this.template.render(data));
+
+		return this;
+	},
+
+	renderForm : function(options){
+		var data = this.model.toJSON();
+
+		//get round BUG of EJS with name
+		data.name_rec = data.name;
+		html =  this.template_form.render(data);
+		if(options && options.new){ 
+			html = "<h3>Add a new recipe</h3>"+html;
+			}
+		else{
+			html = "<h3>Edit your recipe</h3>"+html;
+		}
+		this.$("#inner_content").html(html);
+
+		//autocomplete initialization :
+		$(".field_ingredients").autoAddingTextFields();
+
+		return this;
+	},
+
+	empty : function(){
+		this.$("#inner_content").empty();
+
+		return this;
+	},
+
+	inLoading : function(){
+		this.$("#inner_content").html("<p>Loading..</p>");
+		//TODO something non destructive
+		return this;
+	},
+	
+	outLoading : function(){
+		//TODO something non destructive
+		return this;
+	},
+	
+	showErrorMessage : function(statusText){
+		//TODO
+		statusText || (statusText = "error");
+		this.$("#inner_content").append("<p>Oups : "+statusText+"</p>");
+		
+		return this;
 	}
 
-	
 });
