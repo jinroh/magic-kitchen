@@ -62,11 +62,11 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		this.inLoading();
 		this.model.save(null,{
 			success: function(model, response){
-			MK.App.LightBoxView.outLoading().render();
+			MK.App.LightBoxView.outLoading().empty().render();
 			},
 			
 			error : function(model, response){
-			MK.App.LightBoxView.outLoading().renderForm().showErrorMessage(response.statusText);		
+			MK.App.LightBoxView.outLoading().showErrorMessage(response.statusText);		
 			}
 		});
 
@@ -112,18 +112,20 @@ MK.Views.LightBoxView = Backbone.View.extend({
 
 	inLoading : function(){
 		
+		//disable submit
 		element = this.$("#recipe_submit");
 		element.data('ujs:enable-with', element.val());
 		element.val(element.data('disable-with'));
 		element.attr('disabled', 'disabled');
 		
-		
-		this.$("#inner_content").append("<p>Loading..</p>");
 		//TODO something non destructive
+		this.$("#inner_content").append("<p>Loading..</p>");
+
 		return this;
 	},
 	
 	outLoading : function(){
+		//enable submit
 		element = this.$("#recipe_submit");
 		if (element.data('ujs:enable-with')) element.val(element.data('ujs:enable-with'));
 		element.removeAttr('disabled');
