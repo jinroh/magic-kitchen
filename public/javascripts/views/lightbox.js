@@ -111,12 +111,22 @@ MK.Views.LightBoxView = Backbone.View.extend({
 	},
 
 	inLoading : function(){
-		this.$("#inner_content").html("<p>Loading..</p>");
+		
+		element = this.$("#recipe_submit");
+		element.data('ujs:enable-with', element.val());
+		element.val(element.data('disable-with'));
+		element.attr('disabled', 'disabled');
+		
+		
+		this.$("#inner_content").append("<p>Loading..</p>");
 		//TODO something non destructive
 		return this;
 	},
 	
 	outLoading : function(){
+		element = this.$("#recipe_submit");
+		if (element.data('ujs:enable-with')) element.val(element.data('ujs:enable-with'));
+		element.removeAttr('disabled');
 		//TODO something non destructive
 		return this;
 	},
