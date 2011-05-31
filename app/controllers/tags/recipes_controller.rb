@@ -6,8 +6,9 @@ class Tags::RecipesController < ApplicationController
     respond_with @ingredients
   end
   
-  def tag
-    @tags
+  def tags
+    @tags = Tag.all.map(&:name)
+    respond_with @tags
   end
   
 end

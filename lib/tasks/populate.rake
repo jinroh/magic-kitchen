@@ -1,9 +1,8 @@
 namespace :db do
   desc "Erase and fill the database"
-  task :populate => :environment do
+  task :populate => :environment do |t, args|
     require "populator"
     require "forgery"
-    require "redis"
     
     [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
     
@@ -29,19 +28,18 @@ namespace :db do
 
     User.populate USERS do |user|
       user.first_name = Forgery::Name.first_name
-      user.last_name = Forgery::Name.last_name
-      user.email = Forgery::Internet.email_address
-      user.about = Forgery::LoremIpsum.paragraph
+      user.last_name  = Forgery::Name.last_name
+      user.email      = Forgery::Internet.email_address
+      user.about      = Forgery::LoremIpsum.paragraph
+      user.country    = Forgery::Address.country
       user.encrypted_password = Forgery::Basic.encrypt
       user.created_at = 2.years.ago..Time.now
     end
-    
     puts "Users done"
     
     Ingredient.populate INGREDIENTS do |ingredient|
       ingredient.name = Populator.words(1..3)
     end
-    
     puts "Ingredients done"
     
     Recipe.populate RECIPES do |recipe|
@@ -49,36 +47,12 @@ namespace :db do
       recipe.content = Populator.paragraphs(2..4)
       recipe.user_id = rand(USERS) + 1
     end
-    
     puts "Recipes done"
-    
-    # RecipesIngredient.populate RECIPES_INGREDIENTS do |assoc|
-    #   assoc.recipe_id = rand(RECIPES) + 1
-    #   assoc.ingredient_id = rand(INGREDIENTS) + 1
-    # end
-    
-    puts "Recipe's ingredients done"
-    
-    # Like.populate LIKES do |like|
-    #       like.user_id = rand(USERS) + 1
-    #       like.recipe_id = rand(RECIPES) + 1
-    #     end
-    
-    puts "Likes done"
     
     Tag.populate TAGS do |tag|
       tag.name = Populator.words 1
     end
-    
     puts "Tags done"
-    
-    # Tagging.populate TAGGINGS do |tagging|
-    #   tagging.taggable_type = "Recipe"
-    #   tagging.taggable_id = rand(RECIPES) + 1
-    #   tagging.tag_id = rand(TAGS) + 1
-    # end
-    
-    puts "Taggings done"
     
   end
   
@@ -86,10 +60,10 @@ namespace :db do
   task :redis => :environment do
     require "redis"
     
-    redis = Redis.connect
+    redis = $redis
     redis.flushdb
     
-    HUGE = true
+    HUGE = false
     
     if HUGE == true
       USERS     = 999
