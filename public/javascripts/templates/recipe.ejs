@@ -1,0 +1,80 @@
+						<div class="test">
+							<% if((typeof can_edit == 'undefined')? false : can_edit) {%>
+								<a  href="#/recipe/<%= (typeof is_favorite == 'undefined')? false : id %>/edit">
+								<div class="edit">	
+									<h2>EDIT<h2>								
+								</div></a>
+							<% } %>
+
+							<div class="recipe_top">
+								<div class="recipe_pic"></div>
+
+								<div class="recipe_likes">
+									<% if((typeof is_favorite == 'undefined')? false : is_favorite) {%>
+									<div title="Delete from my CookBook !" class="star_pic starred"></div>
+									<% } 
+									else {%>
+									<div title="Add to my CookBook !" class="star_pic notstarred"></div>
+									<% } %>
+
+									<img title="Cooked !" src='/images/check.png' class="check_pic" height="26px" width="26px"/>
+
+									<% if((typeof is_liked == 'undefined')? false : is_liked) {%>
+									<img class="like_pic isliked" />
+									<% } 
+								 	else {%>
+									<img class="like_pic" src='/images/like.jpg' height="26px" width="53px"/><span class="ok"></span>
+									<% } %>
+
+								</div>	
+							</div>
+							<div class="recipe_title"><h2><%= name %><h2></div>
+						
+							<div class="recipe_from">
+								<div class="posted">posted by : <span class="name">
+
+								<a><% if(typeof author != 'undefined') {%> <%= (typeof author.name == 'undefined')? "" : author.name%> <%} %></a></span></div> 
+
+
+							<% if(((typeof author == 'undefined')? false : author) && ((typeof author.is_followed == 'undefined')? false : author.is_followed)) {%> 
+								<img class="foll_pic following" height="26px" width="64px"/>	
+							<% } 
+							else {%>
+								<img class="foll_pic follow" height="26px" width="64px"/>	
+							<% } %>
+							</div>
+
+							<div class="recipe_when">
+								<p>Already cooked ? 
+								<% if(((typeof history == 'undefined')? false : true) && ((typeof history[0] == 'undefined')? false : true) && (history.length>0)) {%>  
+									<span class="yes">Yes,
+									<%= (typeof history[0].time_ago == 'undefined')? "" : history[0].time_ago %> ago
+									</span>
+								<% }
+								else {%> <span class="no">No, try it !</span>
+								<% } %>
+								</p>
+							</div>							
+
+							<div class="wrapper"> 
+								<div class="accordionButton">Ingredients</div> 
+								<div class="accordionContent" style="display: none;">
+											<% if(typeof ingredients != 'undefined') { for(var i=0; i<ingredients.length; i++) {%>
+												<div class="trigger"><%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%> </div> 
+												<div class="accordContent" style="display: none;">
+														<a href=""><div class="topp" data-ingredient="<%= i %>">Don't show recipes with :</div></a>
+														<a href=""><div class="bott" data-ingredient="<%= i %>">Show only recipes with :</div></a>
+												</div> 
+											<% }} else {%> <%= ""%> <%}%>
+								</div> 
+								<div class="accordionButton">Recipe</div> 
+								<div class="accordionContent" class="content_recipe" style="display: none;">
+									<%= (typeof content == 'undefined')? "" : content%>
+								</div>
+								<div class="accordionButton">Tags</div> 
+								<div class="accordionContent" class="content_recipe" style="display: none;">
+									<%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(" - ") %>
+								</div>
+
+							</div>
+						</div>

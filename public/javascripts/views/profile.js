@@ -3,7 +3,7 @@ MK.Views.Profile = Backbone.View.extend({
 	el: function(){return window.$("#profile")},
 	
 	initialize : function(options){
-		this.template = new EJS({url : '/javascripts/views/profile.ejs'}); 
+		this.template = new EJS({url : '/javascripts/templates/profile.ejs'}); 
 	//	passer {model : recipeinstance} en argument
 
 		_.bindAll(this, "render")

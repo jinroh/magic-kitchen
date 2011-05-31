@@ -1,0 +1,35 @@
+<div id="inner_content_details">
+    	<h3><%= (typeof name == 'undefined')? "" : name%> </h3>
+      <div id='new_recipe_form'></div> 
+
+      <form accept-charset="UTF-8" action="/recipes" class="new_recipe" id="new_recipe" method="post">
+
+	<div class="left_form">
+
+      <div class="field_ingredients"><label for="recipe_ingredients">Ingredients :</label> </br>
+<% if(typeof ingredients != 'undefined') { for(var i=0; i<ingredients.length; i++) {%>
+		  <div class="ingredient">
+          	<%= (typeof ingredients[i].name == 'undefined')? "" : ingredients[i].name%> 
+		  </div>
+
+		<% }} else {%> 
+		  <div class="ingredient">
+		  </div>
+		<%}%>
+	  </div>
+
+      
+
+	<div class="field_tags">
+		Tags :
+		<div class="ingredient"><%= (typeof tag_counts == 'undefined')? "" : tag_counts.join(", ") %></div>
+	</div> 
+
+	<div class="field_buttons">
+		<div id="recipe_ok" class="_submit close_lightbox" name="Ok">Ok</div> 
+	</div> 
+	</div>
+
+	<div class="field_content"><label for="recipe_content">Recipe</label></br><textarea cols="60" id="recipe_content" readonly="readonly" name="recipe[content]" rows="20"><%= (typeof name == 'undefined')? "" : content%></textarea></div>
+    </form> 
+</div>

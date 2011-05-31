@@ -1,0 +1,67 @@
+			<div id="profile_left">
+				<div id="infos_perso">
+					<div class="my_pic"></div>
+					<div class="my_desc">
+						<p class="my_name"><%= (typeof name == 'undefined')? "" : name%></p>
+						<p class="my_age"><%= (typeof age == 'undefined')? "" : age%></p>
+						<p class="my_city">Originaire de <%= (typeof country == 'undefined')? "" : country%></p>
+					</div>				
+				</div>
+				<div id="my_cookbook">
+					<header><h2>My Cookbook</h2></header>
+
+					<% if(typeof favorite_recipes != 'undefined') { for(var i=0; i<Math.min(4,favorite_recipes.length); i++) {%>
+
+					<div class="in_my_cookbook"><div class="in_my_cookbook_pic"><img src="/images/recipe_pic.png" width="118" height="64" /></div>
+					<div class="in_my_cookbook_content"><%= (typeof favorite_recipes[i].name == 'undefined')? "" : favorite_recipes[i].name%></div>
+					</div>
+					<%};}%>
+
+				</div>
+			</div>
+			<div id="profile_right">
+				<div id="my_feeds">
+					<header><h2>My feeds</h2></header>
+
+
+					<% if(typeof my_feed != 'undefined') { for(var i=0; i<Math.min(5,my_feed.length); i++) {%>
+					<div class="feed">
+						<div class="feed_pic"><img src="/images/tarte.jpg" width="46" height="26"/></div>
+						<div class="feed_content" alt="<%= (typeof my_feed[i].time == 'undefined')? '' : my_feed[i].time%>">
+<%= (typeof my_feed[i].user.name == 'undefined')? "" : my_feed[i].user.name%> <%= (typeof my_feed[i].verb == 'undefined')? "" : my_feed[i].verb%> <%= (typeof my_feed[i].target.name == 'undefined')? "" : my_feed[i].target.name%> 
+						</div>
+					</div>
+
+				<% };} else {%>  
+					<div class="feed"><div class="feed_pic"></div>
+					<div class="feed_content">No feeds !</div></div>
+			    <%}%>
+
+				</div>
+
+
+				<div id="my_followers">
+					<header><h2>My followers<h2></header>
+
+					<% if(typeof followers != 'undefined') { for(var i=0; i<Math.min(8,followers.length); i++) {%>
+
+					<div class="one_follow">
+						<div class="one_follow-pic"><img src="/images/profile_pic.png" width="48" height="48"/></div>
+						<div class="one_follow-name"><%= (typeof followers[i].name == 'undefined')? "" : followers[i].name%></div>
+					</div>
+			    	<%};}%>
+
+
+				</div>
+				<div id="my_followings">
+					<header><h2>My followings</h2></header>
+
+					<% if(typeof following != 'undefined') { for(var i=0; i<Math.min(9,following.length); i++) {%>
+
+					<div class="one_follow">
+						<div class="one_follow-pic"><img src="/images/profile_pic.png" width="48" height="48"/></div>
+						<div class="one_follow-name"><%= (typeof following[i].name == 'undefined')? "" : following[i].name%></div>
+					</div>
+			    	<%};}%>
+				</div>
+			</div>

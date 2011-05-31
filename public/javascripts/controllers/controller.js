@@ -121,11 +121,16 @@ $(document).ready( function() {
 				recipe = this.SearchTab.Recipes.get(id);
 			}else{
 				recipe = new MK.Models.Recipe({id : id});
-				recipe.fetch();
-			}
+				recipe.fetch({
+					success : function(){  
+						 alert("hey");
+						},
+					context : this
+					});
 			this.LightBoxView.setNewModel(recipe);
 
-			this.LightBoxView.open();
+			this.LightBoxView.render().open();
+		};
 		},
 		
 		editRecipe: function(id){
