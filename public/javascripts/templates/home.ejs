@@ -28,9 +28,13 @@
 					<header><h2>You would like to cook : </h2></header>
 
 					<% if(typeof recipes_recs != 'undefined') { for(var i=0; i<Math.min(4,recipes_recs.length); i++) {%>
-					<div class="recomended_recipe"><div class="recomended_recipe_pic"><img src="/images/tarte.jpg" width="52" height="40" /></div><div class="recomended_recipe_content"><%= (typeof recipes_recs[i].name == 'undefined')? "" : recipes_recs[i].name%> </div></div>
+					<div class="recomended_recipe">
+						<div class="recomended_recipe_pic"><img src="/images/tarte.jpg" width="52" height="40" /></div>
+						<div class="recomended_recipe_content"><%= (typeof recipes_recs[i].name == 'undefined')? "" : recipes_recs[i].name%> </div>
+					</div>
+			    <%};}%>			
 				</div>
-			    <%};}%>
+
 
 
 				<div id="recomended_followings">
