@@ -13,9 +13,8 @@ module Timeline
     end
     
     def initialize(options = {})
-      if options[:data]
+      if options.has_key?(:data)
         @json = JSON.parse(options[:data], :symbolize_names => true)
-        
         @user   = OpenStruct.new(@json[:user])
         @verb   = @json[:verb]
         @target = OpenStruct.new(@json[:target])
@@ -38,9 +37,9 @@ module Timeline
     
     def to_json
       @json ||= {
-        :user   => @user.serializable_hash(:methods => @user_attributes, :only => {}), 
+        :user   => @user.serializable_hash(:methods => @user_attributes, :include => {}, :only => {}), 
         :verb   => @verb,
-        :target => @target.serializable_hash(:methods => @target_attributes, :only => {}),
+        :target => @target.serializable_hash(:methods => @target_attributes, :include => {}, :only => {}),
         :target_type => @target_type,
         :time   => @time.to_s
       }.to_json
@@ -81,8 +80,7 @@ module Timeline
     end
     
     def verb=(object)
-      @verb = object || @bind.class.name
-      @verb = @verb.to_s
+      @verb = object.to_s
     end
     
   end

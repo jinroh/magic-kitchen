@@ -1,23 +1,20 @@
 module Timeline
   class Feed
+    include Enumerable
+    delegate :each, :to => :to_a
+    
     attr_reader :name, :user, :followers, :limit, :offset
     
-    def initialize(name, user, followers)
-      @name, @user, @limit, @offset = name.to_sym, user, 10, 0
-      self.followers = followers
-    end
+    LIMIT = 10
     
-    def each(limit=@limit, offset=@offset)
-      raise LocalJumpError, "no block given" unless block_given?
-      (offset..(offset+limit)).each do |e|
-        data = Timeline.redis.lindex(self.key, e)
-        next if data.nil?
-        yield Timeline::Event.from(data)
-      end
+    def initialize(name, user, followers)
+      @name, @user    = name.to_sym, user
+      @limit, @offset = LIMIT, 0
+      self.followers  = followers
     end
     
     def empty?
-      Timeline.redis.lindex(self.key, 0).nil?
+      Timeline.redis.lindex(key, 0).nil?
     end
     
     def all
@@ -25,7 +22,7 @@ module Timeline
     end
     
     def to_a
-      Timeline.redis.lrange(key, @offset, @offset + @limit).map { |data| Timeline::Event.from(data) }
+      @events ||= Timeline.redis.lrange(key, @offset, (@offset + @limit)-1).map { |data| Timeline::Event.from(data) }
     end
     
     def count
