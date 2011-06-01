@@ -3,6 +3,8 @@ require "ostruct"
 
 module Timeline
   class Event
+    include ActionView::Helpers::DateHelper
+    
     TARGET_ATTRIBUTES = [:id, :name, "class.name", :created_at]
     USER_ATTRIBUTES   = [:id, :name]
     
@@ -31,7 +33,7 @@ module Timeline
         @target_attributes = options[:attributes] || TARGET_ATTRIBUTES
         @user_attributes   = options[:user_attributes] || USER_ATTRIBUTES
         
-        @time = @target.created_at || DateTime.now.utc
+        @time = time_ago_in_words(DateTime.now.utc)
       end
     end
     

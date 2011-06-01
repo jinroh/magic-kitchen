@@ -1,6 +1,5 @@
 module Timeline
   class Feed
-    include Enumerable
     delegate :each, :to => :to_a
     
     attr_reader :name, :user, :followers, :limit, :offset
