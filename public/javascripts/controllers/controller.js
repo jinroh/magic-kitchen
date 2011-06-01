@@ -1,20 +1,20 @@
 MK.Controller = Backbone.Controller.extend({
 
 	initialize : function(){
-//-----------TAB initialization-----
+		//-----------TAB initialization-----
 
-$(document).ready( function() {
-	$("ul.tabs li").removeClass("active");
-//	console.log("hello");
-	$(".tab_content").hide(); 
-	
-	$("nav ."+"home"+"_link").addClass("active");
-	$("#"+"home").show();
-	
-//	window.location.hash = "#/home";
-});
+		$(document).ready( function() {
+			$("ul.tabs li").removeClass("active");
+			//	console.log("hello");
+			$(".tab_content").hide(); 
 
-//----------SEARCH Initialisation-------
+			$("nav ."+"home"+"_link").addClass("active");
+			$("#"+"home").show();
+
+			//	window.location.hash = "#/home";
+		});
+
+		//----------SEARCH Initialisation-------
 		this.SearchTab = new MK.Views.Search();
 
 		$(document).ready( function() {
@@ -59,23 +59,23 @@ $(document).ready( function() {
 				});
 
 			});
-//-------------LIGHTBOX VIEW initialization-----------
-		this.LightBoxView = new MK.Views.LightBoxView();
-		
-//-------------Home and Profile Inititilization-------
-		this.CurUserInfo = new MK.Models.UserInfo();
-		this.CurUserInfo.fetch();
-		
-		//MAJ autommatique
-		///////
-		
-		this.HomeTab = new MK.Views.Home({model : this.CurUserInfo});
-		this.ProfileTab = new MK.Views.Profile({model : this.CurUserInfo});
-		$(document).ready( function() {
-		MK.App.ProfileTab.render();
-		MK.App.HomeTab.render();
-		});
-		
+			//-------------LIGHTBOX VIEW initialization-----------
+			this.LightBoxView = new MK.Views.LightBoxView();
+
+			//-------------Home and Profile Inititilization-------
+			this.CurUserInfo = new MK.Models.UserInfo();
+			this.CurUserInfo.fetch();
+
+			//MAJ autommatique
+			///////
+
+			this.HomeTab = new MK.Views.Home({model : this.CurUserInfo});
+			this.ProfileTab = new MK.Views.Profile({model : this.CurUserInfo});
+			$(document).ready( function() {
+				MK.App.ProfileTab.render();
+				MK.App.HomeTab.render();
+			});
+
 		},
 
 		routes: {
@@ -88,7 +88,7 @@ $(document).ready( function() {
 			//"search/:query":        "search",  // #search/kiwis
 			//"search/:query/p:page": "search"   // #search/kiwis/p7
 		},
-//----------- TAB display-----------------
+		//----------- TAB display-----------------
 		selectTab : function(name){
 			//console.log($("#"+name).is(":visible"));
 			this.LightBoxView.close();	
@@ -96,7 +96,7 @@ $(document).ready( function() {
 				$("ul.tabs li").removeClass("active"); //Remove any "active" class
 				$("nav ."+name+"_link").addClass("active"); //Add "active" class to selected tab
 				$(".tab_content").hide(); //Hide all tab content
-			
+
 				$("#"+name).fadeIn();
 			}	
 
@@ -114,40 +114,49 @@ $(document).ready( function() {
 			this.selectTab("profile");
 		},
 
-//--------------LightBox---------------
+		//--------------LightBox---------------
 
 		showRecipe: function(id){
 			if(this.SearchTab.Recipes.get(id)){
 				recipe = this.SearchTab.Recipes.get(id);
+				this.LightBoxView.setNewModel(recipe);
+				this.LightBoxView.render().open();
 			}else{
 				recipe = new MK.Models.Recipe({id : id});
+				this.LightBoxView.setNewModel(recipe);
+				view = this.LightBoxView;
 				recipe.fetch({
 					success : function(){  
-						 alert("hey");
-						},
-					context : this
-					});
-			this.LightBoxView.setNewModel(recipe);
+						view.outLoading().render();
+					}
+				});
+				this.LightBoxView.empty().inLoading().open();
 
-			this.LightBoxView.render().open();
-		};
+			};
 		},
-		
+
 		editRecipe: function(id){
 			if(this.SearchTab.Recipes.get(id)){
 				recipe = this.SearchTab.Recipes.get(id);
+				this.LightBoxView.setNewModel(recipe);
+				this.LightBoxView.renderForm().open();
 			}else{
 				recipe = new MK.Models.Recipe({id : id});
-				recipe.fetch();
-			}
-			
-			this.LightBoxView.setNewModel(recipe);
-			this.LightBoxView.renderForm().open();
+				this.LightBoxView.setNewModel(recipe);
+				view = this.LightBoxView;
+				recipe.fetch({
+					success : function(){  
+						view.outLoading().renderForm();
+					}
+				});
+				this.LightBoxView.empty().inLoading().open();
+
+			};
 		},
-		
+
 		newRecipe: function(){
 			recipe = new MK.Models.Recipe();
 			this.LightBoxView.setNewModel(recipe);
-			this.LightBoxView.renderForm().open();
+			this.LightBoxView.renderForm({new : true}).open();
 		}
 	});

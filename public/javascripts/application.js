@@ -39,128 +39,13 @@ steal(
   "controllers/controller"
 )
 .then(function() {
-    //	Backbone.history = new Backbone.History();
+
+$(document).ready(function(){
+	
     MK.App = new MK.Controller();
     Backbone.history.start()
     Backbone.history.saveLocation("/home");
-
-    // LIGHTBOX //
-    // 	
-    // $(document).ready( function() {
-    //
-    // 	$('#up').click(	function() {
-    //
-    // 		// insert HTML content
-    // 		$('#lightbox').append($('#inner_content'));
-    //
-    //
-    // 		// move the lightbox to the current window top + 50px
-    // 		$('#lightbox').css('top', $(window).scrollTop() + 50 + 'px');
-    //
-    // 		// display the lightbox
-    // 		$('#lightbox-shadow').show();
-    // 		$('#lightbox').show();
-    //
-    //
-    // 	});
-    // 	});
-    //
-    // 	// close the lightbox
-    // 	function closeLightbox(){
-    //
-    // 		// hide lightbox and shadow <div/>'s
-    // 		$('#lightbox').hide();
-    // 		$('#lightbox-shadow').hide();
-    //
-    // 	}
-
-    //CAROUSSEL :
-    // $(document).ready(function() {
-    // 		//move the last list item before the first item. The purpose of this is if the user clicks previous he will be able to see the last item.
-    // 		// $('#carousel_ul li:first').before($('#carousel_ul li:last'));
-    // 		
-    //
-    // 		//when user clicks the image for sliding right
-    // 		$("body").delegate("#right_scroll img", "click", function(){
-    //
-    // 		    //get the width of the items ( i like making the jquery part dynamic, so if you change the width in the css you won't have o change it here too ) '
-    // 		    var item_width = $('#carousel_ul li').outerWidth() + 10;
-    //
-    // 		    //calculate the new left indent of the unordered list
-    // 		    var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
-    //
-    // 			var right_indent = (($("#carousel_ul").children("li").length-2)*item_width)
-    //
-    //   			if (left_indent >-right_indent) {
-    //
-    // 		    //make the sliding effect using jquery's anumate function '
-    // 		    $('#carousel_ul').animate({'left' : left_indent},{queue:false, duration:80},function(){
-    // 		    });}
-    //
-    // 			else {	
-    // 				MK.App.Search.Recipes.loadmore();
-    // 			}
-    // 	
-    //
-    // 		});
-    //
-    // 		//when user clicks the image for sliding left
-    // 		$("body").delegate("#left_scroll img", "click", function(){
-    //
-    // 		    var item_width = $('#carousel_ul li').outerWidth() + 10;
-    //
-    // 		    /* same as for sliding right except that it's current left indent + the item width (for the sliding right it's - item_width) */
-    // 		    var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
-    //   			
-    // 			if (left_indent <1) {
-    // 		    $('#carousel_ul').animate({'left' : left_indent},{queue:false, duration:80},function(){
-    //
-    // 		    }); }
-    // 	
-    //
-    // 		});
-    // });
-
-    // $(document).ready(function() {
-    // 			//move the last list item before the first item. The purpose of this is if the user clicks previous he will be able to see the last item.
-    // 			// $('#carousel_ul li:first').before($('#carousel_ul li:last'));
-    // 			
-    //
-    // 			//when user clicks the image for sliding right
-    // 			$("body").delegate("#right_scroll_cb img", "click", function(){
-    // 	
-    // 			    //get the width of the items ( i like making the jquery part dynamic, so if you change the width in the css you won't have o change it here too ) '
-    // 			    var item_width = $('#carousel_ul_cb li').outerWidth() + 10;
-    // 	
-    // 			    //calculate the new left indent of the unordered list
-    // 			    var left_indent = parseInt($('#carousel_ul_cb').css('left')) - item_width;
-    //
-    // 				var right_indent = (($("#carousel_ul_cb").children("li").length-2)*item_width)
-    //
-    // 	  			if (left_indent >-right_indent) {
-    // 			    //make the sliding effect using jquery's anumate function '
-    // 			    $('#carousel_ul_cb').animate({'left' : left_indent},{queue:false, duration:80},function(){
-    // 			    });  }
-    // 		
-    //
-    // 			});
-    // 	
-    // 			//when user clicks the image for sliding left
-    // 			$("body").delegate("#left_scroll_cb img", "click", function(){
-    // 	
-    // 			    var item_width = $('#carousel_ul_cb li').outerWidth() + 10;
-    // 	
-    // 			    /* same as for sliding right except that it's current left indent + the item width (for the sliding right it's - item_width) */
-    // 			    var left_indent = parseInt($('#carousel_ul_cb').css('left')) + item_width;
-    // 	  			
-    // 				if (left_indent <1) {
-    // 			    $('#carousel_ul_cb').animate({'left' : left_indent},{queue:false, duration:80},function(){
-    // 	
-    // 			    }); }
-    // 		
-    // 	
-    // 			});
-    // 	});
+});
 
 
     // ACCORDION :
