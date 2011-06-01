@@ -537,6 +537,11 @@ footer p {
     overflow: hidden;
 }
 
+#logoutLink {
+	padding-top: 6px;
+	margin-right: 8px;
+}
+
 #profileLinks .profile-link {
     display: block;
 	margin-top: 4px;
@@ -558,6 +563,7 @@ footer p {
     background-position: right -510px;
     background-repeat: no-repeat;
 }
+
 
 
 #profileLinks a {
@@ -628,6 +634,9 @@ footer p {
 	margin-right: 6px;
 }
 
+#idBadger a {
+	margin-top: -4px;
+}
 
 /* CAROUSEL */
 
