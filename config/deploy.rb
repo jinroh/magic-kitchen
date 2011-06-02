@@ -1,5 +1,5 @@
 # RVM bootstrap
-$:.unshift(File.expand_path("~/.rvm/lib"))
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'rvm/capistrano'
 set :rvm_ruby_string, '1.9.2-p180'
 set :rvm_type, :user
@@ -19,6 +19,7 @@ ssh_options[:forward_agent] = true
 set :deploy_to, "/var/www/magickitchen"
 set :deploy_via, :remote_cache
 set :user, "biatch"
+set :port, 2222
 set :use_sudo, false
 
 # repo details

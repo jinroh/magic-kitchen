@@ -22,5 +22,6 @@ production:
   encoding: utf8
   database: magickitchen
   pool: 5
-  username: root
+  username: biatch
   password: thecrookers
+  socket: /var/run/mysqld/mysqld.sock
