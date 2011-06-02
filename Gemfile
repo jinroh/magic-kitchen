@@ -10,14 +10,9 @@ gem "haml",                               "~>3.1"
 gem "kaminari",                           "~>0.12"
 gem "rake",                               "~>0.8.7"
 gem "redis",                              "~>2.2"
-gem "mysql"
-gem "sqlite3"
-
-# TODO
-# gem "nokogiri"
 
 group :development, :test do
-  # gem "autotest-standalone"
+  gem "sqlite3"
   gem "forgery"
   gem "populator"
   gem "rspec-rails"
@@ -25,7 +20,10 @@ group :development, :test do
 end
 
 group :development do
-  # gem "annotate"
   gem "awesome_print"
   gem "hirb"
+end
+
+group :production do
+  gem "mysql"
 end
