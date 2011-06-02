@@ -1,11 +1,12 @@
 # RVM bootstrap
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
-set :rvm_ruby_string, '1.9.2-p180'
+$:.unshift(File.expand_path("./lib", ENV["rvm_path"]))
+require "rvm/capistrano"
+set :rvm_ruby_string, "1.9.2-p180"
 set :rvm_type, :user
+set :rails_env, :production
 
 # bundler bootstrap
-require 'bundler/capistrano'
+require "bundler/capistrano"
 
 # main details
 set :application, "melo.fr.nf"
@@ -43,11 +44,31 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
+end
 
-  desc "Symlink shared resources on each release - not used"
-  task :symlink_shared, :roles => :app do
-    #run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+namespace :delayed_job do
+  desc "Start delayed_job process"
+  task :start, :roles => :app do
+    run "cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job start"
+  end
+
+  desc "Stop delayed_job process"
+  task :stop, :roles => :app do
+    run "cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job stop"
+  end
+
+  desc "Restart delayed_job process"
+  task :restart, :roles => :app do
+    stop
+    wait_for_process_to_end('delayed_job')
+    start
   end
 end
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+def wait_for_process_to_end(process_name)
+  run "COUNT=1; until [ $COUNT -eq 0 ]; do COUNT=`ps -ef | grep -v 'ps -ef' | grep -v 'grep' | grep -i '#{process_name}'|wc -l` ; echo 'waiting for #{process_name} to end' ; sleep 2 ; done"
+end
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
