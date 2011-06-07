@@ -9,10 +9,10 @@ set :rails_env, :production
 require "bundler/capistrano"
 
 # main details
-set :application, "melo.fr.nf"
-role :web, "melo.fr.nf"
-role :app, "melo.fr.nf"
-role :db,  "melo.fr.nf", :primary => true
+set :application, "magic-kitchen.fr.nf"
+role :web, "magic-kitchen.fr.nf"
+role :app, "magic-kitchen.fr.nf"
+role :db,  "magic-kitchen.fr.nf", :primary => true
 
 # server details
 default_run_options[:pty] = true
@@ -20,7 +20,7 @@ ssh_options[:forward_agent] = true
 set :deploy_to, "/var/www/magickitchen"
 set :deploy_via, :remote_cache
 set :user, "biatch"
-set :port, 2222
+set :port, 22
 set :use_sudo, false
 
 # repo details

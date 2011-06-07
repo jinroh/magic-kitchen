@@ -68,6 +68,4 @@ class Ingredient < ActiveRecord::Base
                     .downcase
                     .squeeze(" ")
   end
-  
 end
-
