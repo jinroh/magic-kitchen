@@ -26,7 +26,7 @@ set :use_sudo, false
 # repo details
 set :scm, :git
 set :scm_username, "jinr0h"
-set :repository, "git://github.com/jinroh/magic-kitchen.git"
+set :repository, "http://github.com/jinroh/magic-kitchen.git"
 set :branch, "master"
 set :git_enable_submodules, 1
 
