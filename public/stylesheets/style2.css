@@ -631,7 +631,7 @@ footer p {
     height: 16px;
     width: 16px;
 	border-radius: 2px;
-	margin-right: 6px;
+	margin-right: 6pinx;
 }
 
 #idBadger a {
@@ -1369,6 +1369,30 @@ ul .ingredients {
 	display: block;
 	float: left;
 	margin-top: 7px;
+}
+
+.field_ingredients .view{
+	display: block;
+	float: left;
+	margin-top: 7px;
+	height: 20px;
+	width: 250px;
+	padding: 5px;
+	border-radius: 3px;
+	background: #f2f1f0;
+
+}
+
+.field_tags .view{
+	display: block;
+	float: left;
+	margin-top: 7px;
+	height: 20px;
+	padding: 5px;
+	width: 250px;
+	border-radius: 3px;
+	background: #f2f1f0;
+
 }
 
 .field_ingredients .remove {
