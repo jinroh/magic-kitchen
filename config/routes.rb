@@ -1,13 +1,15 @@
 Magickitchen::Application.routes.draw do
   root :to => "home#index"
   
-  devise_for :users, :path => "/home/user", :controllers => { :sessions => "sessions" } 
+  devise_for :users, :path => "/",
+                     :path_names  => {:sign_in => "login", :sign_up => "register", :sign_out => "logout" },
+                     :controllers => { :sessions => "sessions" } 
   
-  get "/home" => "home#dashboard", :as => :user_root
+  get "/home" => "home#index"
   scope "/home" do
     resources :likes, :only => [:index, :show, :create, :destroy]
     resources :favorites, :only => [:index, :show, :create, :destroy]
-    resources :history,  :controller => :histories, :only => [:index, :show, :create]
+    resources :history, :controller => :histories, :only => [:index, :show, :create]
     
     resources :followers, :only => [:index, :show]
     resources :following, :only => [:index, :show, :create, :destroy]

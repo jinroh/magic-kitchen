@@ -2,8 +2,8 @@
   <% @recipes.each do |r| %>
     {
       "id": <%= r.id %>, 
-      "name" : <%= r.name.to_json.html_safe %>,
-      "content": <%= r.content.to_json.html_safe %>,
+      "name" : "<%= r.name %>",
+      "content": "<%= simple_format(r.content).gsub(/\n/, "") %>",
       "ingredients": <%= r.ingredients.to_json.html_safe %>,
       "can_edit": <%= can? :edit, r %>,
       <% if user_signed_in? %>

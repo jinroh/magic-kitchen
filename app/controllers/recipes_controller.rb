@@ -63,7 +63,7 @@ class RecipesController < ApplicationController
 
   def destroy
     flash[:notice] = "Recipe successfully deleted" if @recipe.destroy
-    respond_with(@recipe, :location => user_root_path) do |format|
+    respond_with(@recipe, :location => root_path) do |format|
       format.json { render 'recipe' }
     end
   end

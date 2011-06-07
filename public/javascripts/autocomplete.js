@@ -1,7 +1,7 @@
 $(function() {
 	$.ajax({
 	  url:"/tags/recipes/ingredients.json",
-	  dataType: "json", 
+	  dataType: "json",
 	  success: function(data) {
 	    var availableTags = data;
 	    function split( val ) {
