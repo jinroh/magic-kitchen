@@ -64,7 +64,7 @@ MK.Collection.RecipesSearch = Backbone.Collection.extend({
 		var requestData = {
 			search : this.name,
 			page : this.page,
-			_with : this.withJoin(),
+			with_ingredients : this.withJoin(),
 			without : this.withoutJoin()
 		};
 		
