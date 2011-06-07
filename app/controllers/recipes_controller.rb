@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   
   def index
     @recipes = Recipe.search(params[:search])
-                     .with_ingredients(params[:with])
+                     .with_ingredients(params[:with_ingredients])
                      .with_ingredients(params[:without], :exclude => true)
                      .page(params[:page]).per(5)
                      .includes(:ingredients, :user, :tags)

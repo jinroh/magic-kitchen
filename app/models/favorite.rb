@@ -19,5 +19,4 @@ class Favorite < ActiveRecord::Base
   timeline :verb => "added to his cookbook",
            :target     => :recipe,
            :attributes => [:id, :name]
-  
 end

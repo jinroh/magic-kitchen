@@ -7,5 +7,5 @@ require "timeline/user/recommandations"
 
 module Timeline
   extend Timeline::Redis
-  
+
 end
