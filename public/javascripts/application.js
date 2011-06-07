@@ -71,12 +71,18 @@ $(document).ready(function(){
         $("body").delegate(".trigger", "mouseover", function() {
             if ($(this).next().is(':hidden') == true) {
                 $('.trigger').removeClass('on');
+                $('.trigger').next().slideUp('normal');
+                $(this).next().slideDown('normal');
                 if ($(this).next().is(':hidden') == true) {
                     $(this).addClass('on');
                     $(this).next().slideDown('normal');
                 }
             }
         });
-        $('.accordContent').hide();
+        $('.accordionContent').hide();
     });
 });
+
+
+
+
