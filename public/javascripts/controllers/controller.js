@@ -157,6 +157,6 @@ MK.Controller = Backbone.Controller.extend({
 		newRecipe: function(){
 			recipe = new MK.Models.Recipe();
 			this.LightBoxView.setNewModel(recipe);
-			this.LightBoxView.renderForm({new : true}).open();
+			this.LightBoxView.renderForm({isNew : true}).open();
 		}
 	});
