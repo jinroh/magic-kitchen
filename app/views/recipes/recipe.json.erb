@@ -2,7 +2,7 @@
 {
   "id": <%= r.id %>, 
   "name" : <%= r.name.to_json.html_safe %>,
-  "content": <%= simple_format(r.content).gsub(/\n/, "") %>,
+  "content": "<%= simple_format(r.content).gsub(/\n/, "") %>",
   "ingredients": <%= r.ingredients.to_json.html_safe %>,
   "can_edit": <%= can? :edit, r %>,
   <% if user_signed_in? %>
