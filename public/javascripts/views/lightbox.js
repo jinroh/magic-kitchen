@@ -78,6 +78,8 @@ MK.Views.LightBoxView = Backbone.View.extend({
 
 	render : function(){
 		var data = this.model.toJSON();
+		
+		data.content = data.content.replace(/\n/g, "<br />");
 
 		this.$("#inner_content").html(this.template.render(data));
 
