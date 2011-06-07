@@ -90,7 +90,7 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		//get round BUG of EJS with name
 		data.name_rec = data.name;
 		html =  this.template_form.render(data);
-		if(options && options.new){ 
+		if(options && options.isNew){ 
 			html = "<h3>Add a new recipe</h3>"+html;
 			}
 		else{
