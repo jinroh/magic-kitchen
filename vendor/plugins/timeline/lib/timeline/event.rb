@@ -61,7 +61,7 @@ module Timeline
         else
           nil
       end
-      raise ArgumentError, "doesn't know what to do with :user argument: #{object}" if @user.nil?
+      raise ArgumentError, "wrong :user argument: #{object}" if @user.nil?
     end
     
     def target=(object)
@@ -77,7 +77,7 @@ module Timeline
         else
           nil
       end
-      raise ArgumentError, "doesn't know what to do with :target argument: #{object}" if @target.nil?
+      raise ArgumentError, "wrong :target argument: #{object}" if @target.nil?
       @target_type = @target.class.name
     end
     

@@ -33,13 +33,13 @@ class User < ActiveRecord::Base
                   
   has_many :recipes, :dependent => :destroy
   
-  has_many :likes
+  has_many :likes, :dependent => :destroy 
   has_many :liked_recipes,    :through => :likes,     :source => :recipe
   
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy 
   has_many :favorite_recipes, :through => :favorites, :source => :recipe
   
-  has_many :histories
+  has_many :histories, :dependent => :destroy 
   has_many :cooked_recipes,   :through => :histories, :source => :recipe
   
   acts_as_tagger

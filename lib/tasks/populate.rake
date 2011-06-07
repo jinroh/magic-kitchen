@@ -4,7 +4,8 @@ namespace :db do
     require "populator"
     require "forgery"
     
-    [User, Recipe, RecipesIngredient, Ingredient, Like, Favorite, Tagging].map(&:delete_all)
+    [User, Recipe, Ingredient, Tag].map(&:delete_all)
+    [RecipesIngredient, Like, Favorite, Tagging].map(&:delete_all)
     
     HUGE = false
     
