@@ -28,11 +28,11 @@ class Ingredient < ActiveRecord::Base
   end
   
   def self.named_any(list)
-    where(list.uniq.map { |name| sanitize_sql(["name LIKE ?", name.to_s]) }.join(" OR "))
+    where(list.map { |name| sanitize_sql(["name LIKE ?", name.to_s]) }.join(" OR "))
   end
   
   def self.named_like_any(list)
-    where(list.uniq.map { |name| sanitize_sql(["name LIKE ?", "%#{name.to_s}%"]) }.join(" OR "))
+    where(list.map { |name| sanitize_sql(["name LIKE ?", "%#{name.to_s}%"]) }.join(" OR "))
   end
   
   def self.find_or_create_with_like_by_name(name)
@@ -44,7 +44,7 @@ class Ingredient < ActiveRecord::Base
     
     return [] if list.empty?
     
-    existing_ingredient_names = named_any(list).all
+    existing_ingredient_names = Ingredient.named_any(list).all
     new_ingredient_names      = list.reject do |name|
       existing_ingredient_names.any? { |ingredient| ingredient.to_s.downcase == name.to_s.downcase }
     end
@@ -63,9 +63,9 @@ class Ingredient < ActiveRecord::Base
   
   private
   def clean_name
-    self.name = self.name
-                    .strip
+    self.name = name.strip
                     .downcase
                     .squeeze(" ")
   end
+  
 end
