@@ -4,7 +4,7 @@ class RecsController < ApplicationController
   respond_to :html, :json
   
   def index
-    @recs = current_user.recs_recipes
+    @recs = current_user.recipes_recommandations
     respond_with @recs
   end
 end
