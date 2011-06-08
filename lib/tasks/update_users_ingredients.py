@@ -1,5 +1,5 @@
 import sys, MySQLdb
-conn=MySQLdb.connect(host=sys.argv[1], user='mk',passwd='magic_kitchen',db='magic_kitchen')
+conn=MySQLdb.connect(host=sys.argv[1], user='biatch',passwd='thecrookers',db='magickitchen')
 cur=conn.cursor()
 cur.execute('SELECT ingredient_id FROM recipes_ingredients WHERE recipe_id=%s',sys.argv[3])
 for i in cur.fetchall():
