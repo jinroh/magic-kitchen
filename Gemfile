@@ -25,5 +25,10 @@ group :development do
 end
 
 group :production do
+<<<<<<< HEAD
 #  gem "mysql"
 end
+=======
+  gem "mysql", :require => false 
+end
+>>>>>>> 25b2bc2d58e99bb8d47641b908d0899ccfd376dd
