@@ -49,7 +49,7 @@ MK.Views.LightBoxView = Backbone.View.extend({
 		this.$("input#recipe_ingredients__name").each(function(index){
 			if($(this).val() == ""){return;} //ignore blank
 			recipe.ingredients[i] = {} ;
-			recipe.ingredients[i].name = $(this).val();
+			recipe.ingredients[i].name = $(this).val().split(' ').join('');
 			i++;
 		});
 
