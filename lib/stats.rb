@@ -1,6 +1,6 @@
 class Stats
   def self.sql
-    "192.168.0.5"
+    "localhost"
   end
   
   def self.redis
