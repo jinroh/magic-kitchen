@@ -1542,6 +1542,24 @@ ul .ingredients {
 	width: 350px;
 }
 
+#profile_right a{
+	color : #390;
+	text-decoration:underline;
+}
+
+#home_left a{
+	color : #390;
+	text-decoration:underline;
+}
+
+#profile_left a{
+	text-decoration:underline;
+}
+
+#home_right a{
+	text-decoration:underline;
+}
+
 #my_feeds {
 	display: block; 
 	float: left;
@@ -1618,6 +1636,8 @@ ul .ingredients {
 	width: 350px;
 	height: 200px;
 }
+
+
 
 /*//////////////////////////////////////*/
 
