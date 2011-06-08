@@ -108,10 +108,12 @@ MK.Controller = Backbone.Controller.extend({
 
 		selectHomeTab : function(){
 			this.selectTab("home");
+			this.CurUserInfo.fetch();
 		},
 
 		selectProfileTab : function(){
 			this.selectTab("profile");
+			this.CurUserInfo.fetch();
 		},
 
 		//--------------LightBox---------------

@@ -22,7 +22,7 @@ steal(
   //	"follower",
   //	"following",
   //	"favorite",
-  "user",
+  	//	"user",
   "UserInfo",
   "RecipesSearch",
   //actualy a collection
