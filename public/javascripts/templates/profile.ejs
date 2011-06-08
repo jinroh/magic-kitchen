@@ -13,7 +13,7 @@
 					<% if(typeof favorite_recipes != 'undefined') { for(var i=0; i<Math.min(4,favorite_recipes.length); i++) {%>
 
 					<div class="in_my_cookbook"><div class="in_my_cookbook_pic"><img src="/images/recipe_pic.png" width="118" height="64" /></div>
-					<div class="in_my_cookbook_content"><%= (typeof favorite_recipes[i].name == 'undefined')? "" : favorite_recipes[i].name%></div>
+					<div class="in_my_cookbook_content"><a href=#/recipe/<%= (typeof favorite_recipes[i].id == 'undefined')? "" : favorite_recipes[i].id%>><%= (typeof favorite_recipes[i].name == 'undefined')? "" : favorite_recipes[i].name%></a></div>
 					</div>
 					<%};}%>
 
@@ -28,7 +28,7 @@
 					<div class="feed">
 						<div class="feed_pic"><img src="/images/tarte.jpg" width="46" height="26"/></div>
 						<div class="feed_content" alt="<%= (typeof my_feed[i].time == 'undefined')? '' : my_feed[i].time%>">
-<%= (typeof my_feed[i].user.name == 'undefined')? "" : my_feed[i].user.name%> <%= (typeof my_feed[i].verb == 'undefined')? "" : my_feed[i].verb%> <%= (typeof my_feed[i].target.name == 'undefined')? "" : my_feed[i].target.name%> 
+<%= (typeof my_feed[i].user.name == 'undefined')? "" : my_feed[i].user.name%> <%= (typeof my_feed[i].verb == 'undefined')? "" : my_feed[i].verb%> <a href=#/recipe/<%= (typeof my_feed[i].target.id == 'undefined')? "" : my_feed[i].target.id%>><%= (typeof my_feed[i].target.name == 'undefined')? "" : my_feed[i].target.name%> </a>
 						</div>
 					</div>
 

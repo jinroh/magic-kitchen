@@ -25,5 +25,5 @@ group :development do
 end
 
 group :production do
-  gem "mysql", :require => false 
+  gem "mysql"
 end

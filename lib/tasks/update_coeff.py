@@ -2,7 +2,7 @@ import MySQLdb, sys, redis, collections
 #connection a la base sqlite3
 FRIENDS_WEIGHT=1
 
-conn=MySQLdb.connect(host=sys.argv[1], user='mk',passwd='magic_kitchen',db='magic_kitchen')
+conn=MySQLdb.connect(host=sys.argv[1], user='biatch',passwd='thecrookers',db='magickitchen')
 cur=conn.cursor()
 #connection a la base redis
 
