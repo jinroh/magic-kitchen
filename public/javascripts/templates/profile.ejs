@@ -1,10 +1,10 @@
 			<div id="profile_left">
 				<div id="infos_perso">
-					<div class="my_pic"></div>
+					<div class="my_pic"><img src="/images/profile_pic.png" width="150" height="150"/></div>
 					<div class="my_desc">
 						<p class="my_name"><%= (typeof name == 'undefined')? "" : name%></p>
 						<p class="my_age"><%= (typeof age == 'undefined')? "" : age%></p>
-						<p class="my_city">Originaire de <%= (typeof country == 'undefined')? "" : country%></p>
+						<p class="my_city"><%= (typeof country == 'undefined')? "" : country%></p>
 					</div>				
 				</div>
 				<div id="my_cookbook">

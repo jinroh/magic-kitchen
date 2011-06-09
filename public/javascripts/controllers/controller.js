@@ -37,11 +37,16 @@ MK.Controller = Backbone.Controller.extend({
 					MK.App.SearchTab.initialize();
 
 					if($("#q").val() != $("#q").attr("placeholder")){
-						MK.App.SearchTab.Recipes.setName($("#q").val());
+						var ing = $("#q").val().split(" ").join("").split(",");
+						if(!ing[0]==""){
+							for(i=0;i<ing.length;i++){
+								MK.App.SearchTab.Recipes.addWithIngredient({name : ing[i]});
+							}					
+						}
 					}
 
 					if($("#w").val() != $("#w").attr("placeholder")){
-						var ing = $("#w").val().split(",");
+						var ing = $("#w").val().split(" ").join("").split(",");
 						if(!ing[0]==""){
 							for(i=0;i<ing.length;i++){
 								MK.App.SearchTab.Recipes.addWithoutIngredient({name : ing[i]});
