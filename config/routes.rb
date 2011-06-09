@@ -1,8 +1,8 @@
 Magickitchen::Application.routes.draw do
   root :to => "home#index"
   
-  devise_for :users, :path => "/",
-                     :path_names  => {:sign_in => "login", :sign_up => "register", :sign_out => "logout" },
+  devise_for :users, :path => "/registration",
+                     :path_names  => {:sign_in => "signin", :sign_up => "join", :sign_out => "logout" },
                      :controllers => { :sessions => "sessions" } 
   
   get "/home" => "home#index"
